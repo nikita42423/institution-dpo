@@ -1,0 +1,18 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+header section main footer {
+    display: block;
+}
+
+#head {
+    background-color:  skyblue;
+}
+.nav {
+    padding-top: 3%;
+}
+.nnv {
+    padding-top: 7%;
+}
