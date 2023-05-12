@@ -16,3 +16,28 @@ header section main footer {
 .nnv {
     padding-top: 7%;
 }
+h1 {
+    text-align: center;
+    padding: 2%;
+    color: blue;
+    text-shadow: 1px 1px 1px brown;
+}
+.fnt {
+    text-align: center;
+}
+.tt {
+    text-align: center;
+    color: blue;
+    
+}
+.ty {
+    text-align: center;
+}
+.dd {
+    text-align: justify;
+    text-indent: 10%;
+    padding-top: 2%;
+}
+#foot {
+    background-color: skyblue;
+}
