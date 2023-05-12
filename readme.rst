@@ -1,5 +1,5 @@
 ###################
-What is CodeIgniter1
+What is CodeIgniter11
 ###################
 
 CodeIgniter is an Application Development Framework - a toolkit - for people
