@@ -41,3 +41,16 @@ h1 {
 #foot {
     background-color: skyblue;
 }
+.ft3 {
+    padding-top: 3%;
+    padding-bottom: 3%;
+    text-shadow: 1px 1px brown;
+}
+#foot2 {
+    background-color: gray;
+}
+.fft {
+    text-align: center;
+    color: white;
+    padding-top: 1%;
+}
