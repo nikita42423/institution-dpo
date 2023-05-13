@@ -1,8 +1,8 @@
 <section>
 	<div class="container">
-		<div class="accordion accordion-flush" id="accordionFlushExample">
+		<h1 class="display-1 text-center">Формирование</h1>
+		<div class="accordion" id="accordionFlushExample">
 			<div class="accordion-item">
-				<h1 class="display-1 text-center">Формирование</h1>
 				<h2 class="accordion-header" id="flush-heading1">
 					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse1" aria-expanded="false" aria-controls="flush-collapseOne">
 						Вид ОП
@@ -39,6 +39,9 @@
 							</tr>
 						</tbody>
 					</table>
+					<div class="text-end m-3">
+						<button class="btn btn-primary">Добавить</button>
+					</div>
 				</div>
 			</div>
 			<div class="accordion-item">
@@ -78,6 +81,9 @@
 							</tr>
 						</tbody>
 					</table>
+					<div class="text-end m-3">
+						<button class="btn btn-primary">Добавить</button>
+					</div>
 				</div>
 			</div>
 			<div class="accordion-item">
@@ -117,6 +123,9 @@
 							</tr>
 						</tbody>
 					</table>
+					<div class="text-end m-3">
+						<button class="btn btn-primary">Добавить</button>
+					</div>
 				</div>
 			</div>
 			<div class="accordion-item">
@@ -156,9 +165,13 @@
 							</tr>
 						</tbody>
 					</table>
+					<div class="text-end m-3">
+						<button class="btn btn-primary">Добавить</button>
+					</div>
 				</div>
 			</div>
-			<h1 class="display-1 text-center">График</h1>
+			<h1 class="display-1 text-center">График <button class="btn btn-primary btn-lg">Добавить</button>
+					</h1>
 			<table class="table table-bordered">
 				<thead>
 					<tr>
