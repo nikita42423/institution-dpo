@@ -18,10 +18,10 @@
                                 <a class="nav-link active" aria-current="page" href="<?=base_url("main/index")?>">ГЛАВНАЯ</a>
                                 </li>
                                 <li class="nav-item">
-                                <a class="nav-link" href="#curs">КУРСЫ</a>
+                                <a class="nav-link" href="<?=base_url("main/index")?>#curs">КУРСЫ</a>
                                 </li>
                                 <li class="nav-item">
-                                <a class="nav-link" href="#aboutus">О НАС</a>
+                                <a class="nav-link" href="<?=base_url("main/index")?>#aboutus">О НАС</a>
                                 </li>
                             </ul>
                             

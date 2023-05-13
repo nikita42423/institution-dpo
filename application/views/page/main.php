@@ -301,6 +301,7 @@
 
     <section id="aboutus" style="margin-bottom: 3%;">
 		<div class="container">
+      <h1>О НАС</h1>
 			<div class="clearfix">
 				<img src="<?=asset_url()?>/img/4.jpg" class="col-md-6 float-md-start mb-3 ms-md-3 m-3" alt="...">
 				<div class="text-justify p-3">
