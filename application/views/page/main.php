@@ -12,13 +12,13 @@
                         </div>
                         <div class="carousel-inner">
                           <div class="carousel-item active"  data-bs-interval="5000">
-                            <img src="img/1.jpg" class="d-block w-100" alt="..." height="500">
+                            <img src="<?=asset_url()?>/img/1.jpg" class="d-block w-100" alt="..." height="500">
                           </div>
                           <div class="carousel-item"  data-bs-interval="5000">
-                            <img src="img/2.jpg" class="d-block w-100" alt="..." height="500">
+                            <img src="<?=asset_url()?>/img/2.jpg" class="d-block w-100" alt="..." height="500">
                           </div>
                           <div class="carousel-item"  data-bs-interval="5000">
-                            <img src="img/3.jpg" class="d-block w-100" alt="..." height="500">
+                            <img src="<?=asset_url()?>/img/3.jpg" class="d-block w-100" alt="..." height="500">
                           </div>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -302,8 +302,8 @@
     <section id="aboutus" style="margin-bottom: 3%;">
 		<div class="container">
 			<div class="clearfix">
-				<img src="img/4.jpg" class="col-md-6 float-md-start mb-3 ms-md-3 p-3" alt="...">
-				<div class="text-justify">
+				<img src="<?=asset_url()?>/img/4.jpg" class="col-md-6 float-md-start mb-3 ms-md-3 m-3" alt="...">
+				<div class="text-justify p-3">
 					<p><b>Цель проекта Все Курсы Онлайн - помогать людям познавать новую информацию каждый день и добиваться успеха в жизни.</b></p> 
 					<p>Для этого был создан удобный сайт со всеми образовательными программами онлайн и дистанционными курсами со всего мира.</p>
 					<p>Главные достоинства проекта - удобный поиск курсов при помощи фильтров и категорий. Можно отобрать только платные курсы онлайн или только курсы онлайн для детей и взрослых. Отдельными спецпроектами выделены образовательные видео и вебинары. Также крайне полезна возможность записаться на курс или уточнить дополнительную информацию посредством функционала сайта Все Курсы Онлайн.</p> 
