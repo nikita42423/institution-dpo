@@ -53,4 +53,10 @@ h1 {
     text-align: center;
     color: white;
     padding-top: 1%;
+<<<<<<< HEAD
+=======
+}
+.text-justify{
+    text-align: justify;
+>>>>>>> 34f63f45903373b0298f986fc3b0d4c590a2b99a
 }

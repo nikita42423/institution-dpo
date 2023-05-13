@@ -42,7 +42,7 @@
             <div class="col-lg-3">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 nnv">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#"><button type="button" class="btn btn-outline-dark">Выйти</button></a>
+                        <a class="nav-link active" aria-current="page" href=""><button type="button" class="btn btn-outline-dark">Выйти</button></a>
                     </li>
                 </ul>
             </div>
