@@ -57,3 +57,9 @@ h1 {
 .text-justify{
     text-align: justify;
 }
+
+/* ТАБЛИЦА dataTable */
+.data_table .btn{
+    padding: 5px 10px;
+    margin: 10px 3px 10px 0;
+}
