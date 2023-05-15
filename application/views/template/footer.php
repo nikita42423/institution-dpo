@@ -9,9 +9,9 @@
                     <div class="col-lg-4">
                         <div class="ft2">
                             <nav class="nav flex-column">
-                                <a class="nav-link active" aria-current="page" href="#glav">ГЛАВНАЯ</a>
-                                <a class="nav-link" href="#curs">КУРСЫ</a>
-                                <a class="nav-link" href="#aboutus">О НАС</a>
+                                <a class="nav-link active" aria-current="page" href="<?=base_url("main/index")?>#glav">ГЛАВНАЯ</a>
+                                <a class="nav-link" href="<?=base_url("main/index")?>#curs">КУРСЫ</a>
+                                <a class="nav-link" href="<?=base_url("main/index")?>#aboutus">О НАС</a>
                             </nav>
                         </div>
                     </div>

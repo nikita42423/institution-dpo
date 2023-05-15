@@ -15,13 +15,13 @@
                     
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#glav">ГЛАВНАЯ</a>
+                                <a class="nav-link active" aria-current="page" href="<?=base_url("main/index")?>">ГЛАВНАЯ</a>
                                 </li>
                                 <li class="nav-item">
-                                <a class="nav-link" href="#curs">КУРСЫ</a>
+                                <a class="nav-link" href="<?=base_url("main/index")?>#curs">КУРСЫ</a>
                                 </li>
                                 <li class="nav-item">
-                                <a class="nav-link" href="#aboutus">О НАС</a>
+                                <a class="nav-link" href="<?=base_url("main/index")?>#aboutus">О НАС</a>
                                 </li>
                             </ul>
                             
@@ -33,7 +33,7 @@
             <div class="col-lg-3">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 nnv">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="login.php"><button type="button" class="btn btn-outline-dark">ВОЙТИ</button></a>
+                        <a class="nav-link active" aria-current="page" href="<?=base_url("login/index")?>"><button type="button" class="btn btn-outline-dark">ВОЙТИ</button></a>
                     </li>
                     </ul>
             </div>
