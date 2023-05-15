@@ -121,8 +121,8 @@
 				<!-- Скрипт для пагинации -->
 				<script>
 				$(document).ready(function () {
-					var table = $('#example').DataTable({
-						buttons:['pdf'] //['copy', 'csv', 'excel', 'pdf', 'print']
+					var table = $('#table_type_ep').DataTable({
+						buttons:['excel', 'pdf'] //['copy', 'csv', 'excel', 'pdf', 'print']
 					});
 
 					table.buttons().container().appendTo('#example_wrapper .col-md-6:eq(0)');
@@ -131,7 +131,7 @@
 				</script>
 
 				<div class="data_table">
-					<table id="example" class="table table-striped" style="width:100%">
+					<table id="table_type_ep" class="table table-striped" style="width:100%">
 						<thead>
 							<tr>
 								<th>№</th>
@@ -139,46 +139,68 @@
 								<th></th>
 							</tr>
 						</thead>
-						<tbody>
-							<tr>
-								<th>1</th>
-								<td>название1</td>
-								<th>
-									<button class="btn btn-primary">Изменить</button>
-									<button class="btn btn-danger">Удалить</button>
-								</th>
-							</tr>
-							<tr>
-								<th>2</th>
-								<td>название2</td>
-								<th>
-									<button class="btn btn-primary">Изменить</button>
-									<button class="btn btn-danger">Удалить</button>
-								</th>
-							</tr>
-							<tr>
-								<th>3</th>
-								<td>название3</td>
-								<th>
-									<button class="btn btn-primary">Изменить</button>
-									<button class="btn btn-danger">Удалить</button>
-								</th>
-							</tr>
-							<tr>
-								<th>4</th>
-								<td>название4</td>
-								<th>
-									<button class="btn btn-primary">Изменить</button>
-									<button class="btn btn-danger">Удалить</button>
-								</th>
-							</tr>
+						<tbody id="tbody_type_ep">
+			<?php foreach ($type_ep as $row) {?>
+            <tr>
+                <th scope="row"><?=$row['ID_type_ep']?></th>
+                <td><?=$row['name_type_ep']?></td>
+                <td>
+                    <!-- Изменить -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#<?=$row['ID_type_ep']?>">Изменить</button>
+
+                    <!-- Модальное окно -->
+                    <div class="modal fade" id="<?=$row['ID_type_ep']?>" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Изменение категории</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                                </div>
+
+                                <form class="row g-3 mb-3" action="<?=base_url('methodist/upd_type_ep')?>" method="post">
+                                <div class="modal-body">
+                                    <input type="hidden" name="ID_type_ep" value="<?=$row['ID_type_ep']?>">
+                                    <div>
+                                        <label for="name_type_ep" class="form-label">Название категории</label>
+                                        <input type="text" name="name_type_ep" class="form-control" value="<?=$row['name_type_ep']?>" required>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                                    <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+                                </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+
+					<!-- Удалить -->
+                    <a href="<?=base_url('methodist/del_type_ep?ID_type_ep='.$row['ID_type_ep'])?>" class="btn btn-danger">Удалить</a>
+                </td>
+            </tr>
+            <?php }?>
 						</tbody>
 					</table>
 				</div>
 
 			</div>
-		</main>
+		</main><button class="btn btn-info" id="example-1">Очень информатично</button>
  	 </div>
 </div>
 
+<script>
+
+$(document).ready(function(){              
+    $('#example-1').click(function(){
+        $(this).load('<?=asset_url()?>/ajax/example.php');       
+    }) 
+}); 
+</script>
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
+
+</body>
+</html>

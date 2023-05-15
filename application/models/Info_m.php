@@ -6,6 +6,13 @@ class Info_m extends CI_Model {
         $this->load->database();
     }
     
+    //Выбрать вид ОП|Кузнецов
+    public function sel_type_ep()
+    {
+        $query = $this->db->get('type_ep');
+        return $query->result_array();
+    }
+
     //Добавить вид ОП|Кузнецов
     public function add_type_ep($data)
     {
