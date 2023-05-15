@@ -32,6 +32,10 @@ public function sel_user($login, $passwords)
         $this->db->insert('users', $data);
     }
 
+    public function kill_session()
+    {
+        $this->session->sess_destroy();
+    }
  
 
 }

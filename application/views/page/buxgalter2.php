@@ -63,37 +63,33 @@
 		<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 			<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 				<h1 class="h2">
-                    Расчет стоимости услуги
+				О полученных доходах
                 </h1>
 				
 			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-2"></div>
+					<div class="col-lg-8"><div>
 
-            <form class="row g-3" action="<?=base_url('buxgalter/filter_rast')?>" method="post">
-            <div class="col-md-3">
-    <label for="validationDefault04" class="form-label">Форма обучения</label>
-    <select class="form-select" id="validationDefault04">
-      <option value="">...</option>
-    </select>
-  </div>
-  <div class="col-md-3">
-    <label for="validationDefault01" class="form-label">Кол-во часов</label>
-    <input type="text" class="form-control" id="validationDefault01">
-  </div>
-  <div class="col-md-3">
-    <label for="validationDefault02" class="form-label">Срок в неделях</label>
-    <input type="text" class="form-control" id="validationDefault02" >
-  </div>
-  
-  <div class="col-md-3">
-    <label for="validationDefault03" class="form-label">Наполняемость группы чел.</label>
-    <input type="text" class="form-control" id="validationDefault03">
-  </div>
+<form class="row g-3" action="<?=base_url('buxgalter2/date_ped')?>" method="post">
+
+<div class="col-md-6">
+<label for="validationDefault01" class="form-label">C</label>
+<input type="date" class="form-control" id="validationDefault01">
+</div>
+<div class="col-md-6">
+<label for="validationDefault02" class="form-label">ПО</label>
+<input type="date" class="form-control" id="validationDefault02" >
+</div>
 
 </form>
+</div></div>
+					<div class="col-lg-2"></div>
+				</div>
+			</div>
+
 <hr>
-
-
-
 		
 			<div class="table-responsive">
 
@@ -120,47 +116,7 @@
 						</thead>
 						<tbody>
 							<tr>
-								<td>Оплата труда преподавателей из расчета стоимости 1 учебного часа работы преподавателя в сумме _____________ руб </td>
-								<td>25252</td>
-								
-							</tr>
-                            <tr>
-								<td>Оплата труда административно-управленческого и вспомогательного персонала из расчета 30% от суммы оплата труда преподавателей, руб</td>
-								<td>25252</td>
-								
-							</tr>
-                            <tr>
-								<td>Страховые взносы в размере 30,2% от фонда оплаты труда, руб</td>
-								<td>25252</td>
-								
-							</tr>
-                            <tr>
-								<td>Отчисления на развитие учебно-материальной базы учреждения в размере 10% от фонда оплаты труда, руб</td>
-								<td>25252</td>
-								
-							</tr>
-                            <tr>
-								<td>Отчисления для обеспечения деятельности платной услуги в размере 40% от фонда оплаты труда, руб</td>
-								<td>25252</td>
-								
-							</tr>
-                            <tr>
-								<td>Хозяйственные и канцелярские расходы в размере 2% от фонда оплаты труда, руб</td>
-								<td>25252</td>
-								
-							</tr>
-                            <tr>
-								<td>Общая сумма затрат, руб</td>
-								<td>25252</td>
-								
-							</tr>
-                            <tr>
-								<td>Прибыль (20% от общей суммы затрат), руб</td>
-								<td>25252</td>
-								
-							</tr>
-                            <tr>
-								<td>Общая стоимость услуги, руб</td>
+								<td>название1</td>
 								<td>25252</td>
 								
 							</tr>

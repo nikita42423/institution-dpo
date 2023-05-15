@@ -83,7 +83,7 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href=""><button type="button" class="btn btn-outline-dark">Выйти из системы</button></a>
+						<a class="nav-link active" aria-current="page" href="<?=base_url('login/kill_all_session')?>"><button type="button" class="btn btn-outline-dark">Выйти из системы</button></a>
 					</li>
 				</ul>
 			</div>
