@@ -1,17 +1,18 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Methodist extends CI_Controller {
+class Type_ep extends CI_Controller {
 
-    //Просмотр
-	public function index()
+    //Просмотр вида ОП
+	public function browse()
 	{
         //Данные из БД
-        $this->load->model('info_m');
-        $data['type_ep'] = $this->info_m->sel_type_ep();
+        $this->load->model('type_ep_m');
+        $data['type_ep'] = $this->type_ep_m->sel_type_ep();
 
 		$this->load->view('template/header.php');
-		$this->load->view('page/methodist.php', $data);
+        $this->load->view('template/sidebar.php');
+		$this->load->view('page/type_ep.php', $data);
 	}
 
     //Добавление вида ОП
@@ -23,13 +24,13 @@ class Methodist extends CI_Controller {
                 'name_type_ep' => $this->input->post('name_type_ep')
             );
 
-            $this->load->model('info_m');
-            $this->info_m->add_type_ep($data);
+            $this->load->model('type_ep_m');
+            $this->type_ep_m->add_type_ep($data);
 
             //Сообщение об успеха
             $this->session->set_flashdata('msg', 'Успешно добавлен!');
 
-            redirect(base_url('methodist/index'));
+            redirect(base_url('type_ep/browse'));
         }
 	}
 
@@ -40,13 +41,13 @@ class Methodist extends CI_Controller {
             'ID_type_ep' => $this->input->get('ID_type_ep')
         );
 
-        $this->load->model('info_m');
-        $this->info_m->del_type_ep($data);
+        $this->load->model('type_ep_m');
+        $this->type_ep_m->del_type_ep($data);
 
         //Сообщение об успеха
         $this->session->set_flashdata('msg', 'Успешно удален!');
 
-        redirect(base_url('methodist/index'));
+        redirect(base_url('type_ep/browse'));
     }
 
     //Изменение категории|Кузнецов
@@ -57,12 +58,12 @@ class Methodist extends CI_Controller {
             'name_type_ep' => $this->input->post('name_type_ep')
         );
 
-        $this->load->model('info_m');
-        $this->info_m->upd_type_ep($id, $data);
+        $this->load->model('type_ep_m');
+        $this->type_ep_m->upd_type_ep($id, $data);
 
         //Сообщение об успеха
         $this->session->set_flashdata('msg', 'Успешно изменен!');
 
-        redirect(base_url('methodist/index'));
+        redirect(base_url('type_ep/browse'));
     }
 }

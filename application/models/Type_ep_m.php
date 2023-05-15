@@ -1,5 +1,5 @@
 <?php
-class Info_m extends CI_Model {
+class Type_ep_m extends CI_Model {
 
     public function __construct()
     {
