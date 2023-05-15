@@ -60,15 +60,15 @@
 
         <div class="card bg-glass">
           <div class="card-body px-4 py-5 px-md-5">
-            <form>
+            <form action="<?=base_url('main/log_action')?>"  method="POST">
              
               <div class="form-outline mb-4">
-                <input type="text" id="form3Example3" class="form-control" />
+                <input type="text" id="form3Example3" class="form-control" name="login"/>
                 <label class="form-label" for="form3Example3">Логин</label>
               </div>
 
               <div class="form-outline mb-4">
-                <input type="password" id="form3Example4" class="form-control" />
+                <input type="password" id="form3Example4" class="form-control" name="passwords" />
                 <label class="form-label" for="form3Example4">Пароль</label>
               </div>
 

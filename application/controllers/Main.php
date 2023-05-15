@@ -25,4 +25,7 @@ class Main extends CI_Controller {
 		$this->load->view('page/main.php');
 		$this->load->view('template/footer.php');
 	}
+
+
+
 }
