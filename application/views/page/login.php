@@ -60,7 +60,7 @@
 
         <div class="card bg-glass">
           <div class="card-body px-4 py-5 px-md-5">
-            <form action="<?=base_url('main/log_action')?>"  method="POST">
+            <form action="<?=base_url('login/log_action')?>"  method="POST">
              
               <div class="form-outline mb-4">
                 <input type="text" id="form3Example3" class="form-control" name="login"/>
@@ -107,29 +107,30 @@
       <div class="card-body p-5">
         <h2 class="text-uppercase text-center mb-5">РЕГИСТРАЦИЯ</h2>
 
-        <form>
+        <form action="<?=base_url('login/add_user')?>" method="post">
 
           <div class="form-outline mb-4">
-            <input type="text" id="form3Example1cg" class="form-control form-control-lg" required />
+            <input type="text" id="form3Example1cg" class="form-control form-control-lg" required name="full_name"/>
+            <input type="hidden" id="form3Example1cga" class="form-control form-control-lg" required name="ID_role" value="4"/>
             <label class="form-label" for="form3Example1cg">ФИО</label>
           </div>
 
           <div class="form-outline mb-4">
-            <input type="text" id="form3Example2cg" class="form-control form-control-lg" required/>
+            <input type="text" id="form3Example2cg" class="form-control form-control-lg" required  name="phone"/>
             <label class="form-label" for="form3Example2cg">Телефон</label>
           </div>
           <div class="form-outline mb-4">
-            <input type="email" id="form3Example3cg" class="form-control form-control-lg" required />
+            <input type="email" id="form3Example3cg" class="form-control form-control-lg" required   name="email"/>
             <label class="form-label" for="form3Example3cg">E-mail</label>
           </div>
 
           <div class="form-outline mb-4">
-            <input type="text" id="form3Example4cdg" class="form-control form-control-lg"  required />
+            <input type="text" id="form3Example4cdg" class="form-control form-control-lg"  required  name="login"/>
             <label class="form-label" for="form3Example4cdg">Логин</label>
           </div>
 
           <div class="form-outline mb-4">
-            <input type="password" id="form3Example5cg" class="form-control form-control-lg" required />
+            <input type="password" id="form3Example5cg" class="form-control form-control-lg" required  name="passwords" />
             <label class="form-label" for="form3Example5cg">Пароль</label>
           </div>
 
