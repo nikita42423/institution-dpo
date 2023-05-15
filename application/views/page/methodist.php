@@ -137,33 +137,40 @@
 								<th>№</th>
 								<th>Наименование вида ОП</th>
 								<th></th>
-								<th></th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
 								<th>1</th>
 								<td>название1</td>
-								<th><button class="btn btn-primary">Изменить</button></th>
-								<th><button class="btn btn-danger">Удалить</button></th>
+								<th>
+									<button class="btn btn-primary">Изменить</button>
+									<button class="btn btn-danger">Удалить</button>
+								</th>
 							</tr>
 							<tr>
 								<th>2</th>
 								<td>название2</td>
-								<th><button class="btn btn-primary">Изменить</button></th>
-								<th><button class="btn btn-danger">Удалить</button></th>
+								<th>
+									<button class="btn btn-primary">Изменить</button>
+									<button class="btn btn-danger">Удалить</button>
+								</th>
 							</tr>
 							<tr>
 								<th>3</th>
 								<td>название3</td>
-								<th><button class="btn btn-primary">Изменить</button></th>
-								<th><button class="btn btn-danger">Удалить</button></th>
+								<th>
+									<button class="btn btn-primary">Изменить</button>
+									<button class="btn btn-danger">Удалить</button>
+								</th>
 							</tr>
 							<tr>
 								<th>4</th>
 								<td>название4</td>
-								<th><button class="btn btn-primary">Изменить</button></th>
-								<th><button class="btn btn-danger">Удалить</button></th>
+								<th>
+									<button class="btn btn-primary">Изменить</button>
+									<button class="btn btn-danger">Удалить</button>
+								</th>
 							</tr>
 						</tbody>
 					</table>
