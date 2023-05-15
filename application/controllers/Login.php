@@ -44,7 +44,7 @@ public function log_action()
 			break;
 			case '2': redirect(base_url('methodist/index'));
 			break;
-			case '6': redirect(base_url('buglter/index'));
+			case '6': redirect(base_url('buxgalter/index'));
 			break;
 			case '4': redirect(base_url('clients/index'));
 			break;
