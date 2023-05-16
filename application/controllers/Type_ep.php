@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Type_ep extends CI_Controller {
 
-    //Просмотр вида ОП
+    //Просмотр вида ОП|Кузнецов
 	public function browse()
 	{
         //Данные из БД
@@ -15,7 +15,7 @@ class Type_ep extends CI_Controller {
 		$this->load->view('page/type_ep.php', $data);
 	}
 
-    //Добавление вида ОП
+    //Добавление вида ОП|Кузнецов
 	public function add_type_ep()
 	{
 		if (!empty($_POST))
@@ -34,7 +34,7 @@ class Type_ep extends CI_Controller {
         }
 	}
 
-    //Удаление категории|Кузнецов
+    //Удаление вида ОП|Кузнецов
 	public function del_type_ep()
 	{
         $data = array(
@@ -50,7 +50,7 @@ class Type_ep extends CI_Controller {
         redirect(base_url('type_ep/browse'));
     }
 
-    //Изменение категории|Кузнецов
+    //Изменение вида ОП|Кузнецов
 	public function upd_type_ep()
 	{
         $id   = $this->input->post('ID_type_ep');
