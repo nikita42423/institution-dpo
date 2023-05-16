@@ -82,6 +82,25 @@
 <label for="validationDefault02" class="form-label">ПО</label>
 <input type="date" class="form-control" id="validationDefault02" >
 </div>
+<br>
+<div class="col-md-4">
+    <label for="validationDefault11" class="form-label">Курс</label>
+    <select class="form-select" id="validationDefault11">
+      <option value="">...</option>
+    </select>
+  </div>
+  <div class="col-md-4">
+    <label for="validationDefault12" class="form-label">Наименование ДПО</label>
+    <select class="form-select" id="validationDefault12">
+      <option value="">...</option>
+    </select>
+  </div>
+  <div class="col-md-4">
+    <label for="validationDefault13" class="form-label">Дисциплина</label>
+    <select class="form-select" id="validationDefault13">
+      <option value="">...</option>
+    </select>
+  </div>
 
 </form>
 </div></div>
@@ -109,15 +128,15 @@
 					<table id="example" class="table table-striped" style="width:100%">
 						<thead>
 							<tr>
-								<th>СТАТЬИ ЗАТРАТ</th>
-								<th>СУММА</th>
+								<th>ФИО преподавателя</th>
+								<th>Зарплата</th>
 							
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td>название1</td>
-								<td>25252</td>
+								<td>ФИО </td>
+								<td>25000</td>
 								
 							</tr>
 							
