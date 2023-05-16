@@ -42,7 +42,7 @@ public function log_action()
 			break;
 			case '3': redirect(base_url('manager/index'));
 			break;
-			case '2': redirect(base_url('methodist/index'));
+			case '2': redirect(base_url('type_ep/browse'));
 			break;
 			case '6': redirect(base_url('buxgalter/index'));
 			break;
