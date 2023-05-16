@@ -26,31 +26,31 @@
 						</div>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">
+						<a class="nav-link" href="<?=base_url('program/browse')?>">
 						<span data-feather="users"></span>
 						Образовательная программа
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">
+						<a class="nav-link" href="<?=base_url('teach_plan/browse')?>">
 						<span data-feather="bar-chart-2"></span>
 						Учебный план
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">
+						<a class="nav-link" href="<?=base_url('schedule/browse')?>">
 						<span data-feather="dollar-sign"></span>
 						График курсов
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">
+						<a class="nav-link" href="<?=base_url('reg_teacher/browse')?>">
 						<span data-feather="dollar-sign"></span>
 						Регистрация преподавателей
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href=""><button type="button" class="btn btn-outline-dark">Выйти из системы</button></a>
+						<a class="nav-link active" aria-current="page" href="<?=base_url('main/index')?>"><button type="button" class="btn btn-outline-dark">Выйти из системы</button></a>
 					</li>
 				</ul>
 			</div>
