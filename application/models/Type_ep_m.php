@@ -1,11 +1,18 @@
 <?php
-class Info_m extends CI_Model {
+class Type_ep_m extends CI_Model {
 
     public function __construct()
     {
         $this->load->database();
     }
     
+    //Выбрать вид ОП|Кузнецов
+    public function sel_type_ep()
+    {
+        $query = $this->db->get('type_ep');
+        return $query->result_array();
+    }
+
     //Добавить вид ОП|Кузнецов
     public function add_type_ep($data)
     {

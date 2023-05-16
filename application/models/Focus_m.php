@@ -1,0 +1,34 @@
+<?php
+class Focus_m extends CI_Model {
+
+    public function __construct()
+    {
+        $this->load->database();
+    }
+    
+    //Выбрать направление|Кузнецов
+    public function sel_focus()
+    {
+        $query = $this->db->get('focus');
+        return $query->result_array();
+    }
+
+    //Добавить направление|Кузнецов
+    public function add_focus($data)
+    {
+        $this->db->insert('focus', $data);
+    }
+
+    //Удалить направление|Кузнецов
+    public function del_focus($data)
+    {
+        $this->db->delete('focus', $data);
+    }
+
+    //Изменить направление|Кузнецов
+    public function upd_focus($id, $data)
+    {
+        $this->db->where('ID_focus', $id)
+                 ->update('focus', $data);
+    }
+}
