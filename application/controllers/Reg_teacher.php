@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Reg_teacher extends CI_Controller {
 
-    //Просмотр регистрации преподавателя|Кузнецов
+    //Просмотр регистрации преподавателя
 	public function browse()
 	{
 		$this->load->view('template/header.php');

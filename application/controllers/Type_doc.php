@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Type_doc extends CI_Controller {
 
-    //Просмотр вида документа|Кузнецов
+    //Просмотр вида документа
 	public function browse()
 	{
         //Данные из БД
@@ -15,7 +15,7 @@ class Type_doc extends CI_Controller {
 		$this->load->view('page/type_doc.php', $data);
 	}
 
-    //Добавление вида документа|Кузнецов
+    //Добавление вида документа
 	public function add_type_doc()
 	{
 		if (!empty($_POST))
@@ -34,7 +34,7 @@ class Type_doc extends CI_Controller {
         }
 	}
 
-    //Удаление вида документа|Кузнецов
+    //Удаление вида документа
 	public function del_type_doc()
 	{
         $data = array(
@@ -50,7 +50,7 @@ class Type_doc extends CI_Controller {
         redirect(base_url('type_doc/browse'));
     }
 
-    //Изменение вида документа|Кузнецов
+    //Изменение вида документа
 	public function upd_type_doc()
 	{
         $id   = $this->input->post('ID_type_doc');

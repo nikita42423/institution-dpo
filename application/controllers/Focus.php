@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Focus extends CI_Controller {
 
-    //Просмотр направления|Кузнецов
+    //Просмотр направления
 	public function browse()
 	{
         //Данные из БД
@@ -15,7 +15,7 @@ class Focus extends CI_Controller {
 		$this->load->view('page/focus.php', $data);
 	}
 
-    //Добавление направления|Кузнецов
+    //Добавление направления
 	public function add_focus()
 	{
 		if (!empty($_POST))
@@ -34,7 +34,7 @@ class Focus extends CI_Controller {
         }
 	}
 
-    //Удаление направления|Кузнецов
+    //Удаление направления
 	public function del_focus()
 	{
         $data = array(
@@ -50,7 +50,7 @@ class Focus extends CI_Controller {
         redirect(base_url('focus/browse'));
     }
 
-    //Изменение направления|Кузнецов
+    //Изменение направления
 	public function upd_focus()
 	{
         $id   = $this->input->post('ID_focus');

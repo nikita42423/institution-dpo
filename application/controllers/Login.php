@@ -12,52 +12,52 @@ class Login extends CI_Controller {
 	}
 
 	//Выполнение входа
-public function log_action()
-{
-	$login = $this->input->post('login');
-	$passwords = $this->input->post('passwords');
-   
-	$this->load->model('user_m');
-	$result = $this->user_m->sel_user($login, $passwords);
-
-	if($result != false)
+	public function log_action()
 	{
-		//Пользователь
-		$ID_user = $result->ID_user;
-		$full_name = $result->full_name;
-		$ID_role = $result->ID_role;
+		$login = $this->input->post('login');
+		$passwords = $this->input->post('passwords');
 	
+		$this->load->model('user_m');
+		$result = $this->user_m->sel_user($login, $passwords);
 
-		$session = array(
-			'ID_user' => $ID_user,
-			'full_name' => $full_name,
-			'ID_role' => $ID_role
-		);
-
-		$this->session->set_userdata('login_session', $session);
-
-		switch($ID_role)
+		if($result != false)
 		{
-			case '1': redirect((base_url('director/index')));
-			break;
-			case '3': redirect(base_url('manager/index'));
-			break;
-			case '2': redirect(base_url('type_ep/browse'));
-			break;
-			case '6': redirect(base_url('buxgalter/index'));
-			break;
-			case '4': redirect(base_url('clients/index'));
-			break;
-			case '5': redirect(base_url('teachers/index'));
-			break;
+			//Пользователь
+			$ID_user = $result->ID_user;
+			$full_name = $result->full_name;
+			$ID_role = $result->ID_role;
+		
+
+			$session = array(
+				'ID_user' => $ID_user,
+				'full_name' => $full_name,
+				'ID_role' => $ID_role
+			);
+
+			$this->session->set_userdata('login_session', $session);
+
+			switch($ID_role)
+			{
+				case '1': redirect((base_url('director/index')));
+				break;
+				case '3': redirect(base_url('manager/index'));
+				break;
+				case '2': redirect(base_url('type_ep/browse'));
+				break;
+				case '6': redirect(base_url('buxgalter/index'));
+				break;
+				case '4': redirect(base_url('clients/index'));
+				break;
+				case '5': redirect(base_url('teachers/index'));
+				break;
+			}
+		}
+		else
+		{
+			$this->session->set_flashdata('login_false', 'Неверный логин или пароль!');
+			redirect(base_url('Login/index'));
 		}
 	}
-	else
-	{
-		$this->session->set_flashdata('login_false', 'Неверный логин или пароль!');
-		redirect(base_url('Login/index'));
-	}
-}
 
 
 public function add_user()

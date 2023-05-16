@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Form_teach extends CI_Controller {
 
-    //Просмотр формы обучения|Кузнецов
+    //Просмотр формы обучения
 	public function browse()
 	{
         //Данные из БД
@@ -15,7 +15,7 @@ class Form_teach extends CI_Controller {
 		$this->load->view('page/form_teach.php', $data);
 	}
 
-    //Добавление формы обучения|Кузнецов
+    //Добавление формы обучения
 	public function add_form_teach()
 	{
 		if (!empty($_POST))
@@ -34,7 +34,7 @@ class Form_teach extends CI_Controller {
         }
 	}
 
-    //Удаление формы обучения|Кузнецов
+    //Удаление формы обучения
 	public function del_form_teach()
 	{
         $data = array(
@@ -50,7 +50,7 @@ class Form_teach extends CI_Controller {
         redirect(base_url('form_teach/browse'));
     }
 
-    //Изменение формы обучения|Кузнецов
+    //Изменение формы обучения
 	public function upd_form_teach()
 	{
         $id   = $this->input->post('ID_form');

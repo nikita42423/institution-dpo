@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Teach_plan extends CI_Controller {
 
-    //Просмотр учебного плана|Кузнецов
+    //Просмотр учебного плана
 	public function browse()
 	{
 		$this->load->view('template/header.php');
