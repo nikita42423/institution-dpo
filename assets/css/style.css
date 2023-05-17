@@ -7,8 +7,8 @@ header section main footer {
     display: block;
 }
 
-#head {
-    background-color:  skyblue;
+head {
+    background-color:  rgb(7, 18, 22);
 }
 .nav {
     padding-top: 3%;
