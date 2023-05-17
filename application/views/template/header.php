@@ -6,7 +6,7 @@
     <link href="<?=asset_url()?>/css/bootstrap.min.css" rel="stylesheet">
     <script src="<?=asset_url()?>/js/bootstrap.bundle.min.js" rel="stylesheet"></script>
     <link href="<?=asset_url()?>/css/style.css" rel="stylesheet">
-    <link href="<?=asset_url()?>/css/sidebar.css" rel="stylesheet">
+    <!-- <link href="<?=asset_url()?>/css/sidebar.css" rel="stylesheet"> -->
     
     <script src="<?=asset_url()?>/jsTable/jquery-3.6.4.min.js"></script>
     <script src="<?=asset_url()?>/jsTable/datatables.min.js"></script>
