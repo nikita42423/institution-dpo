@@ -7,7 +7,7 @@ header section main footer {
     display: block;
 }
 
-head {
+#head {
     background-color:  rgb(7, 18, 22);
 }
 .nav {
