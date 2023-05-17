@@ -7,11 +7,13 @@ header section main footer {
     display: block;
 }
 
-#head {
-    background-color:  rgb(7, 18, 22);
+.head {
+   margin-left: 1%;
+   margin-top: 1%;
 }
+
 .nav {
-    padding-top: 3%;
+    padding-left: 5%;
 }
 .nnv {
     padding-top: 7%;
@@ -24,6 +26,7 @@ h1 {
 }
 .fnt {
     text-align: center;
+   
 }
 .tt {
     text-align: center;
@@ -39,7 +42,7 @@ h1 {
     padding-top: 2%;
 }
 #foot {
-    background-color: skyblue;
+    background-color: rgba(194, 194, 194, 0.486);
 }
 .ft3 {
     padding-top: 3%;
@@ -62,4 +65,15 @@ h1 {
 .data_table .btn{
     padding: 5px 10px;
     margin: 10px 3px 10px 0;
+}
+
+.cont {
+    padding-left: 5%;
+    color: rgb(0, 17, 255)
+}
+nabrab {
+    text-align: center;
+    color: brown;
+    text-decoration: none;
+
 }

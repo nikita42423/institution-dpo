@@ -40,286 +40,101 @@
     <section id="curs">
         <div class="container">
             <div class="row">
-                <h1>КУРСЫ</h1>
-                <div class="col-lg-3">
-                    <h3>Фильтры для курсов</h3><hr>
-                    <form class="row g-3 needs-validation" novalidate>
-                        <div class="col-12">
-                            <label for="validationCustom04" class="form-label">Направление подготовки</label>
-                            <select class="form-select" id="validationCustom04">
-                              <option value="">...</option>
-                            </select>
-                          </div>
-                          <div class="col-12">
-                            <label for="validationCustom04" class="form-label">Уровень образование</label>
-                            <select class="form-select" id="validationCustom04">
-                              <option value="">...</option>
-                            </select>
-                          </div>
-                          <div class="col-12">
-                            <label for="validationCustom04" class="form-label">Форма обучения</label>
-                            <select class="form-select" id="validationCustom04">
-                              <option value="">...</option>
-                            </select>
-                          </div>
-                          <div class="col-12">
-                            <label for="validationCustom04" class="form-label">Срок обучения</label>
-                            <select class="form-select" id="validationCustom04">
-                              <option value="">...</option>
-                            </select>
-                          </div>
-                        <div class="col-12 fnt">
-                          <button class="btn btn-primary" type="submit">поиск</button>
-                        </div>
-                      </form>
-                      <hr>
-                </div>
-
-
-
-                <div class="col-lg-9">
-
-                    <div class="row row-cols-1 row-cols-md-2 g-4">
-                        <div class="col">
-                          <div class="card">
-                            <div class="card-body">
-                              <h5 class="card-title ">Название</h5>
-                              <p class="card-text ty"><b>Цена:</b> 15000 рублей</p>
-                              <div class="ty">
-                              <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
-    Подробнее
-  </button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-         
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-       w
-        </div>
-       
+                <div class="col-lg-12">
+                <h1>НАПРАВЛЕНИЕ</h1>
+                <div class="row row-cols-1 row-cols-md-3 g-6">
+                  <a href="<?=base_url("login/index")?>" style=" text-decoration: none;">
+  <div class="col">
+  <div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="<?=asset_url()?>/img/11.jpg" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title" style="text-align: center; color: brown; padding-top: 10%">ИНФОРМАЦИОННЫЕ СИСТЕМЫ И ПРОГРАММИРОВАНИЕ</h5>
       </div>
     </div>
   </div>
-
-  <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-    Заявка
-  </button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-body">
-   
-        <section class=" bg-image">
-  
-  <div class="col-12 ">
-    <div class="card" style="border-radius: 15px;">
-      <div class="card-body p-5">
-        <h2 class="text-uppercase text-center mb-5">ЗАЯВКА</h2>
-
-        <form>
-
-          <div class="form-outline mb-4">
-            <input type="text" id="form3Example1cg" class="form-control form-control-lg" required />
-            <label class="form-label" for="form3Example1cg">ФИО</label>
-          </div>
-
-          <div class="form-outline mb-4">
-            <input type="text" id="form3Example2cg" class="form-control form-control-lg" required/>
-            <label class="form-label" for="form3Example2cg">Телефон</label>
-          </div>
-          
-          <div class="d-flex justify-content-center">
-            <button type="submit"
-              class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">ЗАЯВКА</button>
-          </div>
-
-        </form>
-
-      </div>
 </div>
-</div>
-</section>
-
-
-        </div>
+  </div>
+  </a>
+  <a href="<?=base_url("login/index")?>" style=" text-decoration: none;">
+  <div class="col">
+  <div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="<?=asset_url()?>/img/22.jpg" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title" style="text-align: center; color: brown; padding-top: 10%">ПСИХОЛОГИЯ</h5>
       </div>
     </div>
   </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col">
-                            <div class="card">
-                              <div class="card-body">
-                                <h5 class="card-title tt">Название</h5>
-                                <p class="card-text ty"><b>Цена:</b> 15000 рублей</p>
-                                <div class="ty">
-                                <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
-      Подробнее
-    </button>
-    
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-           
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-         w
-          </div>
-         
-        </div>
+</div>
+  </div>
+  </a> <a href="<?=base_url("login/index")?>" style=" text-decoration: none;">
+  <div class="col">
+  <div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="<?=asset_url()?>/img/33.jpg" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title" style="text-align: center; color: brown; padding-top: 10%">ИНОСТРАННЫЕ ЯЗЫКИ</h5>
       </div>
     </div>
-  
-    <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-      Заявка
-    </button>
-    
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-     
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-      f
-          </div>
-          <div class="modal-footer">
-  
-          </div>
-        </div>
+  </div>
+</div>
+  </div>
+  </a> <a href="<?=base_url("login/index")?>" style=" text-decoration: none;">
+  <div class="col">
+  <div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="<?=asset_url()?>/img/44.jpg" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title" style="text-align: center; color: brown; padding-top: 10%">ФИНАНСЫ И БУХГАЛТЕРСКИЙ УЧЕТ</h5>
       </div>
     </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col">
-                            <div class="card">
-                              <div class="card-body">
-                                <h5 class="card-title tt">Название</h5>
-                                <p class="card-text ty"><b>Цена:</b> 15000 рублей</p>
-                                <div class="ty">
-                                <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
-      Подробнее
-    </button>
-    
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-           
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-         w
-          </div>
-         
-        </div>
+  </div>
+</div>
+  </div>
+  </a> <a href="<?=base_url("login/index")?>" style=" text-decoration: none;">
+  <div class="col">
+  <div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="<?=asset_url()?>/img/55.jpg" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title" style="text-align: center; color: brown; padding-top: 10%">ПЕДАГОГИКА И ДИДАКТИКА</h5>
       </div>
     </div>
-  
-    <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-      Заявка
-    </button>
-    
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-     
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-      f
-          </div>
-          <div class="modal-footer">
-  
-          </div>
-        </div>
+  </div>
+</div>
+  </div>
+  </a> <a href="<?=base_url("login/index")?>" style=" text-decoration: none;">
+  <div class="col">
+  <div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="<?=asset_url()?>/img/66.jpg" class="img-fluid rounded-start" alt="..." height="30">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title" style="text-align: center; color: brown; padding-top: 10%">ЮРИСПРУДЕНЦИЯ И ПРАВО</h5>
       </div>
     </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col">
-                            <div class="card">
-                              <div class="card-body">
-                                <h5 class="card-title tt">Название</h5>
-                                <p class="card-text ty"><b>Цена:</b> 15000 рублей</p>
-                                <div class="ty">
-                                <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
-      Подробнее
-    </button>
-    
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-           
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-         w
-          </div>
-         
-        </div>
-      </div>
-    </div>
-  
-    <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-      Заявка
-    </button>
-    
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-     
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-      		модальное окно
-          </div>
-          <div class="modal-footer">
-  
-          </div>
-        </div>
-      </div>
-    </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
-
-                </div>
+  </div>
+</div>
+  </div>
+  </a>
             </div>
         </div>
     </section>
