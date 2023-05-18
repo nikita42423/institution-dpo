@@ -1,0 +1,91 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+header section main footer {
+    display: block;
+}
+
+.head {
+   margin-left: 1%;
+   margin-top: 1%;
+}
+
+.nav {
+    padding-left: 5%;
+}
+.nnv {
+    padding-top: 7%;
+}
+h1 {
+    text-align: center;
+    padding: 2%;
+    color: blue;
+    text-shadow: 1px 1px 1px brown;
+}
+.fnt {
+    text-align: center;
+   
+}
+.tt {
+    text-align: center;
+    color: blue;
+    
+}
+.ty {
+    text-align: center;
+}
+.dd {
+    text-align: justify;
+    text-indent: 10%;
+    padding-top: 2%;
+}
+#foot {
+    background-color: rgba(194, 194, 194, 0.486);
+}
+.ft3 {
+    padding-top: 3%;
+    padding-bottom: 3%;
+    text-shadow: 1px 1px brown;
+}
+#foot2 {
+    background-color: gray;
+}
+.fft {
+    text-align: center;
+    color: white;
+    padding-top: 1%;
+}
+.text-justify{
+    text-align: justify;
+}
+
+/* ТАБЛИЦА dataTable */
+.data_table .btn{
+    padding: 5px 10px;
+    margin: 10px 3px 10px 0;
+}
+
+<<<<<<< HEAD:assets/css/style.css
+.offcanvas-font-size{
+    font-size: 20px;
+=======
+.cont {
+    padding-left: 5%;
+    color: rgb(0, 17, 255)
+}
+nabrab {
+    text-align: center;
+    color: brown;
+    text-decoration: none;
+
+}
+
+.link-muted { 
+    color: #aaa; 
+} 
+.link-muted:hover { 
+    color: #1266f1; 
+>>>>>>> bab7555cfbdf7bad76b2bcc6348ae761fbaae91c:assets/css/styles.css
+}

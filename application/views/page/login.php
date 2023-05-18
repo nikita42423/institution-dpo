@@ -42,6 +42,9 @@
     }
   </style>
 
+
+
+
   <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
     <div class="row gx-lg-5 align-items-center mb-5">
       <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
@@ -58,7 +61,7 @@
         <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
         <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
 
-        <div class="card bg-glass">
+        <div class="card bg-glass" style="margin-bottom: 29%; margin-top: 20%;">
           <div class="card-body px-4 py-5 px-md-5">
             <form action="<?=base_url('login/log_action')?>"  method="POST">
              
@@ -83,8 +86,8 @@
                 <p>У вас нет аккуант? <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 зарегистрироваться
 </button> </p>
-               <!-- Button trigger modal -->
-
+           <br>
+           <a href="<?=base_url("main/index")?>"><button type="button" class="btn btn-info btn-rounded">Вернуться главную</button></a>
 
 
               </div>
