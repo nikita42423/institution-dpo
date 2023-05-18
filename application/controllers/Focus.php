@@ -12,7 +12,8 @@ class Focus extends CI_Controller {
 
 		$this->load->view('template/header.php');
         $this->load->view('template/sidebar.php');
-		$this->load->view('page/focus.php', $data);
+		$this->load->view('page/info/focus.php', $data);
+        $this->load->view('template/modal_info.php');
 	}
 
     //Добавление направления
