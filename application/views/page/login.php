@@ -63,7 +63,7 @@
 
         <div class="card bg-glass" style="margin-bottom: 29%; margin-top: 20%;">
           <div class="card-body px-4 py-5 px-md-5">
-            <form action="<?=base_url('login/log_action')?>"  method="POST">
+            <form action="login/log_action"  method="POST">
              
               <div class="form-outline mb-4">
                 <input type="text" id="form3Example3" class="form-control" name="login"/>
@@ -87,7 +87,7 @@
                 зарегистрироваться
 </button> </p>
            <br>
-           <a href="<?=base_url("main/index")?>"><button type="button" class="btn btn-info btn-rounded">Вернуться главную</button></a>
+           <a href="main/index"><button type="button" class="btn btn-info btn-rounded">Вернуться главную</button></a>
 
 
               </div>
@@ -110,7 +110,7 @@
       <div class="card-body p-5">
         <h2 class="text-uppercase text-center mb-5">РЕГИСТРАЦИЯ</h2>
 
-        <form action="<?=base_url('login/add_user')?>" method="post">
+        <form action="login/add_user" method="post">
 
           <div class="form-outline mb-4">
             <input type="text" id="form3Example1cg" class="form-control form-control-lg" required name="full_name"/>

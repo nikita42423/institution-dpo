@@ -12,13 +12,13 @@
                         </div>
                         <div class="carousel-inner">
                           <div class="carousel-item active"  data-bs-interval="5000">
-                            <img src="<?=asset_url()?>/img/1.jpg" class="d-block w-100" alt="..." height="500">
+                            <img src="assets/img/1.jpg" class="d-block w-100" alt="..." height="500">
                           </div>
                           <div class="carousel-item"  data-bs-interval="5000">
-                            <img src="<?=asset_url()?>/img/2.jpg" class="d-block w-100" alt="..." height="500">
+                            <img src="assets/img/2.jpg" class="d-block w-100" alt="..." height="500">
                           </div>
                           <div class="carousel-item"  data-bs-interval="5000">
-                            <img src="<?=asset_url()?>/img/3.jpg" class="d-block w-100" alt="..." height="500">
+                            <img src="assets/img/3.jpg" class="d-block w-100" alt="..." height="500">
                           </div>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -43,12 +43,12 @@
                 <div class="col-lg-12">
                 <h1>НАПРАВЛЕНИЕ</h1>
                 <div class="row row-cols-1 row-cols-md-3 g-6">
-                  <a href="<?=base_url("main/nabravel")?>" style=" text-decoration: none;">
+                  <a href="main/nabravel" style=" text-decoration: none;">
   <div class="col">
   <div class="card mb-3" style="max-width: 540px;">
   <div class="row g-0">
     <div class="col-md-4">
-      <img src="<?=asset_url()?>/img/11.jpg" class="img-fluid rounded-start" alt="...">
+      <img src="assets/img/11.jpg" class="img-fluid rounded-start" alt="...">
     </div>
     <div class="col-md-8">
       <div class="card-body">
@@ -59,12 +59,12 @@
 </div>
   </div>
   </a>
-  <a href="<?=base_url("login/index")?>" style=" text-decoration: none;">
+  <a href="login/index" style=" text-decoration: none;">
   <div class="col">
   <div class="card mb-3" style="max-width: 540px;">
   <div class="row g-0">
     <div class="col-md-4">
-      <img src="<?=asset_url()?>/img/22.jpg" class="img-fluid rounded-start" alt="...">
+      <img src="assets/img/22.jpg" class="img-fluid rounded-start" alt="...">
     </div>
     <div class="col-md-8">
       <div class="card-body">
@@ -74,12 +74,12 @@
   </div>
 </div>
   </div>
-  </a> <a href="<?=base_url("login/index")?>" style=" text-decoration: none;">
+  </a> <a href="login/index" style=" text-decoration: none;">
   <div class="col">
   <div class="card mb-3" style="max-width: 540px;">
   <div class="row g-0">
     <div class="col-md-4">
-      <img src="<?=asset_url()?>/img/33.jpg" class="img-fluid rounded-start" alt="...">
+      <img src="assets/img/33.jpg" class="img-fluid rounded-start" alt="...">
     </div>
     <div class="col-md-8">
       <div class="card-body">
@@ -89,12 +89,12 @@
   </div>
 </div>
   </div>
-  </a> <a href="<?=base_url("login/index")?>" style=" text-decoration: none;">
+  </a> <a href="login/index" style=" text-decoration: none;">
   <div class="col">
   <div class="card mb-3" style="max-width: 540px;">
   <div class="row g-0">
     <div class="col-md-4">
-      <img src="<?=asset_url()?>/img/44.jpg" class="img-fluid rounded-start" alt="...">
+      <img src="assets/img/44.jpg" class="img-fluid rounded-start" alt="...">
     </div>
     <div class="col-md-8">
       <div class="card-body">
@@ -104,12 +104,12 @@
   </div>
 </div>
   </div>
-  </a> <a href="<?=base_url("login/index")?>" style=" text-decoration: none;">
+  </a> <a href="login/index" style=" text-decoration: none;">
   <div class="col">
   <div class="card mb-3" style="max-width: 540px;">
   <div class="row g-0">
     <div class="col-md-4">
-      <img src="<?=asset_url()?>/img/55.jpg" class="img-fluid rounded-start" alt="...">
+      <img src="assets/img/55.jpg" class="img-fluid rounded-start" alt="...">
     </div>
     <div class="col-md-8">
       <div class="card-body">
@@ -119,12 +119,12 @@
   </div>
 </div>
   </div>
-  </a> <a href="<?=base_url("login/index")?>" style=" text-decoration: none;">
+  </a> <a href="login/index" style=" text-decoration: none;">
   <div class="col">
   <div class="card mb-3" style="max-width: 540px;">
   <div class="row g-0">
     <div class="col-md-4">
-      <img src="<?=asset_url()?>/img/66.jpg" class="img-fluid rounded-start" alt="..." height="30">
+      <img src="assets/img/66.jpg" class="img-fluid rounded-start" alt="..." height="30">
     </div>
     <div class="col-md-8">
       <div class="card-body">
@@ -143,7 +143,7 @@
 		<div class="container">
       <h1>О БИЗНЕС - ШКОЛЕ</h1>
 			<div class="clearfix">
-				<img src="<?=asset_url()?>/img/4.jpg" class="col-md-6 float-md-start mb-3 ms-md-3 m-3" alt="...">
+				<img src="assets/img/4.jpg" class="col-md-6 float-md-start mb-3 ms-md-3 m-3" alt="...">
 				<div class="text-justify p-3">
 					<p><b>Цель проекта Все Курсы Онлайн - помогать людям познавать новую информацию каждый день и добиваться успеха в жизни.</b></p> 
 					<p>Для этого был создан удобный сайт со всеми образовательными программами онлайн и дистанционными курсами со всего мира.</p>

@@ -68,7 +68,7 @@
         <h5 class="modal-title" id="exampleModalLabel">Курс "" </h5>
       </div>
       <div class="modal-body">
-      <form action="<?=base_url('')?>" method="post">
+      <form action="" method="post">
 
 <div class="form-outline mb-4">
   <input type="text" id="form3Example1cg" class="form-control form-control-lg" required name="full_name"/>
