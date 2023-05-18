@@ -15,7 +15,7 @@
 	}
 </style>
 
-<link href="<?=asset_url()?>/css/sidebar.css" rel="stylesheet">
+<link href="assets/css/sidebar.css" rel="stylesheet">
 
 <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
     <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Бухгалтер <?=$session['full_name']?></a>
@@ -34,27 +34,27 @@
 						<div class="row">
 							<div class="col-2"></div>
 							<div class="col-8">
-								<img src="<?=asset_url()?>/img/log.png" alt="" width="auto" height="auto" class="img-fluid">
+								<img src="assets/img/log.png" alt="" width="auto" height="auto" class="img-fluid">
 							</div>
 							<div class="col-2"></div>
 						</div>
 					</li>
 					
 					<li class="nav-item">
-						<a class="nav-link" href="<?=base_url('buxgalter/index')?>">
+						<a class="nav-link" href="buxgalter/index">
 						<span data-feather="users"></span>
 						Расчет стоимости услуги
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="<?=base_url('buxgalter2/index')?>">
+						<a class="nav-link" href="buxgalter2/index">
 						<span data-feather="bar-chart-2"></span>
 						О полученных доходах
 						</a>
 					</li>
 					
 					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="<?=base_url('login/kill_all_session')?>"><button type="button" class="btn btn-outline-dark">Выйти из системы</button></a>
+						<a class="nav-link active" aria-current="page" href="login/kill_all_session"><button type="button" class="btn btn-outline-dark">Выйти из системы</button></a>
 					</li>
 				</ul>
 			</div>
@@ -68,7 +68,7 @@
 				
 			</div>
 
-            <form class="row g-3" action="<?=base_url('buxgalter/filter_rast')?>" method="post">
+            <form class="row g-3" action="buxgalter/filter_rast" method="post">
             <div class="col-md-3">
     <label for="validationDefault04" class="form-label">Форма обучения</label>
     <select class="form-select" id="validationDefault04">
