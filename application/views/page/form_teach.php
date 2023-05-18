@@ -5,7 +5,7 @@
 			</div>
 
 			<h2>Форма обучения</h2>
-			<form class="row g-3 mb-3" action="<?=base_url('form_teach/add_form_teach')?>" method="post">
+			<form class="row g-3 mb-3" action="form_teach/add_form_teach')?>" method="post">
 				<div class="col-auto">
 					<input type="text" readonly class="form-control-plaintext" value="Наим. формы обучения">
 				</div>
@@ -55,7 +55,7 @@
 													<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
 												</div>
 
-												<form action="<?=base_url('form_teach/upd_form_teach')?>" method="post">
+												<form action="form_teach/upd_form_teach')?>" method="post">
 													<div class="modal-body">
 														<input type="hidden" name="ID_form" value="<?=$row['ID_form']?>">
 														<div>
@@ -74,7 +74,7 @@
 									</div>
 
 									<!-- Удалить -->
-									<a href="<?=base_url('form_teach/del_form_teach?ID_form='.$row['ID_form'])?>" class="btn btn-danger">Удалить</a>
+									<a href="form_teach/del_form_teach?ID_form=<?=$row['ID_form']?>" class="btn btn-danger">Удалить</a>
 								</td>
 							</tr>
 							<?php }?>

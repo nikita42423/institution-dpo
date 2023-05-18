@@ -5,7 +5,7 @@
 			</div>
 
 			<h2>Направление</h2>
-			<form class="row gy-2 gx-3 align-items-center" action="<?=base_url('focus/add_focus')?>" method="post">
+			<form class="row gy-2 gx-3 align-items-center" action="focus/add_focus" method="post">
 				<div class="col-auto">
 					<input type="text" readonly class="form-control-plaintext" value="Наим. направления">
 				</div>
@@ -55,7 +55,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
                                 </div>
 
-                                <form action="<?=base_url('focus/upd_focus')?>" method="post">
+                                <form action="focus/upd_focus" method="post">
                                     <div class="modal-body">
                                         <input type="hidden" name="ID_focus" value="<?=$row['ID_focus']?>">
                                         <div>
@@ -74,7 +74,7 @@
                     </div>
 
 					<!-- Удалить -->
-                    <a href="<?=base_url('focus/del_focus?ID_focus='.$row['ID_focus'])?>" class="btn btn-danger">Удалить</a>
+                    <a href="focus/del_focus?ID_focus='.<?=$row['ID_focus']?>" class="btn btn-danger">Удалить</a>
                 </td>
             </tr>
             <?php }?>

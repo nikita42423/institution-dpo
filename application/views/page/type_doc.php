@@ -5,7 +5,7 @@
 			</div>
 
 			<h2>Вид документа</h2>
-			<form class="row g-3 mb-3" action="<?=base_url('type_doc/add_type_doc')?>" method="post">
+			<form class="row g-3 mb-3" action="type_doc/add_type_doc" method="post">
 				<div class="col-auto">
 					<input type="text" readonly class="form-control-plaintext" value="Наим. вида документа">
 				</div>
@@ -55,7 +55,7 @@
 													<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
 												</div>
 
-												<form action="<?=base_url('type_doc/upd_type_doc')?>" method="post">
+												<form action="type_doc/upd_type_doc" method="post">
 													<div class="modal-body">
 														<input type="hidden" name="ID_type_doc" value="<?=$row['ID_type_doc']?>">
 														<div>
@@ -74,7 +74,7 @@
 									</div>
 
 									<!-- Удалить -->
-									<a href="<?=base_url('type_doc/del_type_doc?ID_type_doc='.$row['ID_type_doc'])?>" class="btn btn-danger">Удалить</a>
+									<a href="type_doc/del_type_doc?ID_type_doc='.$row['ID_type_doc'])?>" class="btn btn-danger">Удалить</a>
 								</td>
 							</tr>
 							<?php }?>

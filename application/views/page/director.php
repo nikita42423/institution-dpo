@@ -16,7 +16,7 @@
     </style>
 
     <!-- Custom styles for this template -->
-    <link href="<?=asset_url()?>/css/dashboard.css" rel="stylesheet">
+    <link href="assets/css/dashboard.css" rel="stylesheet">
     <style type="text/css">/* Chart.js */
     @keyframes chartjs-render-animation{from{opacity:.99}to{opacity:1}}.chartjs-render-monitor{animation:chartjs-render-animation 1ms}.chartjs-size-monitor,.chartjs-size-monitor-expand,.chartjs-size-monitor-shrink{position:absolute;direction:ltr;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1}.chartjs-size-monitor-expand>div{position:absolute;width:1000000px;height:1000000px;left:0;top:0}.chartjs-size-monitor-shrink>div{position:absolute;width:200%;height:200%;left:0;top:0}
     </style>
@@ -42,7 +42,7 @@
                 <li class="nav-item">
                     <div class="row">
                         <div class="col-2"></div>
-                        <div class="col-8"><img src="<?=asset_url()?>/img/log.png" alt="" width="auto" height="auto" class="img-fluid"></div>
+                        <div class="col-8"><img src="assets/img/log.png" alt="" width="auto" height="auto" class="img-fluid"></div>
                         <div class="col-2"></div>
                     </div>
                    
@@ -225,4 +225,4 @@
 
 <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
-<script src="<?=asset_url()?>/js/dashboard.js"></script>
+<script src="assets/js/dashboard.js"></script>

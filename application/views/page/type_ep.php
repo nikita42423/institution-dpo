@@ -5,7 +5,7 @@
 	</div>
 
 	<h2>Вид ОП</h2>
-	<form class="row g-3 mb-3" action="<?=base_url('type_ep/add_type_ep')?>" method="post">
+	<form class="row g-3 mb-3" action="type_ep/add_type_ep" method="post">
 		<div class="col-auto">
 			<input type="text" readonly class="form-control-plaintext" value="Наименование вида ОП">
 		</div>
@@ -55,7 +55,7 @@
 											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
 										</div>
 
-										<form action="<?=base_url('type_ep/upd_type_ep')?>" method="post">
+										<form action="type_ep/upd_type_ep" method="post">
 											<div class="modal-body">
 												<input type="hidden" name="ID_type_ep" value="<?=$row['ID_type_ep']?>">
 												<div>
@@ -74,7 +74,7 @@
 							</div>
 
 							<!-- Удалить -->
-							<a href="<?=base_url('type_ep/del_type_ep?ID_type_ep='.$row['ID_type_ep'])?>" class="btn btn-danger">
+							<a href="type_ep/del_type_ep?ID_type_ep='.$row['ID_type_ep'])?>" class="btn btn-danger">
 								<i class="bi-trash" aria-hidden="true"></i>
 							</a>
 						</td>
@@ -95,7 +95,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: '<?=base_url('type_ep/test')?>',
+                url: 'type_ep/test',
                 data: {name_type_ep: name_type_ep},
                 dataType:'html',
                 success: function(result) {
