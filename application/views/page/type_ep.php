@@ -44,7 +44,7 @@
 						<td><?=$row['name_type_ep']?></td>
 						<td>
 							<!-- Изменить -->
-							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#<?=$row['ID_type_ep']?>">Изменить</button>
+							<button id="start<?=$row['ID_type_ep']?>" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#<?=$row['ID_type_ep']?>"><i class="bi-pencil" aria-hidden="true"></i></button>
 
 							<!-- Модальное окно -->
 							<div class="modal fade" id="<?=$row['ID_type_ep']?>" tabindex="-1">
@@ -60,7 +60,7 @@
 												<input type="hidden" name="ID_type_ep" value="<?=$row['ID_type_ep']?>">
 												<div>
 													<label for="name_type_ep" class="form-label">Наименование вида ОП</label>
-													<input type="text" name="name_type_ep" class="form-control" value="<?=$row['name_type_ep']?>" required>
+													<input type="text" id="name_type_ep" name="name_type_ep" class="form-control" value="<?=$row['name_type_ep']?>" required>
 												</div>
 											</div>
 											<div class="modal-footer">
@@ -74,7 +74,9 @@
 							</div>
 
 							<!-- Удалить -->
-							<a href="<?=base_url('type_ep/del_type_ep?ID_type_ep='.$row['ID_type_ep'])?>" class="btn btn-danger">Удалить</a>
+							<a href="<?=base_url('type_ep/del_type_ep?ID_type_ep='.$row['ID_type_ep'])?>" class="btn btn-danger">
+								<i class="bi-trash" aria-hidden="true"></i>
+							</a>
 						</td>
 					</tr>
 					<?php }?>
@@ -84,6 +86,26 @@
 
 	</div>
 </main>
+
+<script>
+	$(document).ready(function(){
+        $('#start1').click(function(){
+            let name_type_ep = document.getElementById('name_type_ep').value;
+            alert('result');
+
+            $.ajax({
+                type: 'POST',
+                url: '<?=base_url('type_ep/test')?>',
+                data: {name_type_ep: name_type_ep},
+                dataType:'html',
+                success: function(result) {
+                    console.log(result);
+                    alert('Есть результат');
+                }
+            })
+        })
+    })
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
 

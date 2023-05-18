@@ -66,4 +66,11 @@ class Type_ep extends CI_Controller {
 
         redirect(base_url('type_ep/browse'));
     }
+
+    //Тестирование
+    public function test()
+    {
+        $r = $_POST['name_type_ep'];
+        echo $r;
+    }
 }
