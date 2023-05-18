@@ -15,23 +15,23 @@
 				Справочная информация
 			</a>
 			<ul class="dropdown-menu dropdown-menu-dark">
-				<li><a class="dropdown-item" href="<?=base_url('type_ep/browse')?>">Вид ОП</a></li>
-				<li><a class="dropdown-item" href="<?=base_url('focus/browse')?>">Направление</a></li>
-				<li><a class="dropdown-item" href="<?=base_url('type_doc/browse')?>">Вид документа</a></li>
-				<li><a class="dropdown-item" href="<?=base_url('form_teach/browse')?>">Форма обучения</a></li>
+				<li><a class="dropdown-item" href="type_ep/browse">Вид ОП</a></li>
+				<li><a class="dropdown-item" href="focus/browse">Направление</a></li>
+				<li><a class="dropdown-item" href="type_doc/browse">Вид документа</a></li>
+				<li><a class="dropdown-item" href="form_teach/browse">Форма обучения</a></li>
 			</ul>
 		</li>
 		<li class="nav-item mb-3">
-			<a class="nav-link" href="<?=base_url('program/browse')?>">Образовательная программа</a>
+			<a class="nav-link" href="program/browse">Образовательная программа</a>
 		</li>
 		<li class="nav-item mb-3">
-			<a class="nav-link" href="<?=base_url('teach_plan/browse')?>">Учебный план</a>
+			<a class="nav-link" href="teach_plan/browse">Учебный план</a>
 		</li>
 		<li class="nav-item mb-3">
-			<a class="nav-link" href="<?=base_url('schedule/browse')?>">График курсов</a>
+			<a class="nav-link" href="schedule/browse">График курсов</a>
 		</li>
 		<li class="nav-item mb-3">
-			<a class="nav-link" href="<?=base_url('reg_teacher/browse')?>">Регистрация преподавателей</a>
+			<a class="nav-link" href="reg_teacher/browse">Регистрация преподавателей</a>
 		</li>
 		<button class="btn btn-outline-light mt-3">Выйти из системы</button>
 	</ul>

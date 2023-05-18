@@ -8,7 +8,7 @@
 
                 <div class="offcanvas offcanvas-start" style="width: 30%;" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel" ><img src="<?=asset_url()?>/img/log.png" alt="" width="200" height="200">
+                    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel" ><img src="assets/img/log.png" alt="" width="200" height="200">
                     <?=$session['full_name']?></h5>
                                        
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
@@ -19,14 +19,14 @@
                         
                                 <ul class="nav flex-column">
                                 <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="<?=base_url("clients/lizcab")?>">ЛИЧНЫЙ КАБИНЕТ</a>
+                                    <a class="nav-link active" aria-current="page" href="clients/lizcab">ЛИЧНЫЙ КАБИНЕТ</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="<?=base_url("clients/index")?>">КУРСЫ</a>
+                                    <a class="nav-link" href="clients/index">КУРСЫ</a>
                                 </li>
                             
                                 <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="<?=base_url("login/index")?>"><button type="button" class="btn btn-outline-dark">ВЫЙТИ ИЗ СИСТЕМЫ</button></a>
+                                <a class="nav-link active" aria-current="page" href="login/index"><button type="button" class="btn btn-outline-dark">ВЫЙТИ ИЗ СИСТЕМЫ</button></a>
                                 </li>
                                 </ul>
                         </div><hr>

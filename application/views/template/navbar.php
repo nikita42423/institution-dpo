@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
-                <img src="<?=asset_url()?>/img/log.png" alt="" width="120" height="100">
+                <img src="assets/img/log.png" alt="" width="120" height="100">
             </div>
             <div class="col-lg-6">
                 <div class="nav">

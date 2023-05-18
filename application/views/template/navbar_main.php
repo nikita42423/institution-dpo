@@ -8,7 +8,7 @@
 
                 <div class="offcanvas offcanvas-start" style="width: 30%;" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel" ><img src="<?=asset_url()?>/img/log.png" alt="" width="200" height="200"></h5>
+                    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel" ><img src="assets/img/log.png" alt="" width="200" height="200"></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
                 </div>
                 <div class="offcanvas-body ">
@@ -16,26 +16,26 @@
                         <div class="nav">
                                 <ul class="nav flex-column">
                                 <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="<?=base_url("main/index")?>">ГЛАВНАЯ</a>
+                                    <a class="nav-link active" aria-current="page" href="main/index">ГЛАВНАЯ</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="<?=base_url("main/index")?>#aboutus">О БИЗНЕС - ШКОЛЕ</a>
+                                    <a class="nav-link" href="main/index")?>#aboutus">О БИЗНЕС - ШКОЛЕ</a>
                                 </li>
                                 <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="<?=base_url("main/index")?>#nabral" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="main/index")?>#nabral" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     НАПРАВЛЕНИЕ
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="<?=base_url("main/nabravel")?>">ИНФОРМАЦИОННЫЕ СИСТЕМЫ И ПРОГРАММИРОВАНИЕ</a></li>
-                                    <li><a class="dropdown-item" href="<?=base_url("")?>">ФИНАНСЫ И БУХГАЛТЕРСКИЙ УЧЕТ</a></li>
-                                    <li><a class="dropdown-item" href="<?=base_url("")?>">ИНОСТРАННЫЕ ЯЗЫКИ</a></li>
-                                    <li><a class="dropdown-item" href="<?=base_url("")?>">ЮРИСПРУДЕНЦИЯ И ПРАВО</a></li>
-                                    <li><a class="dropdown-item" href="<?=base_url("")?>">ПЕДАГОГИКА И ДИДАКТИКА</a></li>
-                                    <li><a class="dropdown-item" href="<?=base_url("")?>">ПСИХОЛОГИЯ</a></li>
+                                    <li><a class="dropdown-item" href="main/nabravel">ИНФОРМАЦИОННЫЕ СИСТЕМЫ И ПРОГРАММИРОВАНИЕ</a></li>
+                                    <li><a class="dropdown-item" href="">ФИНАНСЫ И БУХГАЛТЕРСКИЙ УЧЕТ</a></li>
+                                    <li><a class="dropdown-item" href="">ИНОСТРАННЫЕ ЯЗЫКИ</a></li>
+                                    <li><a class="dropdown-item" href="">ЮРИСПРУДЕНЦИЯ И ПРАВО</a></li>
+                                    <li><a class="dropdown-item" href="">ПЕДАГОГИКА И ДИДАКТИКА</a></li>
+                                    <li><a class="dropdown-item" href="">ПСИХОЛОГИЯ</a></li>
                                 </ul>
                                 </li>
                                 <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="<?=base_url("login/index")?>"><button type="button" class="btn btn-outline-dark">АВТОРИЗАЦИЯ</button></a>
+                                <a class="nav-link active" aria-current="page" href="login/index"><button type="button" class="btn btn-outline-dark">АВТОРИЗАЦИЯ</button></a>
                                 </li>
                                 </ul>
                         </div><hr>
@@ -122,7 +122,7 @@
       </div>
 
       <div class="col-lg-6 mb-5 mb-lg-0">
-      <img src="<?=asset_url()?>/img/log.png" alt=""  height="" class="w-100 rounded-4 shadow-4">
+      <img src="assets/img/log.png" alt=""  height="" class="w-100 rounded-4 shadow-4">
       
       </div>
     </div>
