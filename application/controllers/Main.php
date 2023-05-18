@@ -23,7 +23,7 @@ class Main extends CI_Controller {
 		$this->load->view('template/header.php');
 		$this->load->view('template/navbar_main.php');
 		$this->load->view('page/main.php');
-		$this->load->view('template/footer.php');
+	//	$this->load->view('template/footer.php');
 	}
 
 
