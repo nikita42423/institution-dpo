@@ -67,10 +67,10 @@ h1 {
     margin: 10px 3px 10px 0;
 }
 
-<<<<<<< HEAD:assets/css/style.css
 .offcanvas-font-size{
     font-size: 20px;
-=======
+}
+
 .cont {
     padding-left: 5%;
     color: rgb(0, 17, 255)
@@ -87,5 +87,4 @@ nabrab {
 } 
 .link-muted:hover { 
     color: #1266f1; 
->>>>>>> bab7555cfbdf7bad76b2bcc6348ae761fbaae91c:assets/css/styles.css
 }
