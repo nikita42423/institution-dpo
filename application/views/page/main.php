@@ -43,7 +43,7 @@
                 <div class="col-lg-12">
                 <h1>НАПРАВЛЕНИЕ</h1>
                 <div class="row row-cols-1 row-cols-md-3 g-6">
-                  <a href="<?=base_url("login/index")?>" style=" text-decoration: none;">
+                  <a href="<?=base_url("main/nabravel")?>" style=" text-decoration: none;">
   <div class="col">
   <div class="card mb-3" style="max-width: 540px;">
   <div class="row g-0">

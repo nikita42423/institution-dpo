@@ -1,4 +1,4 @@
-<header style="background: linear-gradient(90deg, #b9deed, #efefef);">
+<header style="">
 <div class="jumbotron">
             <button class="btn btn-primary head" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
@@ -26,7 +26,7 @@
                                     НАПРАВЛЕНИЕ
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="<?=base_url("main/nabravel")?>">ИНФОРМАЦИОННЫЕ СИСТЕМЫ И ПРОГРАММИРОВАНИЕ</a></li>
+                                    <li><a class="dropdown-item" href="<?=base_url("")?>">ИНФОРМАЦИОННЫЕ СИСТЕМЫ И ПРОГРАММИРОВАНИЕ</a></li>
                                     <li><a class="dropdown-item" href="<?=base_url("")?>">ФИНАНСЫ И БУХГАЛТЕРСКИЙ УЧЕТ</a></li>
                                     <li><a class="dropdown-item" href="<?=base_url("")?>">ИНОСТРАННЫЕ ЯЗЫКИ</a></li>
                                     <li><a class="dropdown-item" href="<?=base_url("")?>">ЮРИСПРУДЕНЦИЯ И ПРАВО</a></li>
@@ -68,67 +68,4 @@
                 
   
 </div>
-
-          
-
-<!-- Section: Design Block -->
-<section class="text-center text-lg-start">
-  <style>
-    .cascading-right {
-      margin-right: -50px;
-    }
-
-    @media (max-width: 991.98px) {
-      .cascading-right {
-        margin-right: 0;
-      }
-    }
-  </style>
-
-  <!-- Jumbotron -->
-  <div class="container py-4">
-    <div class="row g-0 align-items-center">
-      <div class="col-lg-6 mb-5 mb-lg-0">
-        <div class="card cascading-right" style=" background: hsla(0, 0%, 100%, 0.55); backdrop-filter: blur(30px);">
-          <div class="card-body p-5 shadow-5">
-            <h2 class="fw-bold mb-5">Подберём идеальную программу</h2>
-            
-            <div class="row">
-  <div class="col-4">
-    <div class="list-group text-center" id="list-tab" role="tablist">
-      <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home">Профессиональная переподготовка</a>
-      <a class="list-group-item list-group-item-action" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="list-profile">Повышение квалификации</a>
-      <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab" aria-controls="list-messages">Общеразвивающая программа</a>
-    </div>
-  </div>
-  <div class="col-8">
-    <div class="tab-content text-justify" id="nav-tabContent">
-      <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list"><b>Профессиональная переподготовка</b> — это обучение и практика 
-        для достижения новой карьерной цели. Включает в себя и короткие курсы, на которых можно получить дополнительные навыки для текущей 
-        профессии, и получение второго высшего образования по другой специальности, и переквалификацию.</div>
-      <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list"><b>Повышения квалификации</b> — дать актуальные сведения о нововведениях в профессии, обучить работе в 
-      новой программе или на новом оборудовании. <br>
-     <b> Повышение квалификации </b> и переподготовка — это дополнительное профессиональное образование. </div>
-      <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">Дополнительная общеобразовательная <b> (общеразвивающая) программа</b> – это программа для детей и взрослых, определяющая направленность, адресность, 
-      структуру, содержание, последовательность, сроки и объём реализации образовательных услуг.</div>
-    </div>
-  </div>
-</div>
-           
-
-
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-6 mb-5 mb-lg-0">
-      <img src="<?=asset_url()?>/img/log.png" alt=""  height="" class="w-100 rounded-4 shadow-4">
-      
-      </div>
-    </div>
-  </div>
-  <!-- Jumbotron -->
-</section>
-<!-- Section: Design Block -->
-
 </header>
