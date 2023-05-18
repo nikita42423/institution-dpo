@@ -44,34 +44,9 @@
 								<td><?=$row['name_type_doc']?></td>
 								<td>
 									<!-- Изменить -->
-									<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#<?=$row['ID_type_doc']?>">Изменить</button>
+									<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal"
+									 data-id_type_doc="<?=$row['ID_type_doc']?>" data-name_type_doc="<?=$row['name_type_doc']?>">Изменить</button>
 
-									<!-- Модальное окно -->
-									<div class="modal fade" id="<?=$row['ID_type_doc']?>" tabindex="-1">
-										<div class="modal-dialog modal-dialog-centered">
-											<div class="modal-content">
-												<div class="modal-header">
-													<h1 class="modal-title fs-5" id="exampleModalLabel">Изменение вида документа</h1>
-													<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
-												</div>
-
-												<form action="type_doc/upd_type_doc" method="post">
-													<div class="modal-body">
-														<input type="hidden" name="ID_type_doc" value="<?=$row['ID_type_doc']?>">
-														<div>
-															<label for="name_type_doc" class="form-label">Наименование вида документа</label>
-															<input type="text" name="name_type_doc" class="form-control" value="<?=$row['name_type_doc']?>" required>
-														</div>
-													</div>
-													<div class="modal-footer">
-														<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
-														<button type="submit" class="btn btn-primary">Сохранить изменения</button>
-													</div>
-												</form>
-
-											</div>
-										</div>
-									</div>
 
 									<!-- Удалить -->
 									<a href="type_doc/del_type_doc?ID_type_doc='.$row['ID_type_doc'])?>" class="btn btn-danger">Удалить</a>
@@ -88,7 +63,52 @@
  	 </div>
 </div>
 
+									<!-- Модальное окно -->
+									<div class="modal fade" id="myModal" tabindex="-1">
+										<div class="modal-dialog modal-dialog-centered">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h1 class="modal-title fs-5" id="exampleModalLabel">Изменение вида документа</h1>
+													<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+												</div>
+
+												<form action="type_doc/upd_type_doc" method="post">
+													<div class="modal-body">
+														<input type="hidden" name="ID_type_doc" value="" id="ID_type_doc">
+														<div>
+															<label for="name_type_doc" class="form-label">Наименование вида документа</label>
+															<input type="text" name="name_type_doc" id="name_type_doc" class="form-control" value="" required>
+														</div>
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+														<button type="submit" class="btn btn-primary">Сохранить изменения</button>
+													</div>
+												</form>
+
+											</div>
+										</div>
+									</div>
+
+
 <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
+
+<script>
+$(document).ready(function(){
+	$('#myModal').on('show.bs.modal', function (event) {
+	// кнопка, которая вызывает модаль
+	var button = $(event.relatedTarget) 
+	// получим  data-id_user атрибут
+	var id_type_doc = button.data('id_type_doc') 
+	// получим  data-fio атрибут
+	var name_type_doc = button.data('name_type_doc');
+	// Здесь изменяем содержимое модали
+	var modal = $(this);
+	modal.find('.modal-body #ID_type_doc').val(id_type_doc);
+	modal.find('.modal-body #name_type_doc').val(name_type_doc);
+	})
+});
+</script>
 
 </body>
 </html>

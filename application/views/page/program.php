@@ -4,6 +4,11 @@
                 <h1 class="display-6 text-center mb-3 text-success"><?=$this->session->userdata('msg')?></h1>
 			</div>
 
+			<form class="row gy-2 gx-3 align-items-center" action="focus/add_focus" method="post">
+				<label for="name_focus" class="form-label">Направление</label>
+				<input type="text" id="name_focus" class="form-control" required>
+			</form>
+
 			<div class="table-responsive">
 
 				<!-- Скрипт для пагинации -->
@@ -16,7 +21,7 @@
 				});
 				</script>
 
-				<div class="data_table">
+				<div class="data_table"  id="program">
 					<table id="table_program" class="table table-striped" style="width:100%">
 						<thead>
 							<tr>
@@ -26,10 +31,11 @@
 							</tr>
 						</thead>
 						<tbody>
-                            <tr>
-                                <th></th>
-                                <td></td>
-                                <td></td>
+							<?php foreach ($type_ep as $row) {?>
+							<tr>
+								<th scope="row"><?=$row['ID_type_ep']?></th>
+								<td><?=$row['name_type_ep']?></td>
+								<td></td>
                             </tr>
 						</tbody>
 					</table>

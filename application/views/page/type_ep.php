@@ -1,4 +1,5 @@
 <main class="container">
+	
 	<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 		<h1 class="display-3 text-center mb-3">Справочная информация</h1>
 		<h1 class="display-6 text-center mb-3 text-success"><?=$this->session->userdata('msg')?></h1>
@@ -44,7 +45,7 @@
 						<td><?=$row['name_type_ep']?></td>
 						<td>
 							<!-- Изменить -->
-							<button id="start<?=$row['ID_type_ep']?>" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#<?=$row['ID_type_ep']?>"><i class="bi-pencil" aria-hidden="true"></i></button>
+							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#<?=$row['ID_type_ep']?>"><i class="bi-pencil" aria-hidden="true"></i></button>
 
 							<!-- Модальное окно -->
 							<div class="modal fade" id="<?=$row['ID_type_ep']?>" tabindex="-1">
@@ -74,7 +75,7 @@
 							</div>
 
 							<!-- Удалить -->
-							<a href="type_ep/del_type_ep?ID_type_ep='.$row['ID_type_ep'])?>" class="btn btn-danger">
+							<a href="type_ep/del_type_ep?ID_type_ep='.<?=$row['ID_type_ep']?>" class="btn btn-danger">
 								<i class="bi-trash" aria-hidden="true"></i>
 							</a>
 						</td>

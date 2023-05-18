@@ -1,18 +1,17 @@
-// $(document).ready(function(){
-//         $('#start1').click(function(){
-//             let name_type_ep = document.getElementById('name_type_ep').value;
-//             alert('result');
+$(document).ready(function(){
+        $('#name_focus').change(function(){
+            let name_focus = document.getElementById('name_focus').value;
+            alert(name_focus);
 
-//             $.ajax({
-//                 type: 'POST',
-//                 url: 'http://institution-dpo/type_ep/test',
-//                 data: {name_type_ep: name_type_ep},
-//                 dataType:'html',
-//                 success: function(result) {
-//                     console.log(result);
-//                     alert('Есть результат');
-//                 }
-//             })
-//         })
-//     }
-// )
+            $.ajax({
+                type: 'POST',
+                url: 'edu_program/test',
+                data: {name_focus: name_focus},
+                dataType:'html',
+                success: function(result) {
+                   $('#program').html(result);
+                }
+            })
+        })
+    }
+)

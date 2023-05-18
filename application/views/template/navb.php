@@ -1,4 +1,4 @@
-<header style="">
+<header>
 <div class="jumbotron">
             <button class="btn btn-primary head" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
