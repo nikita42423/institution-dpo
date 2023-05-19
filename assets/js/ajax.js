@@ -1,7 +1,15 @@
 $(document).ready(function(){
-    $('#id_focus').change(function(){
-        let ID_focus = document.getElementById('id_focus').value;
-        //alert(ID_focus);
+    $('.form-select').change(function(){
+        var info = [];
+        info = document.getElementsByClassName('filter_info');
+        // let ID_focus = document.getElementById('id_focus').value;
+        // let ID_type_ep = document.getElementById('id_type_ep').value;
+        // let ID_form = document.getElementById('id_form').value;
+        // let ID_type_doc = document.getElementById('id_type_doc').value;
+
+        // info = [ID_focus, ID_type_ep, ID_form, ID_type_doc];
+        alert(info);
+        console.log(info);
 
         $.ajax({
             type: 'POST',

@@ -15,21 +15,18 @@ class Edu_program extends CI_Controller {
 		$this->load->model('form_teach_m');
 		$this->load->model('type_doc_m');
 		$data['edu_program'] = $this->edu_program_m->sel_edu_program($ID_focus);
-		
 		$data['focus'] = $this->focus_m->sel_focus();
 		$data['type_ep'] = $this->type_ep_m->sel_type_ep();
 		$data['form_teach'] = $this->form_teach_m->sel_form_teach();
 		$data['type_doc'] = $this->type_doc_m->sel_type_doc();
 
-		
-
 		$this->load->view('template/header.php');
 		$this->load->view('template/sidebar.php');
+		$this->load->view('page/methodist/filter_program.php', $data);
 		$this->load->view('page/methodist/edu_program.php', $data);
-		
 	}
 
-	//Фильтрование
+	//Фильтрование обр. программы
 	public function filter_program()
     {
 		if (!empty($_POST))
@@ -73,6 +70,28 @@ class Edu_program extends CI_Controller {
 
 			echo $str;
 		}
+	}
+
+	//Добавление программы
+	public function add_program()
+	{
+		$ID_focus = NULL;
+
+		//Данные из БД
+		$this->load->model('edu_program_m');
+		$this->load->model('focus_m');
+		$this->load->model('type_ep_m');
+		$this->load->model('form_teach_m');
+		$this->load->model('type_doc_m');
+		$data['edu_program'] = $this->edu_program_m->sel_edu_program($ID_focus);
+		$data['focus'] = $this->focus_m->sel_focus();
+		$data['type_ep'] = $this->type_ep_m->sel_type_ep();
+		$data['form_teach'] = $this->form_teach_m->sel_form_teach();
+		$data['type_doc'] = $this->type_doc_m->sel_type_doc();
+
+		$this->load->view('template/header.php');
+		$this->load->view('template/sidebar.php');
+		$this->load->view('page/add_program.php', $data);
 	}
 
 }
