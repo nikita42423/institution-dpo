@@ -12,7 +12,8 @@ class Type_ep extends CI_Controller {
 
 		$this->load->view('template/header.php');
         $this->load->view('template/sidebar.php');
-		$this->load->view('page/type_ep.php', $data);
+		$this->load->view('page/info/type_ep.php', $data);
+        $this->load->view('template/modal_info.php');
 	}
 
     //Добавление вида ОП
@@ -65,12 +66,5 @@ class Type_ep extends CI_Controller {
         $this->session->set_flashdata('msg', 'Успешно изменен!');
 
         redirect(base_url('type_ep/browse'));
-    }
-
-    //Тестирование
-    public function test()
-    {
-        $r = $_POST['name_type_ep'];
-        echo $r;
     }
 }

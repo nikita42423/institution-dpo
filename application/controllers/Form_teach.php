@@ -12,7 +12,8 @@ class Form_teach extends CI_Controller {
 
 		$this->load->view('template/header.php');
         $this->load->view('template/sidebar.php');
-		$this->load->view('page/form_teach.php', $data);
+		$this->load->view('page/info/form_teach.php', $data);
+        $this->load->view('template/modal_info.php');
 	}
 
     //Добавление формы обучения
