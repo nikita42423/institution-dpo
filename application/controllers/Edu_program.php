@@ -36,6 +36,8 @@ class Edu_program extends CI_Controller {
 		{
 			$ID_focus = $_POST['ID_focus'];
 
+			if ($ID_focus == 'all') {$ID_focus = NULL;}
+
 			$this->load->model('edu_program_m');
 			$edu_program = $this->edu_program_m->sel_edu_program($ID_focus);
 			
