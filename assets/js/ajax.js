@@ -1,15 +1,15 @@
 $(document).ready(function(){
-    $('#name_focus').change(function(){
-        let name_focus = document.getElementById('name_focus').value;
-        alert(name_focus);
+    $('#id_focus').change(function(){
+        let ID_focus = document.getElementById('id_focus').value;
+        //alert(ID_focus);
 
         $.ajax({
             type: 'POST',
-            url: 'type_doc/test',
-            data: {name_focus: name_focus},
+            url: 'edu_program/filter_program',
+            data: {ID_focus: ID_focus},
             dataType:'html',
             success: function(result) {
-                $('#program').html(result);
+                $('#table_body_program').html(result);
             }
         })
     })

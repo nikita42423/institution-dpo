@@ -27,7 +27,7 @@
 					</ul>
 				</li>
 				<li class="nav-item mb-3">
-					<a class="nav-link" href="program/browse">Образовательная программа</a>
+					<a class="nav-link" href="edu_program/browse">Образовательная программа</a>
 				</li>
 				<li class="nav-item mb-3">
 					<a class="nav-link" href="teach_plan/browse">Учебный план</a>
