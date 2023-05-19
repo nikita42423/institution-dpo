@@ -1,20 +1,20 @@
 $(document).ready(function(){
     $('.form-select').change(function(){
         var info = [];
-        info = document.getElementsByClassName('filter_info');
-        // let ID_focus = document.getElementById('id_focus').value;
-        // let ID_type_ep = document.getElementById('id_type_ep').value;
-        // let ID_form = document.getElementById('id_form').value;
-        // let ID_type_doc = document.getElementById('id_type_doc').value;
+        // info = document.getElementsByClassName('filter_info');
+        let ID_focus = document.getElementById('id_focus').value;
+        let ID_type_ep = document.getElementById('id_type_ep').value;
+        let ID_form = document.getElementById('id_form').value;
+        let ID_type_doc = document.getElementById('id_type_doc').value;
 
         // info = [ID_focus, ID_type_ep, ID_form, ID_type_doc];
-        alert(info);
+        //alert(info);
         console.log(info);
 
         $.ajax({
             type: 'POST',
             url: 'edu_program/filter_program',
-            data: {ID_focus: ID_focus},
+            data: ({ID_focus: ID_focus, ID_type_ep: ID_type_ep, ID_form: ID_form, ID_type_doc: ID_type_doc}),
             dataType:'html',
             success: function(result) {
                 $('#table_body_program').html(result);

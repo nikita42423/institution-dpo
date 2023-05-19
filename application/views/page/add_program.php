@@ -1,5 +1,6 @@
 <div class="container">
-    <form  method="post" action="edu_program/add_program" role="form" class="row g-3 needs-validation">
+    <h1>Добавление образовательной программы</h1>
+    <form  method="post" action="edu_program/add_program" role="form" class="row g-3">
 
         <div class="col-md-5">
             <label for="name_program" class="form-label">Наименование программы</label>
@@ -59,11 +60,11 @@
         </div>
         <div class="col-md-2">
             <label for="cost_hour" class="form-label">Стоимость 1 педчаса</label>
-            <input type="number" class="form-control" id="cost_hour" min="0" step="0.01" value="">
+            <input type="number" class="form-control" id="cost_hour" min="0" step="0.01" value="0">
         </div>
         <div class="col-md-2">
             <label for="price" class="form-label">Цена</label>
-            <input type="number" class="form-control" id="price" min="0" step="0.01" value="">
+            <input type="number" class="form-control" id="price" min="0" step="0.01" value="0">
         </div>
         <div class="col-12">
             <button class="btn btn-primary" type="submit">Добавить</button>

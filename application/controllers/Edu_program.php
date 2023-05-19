@@ -6,15 +6,13 @@ class Edu_program extends CI_Controller {
 	//Просмотр образовательной программы
 	public function browse()
 	{
-		$ID_focus = NULL;
-
 		//Данные из БД
 		$this->load->model('edu_program_m');
 		$this->load->model('focus_m');
 		$this->load->model('type_ep_m');
 		$this->load->model('form_teach_m');
 		$this->load->model('type_doc_m');
-		$data['edu_program'] = $this->edu_program_m->sel_edu_program($ID_focus);
+		$data['edu_program'] = $this->edu_program_m->sel_edu_program(NULL, NULL, NULL, NULL);
 		$data['focus'] = $this->focus_m->sel_focus();
 		$data['type_ep'] = $this->type_ep_m->sel_type_ep();
 		$data['form_teach'] = $this->form_teach_m->sel_form_teach();
@@ -32,12 +30,18 @@ class Edu_program extends CI_Controller {
 		if (!empty($_POST))
 		{
 			$ID_focus = $_POST['ID_focus'];
+			$ID_type_ep = $_POST['ID_type_ep'];
+			$ID_form = $_POST['ID_form'];
+			$ID_type_doc = $_POST['ID_type_doc'];
 
 			if ($ID_focus == 'all') {$ID_focus = NULL;}
+			if ($ID_type_ep == 'all') {$ID_type_ep = NULL;}
+			if ($ID_form == 'all') {$ID_form = NULL;}
+			if ($ID_type_doc == 'all') {$ID_type_doc = NULL;}
 
 			$this->load->model('edu_program_m');
-			$edu_program = $this->edu_program_m->sel_edu_program($ID_focus);
-			
+			$edu_program = $this->edu_program_m->sel_edu_program($ID_focus, $ID_type_ep, $ID_form, $ID_type_doc);
+			$this->db->last_query();
 			$str = '';
 				foreach ($edu_program as $row) {
 				$str .= '<tr>
@@ -83,7 +87,7 @@ class Edu_program extends CI_Controller {
 		$this->load->model('type_ep_m');
 		$this->load->model('form_teach_m');
 		$this->load->model('type_doc_m');
-		$data['edu_program'] = $this->edu_program_m->sel_edu_program($ID_focus);
+
 		$data['focus'] = $this->focus_m->sel_focus();
 		$data['type_ep'] = $this->type_ep_m->sel_type_ep();
 		$data['form_teach'] = $this->form_teach_m->sel_form_teach();
@@ -92,6 +96,26 @@ class Edu_program extends CI_Controller {
 		$this->load->view('template/header.php');
 		$this->load->view('template/sidebar.php');
 		$this->load->view('page/add_program.php', $data);
+
+		if (!empty($_POST))
+		{
+			$name_ep = $this->input->post('name_ep');
+			$name_profession = $this->input->post('name_profession');
+			$type_cert = $this->input->post('type_cert');
+			$ID_type_ep = $this->input->post('ID_type_ep');
+			$ID_focus = $this->input->post('ID_focus');
+			$ID_type_doc = $this->input->post('ID_type_doc');
+			$ID_form = $this->input->post('ID_form');
+			$time_week = $this->input->post('time_week');
+			$amount_hour = $this->input->post('amount_hour');
+			$count_in_group = $this->input->post('count_in_group');
+			$cost_hour = $this->input->post('cost_hour');
+			$price = $this->input->post('price');
+
+			$this->load->model('edu_program_m');
+			$ID_ep = $this->edu_program_m->add_edu_program($name_ep, $ID_focus, $ID_type_ep, $ID_form, $time_week, $amount_hour, $ID_type_doc, $type_cert, $name_profession, $count_in_group, $cost_hour, $price);
+			
+		}
 	}
 
 }
