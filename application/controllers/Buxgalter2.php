@@ -13,7 +13,7 @@ class Buxgalter2 extends CI_Controller {
 
 		$this->load->view('template/header.php');
 		$this->load->view('page/buxgalter2.php', $data);
-		$this->load->view('template/footer.php');
+
 	}
 
 	

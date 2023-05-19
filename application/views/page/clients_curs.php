@@ -52,9 +52,10 @@
 							</tr>
 						</thead>
 						<tbody>
+              <?php foreach($clientcours as $row) {?>
                             <tr class="text-center">
-                                <td>а</td>
-                                <td>1200</td>
+                                <td><?=$row['name_ep']?></td>
+                                <td><?=$row['price']?></td>
                                 <td><!-- Кнопка-триггер модального окна -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Подать заявку
@@ -79,10 +80,6 @@
   <input type="text" id="form3Example2cg" class="form-control form-control-lg" required  name="phone1"/>
   <label class="form-label" for="form3Example2cg">Телефон</label>
 </div>
-<div class="form-outline mb-4">
-  <input type="email" id="form3Example3cg" class="form-control form-control-lg" required   name="email1"/>
-  <label class="form-label" for="form3Example3cg">E-mail</label>
-</div>
 
 <div class="d-flex justify-content-center">
   <button type="submit"
@@ -96,6 +93,7 @@
   </div>
 </div></td>
                             </tr>
+                            <?php } ?>
 						</tbody>
 					</table>
 				</div>

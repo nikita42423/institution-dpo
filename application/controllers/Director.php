@@ -7,6 +7,6 @@ class Director extends CI_Controller {
 	{
 		$this->load->view('template/header.php');
 		$this->load->view('page/director.php');
-		$this->load->view('template/footer.php');
+
 	}
 }

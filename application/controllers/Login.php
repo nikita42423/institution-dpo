@@ -38,13 +38,13 @@ class Login extends CI_Controller {
 
 			switch($ID_role)
 			{
-				case '1': redirect((base_url('director/index')));
+				case '6': redirect((base_url('director/index')));
 				break;
 				case '3': redirect(base_url('manager/index'));
 				break;
 				case '2': redirect(base_url('type_ep/browse'));
 				break;
-				case '6': redirect(base_url('buxgalter/index'));
+				case '1': redirect(base_url('buxgalter/index'));
 				break;
 				case '4': redirect(base_url('clients/index'));
 				break;

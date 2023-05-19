@@ -71,8 +71,10 @@
             <form class="row g-3" action="buxgalter/filter_rast" method="post">
             <div class="col-md-3">
     <label for="validationDefault04" class="form-label">Форма обучения</label>
-    <select class="form-select" id="validationDefault04">
-      <option value="">...</option>
+    <select class="form-select" id="validationDefault04" name="name_form">
+	<?php foreach ($name_form as $row) {?>
+                        <option value="<?=$row['name_form']?>"><?=$row['name_form']?></option>
+                    <?php }?>
     </select>
   </div>
   <div class="col-md-3">
@@ -97,17 +99,7 @@
 		
 			<div class="table-responsive">
 
-				<!-- Скрипт для пагинации -->
-				<script>
-				$(document).ready(function () {
-					var table = $('#example').DataTable({
-						buttons:['pdf'] //['copy', 'csv', 'excel', 'pdf', 'print']
-					});
-
-					table.buttons().container().appendTo('#example_wrapper .col-md-6:eq(0)');
-					
-				});
-				</script>
+		
 
 				<div class="data_table">
 					<table id="example" class="table table-striped" style="width:100%">
