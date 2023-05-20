@@ -10,9 +10,9 @@ class Buxgalter extends CI_Controller {
          $session=$data['session'];
          $ID_user = $session['ID_user'];
 
-
-		$this->load->model('bufgalter_m');
-		$this->bufgalter_m->sel_bux($data);
+		 $this->load->model('bufgalter_m');
+		 $data['edu_program'] = $this->bufgalter_m->sel_edu_program();
+		
 
 		$this->load->view('template/header.php');
 		$this->load->view('page/buxgalter.php',  $data);

@@ -1,15 +1,20 @@
 <?php
-class Client_m extends CI_Model {
+class Bufgalter_m extends CI_Model {
 
     public function __construct()
     {
         $this->load->database();
     }
     
-    //Выбрать образовательную программу
-    public function sel_bux()
-    {
-        $query = $this->db->get('form_teach');
+
+
+   public function sel_edu_program()
+   {
+
+    $sql= "SELECT * FROM edu_program WHERE price = 0";
+    $query = $this->db->query($sql);
         return $query->result_array();
-    }
+   }
+
+
 }

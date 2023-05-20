@@ -68,30 +68,31 @@
 				
 			</div>
 
-            <form class="row g-3" action="buxgalter/filter_rast" method="post">
+
+            <form class="row g-3" action="" method="post">
             <div class="col-md-3">
-    <label for="validationDefault04" class="form-label">Форма обучения</label>
-    <select class="form-select" id="validationDefault04" name="name_form">
-	<?php foreach ($name_form as $row) {?>
-                        <option value="<?=$row['name_form']?>"><?=$row['name_form']?></option>
+    <label for="validationDefault04" class="form-label">Образовательная программа</label>
+    <select class="form-select tt" id="validationDefault04" name="form_teach">
+	<?php foreach ($edu_program as $row) {?>
+                        <option value="<?=$row['ID_ep']?>"><?=$row['name_ep']?></option>
                     <?php }?>
     </select>
   </div>
-  <div class="col-md-3">
-    <label for="validationDefault01" class="form-label">Кол-во часов</label>
-    <input type="text" class="form-control" id="validationDefault01">
+  <div class="col-md-2">
+    <label for="disabledTextInput" class="form-label">Кол-во часов</label>
+    <input type="text" class="form-control" id="disabledTextInput"  disabled>
   </div>
-  <div class="col-md-3">
-    <label for="validationDefault02" class="form-label">Срок в неделях</label>
-    <input type="text" class="form-control" id="validationDefault02" >
+  <div class="col-md-2">
+    <label for="disabledTextInput" class="form-label">Форма обучения</label>
+    <input type="text" class="form-control" id="disabledTextInput"  disabled>
   </div>
-  
-  <div class="col-md-3">
-    <label for="validationDefault03" class="form-label">Наполняемость группы чел.</label>
-    <input type="text" class="form-control" id="validationDefault03">
+  <div class="col-md-2">
+    <label for="disabledTextInput" class="form-label">Человек</label>
+    <input type="text" class="form-control" id="disabledTextInput" disabled>
   </div>
-
 </form>
+
+
 <hr>
 
 
@@ -99,13 +100,12 @@
 		
 			<div class="table-responsive">
 
-		
-
 				<div class="data_table">
 					<table id="example" class="table table-striped" style="width:100%">
 						<thead>
 							<tr>
 								<th>СТАТЬИ ЗАТРАТ</th>
+								<th></th>
 								<th>СУММА</th>
 							
 							</tr>
@@ -113,47 +113,66 @@
 						<tbody>
 							<tr>
 								<td>Оплата труда преподавателей из расчета стоимости 1 учебного часа работы преподавателя в сумме _____________ руб </td>
-								<td>25252</td>
+								<td> <div class="col-md-4">
+                                     <input type="text" class="form-control" id="validationDefault01">
+                                     </div></td>  <td>25252</td>
+								
 								
 							</tr>
                             <tr>
 								<td>Оплата труда административно-управленческого и вспомогательного персонала из расчета 30% от суммы оплата труда преподавателей, руб</td>
-								<td>25252</td>
+								<td> <div class="col-md-4">
+                                     <input type="text" class="form-control" id="validationDefault01">
+                                     </div></td>  <td>25252</td>
 								
 							</tr>
                             <tr>
 								<td>Страховые взносы в размере 30,2% от фонда оплаты труда, руб</td>
-								<td>25252</td>
+								<td> <div class="col-md-4">
+                                     <input type="text" class="form-control" id="validationDefault01">
+                                     </div></td>  <td>25252</td>
 								
 							</tr>
                             <tr>
 								<td>Отчисления на развитие учебно-материальной базы учреждения в размере 10% от фонда оплаты труда, руб</td>
-								<td>25252</td>
+								<td> <div class="col-md-4">
+                                     <input type="text" class="form-control" id="validationDefault01">
+                                     </div></td>  <td>25252</td>
 								
 							</tr>
                             <tr>
 								<td>Отчисления для обеспечения деятельности платной услуги в размере 40% от фонда оплаты труда, руб</td>
-								<td>25252</td>
+								<td> <div class="col-md-4">
+                                     <input type="text" class="form-control" id="validationDefault01">
+                                     </div></td>  <td>25252</td>
 								
 							</tr>
                             <tr>
 								<td>Хозяйственные и канцелярские расходы в размере 2% от фонда оплаты труда, руб</td>
-								<td>25252</td>
+								<td> <div class="col-md-4">
+                                     <input type="text" class="form-control" id="validationDefault01">
+                                     </div></td>  <td>25252</td>
 								
 							</tr>
                             <tr>
 								<td>Общая сумма затрат, руб</td>
-								<td>25252</td>
+								<td> <div class="col-md-4">
+                                     <input type="text" class="form-control" id="validationDefault01">
+                                     </div></td>  <td>25252</td>
 								
 							</tr>
                             <tr>
 								<td>Прибыль (20% от общей суммы затрат), руб</td>
-								<td>25252</td>
+								<td> <div class="col-md-4">
+                                     <input type="text" class="form-control" id="validationDefault01">
+                                     </div></td>  <td>25252</td>
 								
 							</tr>
                             <tr>
 								<td>Общая стоимость услуги, руб</td>
-								<td>25252</td>
+								<td> <div class="col-md-4">
+                                     <input type="text" class="form-control" id="validationDefault01">
+                                     </div></td>  <td>25252</td>
 								
 							</tr>
 							
