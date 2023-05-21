@@ -20,12 +20,13 @@ class Edu_program extends CI_Controller {
 
 		$this->load->view('template/header.php');
 		$this->load->view('template/sidebar.php');
-		$this->load->view('page/methodist/filter_program.php', $data);
+		$this->load->view('page/methodist/filter_edu_program.php', $data);
 		$this->load->view('page/methodist/edu_program.php', $data);
+		$this->load->view('template/modal_ep.php');
 	}
 
 	//Фильтрование обр. программы
-	public function filter_program()
+	public function filter_edu_program()
     {
 		if (!empty($_POST))
 		{
@@ -41,34 +42,31 @@ class Edu_program extends CI_Controller {
 
 			$this->load->model('edu_program_m');
 			$edu_program = $this->edu_program_m->sel_edu_program($ID_focus, $ID_type_ep, $ID_form, $ID_type_doc);
-			$this->db->last_query();
 			$str = '';
 				foreach ($edu_program as $row) {
 				$str .= '<tr>
 					<th scope="row">'.$row['ID_ep'].'</th>
-					<td>'.$row['name_ep'].'</td>
+					<td>
+						<button type="button" data-bs-toggle="modal" class="btn btn-light" data-bs-toggle="tooltip" data-bs-placement="top" title="Подробнее"
+							data-bs-target="#modal_ep"
+							data-id_ep="'.$row['ID_ep'].'"
+							data-name_ep="'.$row['name_ep'].'"
+							data-name_profession="'.$row['name_profession'].'"
+							data-type_cert="'.$row['type_cert'].'"
+							data-ID_type_ep="'.$row['ID_type_ep'].'"
+							data-ID_focus="'.$row['ID_focus'].'"
+							data-ID_type_doc="'.$row['ID_type_doc'].'"
+							data-ID_form="'.$row['ID_form'].'"
+							data-time_week="'.$row['time_week'].'"
+							data-amount_hour="'.$row['amount_hour'].'"
+							data-count_in_group="'.$row['count_in_group'].'"
+						>'.$row['name_ep'].'</button>
+					</td>
 					<td>'.$row['name_focus'].'</td>
 					<td>'.$row['name_type_ep'].'</td>
 					<td>'.$row['name_form'].'</td>
-					<td>'.$row['time_week'].'</td>
-					<td>'.$row['amount_hour'].'</td>
 					<td>'.$row['name_type_doc'].'</td>
-					<td>'.$row['type_cert'].'</td>
 					<td>'.$row['name_profession'].'</td>
-					<td>'.$row['count_in_group'].'</td>
-					<td>'.$row['cost_hour'].'</td>
-					<td>'.$row['price'].'</td>
-					<td>
-						<!-- Изменить -->
-						<button type="button" class="btn btn-primary">
-							<i class="bi-pencil" aria-hidden="true"></i>
-						</button>
-
-						<!-- Удалить -->
-						<a href="" class="btn btn-danger">
-							<i class="bi-trash" aria-hidden="true"></i>
-						</a>
-					</td>
 				</tr>';
 				}
 
@@ -76,11 +74,9 @@ class Edu_program extends CI_Controller {
 		}
 	}
 
-	//Добавление программы
+	//Добавление образовательный программы
 	public function add_program()
 	{
-		$ID_focus = NULL;
-
 		//Данные из БД
 		$this->load->model('edu_program_m');
 		$this->load->model('focus_m');
@@ -95,7 +91,7 @@ class Edu_program extends CI_Controller {
 
 		$this->load->view('template/header.php');
 		$this->load->view('template/sidebar.php');
-		$this->load->view('page/add_program.php', $data);
+		$this->load->view('page/methodist/add_program.php', $data);
 
 		if (!empty($_POST))
 		{
@@ -109,41 +105,13 @@ class Edu_program extends CI_Controller {
 			$time_week = $this->input->post('time_week');
 			$amount_hour = $this->input->post('amount_hour');
 			$count_in_group = $this->input->post('count_in_group');
-			$cost_hour = $this->input->post('cost_hour');
-			$price = $this->input->post('price');
 
 			$this->load->model('edu_program_m');
-			$ID_ep = $this->edu_program_m->add_edu_program($name_ep, $ID_focus, $ID_type_ep, $ID_form, $time_week, $amount_hour, $ID_type_doc, $type_cert, $name_profession, $count_in_group, $cost_hour, $price);
-			
+			$ID_ep = $this->edu_program_m->add_edu_program($name_ep, $ID_focus, $ID_type_ep, $ID_form, $time_week, $amount_hour, $ID_type_doc, $type_cert, $name_profession, $count_in_group);
+
+			$this->session->set_flashdata('ID_ep', $ID_ep); //Для переноски данных в другую страницу
+			redirect('discipline/browse');
 		}
 	}
 
 }
-    // //Тестирование
-    // public function test1()
-    // {
-    //     $name_focus = $_POST['name_focus'];
-        
-    //     $this->load->model('edu_program_m');
-    //     $edu_program = $this->edu_program_m->sel_edu_program($name_focus);
-
-	// 	//в переменную запишем все, что нужно потом выдать 
-	// 	$str = '<table id="table_program" class="table table-striped" style="width:100%">
-	// 					<thead>
-	// 						<tr>
-	// 							<th>№</th>
-	// 							<th>Наименование</th>
-	// 							<th></th>
-	// 						</tr>
-	// 					</thead>
-	// 					<tbody>';
-	// 						foreach ($edu_program as $row) {
-	// 						$str .='<tr> <th scope="row">'.$row['ID_type_ep'].'</th>
-	// 							<td>'.$row['name_type_ep'].'</td>
-	// 							<td></td>
-    //                         </tr>';
-    //                         $str .=' </tbody></table>';
-    //                         echo $str;
-    //             }
-	// }
-    // }

@@ -21,11 +21,16 @@ class Edu_program_m extends CI_Model {
         return $query->result_array();
     }
 
-    //
-    public function add_edu_program($name_ep, $ID_focus, $ID_type_ep, $ID_form, $time_week, $amount_hour, $ID_type_doc, $type_cert, $name_profession, $count_in_group, $cost_hour, $price)
+    //Выполнить процедуру "Добавить образовательную программу"
+    public function add_edu_program($name_ep, $ID_focus, $ID_type_ep, $ID_form, $time_week, $amount_hour, $ID_type_doc, $type_cert, $name_profession, $count_in_group)
     {
-        $sql = "CALL add_program (?,?,?,?,?,?,?,?,?,?,?,?)";
-        $this->db->query($sql, array($name_ep, $ID_focus, $ID_type_ep, $ID_form, $time_week, $amount_hour, $ID_type_doc, $type_cert, $name_profession, $count_in_group, $cost_hour, $price));
-            
+        $sql = "CALL add_program (?,?,?,?,?,?,?,?,?,?)";
+        $this->db->query($sql, array($name_ep, $ID_focus, $ID_type_ep, $ID_form, $time_week, $amount_hour, $ID_type_doc, $type_cert, $name_profession, $count_in_group));
+        
+        $query = $this->db->select('ID_ep')
+                          ->order_by('ID_ep', 'ASC')
+                          ->get('edu_program');
+        $row = $query->last_row();  //Получить последнюю запись из таблицы
+        return $row->ID_ep;         //Возвращает ИД из последней записи
     }
 }
