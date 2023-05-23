@@ -9,9 +9,9 @@
 
 			<form action="type_doc/upd_type_doc" method="post">
 				<div class="modal-body">
-					<input type="hidden" name="ID_type_doc" value="" id="id_info">
+					<input type="hidden" name="id_info" value="" id="id_info">
 					<div>
-						<input type="text" name="name_type_doc" id="name_info" class="form-control" value="" required>
+						<input type="text" name="name_info" id="name_info" class="form-control" value="" required>
 					</div>
 				</div>
 				<div class="modal-footer">
