@@ -5,15 +5,13 @@
 		<div class="data_table"  id="program">
 
 			<table id="table_ep" class="table table-hover" style="width:100%">
-				<thead class="table-dark">
+			<thead class="table-dark">
 					<tr>
 						<th>№</th>
 						<td>Наименование</td>
 						<td>Направление</td>
-						<td>Вид ОП</td>
-						<td>Форма обучения</td>
-						<td>Вид документа</td>
-						<td>Наименование квалификации</td>
+						<td>Стоимость</td>
+						<td></td>
 					</tr>
 				</thead>
 				<tbody id="table_body_ep">
@@ -21,7 +19,7 @@
 					<tr>
 						<th scope="row"><?=$row['ID_ep']?></th>
 						<td>
-							<button type="button" data-bs-toggle="modal" class="btn btn-light" data-bs-toggle="tooltip" data-bs-placement="top" title="Подробнее"
+							<button type="button" data-bs-toggle="modal" class="btn btn-light" 
 								data-bs-target="#modal_ep"
 								data-id_ep="<?=$row['ID_ep']?>"
 								data-name_ep="<?=$row['name_ep']?>"
@@ -34,14 +32,26 @@
 								data-time_week="<?=$row['time_week']?>"
 								data-amount_hour="<?=$row['amount_hour']?>"
 								data-count_in_group="<?=$row['count_in_group']?>"
-
-							><?=$row['name_ep']?></button>
+							><span data-bs-toggle="tooltip" data-bs-placement="right" title="Подробнее"><?=$row['name_ep']?></span></button>
 						</td>
 						<td><?=$row['name_focus']?></td>
-						<td><?=$row['name_type_ep']?></td>
-						<td><?=$row['name_form']?></td>
-						<td><?=$row['name_type_doc']?></td>
-						<td><?=$row['name_profession']?></td>
+						<td><?=$row['price']?></td>
+						<td>
+							<!-- <form action="discipline/browse_one" method="post">
+								<input type="hidden" name="ID_ep" value="<?=$row['ID_ep']?>"> -->
+								<div class="btn-group" role="group"> 
+				
+									<!-- Изменить -->
+									<button type="button" class="btn btn-primary">
+										<span data-bs-toggle="tooltip" data-bs-placement="left" title="Изменить"><i class="bi-pencil" aria-hidden="true"></span></i>
+									</button>
+
+									<!-- Учебный план -->
+									<button type="submit" class="btn btn-dark"><a href="discipline/browse_one?ID_ep=<?=$row['ID_ep']?>">Уч. план</a></button>
+								
+								</div>
+							<!-- </form> -->
+						</td>
 					</tr>
 					<?php }?>
 				</tbody>

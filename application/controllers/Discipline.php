@@ -11,7 +11,7 @@ class Discipline extends CI_Controller {
 		if (!empty($in)) {
 			$ID_ep = $this->session->flashdata('ID_ep');
 		} else {
-			$ID_ep = NULL;
+			$ID_ep = 1;
 		}
 
 		//Данные из БД
@@ -19,6 +19,7 @@ class Discipline extends CI_Controller {
 		$this->load->model('discipline_m');
         $data['edu_program'] = $this->edu_program_m->sel_edu_program(NULL, NULL, NULL, NULL);
 		$data['discipline'] = $this->discipline_m->sel_discipline($ID_ep);
+		$data['ID_ep'] = $ID_ep;
 
 		$this->load->view('template/header.php');
 		$this->load->view('template/sidebar.php');
@@ -82,6 +83,24 @@ class Discipline extends CI_Controller {
 			}
 
 			echo $str;
+		}
+	}
+
+	//Просмотр одного учебного плана (дисциплины)
+	public function browse_one()
+	{
+		if (!empty($_GET['ID_ep'])) {
+			$ID_ep = $_GET['ID_ep'];
+
+			//Данные из БД
+			$this->load->model('edu_program_m');
+			$this->load->model('discipline_m');
+			
+			$data['discipline'] = $this->discipline_m->sel_discipline($ID_ep);
+
+			$this->load->view('template/header.php');
+			$this->load->view('template/sidebar.php');
+			$this->load->view('page/methodist/discipline.php', $data);
 		}
 	}
 }

@@ -16,8 +16,12 @@
                 <label for="id_ep" class="form-label">Образовательная программа</label>
                 <select class="form-select mb-3 filter_discipline" id="id_ep" name="ID_ep">
                     <?php foreach($edu_program as $row) {?>
-                    <option value="<?=$row['ID_ep']?>"><?=$row['name_ep']?></option>
-                    <?php }?>
+                        <?php if ($row['ID_ep'] == $ID_ep) {?>
+                            <option value="<?=$row['ID_ep']?>" selected><?=$row['name_ep']?></option>
+                        <?php } else {?>
+                            <option value="<?=$row['ID_ep']?>"><?=$row['name_ep']?></option>
+                        <?php }
+                    }?>
                 </select>
 
                 <label for="name_discipline" class="form-label">Наименование дисциплины</label>

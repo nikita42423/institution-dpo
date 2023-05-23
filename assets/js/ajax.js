@@ -52,6 +52,7 @@ $(document).ready(function(){
 	$('#modal_ep').on('show.bs.modal', function (event) {
 
 	var button = $(event.relatedTarget) 		// кнопка, которая вызывает модаль
+
 	var ID_ep = button.data('ID_ep')
 	var name_ep = button.data('name_ep');
     var name_profession = button.data('name_profession');
@@ -69,10 +70,12 @@ $(document).ready(function(){
 	modal.find('.modal-body #name_ep').val(name_ep);
     modal.find('.modal-body #name_profession').val(name_profession);
     modal.find('.modal-body #type_cert').val(type_cert);
+
     modal.find('.modal-body #ID_type_ep').val(ID_type_ep);
     modal.find('.modal-body #ID_focus').val(ID_focus);
     modal.find('.modal-body #ID_type_doc').val(ID_type_doc);
     modal.find('.modal-body #ID_form').val(ID_form);
+
     modal.find('.modal-body #time_week').val(time_week);
     modal.find('.modal-body #amount_hour').val(amount_hour);
     modal.find('.modal-body #count_in_group').val(count_in_group);

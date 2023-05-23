@@ -18,11 +18,11 @@ class Edu_program extends CI_Controller {
 		$data['form_teach'] = $this->form_teach_m->sel_form_teach();
 		$data['type_doc'] = $this->type_doc_m->sel_type_doc();
 
+		$this->load->view('template/modal_ep.php');
 		$this->load->view('template/header.php');
 		$this->load->view('template/sidebar.php');
 		$this->load->view('page/methodist/filter_edu_program.php', $data);
 		$this->load->view('page/methodist/edu_program.php', $data);
-		$this->load->view('template/modal_ep.php');
 	}
 
 	//Фильтрование обр. программы
@@ -91,7 +91,7 @@ class Edu_program extends CI_Controller {
 
 		$this->load->view('template/header.php');
 		$this->load->view('template/sidebar.php');
-		$this->load->view('page/methodist/add_program.php', $data);
+		$this->load->view('page/methodist/add_edu_program.php', $data);
 
 		if (!empty($_POST))
 		{

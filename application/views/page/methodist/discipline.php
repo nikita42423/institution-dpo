@@ -3,6 +3,12 @@
     <div class="table-responsive">
 		<div class="data_table"  id="program">
 
+			<div class="row justify-content-md-center mb-3">
+				<div class="col-md-auto">
+					<h1 class="display-6 text-center mb-3">Образовательная программа <...></h1>
+				</div>
+			</div>
+
             <table id="table_discipline" class="table table-hover" style="width:100%">
 				<thead class="table-dark">
 					<tr>
@@ -35,7 +41,7 @@
                                     <i class="bi-pencil" aria-hidden="true"></i>
                                 </button>
                                 <!-- Удалить -->
-                                <a href="" class="btn btn-danger">
+                                <a href="" class="btn btn-dark">
                                     <i class="bi-trash" aria-hidden="true"></i>
                                 </a>
                             </div>
@@ -57,6 +63,11 @@ $(document).ready(function () {
 		buttons:['excel', 'pdf'], //['copy', 'csv', 'excel', 'pdf', 'print']
 	});
 	table.buttons().container().appendTo('#table_discipline_wrapper .col-md-6:eq(0)');
-    
+});
+
+// Обновление таблицы после выбора из выпадающего списка
+$('.filter_discipline').change(function () {
+	var table = $('#table_discipline').DataTable();
+	table.clear().draw();
 });
 </script>
