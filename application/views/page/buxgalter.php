@@ -80,15 +80,15 @@
   </div>
   <div class="col-md-2">
     <label for="disabledTextInput" class="form-label">Кол-во часов</label>
-    <input type="text" class="form-control" id="disabledTextInput" value="<?=$row['name_ep']?>" name=""  disabled>
+    <input type="text" class="form-control" id="disabledTextInput" value="<?=$row['amount_hour']?>" name=""  disabled>
   </div>
   <div class="col-md-2">
     <label for="disabledTextInput" class="form-label">Форма обучения</label>
-    <input type="text" class="form-control" id="disabledTextInput" value="<?=$row['name_ep']?>" disabled>
+    <input type="text" class="form-control" id="disabledTextInput" value="<?=$row['ID_form']?>"  name="" disabled>
   </div>
   <div class="col-md-2">
     <label for="disabledTextInput" class="form-label">Человек</label>
-    <input type="text" class="form-control" id="disabledTextInput" value="<?=$row['name_ep']?>" disabled>
+    <input type="text" class="form-control" id="disabledTextInput" value="<?=$row['count_in_group']?>" disabled>
   </div>
 </form>
 
