@@ -68,30 +68,32 @@
 				
 			</div>
 
+<div id="show_resh">
 
-            <form class="row g-3" action="" method="post">
-            <div class="col-md-3">
-    <label for="validationDefault04" class="form-label">Образовательная программа</label>
-    <select class="form-select tt" id="validationDefault04" name="form_teach">
-	<?php foreach ($edu_program as $row) {?>
-                        <option value="<?=$row['ID_ep']?>"><?=$row['name_ep']?></option>
-                    <?php }?>
-    </select>
-  </div>
-  <div class="col-md-2">
-    <label for="disabledTextInput" class="form-label">Кол-во часов</label>
-    <input type="text" class="form-control" id="disabledTextInput" value="<?=$row['amount_hour']?>" name=""  disabled>
-  </div>
-  <div class="col-md-2">
-    <label for="disabledTextInput" class="form-label">Форма обучения</label>
-    <input type="text" class="form-control" id="disabledTextInput" value="<?=$row['ID_form']?>"  name="" disabled>
-  </div>
-  <div class="col-md-2">
-    <label for="disabledTextInput" class="form-label">Человек</label>
-    <input type="text" class="form-control" id="disabledTextInput" value="<?=$row['count_in_group']?>" disabled>
-  </div>
-</form>
 
+            <form class="row g-3" action="" id="filtrbux" method="post">
+						<div class="col-md-3">
+				<label for="ID_ep" class="form-label">Образовательная программа</label>
+				<select class="form-select tt" id="ID_ep" name="form_teach">
+				<?php foreach ($edu_program as $row) {?>
+									<option value="<?=$row['ID_ep']?>"><?=$row['name_ep']?></option>
+								<?php }?>
+				</select>
+			</div>
+			<div class="col-md-2" data-bs-target="#modal_ep">
+				<label for="amount_hour" class="form-label">Кол-во часов</label>
+				<input type="text" class="form-control" id="amount_hour" value="<?=$row['amount_hour']?>" id="amount_hour" name=""  disabled>
+			</div>
+			<div class="col-md-2" data-bs-target="#modal_ep">
+				<label for="name_form" class="form-label">Форма обучения</label>
+				<input type="text" class="form-control" id="name_form" value="<?=$row['name_form']?>" disabled>
+			</div>
+			<div class="col-md-2" data-bs-target="#modal_ep">
+				<label for="count_in_group" class="form-label">Человек</label>
+				<input type="text" class="form-control" id="count_in_group" value="<?=$row['count_in_group']?>" id="count_in_group" disabled>
+			</div>
+			</form>
+</div>
 
 <hr>
 
@@ -114,72 +116,72 @@
 							<tr>
 								<td>Оплата труда преподавателей из расчета стоимости 1 учебного часа работы преподавателя в сумме _____________ руб </td>
 								<td> <div class="col-md-4">
-                                     <input type="text" class="form-control" id="validationDefault01">
-                                     </div></td>  <td>25252</td>
+                                     <input type="text" class="form-control rechert" id="raster1" value="0">
+                                     </div></td>  <td><p id="res1"></p></td>
 								
 								
 							</tr>
                             <tr>
 								<td>Оплата труда административно-управленческого и вспомогательного персонала из расчета 30% от суммы оплата труда преподавателей, руб</td>
 								<td> <div class="col-md-4">
-                                     <input type="text" class="form-control" id="validationDefault01">
-                                     </div></td>  <td>25252</td>
+                                     <input type="text" class="form-control rechert" id="raster2" value="30">
+                                     </div></td>  <td><p id="res2"></p></td>
 								
 							</tr>
                             <tr>
 								<td>Страховые взносы в размере 30,2% от фонда оплаты труда, руб</td>
 								<td> <div class="col-md-4">
-                                     <input type="text" class="form-control" id="validationDefault01">
-                                     </div></td>  <td>25252</td>
+                                     <input type="text" class="form-control rechert" id="raster3" value="30,2"> 
+                                     </div></td>  <td><p id="res3"></p></td>
 								
 							</tr>
                             <tr>
 								<td>Отчисления на развитие учебно-материальной базы учреждения в размере 10% от фонда оплаты труда, руб</td>
 								<td> <div class="col-md-4">
-                                     <input type="text" class="form-control" id="validationDefault01">
-                                     </div></td>  <td>25252</td>
+                                     <input type="text" class="form-control rechert" id="raster4"  value="10">
+                                     </div></td>  <td><p id="res4"></p></td>
 								
 							</tr>
                             <tr>
 								<td>Отчисления для обеспечения деятельности платной услуги в размере 40% от фонда оплаты труда, руб</td>
 								<td> <div class="col-md-4">
-                                     <input type="text" class="form-control" id="validationDefault01">
-                                     </div></td>  <td>25252</td>
+                                     <input type="text" class="form-control rechert" id="raster5" value="40">
+                                     </div></td>  <td><p id="res5"></p></td>
 								
 							</tr>
                             <tr>
 								<td>Хозяйственные и канцелярские расходы в размере 2% от фонда оплаты труда, руб</td>
 								<td> <div class="col-md-4">
-                                     <input type="text" class="form-control" id="validationDefault01">
-                                     </div></td>  <td>25252</td>
+                                     <input type="text" class="form-control rechert" id="raster6" value="2">
+                                     </div></td>  <td><p id="res6"></p></td>
 								
 							</tr>
                             <tr>
 								<td>Общая сумма затрат, руб</td>
 								<td> <div class="col-md-4">
-                                     <input type="text" class="form-control" id="validationDefault01">
-                                     </div></td>  <td>25252</td>
+                                     <input type="text" class="form-control rechert" id="raster7" value="0">
+                                     </div></td>  <td><p id="res7"></p></td>
 								
 							</tr>
                             <tr>
 								<td>Прибыль (20% от общей суммы затрат), руб</td>
 								<td> <div class="col-md-4">
-                                     <input type="text" class="form-control" id="validationDefault01">
-                                     </div></td>  <td>25252</td>
+                                     <input type="text" class="form-control rechert" id="raster8" value="0">
+                                     </div></td>  <td><p id="res8"></p></td>
 								
 							</tr>
                             <tr>
 								<td>Общая стоимость услуги, руб</td>
 								<td> <div class="col-md-4">
-                                     <input type="text" class="form-control" id="validationDefault01">
-                                     </div></td>  <td>25252</td>
+                                     <input type="text" class="form-control rechert" id="raster9" value="0">
+                                     </div></td>  <td><p id="res9"></p></td>
 								
 							</tr>
 							
 						</tbody>
 					</table>
 				</div>
-
+<div id ="aaa"></div>
 			</div>
 		</main>
  	 </div>

@@ -78,3 +78,56 @@ $(document).ready(function(){
     modal.find('.modal-body #count_in_group').val(count_in_group);
 	})
 });
+
+
+//Фильтрование расчет стоимости услуги
+$(document).ready(function(){
+    $('#ID_ep').change(function(){ 
+        let ID_ep = document.getElementById('ID_ep').value;
+        //alert(ID_ep);
+        $.ajax({
+            type: 'POST',
+            url: 'buxgalter/show_rachet',
+            data: ({ID_ep: ID_ep}),
+            dataType:'html',
+            success: function(result) {
+                $('#show_resh').html(result);
+            }
+        })
+    })
+})
+
+
+//расчет услуги
+$(document).ready(function(){
+    $('.rechert').change(function(){
+        let ID_ep = document.getElementById('ID_ep').value;
+        let amount_hour = document.getElementById('amount_hour').value;
+        let name_form = document.getElementById('name_form').value;
+        let count_in_group = document.getElementById('count_in_group').value;
+        // let arr = new Array();
+        let id = [];
+        let v = [];
+        for (let i=1; i<10; i++){
+            idelem='raster'+i;
+            id[i-1] = idelem;
+            v[i-1] = document.getElementById(idelem).value;
+        }
+ 
+      
+      //  ids = '#res'+ id.substring(6,7);
+   alert(id +' '+v);
+        $.ajax({
+            type: 'POST',
+            url: 'buxgalter/show_rachet',
+            data: ({raster1: v[0], raster2: v[1], raster3: v[2], raster4: v[3], raster5: v[4],
+                raster6: v[5], raster7: v[6], raster8: v[7], raster9: v[8], 
+                 ID_ep: ID_ep, amount_hour: amount_hour, name_form: name_form, count_in_group: count_in_group}),
+            dataType:'html',
+            success: function(result) {
+                //а здесь из этого массива выберем и подставим куда нужно
+                $('#aaa').html(result);
+            }
+        })
+    })
+})
