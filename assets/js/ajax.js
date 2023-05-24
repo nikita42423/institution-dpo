@@ -84,24 +84,42 @@ $(document).ready(function(){
 $(document).ready(function(){
     $('#ID_ep').change(function(){ 
         let ID_ep = document.getElementById('ID_ep').value;
-        //alert(ID_ep);
+       //alert(ID_ep);
         $.ajax({
             type: 'POST',
-            url: 'buxgalter/show_rachet',
-            data: ({ID_ep: ID_ep}),
-            dataType:'html',
+            url: 'buxgalter/shic_op',
+            data: {ID_ep:ID_ep},
+            dataType:'json',
             success: function(result) {
-                $('#show_resh').html(result);
+                document.getElementById('amount_hour').value = result.amount_hour;
+                document.getElementById('name_form').value = result.name_form;
+                document.getElementById('count_in_group').value = result.count_in_group;
+
+                
+
+                $('#aaa p').html('');
+                $('#raster1').val(0);
+
+
+         
+
+
+                //$('#amount_hour').val('12');
+                // alert(result);
+                //let data = JSON.parse(result);
+                //alert(result.amount_hour);
+                //$('#show_resh').html(result); 
             }
         })
     })
-})
+});
 
 
 //расчет услуги
 $(document).ready(function(){
     $('.rechert').keyup(function(){
         let ID_ep = document.getElementById('ID_ep').value;
+        
         let amount_hour = document.getElementById('amount_hour').value;
         let name_form = document.getElementById('name_form').value;
         let count_in_group = document.getElementById('count_in_group').value;
@@ -130,6 +148,7 @@ $(document).ready(function(){
                 //а здесь из этого массива выберем и подставим куда нужно
               //  $('#show_resh').html(result);
                result =  JSON.parse(result);
+              // alert(result);
             //    rvalue = [];
                 // for (i in result){
                 //     rvalue.push(result[i]);
@@ -142,6 +161,11 @@ $(document).ready(function(){
                     $(id).html(value);
                 })
                  
+
+
+          
+
+
 
             }
         })

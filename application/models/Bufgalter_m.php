@@ -21,7 +21,7 @@ class Bufgalter_m extends CI_Model {
     $query = $this->db->where('ID_ep', $ID_ep)
                       ->where('edu_program.ID_form = form_teach.ID_form')
                       ->get('edu_program, form_teach');
-    return $query->result_array();
+    return $query->row_array();
    }
 
 }

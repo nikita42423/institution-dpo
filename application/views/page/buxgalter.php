@@ -92,6 +92,15 @@
 				<label for="count_in_group" class="form-label">Человек</label>
 				<input type="text" class="form-control" id="count_in_group" value="<?=$row['count_in_group']?>" id="count_in_group" readonly>
 			</div>
+
+
+
+
+			
+
+
+
+
 			</form>
 </div>
 
