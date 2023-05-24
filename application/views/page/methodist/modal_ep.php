@@ -19,23 +19,23 @@
 
 					<div class="row mb-3">
 						<div class="col">
-							<label for="ID_type_ep" class="form-label">Вид ОП</label>
-							<input type="text" class="form-control mb-3" id="ID_type_ep" name="ID_type_ep" value="" readonly>
+							<label for="name_type_ep" class="form-label">Вид ОП</label>
+							<input type="text" class="form-control mb-3" id="name_type_ep" name="name_type_ep" value="" readonly>
 						</div>
 						<div class="col">
-							<label for="ID_focus" class="form-label">Направление</label>
-							<input type="text" class="form-control mb-3" id="ID_focus" name="ID_focus" value="" readonly>
+							<label for="name_focus" class="form-label">Направление</label>
+							<input type="text" class="form-control mb-3" id="name_focus" name="name_focus" value="" readonly>
 						</div>
 					</div>
 
 					<div class="row mb-3">
 						<div class="col">
-							<label for="ID_type_doc" class="form-label">Вид документа</label>
-							<input type="text" class="form-control mb-3" id="ID_type_doc" name="ID_type_doc" value="" readonly>
+							<label for="name_type_doc" class="form-label">Вид документа</label>
+							<input type="text" class="form-control mb-3" id="name_type_doc" name="name_type_doc" value="" readonly>
 						</div>
 						<div class="col">
-							<label for="ID_form" class="form-label">Форма обучения</label>
-							<input type="text" class="form-control mb-3" id="ID_form" name="ID_form" value="" readonly>
+							<label for="name_form" class="form-label">Форма обучения</label>
+							<input type="text" class="form-control mb-3" id="name_form" name="name_form" value="" readonly>
 						</div>
 					</div>
 

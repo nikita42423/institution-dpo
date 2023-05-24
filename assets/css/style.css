@@ -7,3 +7,8 @@
 .offcanvas-font-size {
     font-size: 20px;
 }
+
+.rotate-text {
+    transform: rotate(270deg);
+    /* transform-origin: bottom left; */
+}

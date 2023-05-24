@@ -3,12 +3,6 @@
     <div class="table-responsive">
 		<div class="data_table"  id="program">
 
-			<div class="row justify-content-md-center mb-3">
-				<div class="col-md-auto">
-					<h1 class="display-6 text-center mb-3">Образовательная программа <...></h1>
-				</div>
-			</div>
-
             <table id="table_discipline" class="table table-hover" style="width:100%">
 				<thead class="table-dark">
 					<tr>
@@ -37,11 +31,21 @@
 						<td>
                             <div class="btn-group" role="group">
                                 <!-- Изменить -->
-                                <button type="button" class="btn btn-primary">
-                                    <i class="bi-pencil" aria-hidden="true"></i>
-                                </button>
+								<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+									data-bs-target="#modal_upd_discipline"
+									data-id_ep="<?=$_GET['ID_ep']?>"
+									data-id_discipline="<?=$row['ID_discipline']?>"
+									data-name_discipline="<?=$row['name_discipline']?>"
+									data-amount_hour="<?=$row['amount_hour']?>"
+									data-amount_hour_work="<?=$row['amount_hour_work']?>"
+									data-type_mid_cert="<?=$row['type_mid_cert']?>"
+									data-type_practice="<?=$row['type_practice']?>"
+									data-amount_hour_practice="<?=$row['amount_hour_practice']?>"
+									><i class="bi-pencil" aria-hidden="true"></i>
+								</button>
+
                                 <!-- Удалить -->
-                                <a href="" class="btn btn-dark">
+                                <a href="discipline/del_discipline?ID_ep=<?=$_GET['ID_ep']?>&ID_discipline=<?=$row['ID_discipline']?>" class="btn btn-dark">
                                     <i class="bi-trash" aria-hidden="true"></i>
                                 </a>
                             </div>
