@@ -114,20 +114,34 @@ $(document).ready(function(){
             v[i-1] = document.getElementById(idelem).value;
         }
  
+
       
       //  ids = '#res'+ id.substring(6,7);
-   alert(id +' '+v);
+ //  alert(id +' '+v);
         $.ajax({
+
             type: 'POST',
             url: 'buxgalter/show_rachet',
             data: ({raster1: v[0], raster2: v[1], raster3: v[2], raster4: v[3], raster5: v[4],
                 raster6: v[5], raster7: v[6], raster8: v[7], raster9: v[8], 
                  ID_ep: ID_ep, amount_hour: amount_hour, name_form: name_form, count_in_group: count_in_group}),
-            dataType:'json',
+            // dataType:'json',
             success: function(result) {
                 //а здесь из этого массива выберем и подставим куда нужно
-                
-                $('#aaa').html(result);
+               result =  JSON.parse(result);
+            //    rvalue = [];
+                // for (i in result){
+                //     rvalue.push(result[i]);
+                // }
+            //   alert(rvalue);
+                // посмотри что ты получил это объект а нам надо массив  я хотела не только значенимя получить но и имена куда вставить значения ИД
+              const aArr = Object.entries(result);
+              aArr.forEach(([key, value])=>{
+                    id = '#'+key;
+                    $(id).html(value);
+                })
+                 
+
             }
         })
     })

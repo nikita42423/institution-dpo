@@ -82,15 +82,15 @@
 			</div>
 			<div class="col-md-2" data-bs-target="#modal_ep">
 				<label for="amount_hour" class="form-label">Кол-во часов</label>
-				<input type="text" class="form-control" id="amount_hour" value="<?=$row['amount_hour']?>" id="amount_hour" name=""  disabled>
+				<input type="text" class="form-control" id="amount_hour" value="<?=$row['amount_hour']?>" name=""  readonly>
 			</div>
 			<div class="col-md-2" data-bs-target="#modal_ep">
 				<label for="name_form" class="form-label">Форма обучения</label>
-				<input type="text" class="form-control" id="name_form" value="<?=$row['name_form']?>" disabled>
+				<input type="text" class="form-control" id="name_form" value="<?=$row['name_form']?>" readonly>
 			</div>
 			<div class="col-md-2" data-bs-target="#modal_ep">
 				<label for="count_in_group" class="form-label">Человек</label>
-				<input type="text" class="form-control" id="count_in_group" value="<?=$row['count_in_group']?>" id="count_in_group" disabled>
+				<input type="text" class="form-control" id="count_in_group" value="<?=$row['count_in_group']?>" id="count_in_group" readonly>
 			</div>
 			</form>
 </div>
@@ -131,7 +131,7 @@
                             <tr>
 								<td>Страховые взносы в размере 30,2% от фонда оплаты труда, руб</td>
 								<td> <div class="col-md-4">
-                                     <input type="text" class="form-control rechert" id="raster3" value="30,2"> 
+                                     <input type="text" class="form-control rechert" id="raster3" value="30.2"> 
                                      </div></td>  <td><p id="res3"></p></td>
 								
 							</tr>
@@ -159,7 +159,7 @@
                             <tr>
 								<td>Общая сумма затрат, руб</td>
 								<td> <div class="col-md-4">
-                                     <input type="text" class="form-control rechert" id="raster7" value="0">
+                                     <input type="text" class="form-control rechert" id="raster7" Disabled >
                                      </div></td>  <td><p id="res7"></p></td>
 								
 							</tr>
@@ -173,7 +173,7 @@
                             <tr>
 								<td>Общая стоимость услуги, руб</td>
 								<td> <div class="col-md-4">
-                                     <input type="text" class="form-control rechert" id="raster9" value="0">
+                                     <input type="text" class="form-control rechert" id="raster9" Disabled>
                                      </div></td>  <td><p id="res9"></p></td>
 								
 							</tr>
