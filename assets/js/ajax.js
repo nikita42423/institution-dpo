@@ -80,7 +80,7 @@ $(document).ready(function(){
 });
 
 
-//Фильтрование расчет стоимости услуги
+// Фильтрование расчет стоимости услуги
 $(document).ready(function(){
     $('#ID_ep').change(function(){ 
         let ID_ep = document.getElementById('ID_ep').value;
@@ -100,7 +100,7 @@ $(document).ready(function(){
 
 //расчет услуги
 $(document).ready(function(){
-    $('.rechert').change(function(){
+    $('.rechert').keyup(function(){
         let ID_ep = document.getElementById('ID_ep').value;
         let amount_hour = document.getElementById('amount_hour').value;
         let name_form = document.getElementById('name_form').value;
@@ -125,9 +125,10 @@ $(document).ready(function(){
             data: ({raster1: v[0], raster2: v[1], raster3: v[2], raster4: v[3], raster5: v[4],
                 raster6: v[5], raster7: v[6], raster8: v[7], raster9: v[8], 
                  ID_ep: ID_ep, amount_hour: amount_hour, name_form: name_form, count_in_group: count_in_group}),
-            // dataType:'json',
+                dataType:'html',
             success: function(result) {
                 //а здесь из этого массива выберем и подставим куда нужно
+              //  $('#show_resh').html(result);
                result =  JSON.parse(result);
             //    rvalue = [];
                 // for (i in result){

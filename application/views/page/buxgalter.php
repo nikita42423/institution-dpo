@@ -74,7 +74,7 @@
             <form class="row g-3" action="" id="filtrbux" method="post">
 						<div class="col-md-3">
 				<label for="ID_ep" class="form-label">Образовательная программа</label>
-				<select class="form-select tt" id="ID_ep" name="form_teach">
+				<select class="form-select rechert" id="ID_ep" name="form_teach">
 				<?php foreach ($edu_program as $row) {?>
 									<option value="<?=$row['ID_ep']?>"><?=$row['name_ep']?></option>
 								<?php }?>
