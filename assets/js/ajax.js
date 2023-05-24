@@ -123,9 +123,10 @@ $(document).ready(function(){
             data: ({raster1: v[0], raster2: v[1], raster3: v[2], raster4: v[3], raster5: v[4],
                 raster6: v[5], raster7: v[6], raster8: v[7], raster9: v[8], 
                  ID_ep: ID_ep, amount_hour: amount_hour, name_form: name_form, count_in_group: count_in_group}),
-            dataType:'html',
+            dataType:'json',
             success: function(result) {
                 //а здесь из этого массива выберем и подставим куда нужно
+                
                 $('#aaa').html(result);
             }
         })
