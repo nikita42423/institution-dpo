@@ -82,6 +82,9 @@ $(document).ready(function(){
 });
 
 
+
+
+
 // Фильтрование расчет стоимости услуги
 $(document).ready(function(){
     $('#ID_ep').change(function(){ 
@@ -198,6 +201,4 @@ $(document).ready(function(){
         modal.find('.modal-body #type_mid_cert').val(type_mid_cert);
         modal.find('.modal-body #type_practice').val(type_practice);
         modal.find('.modal-body #amount_hour_practice').val(amount_hour_practice);
-    })
-      
-});
+    });
