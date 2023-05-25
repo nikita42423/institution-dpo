@@ -17,16 +17,16 @@
       <form action="" method="post">
 
           <div class="form-outline mb-4">
-            <input type="text" id="form3Example1cg" class="form-control form-control-lg" required name="full_name"/>
+            <input type="text" id="form3Example1cg" class="form-control form-control-lg" required name="full_name" value=""/>
             <label class="form-label" for="form3Example1cg">ФИО</label>
           </div>
 
           <div class="form-outline mb-4">
-            <input type="text" id="form3Example2cg" class="form-control form-control-lg" required  name="phone"/>
+            <input type="text" id="form3Example2cg" class="form-control form-control-lg" required  name="phone" />
             <label class="form-label" for="form3Example2cg">Телефон</label>
           </div>
           <div class="form-outline mb-4">
-            <input type="text" id="form3Example3cg" class="form-control form-control-lg" required   name="adres"/>
+            <input type="text" id="form3Example3cg" class="form-control form-control-lg" required   name="adres" />
             <label class="form-label" for="form3Example3cg">Адрес</label>
           </div>
           <div class="d-flex justify-content-center">
