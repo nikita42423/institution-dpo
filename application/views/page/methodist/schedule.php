@@ -17,11 +17,13 @@
 								$date = new DateTime('0000-09-01');
 								for ($i = 1; $i <= 45; $i++) {
 									echo '<th class="text-table-rotate" style="padding-left: 0px;padding-right: 0px;">'.$date->format('d.m').'</th>';
+									$array_week[$i] = $date->format('d.m');
 									$date->modify('+7 day');
 								}?>
 							</tr>
 							<tr>
 								<?php
+								$date = new DateTime('0000-09-01');
 								for ($i = 1; $i <= 45; $i++) {
 									echo '<th class="text-center" style="padding: 0px;">'.$i.'</th>';
 								}?>
@@ -44,6 +46,7 @@
 										echo "<td>$i</td>";
 										$i++;
 									}
+									echo "<td></td>";
 								}
 							echo '</tr>';
 							}?>
@@ -51,7 +54,7 @@
 						</tbody>
 					</table>
 				</div>
-
+<?php for ($i = 1; $i <= 45; $i++) {echo $i.' недель это '.$array_week[$i].'<br>';}?>
 			</div>
 		</main>
 		

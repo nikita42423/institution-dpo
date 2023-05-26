@@ -30,7 +30,7 @@ class Discipline_m extends CI_Model {
                  ->delete('discipline');
     }
 
-    //Выполнить процедуру "Добавить учебный план (дисцилпину)"
+    //Выполнить процедуру "Изменить учебный план (дисцилпину)"
     public function upd_discipline($ID_discipline, $name_discipline, $ID_ep, $amount_hour, $amount_hour_work, $type_practice, $amount_hour_practice, $type_mid_cert)
     {
         $sql = "CALL upd_discipline (?,?,?,?,?,?,?,?)";
