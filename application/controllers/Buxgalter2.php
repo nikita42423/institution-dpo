@@ -16,6 +16,7 @@ class Buxgalter2 extends CI_Controller {
 		  $data['focus'] = $this->bufgalter_m->sel_focus();
 
 
+		  
 		$this->load->view('template/header.php');
 		$this->load->view('page/buxgalter2.php', $data);
 
