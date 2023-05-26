@@ -46,7 +46,7 @@ class Buxgalter extends CI_Controller {
 		if (!empty($_POST))
 		{
 
-
+ 
 			// echo json_encode($_POST);
 		     // $ID_ep = $_POST['ID_ep'];
 

@@ -28,10 +28,10 @@ class Clients extends CI_Controller {
 		$data['session'] = $this->session->userdata('login_session');
 		$session=$data['session'];
 		$ID_user = $session['ID_user'];
-		
+        
+
 		$this->load->model('client_m');
-		
-		$data['client'] = $this->client_m->sel_user($ID_user);
+		$data['edu_program'] = $this->client_m->sel_user();
 
 		$this->load->view('template/header.php');
 		$this->load->view('template/navbar_clients.php', $data);

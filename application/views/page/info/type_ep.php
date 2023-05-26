@@ -39,9 +39,8 @@
 							<button type="button" class="btn btn-primary" data-bs-toggle="modal"
 								data-bs-target="#modal_info"
 								data-id_info="<?=$row['ID_type_ep']?>"
-								data-name_info="<?=$row['name_type_ep']?>">
-
-								<i class="bi-pencil" aria-hidden="true"></i>
+								data-name_info="<?=$row['name_type_ep']?>"
+								><i class="bi-pencil" aria-hidden="true"></i>
 							</button>
 
 							<!-- Удалить -->

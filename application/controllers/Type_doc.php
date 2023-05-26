@@ -13,7 +13,9 @@ class Type_doc extends CI_Controller {
 		$this->load->view('template/header.php');
         $this->load->view('template/sidebar.php');
 		$this->load->view('page/info/type_doc.php', $data);
-        $this->load->view('template/modal_info.php');
+        $this->load->view('template/footer.php');
+        
+        $this->load->view('page/methodist/modal_info.php');
 	}
 
     //Добавление вида документа

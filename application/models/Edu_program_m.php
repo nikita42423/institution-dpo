@@ -21,6 +21,14 @@ class Edu_program_m extends CI_Model {
         return $query->result_array();
     }
 
+    //Выбрать образовательную программу (возвращает только одну строку)
+    public function sel_edu_program_one($ID_ep)
+    {
+        $query = $this->db->where('ID_ep', $ID_ep)
+                          ->get('edu_program');
+        return $query->row();
+    }
+
     //Выполнить процедуру "Добавить образовательную программу"
     public function add_edu_program($name_ep, $ID_focus, $ID_type_ep, $ID_form, $time_week, $amount_hour, $ID_type_doc, $type_cert, $name_profession, $count_in_group)
     {

@@ -6,31 +6,25 @@
 
 			<div class="table-responsive">
 
-				<!-- Скрипт для пагинации -->
-				<script>
-				$(document).ready(function () {
-					var table = $('#table_schedule').DataTable({
-						buttons:['excel', 'pdf'] //['copy', 'csv', 'excel', 'pdf', 'print']
-					});
-					table.buttons().container().appendTo('#table_schedule_wrapper .col-md-6:eq(0)');
-				});
-				</script>
-
 				<div class="data_table">
-					<table id="table_schedule" class="table table-striped" style="width:100%">
+					<table id="table_schedule" class="table table-striped table-hover table-bordered border-dark" style="width:100%">
 						<thead>
 							<tr>
-								<th>№</th>
-								<th>Наименование</th>
-								<th></th>
+								<th class="rotate-sm-l-90">Курс</th>
+								<th class="rotate-sm-l-90">Код ОП</th>
+								<th class="text-nowrap">Наименование ОП</th>
+							<?php
+								$date = new DateTime('2023-10-01');
+								for ($i = 1; $i <= 52; $i++) {
+									$date->modify('+7 day');
+									echo '<th class="rotate-sm-l-90">'.$date->format('d.m').'</th>';
+								}?>
 							</tr>
 						</thead>
 						<tbody>
-                            <tr>
-                                <th></th>
-                                <td></td>
-                                <td></td>
-                            </tr>
+							<tr>
+
+							</tr>
 						</tbody>
 					</table>
 				</div>
