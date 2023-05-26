@@ -11,10 +11,25 @@ class Buxgalter2 extends CI_Controller {
          $session=$data['session'];
          $ID_user = $session['ID_user'];
 
+		  //загрузка модели
+		  $this->load->model('bufgalter_m');
+		  $data['focus'] = $this->bufgalter_m->sel_focus();
+
+
 		$this->load->view('template/header.php');
 		$this->load->view('page/buxgalter2.php', $data);
-		$this->load->view('template/footer.php');
+
 	}
 
+	public function show_epo()
+	{
+		$ID_focus = $_POST['ID_focus'];
+
+		$this->load->model('bufgalter_m');
+		$showepo = $this->bufgalter_m->sel_focus_edu($ID_focus);
+
+		echo json_encode($showepo);
+	}
+	
 	
 }

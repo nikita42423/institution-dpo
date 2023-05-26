@@ -79,6 +79,113 @@ $(document).ready(function(){
         modal.find('.modal-body #amount_hour').val(amount_hour);
         modal.find('.modal-body #count_in_group').val(count_in_group);
 	})
+});
+
+
+
+
+
+// Фильтрование расчет стоимости услуги
+$(document).ready(function(){
+    $('#ID_ep').change(function(){ 
+        let ID_ep = document.getElementById('ID_ep').value;
+       //alert(ID_ep);
+        $.ajax({
+            type: 'POST',
+            url: 'buxgalter/shic_op',
+            data: {ID_ep:ID_ep},
+            dataType:'json',
+            success: function(result) {
+                document.getElementById('amount_hour').value = result.amount_hour;
+                document.getElementById('name_form').value = result.name_form;
+                document.getElementById('count_in_group').value = result.count_in_group;
+
+                $('#aaa p').html('');
+                $('#raster1').val(0);
+
+            }
+        })
+    })
+});
+
+  
+
+//расчет услуги
+$(document).ready(function(){
+    $('.rechert').keyup(function(){
+        let ID_ep = document.getElementById('ID_ep').value;
+        
+        let amount_hour = document.getElementById('amount_hour').value;
+        let name_form = document.getElementById('name_form').value;
+        let count_in_group = document.getElementById('count_in_group').value;
+        // let arr = new Array();
+        let id = [];
+        let v = [];
+        for (let i=1; i<10; i++){
+            idelem='raster'+i;
+            id[i-1] = idelem;
+            v[i-1] = document.getElementById(idelem).value;
+        }
+ 
+
+      
+      //  ids = '#res'+ id.substring(6,7);
+ //  alert(id +' '+v);
+        $.ajax({
+
+            type: 'POST',
+            url: 'buxgalter/show_rachet',
+            data: ({raster1: v[0], raster2: v[1], raster3: v[2], raster4: v[3], raster5: v[4],
+                raster6: v[5], raster7: v[6], raster8: v[7], raster9: v[8], 
+                 ID_ep: ID_ep, amount_hour: amount_hour, name_form: name_form, count_in_group: count_in_group}),
+                dataType:'html',
+            success: function(result) {
+                //а здесь из этого массива выберем и подставим куда нужно
+              //  $('#show_resh').html(result);
+               result =  JSON.parse(result);
+              // alert(result);
+            //    rvalue = [];
+                // for (i in result){
+                //     rvalue.push(result[i]);
+                // }
+            //   alert(rvalue);
+                // посмотри что ты получил это объект а нам надо массив  я хотела не только значенимя получить но и имена куда вставить значения ИД
+              const aArr = Object.entries(result);
+              aArr.forEach(([key, value])=>{
+                    id = '#'+key;
+                    $(id).html(value);
+                })
+                 
+
+
+          
+
+
+
+            }
+        })
+    })
+})
+
+//Изменение данные клиента (персональные данные)
+$(document).ready(function(){
+
+    $('#edit_client').submit(function(){
+        let ID_user = document.getElementById('ID_user').value;
+        let full_name = document.getElementById('full_name').value;
+        let phone = document.getElementById('phone').value;
+        let address = document.getElementById('address').value;
+        $.ajax({
+            type: 'POST',
+            url: 'clients/edit_client',
+            data: { ID_user:ID_user, full_name:full_name, phone:phone, address:address},
+            dataType: 'json',
+            success: function(result){
+                alert(result);
+            }
+        })
+    })
+});
 
 
 //Модальное окно для изменения Дисциплины
@@ -104,6 +211,4 @@ $(document).ready(function(){
         modal.find('.modal-body #type_mid_cert').val(type_mid_cert);
         modal.find('.modal-body #type_practice').val(type_practice);
         modal.find('.modal-body #amount_hour_practice').val(amount_hour_practice);
-    })
-      
-});
+    });
