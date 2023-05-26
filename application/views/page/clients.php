@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1>Личный кабинет</h1>
-
+                
             <div class="accordion" id="accordionExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingOne">
