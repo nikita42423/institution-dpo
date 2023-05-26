@@ -1,5 +1,9 @@
 ###################
+<<<<<<< HEAD
 What is CodeIgniter111rrhhhhgjghjhjhjh1111
+=======
+What is CodeIgniter111rrhhh111111111
+>>>>>>> origin/client
 ###################
 
 CodeIgniter is an Application Development Framework - a toolkit - for people
