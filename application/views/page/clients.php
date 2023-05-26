@@ -24,17 +24,12 @@
       </div>
 
           <div class="form-outline mb-4">
-            <input type="text" id="form3Example1cg" class="form-control form-control-lg" required name="full_name" value=""/>
-            <label class="form-label" for="form3Example1cg">ФИО</label>
-          </div>
-
-          <div class="form-outline mb-4">
-            <input type="text" id="form3Example2cg" class="form-control form-control-lg" required  name="phone" />
-            <label class="form-label" for="form3Example2cg">Телефон</label>
+          <input type="text" id="phone" class="form-control form-control-lg" required  name="phone" value="<?=$row['phone']?>" />
+            <label class="form-label" for="phone">Телефон</label>
           </div>
           <div class="form-outline mb-4">
-            <input type="text" id="form3Example3cg" class="form-control form-control-lg" required   name="adres" />
-            <label class="form-label" for="form3Example3cg">Адрес</label>
+          <input type="text" id="address" class="form-control form-control-lg" required   name="address" value="<?=$row['address']?>" />
+            <label class="form-label" for="address">Адрес</label>
           </div>
           <div class="d-flex justify-content-center">
             <button type="submit"

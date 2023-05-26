@@ -31,7 +31,7 @@ class Clients extends CI_Controller {
         
 
 		$this->load->model('client_m');
-		$data['edu_program'] = $this->client_m->sel_user();
+		$data['client'] = $this->client_m->sel_user($ID_user);
 
 		$this->load->view('template/header.php');
 		$this->load->view('template/navbar_clients.php', $data);
