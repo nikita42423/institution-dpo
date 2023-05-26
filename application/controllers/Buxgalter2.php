@@ -16,7 +16,7 @@ class Buxgalter2 extends CI_Controller {
 		  $data['focus'] = $this->bufgalter_m->sel_focus();
 
 
-		  
+
 		$this->load->view('template/header.php');
 		$this->load->view('page/buxgalter2.php', $data);
 
@@ -31,6 +31,25 @@ class Buxgalter2 extends CI_Controller {
 
 		echo json_encode($showepo);
 	}
+	
+	//образовательная программа для бухгалтера
+	public function edu_price_bux()
+	{
+			//Сессия
+			$data['session'] = $this->session->userdata('login_session');
+			$session=$data['session'];
+			$ID_user = $session['ID_user'];
+
+			//загрузка модели
+			$this->load->model('bufgalter_m');
+			$data['focus'] = $this->bufgalter_m->sel_focus();
+
+
+
+		$this->load->view('template/header.php');
+		$this->load->view('page/buxgalter3.php', $data);
+	}
+	
 	
 	
 }
