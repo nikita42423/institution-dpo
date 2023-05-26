@@ -72,38 +72,41 @@
 					<div class="col-lg-2"></div>
 					<div class="col-lg-8"><div>
 
-<form class="row g-3" action="buxgalter2/date_ped" method="post">
+<div id = "get_income">
+	<form class="row g-3" action="" id="" method="post">
+		<div class="col-md-6">
+			<label for="begin_date" class="form-label">C</label>
+			<input type="date" class="form-control" id="begin_date">
+		</div>
+		<div class="col-md-6">
+			<label for="end_date" class="form-label">ПО</label>
+			<input type="date" class="form-control" id="end_date" >
+		</div>
+	<br>
+		<div class="col-md-4">
+			<label for="ID_focus" class="form-label">Курс</label>
+			<select class="form-select" id="ID_focus">
+				<?php foreach ($focus as $row) {?>
+					<option value="<?=$row['ID_focus']?>"><?=$row['name_focus']?></option>
+				<?php }?>
+			</select>
+		</div>
+		<div class="col-md-4">
+			<label for="ID_epo" class="form-label">Наименование ДПО</label>
+			<select class="form-select" id="ID_epo">
+				<!-- <option value="">...</option> -->
+			</select>
+		</div>
+		<div class="col-md-4">
+			<label for="validationDefault13" class="form-label">Дисциплина</label>
+			<select class="form-select" id="validationDefault13">
+				<option value="">...</option>
+			</select>
+		</div>
 
-<div class="col-md-6">
-<label for="validationDefault01" class="form-label">C</label>
-<input type="date" class="form-control" id="validationDefault01">
+	</form>
 </div>
-<div class="col-md-6">
-<label for="validationDefault02" class="form-label">ПО</label>
-<input type="date" class="form-control" id="validationDefault02" >
-</div>
-<br>
-<div class="col-md-4">
-    <label for="validationDefault11" class="form-label">Курс</label>
-    <select class="form-select" id="validationDefault11">
-      <option value="">...</option>
-    </select>
-  </div>
-  <div class="col-md-4">
-    <label for="validationDefault12" class="form-label">Наименование ДПО</label>
-    <select class="form-select" id="validationDefault12">
-      <option value="">...</option>
-    </select>
-  </div>
-  <div class="col-md-4">
-    <label for="validationDefault13" class="form-label">Дисциплина</label>
-    <select class="form-select" id="validationDefault13">
-      <option value="">...</option>
-    </select>
-  </div>
 
-</form>
-</div></div>
 					<div class="col-lg-2"></div>
 				</div>
 			</div>

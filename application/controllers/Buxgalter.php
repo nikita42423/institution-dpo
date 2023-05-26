@@ -76,7 +76,7 @@ class Buxgalter extends CI_Controller {
 		  $res5 = $fond_opl_truda * $_POST['raster5'] / 100; //отчисления для обеспечения 40%
 		  $res6 = $fond_opl_truda * $_POST['raster6'] / 100; //хозяйственные  2%
 		  $res7 =  $res1 + $res2 + $res3 + $res4 + $res5 + $res6 ; // общая сумма затрат
-		  $res8 = $res7 * $_POST['raster8']; // прибыль 20% от общей суммы затрат
+		  $res8 = $res7 * $_POST['raster8'] / 100; // прибыль 20% от общей суммы затрат
 		  $res9 = $res8 +  $res7; //общая стоимость услуги
 		   
 		  $result = [];

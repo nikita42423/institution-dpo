@@ -175,7 +175,7 @@
                             <tr>
 								<td>Прибыль (20% от общей суммы затрат), руб</td>
 								<td> <div class="col-md-4">
-                                     <input type="text" class="form-control rechert" id="raster8" value="0">
+                                     <input type="text" class="form-control rechert" id="raster8" value="20">
                                      </div></td>  <td><p id="res8"></p></td>
 								
 							</tr>

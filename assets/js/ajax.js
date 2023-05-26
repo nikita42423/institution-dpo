@@ -95,20 +95,31 @@ $(document).ready(function(){
                 document.getElementById('name_form').value = result.name_form;
                 document.getElementById('count_in_group').value = result.count_in_group;
 
-                
-
                 $('#aaa p').html('');
                 $('#raster1').val(0);
 
+            }
+        })
+    })
+});
 
-         
+// Фильтрация ДПО при выборе направления
+$(document).ready(function(){
+    $('#ID_focus').change(function(){ 
+        let ID_focus = document.getElementById('ID_focus').value;
 
-
-                //$('#amount_hour').val('12');
-                // alert(result);
-                //let data = JSON.parse(result);
-                //alert(result.amount_hour);
-                //$('#show_resh').html(result); 
+        // alert(ID_focus);
+        $.ajax({
+            type: 'POST',
+            url: 'buxgalter2/show_epo',
+            data: {ID_focus:ID_focus},
+            dataType:'json',
+            success: function(result) {
+                var selectBox = document.getElementById('ID_epo');
+                selectBox.innerHTML = '';
+                for(var i = 0; i < result.length; i++){
+                    selectBox.options.add( new Option(result[i].name_ep, result[i].id_ep) );
+                }
             }
         })
     })
@@ -171,3 +182,24 @@ $(document).ready(function(){
         })
     })
 })
+
+//Изменение данные клиента (персональные данные)
+$(document).ready(function(){
+
+    $('#edit_client').submit(function(){
+        let ID_user = document.getElementById('ID_user').value;
+        let full_name = document.getElementById('full_name').value;
+        let phone = document.getElementById('phone').value;
+        let address = document.getElementById('address').value;
+        $.ajax({
+            type: 'POST',
+            url: 'clients/edit_client',
+            data: { ID_user:ID_user, full_name:full_name, phone:phone, address:address},
+            dataType: 'json',
+            success: function(result){
+                alert(result);
+            }
+        })
+    })
+});
+
