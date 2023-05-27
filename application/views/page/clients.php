@@ -73,8 +73,8 @@
       <td><?=$row['name_focus']?></td>
       <td><?=$row['name_ep']?></td>
       <td><?=$row['name_type_ep']?></td>
-      <td><?=$row['date_payment']?></td>
-      <td><?=$row['date_end']?></td>
+      <td><?=$row['date_start_teaching']?></td>
+      <td><?=$row['date_end_teaching']?></td>
       <td><?=$row['phone']?></td>
       <td><?=$row['email']?></td>
       <td><?=$row['status_application']?></td>
