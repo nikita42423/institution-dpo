@@ -190,6 +190,35 @@ $(document).ready(function(){
 });
 
 
+
+//Зачисление клента на курсы (Подача заявки)
+$(document).ready(function(){
+    $('#add_statement').submit(function(){
+        let ID_course = document.getElementById('ID_course').value;
+        let ID_user = document.getElementById('ID_user').value;
+        $.ajax({
+            type: 'POST',
+            url: 'clients/add_stat',
+            data: { ID_course:ID_course, ID_user:ID_user},
+            dataType: 'json',
+            success: function(result){
+                alert(result);
+            }
+        })
+    })
+});
+
+
+//передача значения модального окна (Подача заявки)
+$(document).on('click', '.addStatement', function () {
+    var name_course = $(this).data('name_course');
+    var ID_course = $(this).data('id_course');
+
+    $('#nameCourseModal').text(name_course);
+    $('#ID_course').val(ID_course);
+});
+
+
 //Модальное окно для изменения Дисциплины
 
     $('#modal_upd_discipline').on('show.bs.modal', function (event) {

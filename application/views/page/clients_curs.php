@@ -46,61 +46,57 @@
 					<table id="curs" class="table table-striped" style="width:100%">
 						<thead>
 							<tr class="text-center">
-								<th>Программы </th>
-								<th>цена</th>
+								<th>Программа </th>
+								<th>Курсы </th>
+								<th>Цена</th>
 								<th></th>
 							</tr>
 						</thead>
 						<tbody>
-              <?php foreach($clientcours as $row) {?>
+               <?php foreach($clientcours as $row) {?>
                             <tr class="text-center">
                                 <td><?=$row['name_ep']?></td>
+                                <td><?=$row['name_course']?></td>
                                 <td><?=$row['price']?></td>
                                 <td><!-- Кнопка-триггер модального окна -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Подать заявку
-</button>
+                                <button type="button" class="btn btn-primary addStatement" data-bs-toggle="modal" data-bs-target="#addStatement" 
+                                data-id_course="<?=$row['ID_course']?>" data-name_course="<?=$row['name_course']?>">
+                                  Подать заявку
+                                </button>
 
-<!-- Модальное окно -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Курс "" </h5>
-      </div>
-      <div class="modal-body">
-      <form action="" method="post">
-
-<div class="form-outline mb-4">
-  <input type="text" id="form3Example1cg" class="form-control form-control-lg" required name="full_name"/>
-  <label class="form-label" for="form3Example1cg">ФИО</label>
-</div>
-
-<div class="form-outline mb-4">
-  <input type="text" id="form3Example2cg" class="form-control form-control-lg" required  name="phone1"/>
-  <label class="form-label" for="form3Example2cg">Телефон</label>
-</div>
-
-<div class="d-flex justify-content-center">
-  <button type="submit"
-    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">отправить</button>
-</div>
-
-</form>
-      </div>
-      
-    </div>
-  </div>
-</div></td>
-                            </tr>
+                                <!-- Модальное окно -->
+                                </td>
+                                </tr>
                             <?php } ?>
-						</tbody>
-					</table>
-				</div>
+                      </tbody>
+                    </table>
+                  </div>
 
-			</div>
-
-
+                </div>
+                        <div class="modal fade" id="addStatement" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="nameCourseModal">Курс </h5>
+                            </div>
+                            <div class="modal-body">
+                            <form id="add_statement" method="post">
+                              <div class="form-outline mb-4">
+                                <input type="hidden" id="ID_course" name="ID_course">
+                                <input type="hidden" id="ID_user" name="ID_user" value="<?php echo $ID_user;?>">
+                                <label class="form-label">Вы подтверждаете подачу заявки?</label>
+                              </div>
+                              <div class="d-flex justify-content-center">
+                                <button type="submit"
+                                  class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Да</button>
+                              </div>
+                              </form>
+                              
+                            </div>
+                            
+                          </div>
+                        </div>
+                        </div>
             </div>
         </div>
     </div>

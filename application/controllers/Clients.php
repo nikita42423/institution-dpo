@@ -8,14 +8,16 @@ class Clients extends CI_Controller {
 		//Сессия
 		$data['session'] = $this->session->userdata('login_session');
 		$session=$data['session'];
+
 		$ID_user = $session['ID_user'];
+		$data['ID_user'] = $ID_user;
 
 		$this->load->model('client_m');
         $data['clientcours'] = $this->client_m->sel_cours();
 
 		$this->load->view('template/header.php');
 		$this->load->view('template/navbar_clients.php', $data);
-		$this->load->view('page/clients_curs.php');
+		$this->load->view('page/clients_curs.php',  $data);
 
 		
 	
@@ -32,10 +34,12 @@ class Clients extends CI_Controller {
 
 		$this->load->model('client_m');
 		$data['client'] = $this->client_m->sel_user($ID_user);
+		$data['history'] = $this->client_m->get_history_course($ID_user);
 
 		$this->load->view('template/header.php');
 		$this->load->view('template/navbar_clients.php', $data);
 		$this->load->view('page/clients.php', $data);
+		
 		
 	}
 
@@ -53,6 +57,20 @@ class Clients extends CI_Controller {
 
 		if($update == TRUE) $update = 'Изменение выполнено!';
 		echo json_encode($update);
+	}
+
+
+	//добавление заявки клиента
+	public function add_stat()
+	{
+		$ID_course = $_POST['ID_course'];
+		$ID_user = $_POST['ID_user'];
+
+		$this->load->model('client_m');
+		$create = $this->client_m->add_statement($ID_course, $ID_user);
+
+		if($create == TRUE) $create = 'Заявка оформлена!';
+		echo json_encode($create);
 	}
 
 	
