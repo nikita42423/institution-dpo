@@ -109,11 +109,11 @@
 								<select class="form-select filter_ep" id="statuszav">
 									<option value="all" selected>Все</option>
 									
-									<option value="Подана">Подана</option>
-									<option value="Не оплачена">Не оплачена</option>
-									<option value="Зачислена">Зачислена</option>
-									<option value="Обучение">Обучение</option>
-									<option value="Окончена">Окончена</option>
+									<option value="подана">подана</option>
+									<option value="не оплачена">не оплачена</option>
+									<option value="зачислена">зачислена</option>
+									<option value="обучение">обучение</option>
+									<option value="окончена">окончена</option>
                                 
 							
 								</select>
@@ -136,7 +136,7 @@
 					<table id="zayav" class="table table-striped" style="width:100%">
 						<thead>
 							<tr>
-								<th>ФИО заказчик</th>
+								<th>ФИО клиент</th>
 								<th>Телефон</th>
 								<th>Email</th>
 								<th>Вид</th>
@@ -157,18 +157,18 @@
 						</thead>
 						<tbody>
 							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>Харламов Илья Кнстантинович</td>
+								<td>89996663322</td>
+								<td>dsdsdsdsgv@mail.ru</td>
+								<td>сертификат</td>
+								<td>Информационные технологии </td>
+								<td>Язык РНР</td>
+								<td>ПП4</td>
+								<td>2023-05-31</td>
+								<td>2023-07-05</td>
+								<td>2023-05-27</td>
+								<td>2023-05-28</td>
+								<td>зачислена</td>
 					
                                 
 								
