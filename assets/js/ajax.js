@@ -20,6 +20,7 @@ $(document).ready(function(){
 
 //Фильтрование дисциплины
 
+
     $('.filter_discipline').change(function(){ 
         let ID_ep = document.getElementById('id_ep').value;
         $.ajax({
