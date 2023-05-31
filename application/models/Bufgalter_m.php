@@ -38,6 +38,22 @@ class Bufgalter_m extends CI_Model {
                        ->get('edu_program');
      return $query->result_array();
     }
+
+
+      //изменить данные прайса
+   public function upd_price($ID_ep, $cost_hour, $price)
+   {
+       $data = array(
+           'cost_hour' => $cost_hour,
+           'price' => $price
+       );
+       $this->db->where('ID_ep', $ID_ep);
+
+       $query = $this->db->update('edu_program', $data);
+       return $query;
+   }
+
+   
     
 
 }

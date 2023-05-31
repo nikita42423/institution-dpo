@@ -79,7 +79,7 @@
 					<div class="col-lg-10"><div>
 
 					<div class="col-md-auto">
-				<form class="justify-content-md-center mb-3 card" action="" method="post">
+				<form class="justify-content-md-center mb-3 card" method="post">
 					<div class="card-header">
 						Фильтр
 					</div>
@@ -88,7 +88,7 @@
 					
 							<div class="col-auto">
 								<label for="name_focus" class="form-label">Направление</label>
-								<select class="form-select filter_ep" id="id_focus">
+								<select class="form-select filter_focus_buxg filter_buxg" id="id_focus">
 									<option value="all" selected>Все</option>
 									<?php foreach($focus as $row) {?>
 									<option value="<?=$row['ID_focus']?>"><?=$row['name_focus']?></option>
@@ -97,7 +97,7 @@
 							</div>
 							<div class="col-auto">
 								<label for="name_type_ep" class="form-label">Вид ОП</label>
-								<select class="form-select filter_ep" id="id_type_ep">
+								<select class="form-select filter_type_ep_buxg filter_buxg" id="id_type_ep">
 									<option value="all" selected>Все</option>
 									<?php foreach($type_ep as $row) {?>
 									<option value="<?=$row['ID_type_ep']?>"><?=$row['name_type_ep']?></option>
@@ -106,7 +106,7 @@
 							</div>
 							<div class="col-auto">
 								<label for="name_form" class="form-label">Форма обучения</label>
-								<select class="form-select filter_ep" id="id_form">
+								<select class="form-select filter_form_buxg filter_buxg" id="id_form">
 									<option value="all" selected>Все</option>
 									<?php foreach($form_teach as $row) {?>
 									<option value="<?=$row['ID_form']?>"><?=$row['name_form']?></option>
@@ -115,7 +115,7 @@
 							</div>
 							<div class="col-auto">
 								<label for="name_type_doc" class="form-label">Вид документа</label>
-								<select class="form-select filter_ep" id="id_type_doc">
+								<select class="form-select filter_type_doc_buxg filter_buxg" id="id_type_doc">
 									<option value="all" selected>Все</option>
 									<?php foreach($type_doc as $row) {?>
 									<option value="<?=$row['ID_type_doc']?>"><?=$row['name_type_doc']?></option>
@@ -163,55 +163,53 @@
 							
 							</tr>
 						</thead>
-						<tbody>
+						<tbody id="search_buxg">
+						<?php foreach($edu_p as $row) {?>
 							<tr>
-							    <td>1</td>
-								<td>Язык РHP </td>
-								<td>Изменить</td>
-								<td>114</td>
-								<td>0</td>
-								<td>0</td>
+								<td><?=$row['ID_ep']?></td>
+								<td><?=$row['name_ep']?></td>
+								<td><?=$row['name_focus']?></td>
+								<td><?=$row['amount_hour']?></td>
+								<td><?=$row['cost_hour']?></td>
+								<td><?=$row['price']?></td>
 								<td>
 
 								<!-- Изменить -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button type="button" class="btn btn-primary editPrice" data-bs-toggle="modal" data-bs-target="#editPrice" 
+data-id_ep="<?=$row['ID_ep']?>" data-cost_hour="<?=$row['cost_hour']?>" data-price="<?=$row['price']?>">
  изменить
 </button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-    
-      <div class="modal-body">
-        
-	  <form method="POST" action="">
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Педчаса</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Цена</label>
-    <input type="text" class="form-control" id="exampleInputPassword1">
-  </div>
-  <button type="submit" class="btn btn-primary">изменить</button>
-</form>
-
-
-      </div>
-      
-    </div>
-  </div>
-</div>
-
-							
-								</td>
-								
+								</td>	
 							</tr>
-							
+						<?php } ?>
 						</tbody>
 					</table>
 				</div>
+				</div>
+<!-- Modal -->
+<div class="modal fade" id="editPrice" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-body">
+	  <form id="edit_price" method="post">
+  <div class="mb-3">
+	<input type="hidden" id="ID_ep" name="ID_ep">
+    <label class="form-label">Педчаса</label>
+    <input type="text" class="form-control" id="cost_hour" name="cost_hour" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Цена</label>
+    <input type="text" class="form-control" id="price" name="price">
+  </div>
+  <button type="submit" class="btn btn-primary">изменить</button>
+</form>
+  </div>
+</div>
+  </div>
+</div>
+
 
 			</div>
 		</main>

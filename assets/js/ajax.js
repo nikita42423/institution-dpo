@@ -219,6 +219,72 @@ $(document).on('click', '.addStatement', function () {
 });
 
 
+//фильтрация для бухгалтера
+$(document).ready(function(){
+    $('.filter_buxg').change(function(){
+        let ID_focus = document.getElementById('id_focus').value;
+        let ID_type_ep = document.getElementById('id_type_ep').value;
+        let ID_form = document.getElementById('id_form').value;
+        let ID_type_doc = document.getElementById('id_type_doc').value;
+
+        $.ajax({
+            type: 'POST',
+            url: 'buxgalter2/filter_buxg',
+            data: ({ID_focus: ID_focus, ID_type_ep: ID_type_ep, ID_form: ID_form, ID_type_doc: ID_type_doc}),
+            success: function(result) {
+                let data =  JSON.parse(result);
+                $('#search_buxg').empty();  //очистка таблицы
+                for(i in data)
+                {
+                    $('#example').append(`<tr>
+                            <td>${data[i].ID_ep}</td>
+                            <td>${data[i].name_ep}</td>
+                            <td>${data[i].name_focus}</td>
+                            <td>${data[i].amount_hour}</td>
+                            <td>${data[i].cost_hour}</td>
+                            <td>${data[i].price}</td>
+                            <td>
+                                <button type="button" class="btn btn-primary editPrice" data-bs-toggle="modal" data-bs-target="#editPrice" data-id_ep="${data[i].ID_ep}" data-cost_hour="${data[i].cost_hour}" data-price="${data[i].price}">
+                                    изменить
+                                </button>
+                           </td>
+                        </tr>`);
+                }
+            }
+        })
+    })
+});
+
+//передача значения модального окна (Изменение прайса - Бухгалтер)
+$(document).on('click', '.editPrice', function () {
+    var ID_ep = $(this).data('id_ep'),
+        cost_hour = $(this).data('cost_hour'),
+        price = $(this).data('price');
+    $('#ID_ep').val(ID_ep);
+    $('#cost_hour').val(cost_hour);
+    $('#price').val(price);
+});
+
+//Изменение данные прайса
+$(document).ready(function(){
+
+    $('#edit_price').submit(function(){
+        let ID_ep = document.getElementById('ID_ep').value;
+        let cost_hour = document.getElementById('cost_hour').value;
+        let price = document.getElementById('price').value;
+        $.ajax({
+            type: 'POST',
+            url: 'buxgalter2/update_price',
+            data: { ID_ep:ID_ep, cost_hour:cost_hour, price:price},
+            dataType: 'json',
+            success: function(result){
+                alert(result);
+            }
+        })
+    })
+});
+
+
 //Модальное окно для изменения Дисциплины
 
     $('#modal_upd_discipline').on('show.bs.modal', function (event) {
