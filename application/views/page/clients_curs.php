@@ -5,27 +5,30 @@
                 <h1>КУРСЫ</h1><hr>
                 <form class="row g-3 needs-validation" novalidate>
     <div class="col-md-3">
-        <label for="validationCustom04" class="form-label">Направление подготовки</label>
-        <select class="form-select" id="validationCustom04">
-          <option value="">...</option>
+    <label class="form-label">Направление подготовки</label>
+        <select class="form-select filter_client" id="id_focus">
+          <option value="all" selected>Все</option>
+          <?php foreach($focus as $row) {?>
+            <option value="<?=$row['ID_focus']?>"><?=$row['name_focus']?></option>
+          <?php }?>
         </select>
       </div>
       <div class="col-md-3">
-        <label for="validationCustom04" class="form-label">Уровень образование</label>
-        <select class="form-select" id="validationCustom04">
-          <option value="">...</option>
+      <label class="form-label">Форма обучения</label>
+        <select class="form-select filter_client" id="id_form">
+          <option value="all" selected>Все</option>
+          <?php foreach($form_teach as $row) {?>
+            <option value="<?=$row['ID_form']?>"><?=$row['name_form']?></option>
+          <?php }?>
         </select>
       </div>
       <div class="col-md-3">
-        <label for="validationCustom04" class="form-label">Форма обучения</label>
-        <select class="form-select" id="validationCustom04">
-          <option value="">...</option>
-        </select>
+        <label class="form-label">Период: с</label>
+        <input type="date" class="form-control">
       </div>
       <div class="col-md-3">
-        <label for="validationCustom04" class="form-label">Срок обучения</label>
-        <select class="form-select" id="validationCustom04">
-          <option value="">...</option>
+        <label class="form-label">по</label>
+        <input type="date" class="form-control">
         </select>
       </div>
     

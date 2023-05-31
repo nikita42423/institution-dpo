@@ -67,6 +67,20 @@ class Client_m extends CI_Model {
     }
 
 
+    
+    //Выбрать курс
+    public function sel_course($ID_focus, $ID_type_ep, $date1, $date2)
+    {
+        $query = $this->db->join('focus', 'focus.ID_focus=e.ID_focus')
+                          ->join('form_teach', 'form_teach.ID_form=e.ID_form')
+                          ->where('e.ID_focus', $ID_focus)
+                          ->where('e.ID_type_ep', $ID_type_ep)
+                          ->where('c.date_start_teaching >=', $date1)
+                          ->where('c.date_end_teaching <=', $date2)
+                            ->get('edu_program as e, course as c');
+        return $query->result_array();
+    }
+
 
      
     }
