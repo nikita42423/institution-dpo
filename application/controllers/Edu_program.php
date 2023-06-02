@@ -126,4 +126,5 @@ class Edu_program extends CI_Controller {
 		}
 	}
 
+
 }

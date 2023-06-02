@@ -1,6 +1,6 @@
 		<main class="col-md-9 ms-sm-auto col-lg-11 px-md-4">
 			<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="display-3 text-center mb-3">График курсов</h1>
+                <h1 class="display-3 text-center mb-3">График курсов<a class="btn btn-primary m-3" href="course/form_course">Формировать</a></h1>
                 <h1 class="display-6 text-center mb-3 text-success"><?=$this->session->userdata('msg')?></h1>
 			</div>
 
@@ -14,11 +14,9 @@
 								<th class="text-table-rotate" rowspan="2">Код ОП</th>
 								<th class="text-nowrap text-center" rowspan="2">Наименование ОП</th>
 								<?php
-								$date = new DateTime('0000-09-01');
+								
 								for ($i = 1; $i <= 45; $i++) {
-									echo '<th class="text-table-rotate" style="padding-left: 0px;padding-right: 0px;">'.$date->format('d.m').'</th>';
-									$array_week[$i] = $date->format('d.m');
-									$date->modify('+7 day');
+									echo '<th class="text-table-rotate" style="padding-left: 0px;padding-right: 0px;">'.$header_table[$i].'</th>';
 								}?>
 							</tr>
 							<tr>
@@ -31,30 +29,43 @@
 						</thead>
 						<tbody>
 							<?php
+							$i=1;//var_dump($header_table[$i]);
 							foreach ($course as $row) {?>
 							<tr>
 								<td><?=$row['name_course']?></td>
 								<td><?=$row['ID_ep']?></td>
 								<td><?=$row['name_ep']?></td>
 								<?php
-								$date = new DateTime('0000-09-01');
+								$color[1]='class="table-primary"';
+								$color[2]='class="table-secondary"';
+								$color[3]='class="table-success"';
+								$color[4]='class="table-danger"';
+								$color[5]='class="table-warning"';
+								$color[6]='class="table-info"';
+								$color[7]='class="table-dark"';
+
 								$date1 = new DateTime($row['date_start_teaching']);
 								$date2 = new DateTime($row['date_end_teaching']);
-
+			
 								for ($i = 1; $i <= 45; $i++) {
-									while ($i <= $row['time_week']) {
-										echo "<td>$i</td>";
-										$i++;
+									$d = $header_table[$i];
+									$datk = new DateTime($d);
+
+									if ($datk >= $date1 && $datk <= $date2) {
+										echo '<td class="table-primary">+</td>';
 									}
-									echo "<td></td>";
+									else {
+										echo "<td></td>";
+									}
+
 								}
-							echo '</tr>';
+								echo '</tr>';
 							}?>
 							
 						</tbody>
 					</table>
 				</div>
-<?php for ($i = 1; $i <= 45; $i++) {echo $i.' недель это '.$array_week[$i].'<br>';}?>
+<?php //for ($i = 1; $i <= 45; $i++) {echo $i.' недель это '.$array_week[$i].'<br>';}?>
 			</div>
 		</main>
 		

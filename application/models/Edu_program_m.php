@@ -41,4 +41,11 @@ class Edu_program_m extends CI_Model {
         $row = $query->last_row();  //Получить последнюю запись из таблицы
         return $row->ID_ep;         //Возвращает ИД из последней записи
     }
+
+    //Выбрать образовательную программу для курсов
+    public function sel_edu_program_for_course()
+    {
+        $query = $this->db->get('edu_program');
+        return $query->result_array();
+    }
 }
