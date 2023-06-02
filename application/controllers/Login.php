@@ -47,7 +47,7 @@ class Login extends CI_Controller {
 				break;
 				case '6': redirect(base_url('buxgalter/index'));
 				break;
-				case '4': redirect(base_url('clients/index'));
+				case '4': redirect(base_url('clients/lizcab'));
 				break;
 				case '5': redirect(base_url('teachers/index'));
 				break;

@@ -37,130 +37,140 @@
         </div>
     </section>
 
-    <section id="curs">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                <h1>НАПРАВЛЕНИЕ</h1>
-                <div class="row row-cols-1 row-cols-md-3 g-6">
-                  <a href="main/nabravel" style=" text-decoration: none;">
-  <div class="col">
-  <div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="assets/img/11.jpg" class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title" style="text-align: center; color: brown; padding-top: 10%">ИНФОРМАЦИОННЫЕ СИСТЕМЫ И ПРОГРАММИРОВАНИЕ</h5>
+    <section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 style="text-align: center; padding: 2%; color: blue;">КУРСЫ</h1>
+                <form class="row g-3 needs-validation" method="post">
+    <div class="col-md-3">
+    <label class="form-label">Направление подготовки</label>
+        <select class="form-select filter_client" id="id_focus">
+          <option value="all" selected>Все</option>
+          <?php foreach($focus as $row) {?>
+            <option value="<?=$row['ID_focus']?>"><?=$row['name_focus']?></option>
+          <?php }?>
+        </select>
       </div>
-    </div>
-  </div>
-</div>
-  </div>
-  </a>
-  <a href="login/index" style=" text-decoration: none;">
-  <div class="col">
-  <div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="assets/img/22.jpg" class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title" style="text-align: center; color: brown; padding-top: 10%">ПСИХОЛОГИЯ</h5>
+      <div class="col-md-3">
+      <label class="form-label">Форма обучения</label>
+        <select class="form-select filter_client" id="id_form">
+          <option value="all" selected>Все</option>
+          <?php foreach($form_teach as $row) {?>
+            <option value="<?=$row['ID_form']?>"><?=$row['name_form']?></option>
+          <?php }?>
+        </select>
       </div>
-    </div>
-  </div>
-</div>
-  </div>
-  </a> <a href="login/index" style=" text-decoration: none;">
-  <div class="col">
-  <div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="assets/img/33.jpg" class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title" style="text-align: center; color: brown; padding-top: 10%">ИНОСТРАННЫЕ ЯЗЫКИ</h5>
+      <div class="col-md-3">
+        <label class="form-label">Период: с</label>
+        <input type="date" class="form-control filter_client" id="date1">
       </div>
-    </div>
-  </div>
-</div>
-  </div>
-  </a> <a href="login/index" style=" text-decoration: none;">
-  <div class="col">
-  <div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="assets/img/44.jpg" class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title" style="text-align: center; color: brown; padding-top: 10%">ФИНАНСЫ И БУХГАЛТЕРСКИЙ УЧЕТ</h5>
+      <div class="col-md-3">
+        <label class="form-label">по</label>
+        <input type="date" class="form-control filter_client" id="date2">
+        </select>
       </div>
-    </div>
-  </div>
-</div>
-  </div>
-  </a> <a href="login/index" style=" text-decoration: none;">
-  <div class="col">
-  <div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="assets/img/55.jpg" class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title" style="text-align: center; color: brown; padding-top: 10%">ПЕДАГОГИКА И ДИДАКТИКА</h5>
-      </div>
-    </div>
-  </div>
-</div>
-  </div>
-  </a> <a href="login/index" style=" text-decoration: none;">
-  <div class="col">
-  <div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="assets/img/66.jpg" class="img-fluid rounded-start" alt="..." height="30">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title" style="text-align: center; color: brown; padding-top: 10%">ЮРИСПРУДЕНЦИЯ И ПРАВО</h5>
-      </div>
-    </div>
-  </div>
-</div>
-  </div>
-  </a>
+    
+  </form>
+                <div class="table-responsive">
+
+				<!-- Скрипт для пагинации -->
+				<script>
+				$(document).ready(function () {
+					var table = $('#curs').DataTable({
+						
+					});
+
+				});
+				</script>
+
+				<div class="data_table">
+					<table id="curs" class="table" style="width:100%">
+						<thead>
+							<tr class="text-center">
+								<th>Программа </th>
+								<th>Курсы </th>
+								<th>Цена</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody id="client_curs">
+               <?php foreach($clientcours as $row) {?>
+                            <tr class="text-center">
+                                <td><?=$row['name_ep']?></td>
+                                <td><?=$row['name_course']?></td>
+                                <td><?=$row['price']?></td>
+                                <td><!-- Кнопка-триггер модального окна -->
+                                <button type="button" class="btn btn-primary addStatement" data-bs-toggle="modal" data-bs-target="#addStatement" 
+                                data-id_course="<?=$row['ID_course']?>" data-name_course="<?=$row['name_course']?>">
+                                  Подать заявку
+                                </button>
+
+                                <!-- Модальное окно -->
+                                </td>
+                                </tr>
+                            <?php } ?>
+                      </tbody>
+                    </table>
+                  </div>
+
+                </div>
+                        <div class="modal fade" id="addStatement" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="nameCourseModal">Курс </h5>
+                            </div>
+                            <div class="modal-body">
+                            <form id="add_statement" method="post">
+                              <div class="form-outline mb-4">
+                                <input type="hidden" id="ID_course" name="ID_course">
+                                <input type="hidden" id="ID_user" name="ID_user" value="<?php echo $ID_user;?>">
+                                <label class="form-label">Вы подтверждаете подачу заявки?</label>
+                              </div>
+                              <div class="d-flex justify-content-center">
+                                <button type="submit"
+                                  class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Да</button>
+                              </div>
+                              </form>
+                              
+                            </div>
+                            
+                          </div>
+                        </div>
+                        </div>
             </div>
         </div>
-    </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
+
+</section>
+  
 
     <section id="aboutus" style="margin-bottom: 3%;">
 		<div class="container">
-      <h1>О БИЗНЕС - ШКОЛЕ</h1>
+      <h1 style="text-align: center; padding: 2%; color: blue;">О БИЗНЕС - ШКОЛЕ</h1>
 			<div class="clearfix">
 				<img src="assets/img/4.jpg" class="col-md-6 float-md-start mb-3 ms-md-3 m-3" alt="...">
 				<div class="text-justify p-3">
-					<p><b>Цель проекта Все Курсы Онлайн - помогать людям познавать новую информацию каждый день и добиваться успеха в жизни.</b></p> 
-					<p>Для этого был создан удобный сайт со всеми образовательными программами онлайн и дистанционными курсами со всего мира.</p>
-					<p>Главные достоинства проекта - удобный поиск курсов при помощи фильтров и категорий. Можно отобрать только платные курсы онлайн или только курсы онлайн для детей и взрослых. Отдельными спецпроектами выделены образовательные видео и вебинары. Также крайне полезна возможность записаться на курс или уточнить дополнительную информацию посредством функционала сайта Все Курсы Онлайн.</p> 
-					<p>Все события рынка онлайн-образования освещаются на Всех Курсах Онлайн.</p>
-					<p>На сайте - удобный дизайн, адаптированный к любым размерам экрана, в том числе будет удобен для просмотра с экранов мобильных устройств.</p>
+					<p ><b style="text-align:center">Цель проекта Все Курсы Онлайн - помогать людям познавать новую информацию каждый день и добиваться успеха в жизни.</b></p> 
+					<p style="text-align:justify" >Для этого был создан удобный сайт со всеми образовательными программами онлайн и дистанционными курсами со всего мира.</p>
+					<p style="text-align:justify">Главные достоинства проекта - удобный поиск курсов при помощи фильтров и категорий. Можно отобрать только платные курсы онлайн или только курсы онлайн для детей и взрослых. Отдельными спецпроектами выделены образовательные видео и вебинары. Также крайне полезна возможность записаться на курс или уточнить дополнительную информацию посредством функционала сайта Все Курсы Онлайн.</p> 
+					<p style="text-align:justify">Все события рынка онлайн-образования освещаются на Всех Курсах Онлайн.</p>
+					<p style="text-align:justify">На сайте - удобный дизайн, адаптированный к любым размерам экрана, в том числе будет удобен для просмотра с экранов мобильных устройств.</p>
 				</div>
 			</div>
 		</div>
     </section>
 
+
               
-  <section style="background: linear-gradient(90deg, #b9deed, #efefef); padding-bottom: 2%;">
+  <!-- <section style="background: linear-gradient(90deg, #b9deed, #efefef); padding-bottom: 2%;">
   <div class="container my-5 py-5">
     <div class="row d-flex justify-content-center">
       <div class="col-md-12 col-lg-10">
-            <h1>ОТЗЫВЫ</h1>
+            <h1 style="text-align: center; padding: 2%; color: blue;">ОТЗЫВЫ</h1>
         <div class="card text-dark">
           <div class="card-body p-4">
             <div class="d-flex flex-start">
@@ -255,8 +265,8 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 
-          
+<script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
 

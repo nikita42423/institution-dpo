@@ -1,4 +1,4 @@
-<header style="background: linear-gradient(90deg, #b9deed, #efefef);">
+<header style="background: linear-gradient(90deg, #b9deed, #efefef); padding: 2%">
 <div class="jumbotron">
             <button class="btn btn-primary head" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
@@ -21,7 +21,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="main/index#aboutus">О БИЗНЕС - ШКОЛЕ</a>
                                 </li>
-                                <li class="nav-item dropdown">
+                                <!-- <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="main/index#nabral" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     НАПРАВЛЕНИЕ
                                 </a>
@@ -33,7 +33,7 @@
                                     <li><a class="dropdown-item" href="">ПЕДАГОГИКА И ДИДАКТИКА</a></li>
                                     <li><a class="dropdown-item" href="">ПСИХОЛОГИЯ</a></li>
                                 </ul>
-                                </li>
+                                </li> -->
                                 <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="login/index"><button type="button" class="btn btn-outline-dark">АВТОРИЗАЦИЯ</button></a>
                                 </li>
