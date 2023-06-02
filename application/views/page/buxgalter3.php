@@ -175,7 +175,6 @@
 								<td>
 
 								<!-- Изменить -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
 <button type="button" class="btn btn-primary editPrice" data-bs-toggle="modal" data-bs-target="#editPrice" 
 data-id_ep="<?=$row['ID_ep']?>" data-cost_hour="<?=$row['cost_hour']?>" data-price="<?=$row['price']?>">
  изменить

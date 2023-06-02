@@ -255,6 +255,40 @@ $(document).ready(function(){
     })
 });
 
+
+//фильтрация для клиента (курсы)
+$(document).ready(function(){
+    $('.filter_client').change(function(){
+        let ID_focus = document.getElementById('id_focus').value;
+        let ID_form = document.getElementById('id_form').value;
+        let date1 = document.getElementById('date1').value;
+        let date2 = document.getElementById('date2').value;
+        $.ajax({
+            type: 'POST',
+            url: 'clients/filter_client',
+            data: ({ID_focus: ID_focus, ID_form: ID_form, date1: date1, date2: date2}),
+            success: function(result) {
+                let data =  JSON.parse(result);
+                $('#client_curs').empty();  //очистка таблицы
+                for(i in data)
+                {
+                    $('#curs').append(`<tr>
+                            <td>${data[i].name_ep}</td>
+                            <td>${data[i].name_course}</td>
+                            <td>${data[i].price}</td>
+                            <td>
+                            <button type="button" class="btn btn-primary addStatement" data-bs-toggle="modal" data-bs-target="#addStatement" data-id_course="${data[i].ID_course}" data-name_course="${data[i].name_course}">
+                                Подать заявку
+                            </button>
+                           </td>
+                        </tr>`);
+                }
+            }
+        })
+    })
+});
+
+
 //передача значения модального окна (Изменение прайса - Бухгалтер)
 $(document).on('click', '.editPrice', function () {
     var ID_ep = $(this).data('id_ep'),

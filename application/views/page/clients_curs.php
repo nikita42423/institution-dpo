@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1>КУРСЫ</h1><hr>
-                <form class="row g-3 needs-validation" novalidate>
+                <form class="row g-3 needs-validation" method="post">
     <div class="col-md-3">
     <label class="form-label">Направление подготовки</label>
         <select class="form-select filter_client" id="id_focus">
@@ -24,11 +24,11 @@
       </div>
       <div class="col-md-3">
         <label class="form-label">Период: с</label>
-        <input type="date" class="form-control">
+        <input type="date" class="form-control filter_client" id="date1">
       </div>
       <div class="col-md-3">
         <label class="form-label">по</label>
-        <input type="date" class="form-control">
+        <input type="date" class="form-control filter_client" id="date2">
         </select>
       </div>
     
@@ -55,7 +55,7 @@
 								<th></th>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody id="client_curs">
                <?php foreach($clientcours as $row) {?>
                             <tr class="text-center">
                                 <td><?=$row['name_ep']?></td>

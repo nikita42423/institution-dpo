@@ -79,6 +79,28 @@ class Clients extends CI_Controller {
 		echo json_encode($create);
 	}
 
+
+	//фильтрация по курсам
+	public function filter_client()
+	{
+		$ID_focus = $_POST['ID_focus'];
+		$ID_form = $_POST['ID_form'];
+		$date1 = $_POST['date1'];
+		$date2 = $_POST['date2'];
+
+		if($ID_focus == 'all') $ID_focus = NULL;
+		if($ID_form == 'all') $ID_form = NULL;
+		if(empty($date1)) $date1 = NULL;
+		if(empty($date2)) $date2 = NULL;
+
+		$this->load->model('client_m');
+		$course = $this->client_m->sel_course($ID_focus, $ID_form, $date1, $date2);
+
+		echo json_encode($course);
+	}
+
+
+	
 	
 
 	
