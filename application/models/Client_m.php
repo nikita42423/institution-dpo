@@ -6,11 +6,12 @@ class Client_m extends CI_Model {
         $this->load->database();
     }
     
-    //Выбрать образовательную программу
+    //Выбрать образовательную программу (не так)
     public function sel_cours()
     {
         $query = $this->db->where('course.ID_ep = edu_program.ID_ep')
-                          ->get('course, edu_program');
+                          ->where('price_edu.ID_ep = edu_program.ID_ep')
+                          ->get('course, edu_program, price_edu');
         return $query->result_array();
     }
 

@@ -8,7 +8,7 @@
 
                 <div class="offcanvas offcanvas-start" style="width: 30%;" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel" ><img src="assets/img/log.png" alt="" width="200" height="200"></h5>
+                    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel" > <a class="nav-link" href="main/index"><img src="assets/img/log.png" alt="" width="200" height="200"></a></h5>
                                    
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
                    

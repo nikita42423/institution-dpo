@@ -89,7 +89,7 @@
 			<input type="date" class="form-control" id="end_date" >
 		</div>
 	<br>
-		<div class="col-md-4">
+		<div class="col-md-6">
 			<label for="ID_focus" class="form-label">Курс</label>
 			<select class="form-select" id="ID_focus">
 				<?php foreach ($focus as $row) {?>
@@ -97,18 +97,18 @@
 				<?php }?>
 			</select>
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-6">
 			<label for="ID_epo" class="form-label">Наименование ДПО</label>
 			<select class="form-select" id="ID_epo">
 				<!-- <option value="">...</option> -->
 			</select>
 		</div>
-		<div class="col-md-4">
+		<!-- <div class="col-md-4">
 			<label for="validationDefault13" class="form-label">Дисциплина</label>
 			<select class="form-select" id="validationDefault13">
 				<option value="">...</option>
 			</select>
-		</div>
+		</div> -->
 
 	</form>
 </div>
@@ -137,15 +137,20 @@
 					<table id="example" class="table" style="width:100%">
 						<thead>
 							<tr>
-								<th>ФИО преподавателя</th>
-								<th>Зарплата</th>
+								<th>Направление</th>
+								<th>Курс</th>
+								<th>Кол-во часов обучения</th>
+								<th>Сумма</th>
 							
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td>ФИО </td>
-								<td>25000</td>
+								<td> а</td>
+								<td>а</td>
+								<td>а</td>
+								<td>р</td>
+
 								
 							</tr>
 							

@@ -22,11 +22,11 @@ class Main extends CI_Controller {
 	{
 
 		//Сессия
-		// $data['session'] = $this->session->userdata('login_session');
-		// $session=$data['session'];
+		$data['session'] = $this->session->userdata('login_session');
+		$session=$data['session'];
 
-		// $ID_user = $session['ID_user'];
-		// $data['ID_user'] = $ID_user;
+		$ID_user = $session['ID_user'];
+		$data['ID_user'] = $ID_user;
 
 		$this->load->model('client_m');
 		$this->load->model('focus_m');
