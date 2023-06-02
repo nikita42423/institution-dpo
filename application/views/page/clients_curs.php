@@ -46,7 +46,7 @@
 				</script>
 
 				<div class="data_table">
-					<table id="curs" class="table table-striped" style="width:100%">
+					<table id="curs" class="table" style="width:100%">
 						<thead>
 							<tr class="text-center">
 								<th>Программа </th>

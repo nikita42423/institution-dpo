@@ -150,7 +150,7 @@
 				</script>
 
 				<div class="data_table">
-					<table id="example" class="table table-striped" style="width:100%">
+					<table id="example" class="table" style="width:100%">
 						<thead>
 							<tr>
 								<th>№</th>

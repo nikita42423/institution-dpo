@@ -52,7 +52,7 @@
       <div class="accordion-body">
 
 
-      <table class="table" id="history_course">
+      <table class="table table-striped" id="history_course">
   <thead>
     <tr>
       <th scope="col">Курсы</th>
