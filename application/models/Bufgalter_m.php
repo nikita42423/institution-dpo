@@ -10,7 +10,7 @@ class Bufgalter_m extends CI_Model {
 
    public function sel_edu_program()
    {
-    $query = $this->db->where('price = 0')
+    $query = $this->db
                      ->where('edu_program.ID_form = form_teach.ID_form')
                      ->get('edu_program, form_teach');
     return $query->result_array();
