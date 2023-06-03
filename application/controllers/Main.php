@@ -25,8 +25,14 @@ class Main extends CI_Controller {
 		$data['session'] = $this->session->userdata('login_session');
 		$session=$data['session'];
 
-		$ID_user = $session['ID_user'];
-		$data['ID_user'] = $ID_user;
+		if(isset($data['session']))
+		{
+			$ID_user = $session['ID_user'];
+			$data['ID_user'] = $ID_user;
+
+		}
+		else $data['ID_user'] = '';
+		
 
 		$this->load->model('client_m');
 		$this->load->model('focus_m');
@@ -37,7 +43,7 @@ class Main extends CI_Controller {
 		$data['form_teach'] = $this->form_teach_m->sel_form_teach();
 
 		$this->load->view('template/header.php');
-		$this->load->view('template/navbar_main.php',  $data);
+		$this->load->view('template/navbar_main1.php',  $data);
 		$this->load->view('page/main.php',  $data);
 	//	$this->load->view('template/footer.php');
 	

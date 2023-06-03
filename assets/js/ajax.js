@@ -285,11 +285,11 @@ $(document).ready(function(){
                 {
                     $('#curs').append(`<tr>
                             <td>${data[i].name_ep}</td>
-                            <td>${data[i].name_course}</td>
+                          
                             <td>${data[i].price}</td>
                             <td>
                             <button type="button" class="btn btn-primary addStatement" data-bs-toggle="modal" data-bs-target="#addStatement" data-id_course="${data[i].ID_course}" data-name_course="${data[i].name_course}">
-                                Подать заявку
+                                график курсов
                             </button>
                            </td>
                         </tr>`);

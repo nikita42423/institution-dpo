@@ -1,4 +1,4 @@
-<header>
+<header style="margin: 2%">
 <div class="jumbotron">
             <button class="btn btn-primary head" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
@@ -22,9 +22,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link active" aria-current="page" href="clients/lizcab">ЛИЧНЫЙ КАБИНЕТ</a>
                                 </li>
-                                <li class="nav-item">
+                                <!-- <li class="nav-item">
                                     <a class="nav-link" href="clients/index">КУРСЫ</a>
-                                </li>
+                                </li> -->
                             
                                 <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="main/out"><button type="button" class="btn btn-outline-dark">ВЫЙТИ ИЗ СИСТЕМЫ</button></a>

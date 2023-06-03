@@ -25,7 +25,7 @@
 				<li class="nav-item mb-3">
 					<a class="nav-link" href="reg_teacher/browse" style="color:black;">Регистрация преподавателей</a>
 				</li>
-				<a class="btn btn-outline-dark mt-3" href="main/index" >Выйти из системы</a>
+				<a class="btn btn-outline-dark mt-3" href="main/out" >Выйти из системы</a>
 			</ul>
 
 			</div>

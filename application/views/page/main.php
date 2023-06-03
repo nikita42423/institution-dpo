@@ -1,47 +1,8 @@
-<section id="glav">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-1"></div>
-                <div class="col-lg-10" style="margin-top: 2%;">
-
-                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-indicators">
-                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                        </div>
-                        <div class="carousel-inner">
-                          <div class="carousel-item active"  data-bs-interval="5000">
-                            <img src="assets/img/1.jpg" class="d-block w-100" alt="..." height="500">
-                          </div>
-                          <div class="carousel-item"  data-bs-interval="5000">
-                            <img src="assets/img/2.jpg" class="d-block w-100" alt="..." height="500">
-                          </div>
-                          <div class="carousel-item"  data-bs-interval="5000">
-                            <img src="assets/img/3.jpg" class="d-block w-100" alt="..." height="500">
-                          </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                          <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                          <span class="visually-hidden">Next</span>
-                        </button>
-                      </div>
-
-                </div>
-                <div class="col-lg-1"></div>
-            </div>
-        </div>
-    </section>
-
-    <section>
+    <section id="cours">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h1 style="text-align: center; padding: 2%; color: blue;">КУРСЫ</h1>
+                <h1 style="text-align: center; padding: 2%; color: blue;"><b>КУРСЫ</b></h1>
                 <form class="row g-3 needs-validation" method="post">
     <div class="col-md-3">
     <label class="form-label">Направление подготовки</label>
@@ -89,7 +50,7 @@
 						<thead>
 							<tr class="text-center">
 								<th>Программа </th>
-								<th>Курсы </th>
+								<!-- <th>Курсы </th> -->
 								<th>Цена</th>
 								<th></th>
 							</tr>
@@ -98,12 +59,12 @@
                <?php foreach($clientcours as $row) {?>
                             <tr class="text-center">
                                 <td><?=$row['name_ep']?></td>
-                                <td><?=$row['name_course']?></td>
+                                <!-- <td><?=$row['name_course']?></td> -->
                                 <td><?=$row['price']?></td>
                                 <td><!-- Кнопка-триггер модального окна -->
                                 <button type="button" class="btn btn-primary addStatement" data-bs-toggle="modal" data-bs-target="#addStatement" 
                                 data-id_course="<?=$row['ID_course']?>" data-name_course="<?=$row['name_course']?>">
-                                  Подать заявку
+                                  График курсов
                                 </button>
 
                                 <!-- Модальное окно -->
@@ -147,10 +108,68 @@
 
 </section>
   
+<section class="text-center text-lg-start">
+  <style>
+    .cascading-right {
+      margin-right: -50px;
+    }
+
+    @media (max-width: 991.98px) {
+      .cascading-right {
+        margin-right: 0;
+      }
+    }
+  </style>
+
+  <!-- Jumbotron -->
+  <div class="container py-4">
+    <div class="row g-0 align-items-center">
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <div class="card cascading-right" style=" background: hsla(0, 0%, 100%, 0.55); backdrop-filter: blur(30px);">
+          <div class="card-body p-5 shadow-5">
+            <h2 class="fw-bold mb-5">Подберём идеальную программу</h2>
+            
+            <div class="row">
+  <div class="col-4">
+    <div class="list-group text-center" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home">Профессиональная переподготовка</a>
+      <a class="list-group-item list-group-item-action" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="list-profile">Повышение квалификации</a>
+      <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab" aria-controls="list-messages">Общеразвивающая программа</a>
+    </div>
+  </div>
+  <div class="col-8">
+    <div class="tab-content text-justify" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list"><b>Профессиональная переподготовка</b> — это обучение и практика 
+        для достижения новой карьерной цели. Включает в себя и короткие курсы, на которых можно получить дополнительные навыки для текущей 
+        профессии, и получение второго высшего образования по другой специальности, и переквалификацию.</div>
+      <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list"><b>Повышения квалификации</b> — дать актуальные сведения о нововведениях в профессии, обучить работе в 
+      новой программе или на новом оборудовании. <br>
+     <b> Повышение квалификации </b> и переподготовка — это дополнительное профессиональное образование. </div>
+      <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">Дополнительная общеобразовательная <b> (общеразвивающая) программа</b> – это программа для детей и взрослых, определяющая направленность, адресность, 
+      структуру, содержание, последовательность, сроки и объём реализации образовательных услуг.</div>
+    </div>
+  </div>
+</div>
+           
+
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 mb-5 mb-lg-0">
+      <img src="assets/img/log.png" alt=""  height="" class="w-100 rounded-4 shadow-4">
+      
+      </div>
+    </div>
+  </div>
+  <!-- Jumbotron -->
+</section>
+
 
     <section id="aboutus" style="margin-bottom: 3%;">
 		<div class="container">
-      <h1 style="text-align: center; padding: 2%; color: blue;">О БИЗНЕС - ШКОЛЕ</h1>
+      <h1 style="text-align: center; padding: 2%; color: blue;"><b>О БИЗНЕС - ШКОЛЕ</b></h1>
 			<div class="clearfix">
 				<img src="assets/img/4.jpg" class="col-md-6 float-md-start mb-3 ms-md-3 m-3" alt="...">
 				<div class="text-justify p-3">

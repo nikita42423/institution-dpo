@@ -46,12 +46,12 @@
 						Расчет стоимости услуги
 						</a>
 					</li>
-					<li class="nav-item">
+					<!-- <li class="nav-item">
 						<a class="nav-link" href="buxgalter2/edu_price_bux">
 						<span data-feather="bar-chart-2"></span>
 						Образ. программа для цена
 						</a>
-					</li>
+					</li> -->
 					<li class="nav-item">
 						<a class="nav-link" href="buxgalter2/index">
 						<span data-feather="bar-chart-2"></span>
@@ -60,7 +60,7 @@
 					</li>
 					
 					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="login/kill_all_session"><button type="button" class="btn btn-outline-dark">Выйти из системы</button></a>
+						<a class="nav-link active" aria-current="page" href="main/out"><button type="button" class="btn btn-outline-dark">ВЫЙТИ ИЗ СИСТЕМЫ</button></a>
 					</li>
 				</ul>
 			</div>

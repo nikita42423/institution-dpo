@@ -50,7 +50,7 @@
       <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
       
 
-        <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
+        <h1 class="my-5 display-5 fw-bold ls-tight text-center" style="color: hsl(218, 81%, 95%) ">
           Международная инклюзивная академия <br />
           <span style="color: hsl(218, 81%, 75%)">образовательный центр и ИТ</span>
         </h1>
