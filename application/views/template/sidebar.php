@@ -30,7 +30,7 @@
 					<a class="nav-link" href="edu_program/browse">Образовательная программа</a>
 				</li>
 				<li class="nav-item mb-3">
-					<a class="nav-link" href="schedule/index">График курсов</a>
+					<a class="nav-link" href="course/index">График курсов</a>
 				</li>
 				<li class="nav-item mb-3">
 					<a class="nav-link" href="reg_teacher/browse">Регистрация преподавателей</a>

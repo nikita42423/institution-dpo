@@ -45,15 +45,16 @@ class Course extends CI_Controller {
 			echo $count_course.'<br>';
 			while ($i <= $count_course) {
 				$name_course = $row['short_name'].'-'.$i;
-				if ($t<45) {
+
+				if ($t <= 45) {
 					$date_start_teaching = $data['header_table'][$t];
-					$t = $t + $row['time_week'] + 1;
+					$t += $row['time_week'] - 1;
 					$date_end_teaching = $data['header_table'][$t];
+					$t++;
 					$ID_ep = $row['ID_ep'];
 				
-				 
-				echo $name_course.' | '.$ID_ep.' | '.$date_start_teaching.' | '.$date_end_teaching.' <br>';
-				//$this->course_m->add_course($name_course, $ID_ep, $date_start_teaching, $date_end_teaching);
+					echo $name_course.' | '.$ID_ep.' | '.$date_start_teaching.' | '.$date_end_teaching.' <br>';
+					//$this->course_m->add_course($name_course, $ID_ep, $date_start_teaching, $date_end_teaching);
 				}
 				$i++;
 			}

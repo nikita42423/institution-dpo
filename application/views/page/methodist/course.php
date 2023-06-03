@@ -14,14 +14,12 @@
 								<th class="text-table-rotate" rowspan="2">Код ОП</th>
 								<th class="text-nowrap text-center" rowspan="2">Наименование ОП</th>
 								<?php
-								
 								for ($i = 1; $i <= 45; $i++) {
 									echo '<th class="text-table-rotate" style="padding-left: 0px;padding-right: 0px;">'.$header_table[$i].'</th>';
 								}?>
 							</tr>
 							<tr>
 								<?php
-								$date = new DateTime('0000-09-01');
 								for ($i = 1; $i <= 45; $i++) {
 									echo '<th class="text-center" style="padding: 0px;">'.$i.'</th>';
 								}?>
@@ -29,12 +27,13 @@
 						</thead>
 						<tbody>
 							<?php
-							$i=1;//var_dump($header_table[$i]);
+							$i=1;
+
 							foreach ($course as $row) {?>
 							<tr>
 								<td><?=$row['name_course']?></td>
 								<td><?=$row['ID_ep']?></td>
-								<td><?=$row['name_ep']?></td>
+								<td><?=$row['short_name']?></td>
 								<?php
 								$color[1]='class="table-primary"';
 								$color[2]='class="table-secondary"';
@@ -49,9 +48,9 @@
 			
 								for ($i = 1; $i <= 45; $i++) {
 									$d = $header_table[$i];
-									$datk = new DateTime($d);
+									$date = new DateTime($d);
 
-									if ($datk >= $date1 && $datk <= $date2) {
+									if ($date >= $date1 && $date <= $date2) {
 										echo '<td class="table-primary">+</td>';
 									}
 									else {
@@ -65,7 +64,6 @@
 						</tbody>
 					</table>
 				</div>
-<?php //for ($i = 1; $i <= 45; $i++) {echo $i.' недель это '.$array_week[$i].'<br>';}?>
 			</div>
 		</main>
 		
