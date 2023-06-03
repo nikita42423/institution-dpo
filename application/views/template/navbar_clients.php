@@ -27,7 +27,7 @@
                                 </li>
                             
                                 <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="login/index"><button type="button" class="btn btn-outline-dark">ВЫЙТИ ИЗ СИСТЕМЫ</button></a>
+                                <a class="nav-link active" aria-current="page" href="main/out"><button type="button" class="btn btn-outline-dark">ВЫЙТИ ИЗ СИСТЕМЫ</button></a>
                                 </li>
                                 </ul>
                         </div><hr>

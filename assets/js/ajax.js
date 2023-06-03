@@ -193,9 +193,19 @@ $(document).ready(function(){
 
 //Зачисление клента на курсы (Подача заявки)
 $(document).ready(function(){
-    $('#add_statement').submit(function(){
+    $('#add_statement').submit(function(event){
+        event.preventDefault();
+        var site = window.location.origin;  //базовый адрес
+
         let ID_course = document.getElementById('ID_course').value;
         let ID_user = document.getElementById('ID_user').value;
+
+         //если ID_user пустой, тогда переход на авторизацию
+         if(!ID_user){
+            alert('Ошибка! Нужно авторизоваться');
+            window.location.replace(site + '/login/index');
+        } 
+
         $.ajax({
             type: 'POST',
             url: 'clients/add_stat',
@@ -203,6 +213,7 @@ $(document).ready(function(){
             dataType: 'json',
             success: function(result){
                 alert(result);
+            window.location.replace(site + '/clients/lizcab');  //переход страницы
             }
         })
     })

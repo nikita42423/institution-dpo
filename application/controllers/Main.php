@@ -52,4 +52,12 @@ class Main extends CI_Controller {
 	}
 
 
+		//Выход и удаление сессии
+		public function out()
+		{
+			session_destroy();
+			redirect('main/index');
+		}
+
+
 }

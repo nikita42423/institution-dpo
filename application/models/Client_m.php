@@ -73,6 +73,7 @@ class Client_m extends CI_Model {
     {
         $this->db->join('focus', 'focus.ID_focus=e.ID_focus')
                           ->join('form_teach', 'form_teach.ID_form=e.ID_form')
+                          ->join('price_edu', 'price_edu.ID_ep=e.ID_ep')          //отображение цены
                           ->where_in('e.ID_focus', $ID_focus)
                           ->where_in('e.ID_form', $ID_form)
                           ->where('c.ID_ep = e.ID_ep');
