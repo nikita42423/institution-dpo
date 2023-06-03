@@ -13,7 +13,7 @@
                 <input type="hidden" name="ID_ep" value="<?=$_GET['ID_ep']?>">
                 
                 <label for="name_discipline" class="form-label">Наименование дисциплины</label>
-                <input type="text" class="form-control mb-3" id="name_discipline" name="name_discipline" value="12312" required>
+                <input type="text" class="form-control mb-3" id="name_discipline" name="name_discipline" value="" required>
 
                 <div class="row mb-3">
                     <div class="col-3">
