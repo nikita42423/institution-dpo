@@ -24,20 +24,20 @@ class Bufgalter_m extends CI_Model {
     return $query->row_array();
    }
 
-    //отображение всех направлений
-    public function sel_focus()
-    {
-     $query = $this->db->get('focus');
-     return $query->result_array();
-    }
+     //отображение всех направлений
+     public function sel_focus()
+     {
+      $query = $this->db->get('focus');
+      return $query->result_array();
+     }
  
-    //отображение всех ДПО при выборе направления
-    public function sel_focus_edu($ID_focus)
-    {
-     $query = $this->db->where('ID_focus', $ID_focus)
-                       ->get('edu_program');
-     return $query->result_array();
-    }
+     //отображение всех ДПО при выборе направления
+     public function sel_focus_edu($ID_focus)
+     {
+      $query = $this->db->where('ID_focus', $ID_focus)
+                        ->get('edu_program');
+      return $query->result_array();
+     }
 
 
       //изменить данные прайса

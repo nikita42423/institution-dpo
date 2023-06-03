@@ -35,11 +35,10 @@ class Client_m extends CI_Model {
              'address' => $address
          );
          $this->db->where('ID_user', $ID_user);
- 
+
          $query = $this->db->update('users', $data);
          return $query;
      }
-
 
       //добавление заявки клиента
     public function add_statement($ID_course, $ID_user)
@@ -77,9 +76,9 @@ class Client_m extends CI_Model {
                           ->where_in('e.ID_focus', $ID_focus)
                           ->where_in('e.ID_form', $ID_form)
                           ->where('c.ID_ep = e.ID_ep');
-                if($date1 != NULL) $this->db->where("c.date_start_teaching <= '$date1'");
-                if($date2 != NULL) $this->db->where("c.date_end_teaching >= '$date2'");
-                $query = $this->db->get('edu_program as e, course as c');
+                          if($date1 != NULL) $this->db->where("c.date_start_teaching <= '$date1'");
+                          if($date2 != NULL) $this->db->where("c.date_end_teaching >= '$date2'");
+                          $query = $this->db->get('edu_program as e, course as c');
         return $query->result_array();
     }
 
