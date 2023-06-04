@@ -86,21 +86,25 @@
 		</div>
 		<div class="col-md-6">
 			<label for="end_date" class="form-label">ПО</label>
-			<input type="date" class="form-control" id="end_date" >
+			<input type="date" class="form-control" id="end_date">
 		</div>
 	<br>
 		<div class="col-md-6">
-			<label for="ID_focus" class="form-label">Курс</label>
+			<label for="ID_focus" class="form-label">Направление</label>
 			<select class="form-select" id="ID_focus">
+			    <option value="all">Все</option>
 				<?php foreach ($focus as $row) {?>
 					<option value="<?=$row['ID_focus']?>"><?=$row['name_focus']?></option>
 				<?php }?>
 			</select>
 		</div>
 		<div class="col-md-6">
-			<label for="ID_epo" class="form-label">Наименование ДПО</label>
-			<select class="form-select" id="ID_epo">
-				<!-- <option value="">...</option> -->
+		<label for="ID_ep" class="form-label">Наименование ОП</label>
+			<select class="form-select" id="ID_ep">
+				<option value="all">Все</option>
+				<?php foreach ($edu_program as $row) {?>
+					<option value="<?=$row['ID_ep']?>"><?=$row['name_ep']?></option>
+				<?php }?>
 			</select>
 		</div>
 		<!-- <div class="col-md-4">
@@ -137,22 +141,23 @@
 					<table id="example" class="table" style="width:100%">
 						<thead>
 							<tr>
-								<th>Направление</th>
+								<th>Наименование ОП</th>
 								<th>Курс</th>
-								<th>Кол-во часов обучения</th>
+								<th>Кол-во мест</th>
 								<th>Сумма</th>
 							
 							</tr>
 						</thead>
 						<tbody>
+						<?php foreach($sum_table as $row) {?>
 							<tr>
-								<td> а</td>
-								<td>а</td>
-								<td>а</td>
-								<td>р</td>
-
-								
+								<td><?=$row['name_ep']?></td>
+								<td><?=$row['name_course']?></td>
+								<td><?=$row['count_people']?> / <?=$row['count_in_group']?></td>
+								<td><?=$row['price']?></td>
 							</tr>
+							
+						<?php } ?>
 							
 						</tbody>
 					</table>

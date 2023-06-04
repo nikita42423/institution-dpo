@@ -11,7 +11,7 @@ class Buxgalter extends CI_Controller {
          $ID_user = $session['ID_user'];
 
 		 $this->load->model('bufgalter_m');
-		 $data['edu_program'] = $this->bufgalter_m->sel_edu_program();
+		 $data['edu_program'] = $this->bufgalter_m->sel_price_null();
 	
 
 		$this->load->view('template/header.php');
@@ -21,52 +21,20 @@ class Buxgalter extends CI_Controller {
 
 	public function shic_op()
 	{
-
-	
 		$ID_ep = $_POST['ID_ep'];
-
-		
-
 		$this->load->model('bufgalter_m');
 		$showopres = $this->bufgalter_m->sel_rast($ID_ep);
-
 		echo json_encode($showopres);
-
-
 	}
 
 	
 
 	public function show_rachet()
 	{
-		
-
-
-
 		if (!empty($_POST))
 		{
-
- 
-			// echo json_encode($_POST);
-		     // $ID_ep = $_POST['ID_ep'];
-
-			// $amount_hour = $_POST['amount_hour'];
-			// $name_form = $_POST['name_form'];
-			// $count_in_group = $_POST['count_in_group'];
-
-			// $this->load->model('bufgalter_m');
-			// $showopres = $this->bufgalter_m->sel_rast($ID_ep);
-			// // echo $showopres; 
-		//теперь делай расчет
 		//Эти значения подставляй в формул
-	     
-		
-
-
-
-		//давай поробуем сформировать результат как массив Имя=Значение посмотри формат json
-
-			
+	  	//давай поробуем сформировать результат как массив Имя=Значение посмотри формат json
 
 		  $res1 = $_POST['raster1'] * $_POST['amount_hour']; // сумма оплатф труда преподавателей
 		  $res2 = $res1  * $_POST['raster2'] / 100; //30% оплата труда администратор
@@ -99,6 +67,45 @@ class Buxgalter extends CI_Controller {
 			
 		}
 
+	}
+
+
+	//изменение выпадающего списка программы (Бухгалтера)
+	public function edit_select()
+	{
+		$check_price = $_POST['check_price'];
+		$this->load->model('bufgalter_m');
+
+		//если выбран price = 0
+		if($check_price == 'true') $result = $this->bufgalter_m->sel_price_null();
+		//если не price = 0
+		else if($check_price == 'false') $result = $this->bufgalter_m->sel_edu_program();
+
+		echo json_encode($result);
+	}
+
+
+	//изменение или добавление цены
+	public function edit_price()
+	{
+		$ID_ep = $_POST['ID_ep'];
+		$cost_hour = $_POST['cost_hour'];
+		$price = $_POST['price'];
+		$date = date('Y-m-d');
+
+		$check_price = $_POST['check_price'];
+		
+		$this->load->model('bufgalter_m');
+		if($check_price == 'true')
+		{
+			$showopres = $this->bufgalter_m->upd_price($ID_ep, $cost_hour, $price, $date);
+			if($showopres != TRUE) echo json_encode('Изменение не выполнено!');
+		}
+		else if($check_price == 'false')
+		{
+			$showopres = $this->bufgalter_m->add_price($ID_ep, $cost_hour, $price, $date);
+			if($showopres != TRUE) echo json_encode('Добавление не выполнено!');
+		}
 	}
 
 

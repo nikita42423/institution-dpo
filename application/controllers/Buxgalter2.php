@@ -12,8 +12,11 @@ class Buxgalter2 extends CI_Controller {
          $ID_user = $session['ID_user'];
 
 		  //загрузка модели
-		  $this->load->model('bufgalter_m');
-		  $data['focus'] = $this->bufgalter_m->sel_focus();
+	     $this->load->model('bufgalter_m');
+		 $data['focus'] = $this->bufgalter_m->sel_focus();
+
+		$data['edu_program'] = $this->bufgalter_m->sel_edu_program();
+		$data['sum_table'] = $this->bufgalter_m->sel_sum(NULL, NULL, NULL, NULL, NULL);
 
 
 
@@ -91,6 +94,20 @@ class Buxgalter2 extends CI_Controller {
 
 		if($update == TRUE) $update = 'Изменение выполнено!';
 		echo json_encode($update);
+	}
+
+
+	public function get_sum()
+	{
+		$ID_ep = $_POST['ID_ep'];
+
+		$cost_hour = $_POST['cost_hour'];
+		$price = $_POST['price'];
+		
+		$this->load->model('bufgalter_m');
+		$result = $this->bufgalter_m->upd_price($ID_ep, $cost_hour, $price);
+
+		echo json_encode($result);
 	}
 
 

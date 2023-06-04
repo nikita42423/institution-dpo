@@ -157,17 +157,54 @@ $(document).ready(function(){
                     id = '#'+key;
                     $(id).html(value);
                 })
-                 
-
-
-          
-
-
-
+              
             }
         })
     })
 })
+
+//изменение или добавление  прайса (бухгалтер)
+$(document).ready(function(){
+
+    $('#show_resh').submit(function(){
+        let ID_ep = document.getElementById('ID_ep').value;
+        let cost_hour = document.getElementById('res1').innerHTML;
+        let price = document.getElementById('res9').innerHTML;
+        let check_price = document.getElementById('check_price').checked;
+        $.ajax({
+            type: 'POST',
+            url: 'buxgalter/edit_price',
+            data: { ID_ep:ID_ep, cost_hour:cost_hour, price:price, check_price:check_price},
+            dataType: 'json',
+            success: function(result){
+                alert(result);
+            }
+        })
+    })
+});
+
+//изменение списка при выборе checkbox (бухгалтера)
+$(document).ready(function(){
+    $('input[name=check_price]').change(function() {
+        let check_price = document.getElementById('check_price').checked;
+        if(check_price == true) document.querySelector('#filtrbux_button').innerHTML = 'Изменить';
+        else if(check_price == false) document.querySelector('#filtrbux_button').innerHTML = 'Добавить';
+        $.ajax({
+            type: 'POST',
+            url: 'buxgalter/edit_select',
+            data: { check_price:check_price},
+            dataType: 'json',
+            success: function(result){
+                document.getElementById('ID_ep').options.length = 0;    //очистка выпадающего меню
+                for(i in result)
+                {
+                    $('#ID_ep').append(`<option value="${result[i].ID_ep}">${result[i].name_ep}</option>`);
+                }
+            }
+        })
+    })
+});
+
 
 //Изменение данные клиента (персональные данные)
 $(document).ready(function(){
@@ -188,7 +225,6 @@ $(document).ready(function(){
         })
     })
 });
-
 
 
 //Зачисление клента на курсы (Подача заявки)

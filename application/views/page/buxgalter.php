@@ -78,6 +78,11 @@
 
 
             <form class="row g-3" action="" id="filtrbux" method="post">
+			<div class="col-md-1">
+				<input type="checkbox" class="form-check-input" id="check_price" name="check_price" value="1" checked>
+    			<label class="form-check-label" >Прайс = 0</label>
+			</div>
+
 			<div class="col-md-3">
 				<label for="ID_ep" class="form-label">Образовательная программа</label>
 				<select class="form-select rechert" id="ID_ep" name="form_teach">
@@ -88,7 +93,7 @@
 			</div>
 			<div class="col-md-1" data-bs-target="#modal_ep">
 				<label for="amount_hour" class="form-label">Кол-во часов</label>
-				<input type="text" class="form-control" id="amount_hour" value="<?=$row['amount_hour']?>" name=""  readonly>
+				<input type="text" class="form-control" id="amount_hour" value="<?=$row['amount_hour']?>"  readonly>
 			</div>
 			<div class="col-md-2" data-bs-target="#modal_ep">
 				<label for="name_form" class="form-label">Форма обучения</label>
@@ -100,22 +105,18 @@
 			</div>
 
 			
-			<div class="col-md-2" data-bs-target="#modal_ep">
+			<!-- <div class="col-md-2" data-bs-target="#modal_ep">
 				<label for="count_in_group" class="form-label">Период с:</label>
 				<input type="date" class="form-control" id="count_in_group" value="" id="date1">
 			</div>
 			<div class="col-md-2" data-bs-target="#modal_ep">
 				<label for="count_in_group" class="form-label">по:</label>
 				<input type="date" class="form-control" id="count_in_group" value="" id="date2">
-			</div>
-
-
-
-
+			</div> -->
 			
-
-
-
+			<div class="col-md-2 mx-auto">
+				<button class="btn btn-primary" type="submit" id="filtrbux_button">Изменить</button>
+			</div>
 
 			</form>
 </div>
