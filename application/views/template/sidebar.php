@@ -33,7 +33,7 @@
 					<a class="nav-link" href="course/index">График курсов</a>
 				</li>
 				<li class="nav-item mb-3">
-					<a class="nav-link" href="reg_teacher/browse">Регистрация преподавателей</a>
+					<a class="nav-link" href="workload/browse">Нагрузка преподавателей</a>
 				</li>
 				<a class="btn btn-outline-light mt-3" href="main/index">Выйти из системы</a>
 			</ul>

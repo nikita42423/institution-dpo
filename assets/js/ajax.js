@@ -79,6 +79,26 @@ $(document).ready(function(){
         modal.find('.modal-body #amount_hour').val(amount_hour);
         modal.find('.modal-body #count_in_group').val(count_in_group);
 	})
+
+//Модальное окно для Преподавателя
+
+	$('#modal_teacher').on('show.bs.modal', function (event) {
+
+        var button = $(event.relatedTarget) 		// кнопка, которая вызывает модаль
+        var id_user = button.data('id_user');
+        var full_name = button.data('full_name');
+        var profession = button.data('profession');
+        var work_exp = button.data('work_exp');
+        var login = button.data('login');
+        var passwords = button.data('passwords');
+        var modal = $(this);					    //Здесь изменяем содержимое модали
+        modal.find('.modal-body #id_user').val(id_user);
+        modal.find('.modal-body #full_name').val(full_name);
+        modal.find('.modal-body #profession').val(profession);
+        modal.find('.modal-body #work_exp').val(work_exp);
+        modal.find('.modal-body #login').val(login);
+        modal.find('.modal-body #passwords').val(passwords);
+	})
 });
 
 
