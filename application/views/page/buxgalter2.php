@@ -46,12 +46,12 @@
 						Расчет стоимости услуги
 						</a>
 					</li>
-					<!-- <li class="nav-item">
-						<a class="nav-link" href="buxgalter2/edu_price_bux">
+					<li class="nav-item">
+						<a class="nav-link" href="buxgalter/posmotr_bux">
 						<span data-feather="bar-chart-2"></span>
-						Образ. программа для цена
+						посмотр история цены
 						</a>
-					</li> -->
+					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="buxgalter2/index">
 						<span data-feather="bar-chart-2"></span>

@@ -47,9 +47,9 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="buxgalter2/edu_price_bux">
+						<a class="nav-link" href="buxgalter/posmotr_bux">
 						<span data-feather="bar-chart-2"></span>
-						Образ. программа для цена
+						посмотр история цены
 						</a>
 					</li>
 					<li class="nav-item">
@@ -69,7 +69,7 @@
 		<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 			<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 				<h1 class="h2">
-				Образовательная программа
+				Посмотр история цены
                 </h1>
 				
 			</div>
@@ -86,8 +86,8 @@
 					<div class="card-body">
 						<div class="row">
 					
-							<div class="col-auto">
-								<label for="name_focus" class="form-label">Направление</label>
+							<div class="col-md-4">
+								<label for="name_focus" class="form-label">Наименование ОП</label>
 								<select class="form-select filter_focus_buxg filter_buxg" id="id_focus">
 									<option value="all" selected>Все</option>
 									<?php foreach($focus as $row) {?>
@@ -95,33 +95,15 @@
 									<?php }?>
 								</select>
 							</div>
-							<div class="col-auto">
-								<label for="name_type_ep" class="form-label">Вид ОП</label>
-								<select class="form-select filter_type_ep_buxg filter_buxg" id="id_type_ep">
-									<option value="all" selected>Все</option>
-									<?php foreach($type_ep as $row) {?>
-									<option value="<?=$row['ID_type_ep']?>"><?=$row['name_type_ep']?></option>
-									<?php }?>
-								</select>
+							<div class="col-md-2">
+								<label for="date1" class="form-label">Период с:</label>
+				                <input type="date" class="form-control" id="date1" value="" id="date1">
 							</div>
-							<div class="col-auto">
-								<label for="name_form" class="form-label">Форма обучения</label>
-								<select class="form-select filter_form_buxg filter_buxg" id="id_form">
-									<option value="all" selected>Все</option>
-									<?php foreach($form_teach as $row) {?>
-									<option value="<?=$row['ID_form']?>"><?=$row['name_form']?></option>
-									<?php }?>
-								</select>
+							<div class="col-md-2">
+							    <label for="date2" class="form-label">Период с:</label>
+				                <input type="date" class="form-control" id="date2" value="" id="date2">
 							</div>
-							<div class="col-auto">
-								<label for="name_type_doc" class="form-label">Вид документа</label>
-								<select class="form-select filter_type_doc_buxg filter_buxg" id="id_type_doc">
-									<option value="all" selected>Все</option>
-									<?php foreach($type_doc as $row) {?>
-									<option value="<?=$row['ID_type_doc']?>"><?=$row['name_type_doc']?></option>
-									<?php }?>
-								</select>
-							</div>
+						
 							
 						</div>
 					</div>
@@ -153,35 +135,24 @@
 					<table id="example" class="table" style="width:100%">
 						<thead>
 							<tr>
-								<th>№</th>
-								<th>Наименование программа</th>
-								<th>Направление</th>
-								<th>Объем часов</th>
+					
+								<th>Наименование ОП</th>
+								<th>дата</th>
+								<th>Цена</th>
 								<th>Педчаса</th>
-								<th>цена</th>
-								<th></th>
 							
 							</tr>
 						</thead>
 						<tbody id="search_buxg">
-						<?php foreach($edu_p as $row) {?>
+						<!-- <?php foreach($edu_p as $row) {?>
 							<tr>
-								<td><?=$row['ID_ep']?></td>
 								<td><?=$row['name_ep']?></td>
-								<td><?=$row['name_focus']?></td>
-								<td><?=$row['amount_hour']?></td>
+								<td><?=$row['date_start_price']?></td>
 								<td><?=$row['cost_hour']?></td>
-								<td><?=$row['price']?></td>
-								<td>
-
-								<!-- Изменить -->
-<button type="button" class="btn btn-primary editPrice" data-bs-toggle="modal" data-bs-target="#editPrice" 
-data-id_ep="<?=$row['ID_ep']?>" data-cost_hour="<?=$row['cost_hour']?>" data-price="<?=$row['price']?>">
- изменить
-</button>
-								</td>	
+								<td><?=$row['price']?></td>	
 							</tr>
-						<?php } ?>
+						<?php } ?> -->
+
 						</tbody>
 					</table>
 				</div>
