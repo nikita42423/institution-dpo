@@ -14,8 +14,14 @@ class Workload_m extends CI_Model {
                           ->join('course as c', 'w.ID_course=c.ID_course')
                           ->join('discipline as d', 'w.ID_discipline=d.ID_discipline')
                           ->join('edu_program as e', 'd.ID_ep=e.ID_ep')
-                          ->where_in('w.ID_focus', $ID_teacher)
+                          ->where_in('w.ID_teacher', $ID_teacher)
                           ->get('workload as w');
         return $query->result_array();
+    }
+
+    //Удалить нагрузку преподавателей
+    public function del_workload($data)
+    {
+        $this->db->delete('workload', $data);
     }
 }

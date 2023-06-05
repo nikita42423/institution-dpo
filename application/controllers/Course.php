@@ -6,9 +6,18 @@ class Course extends CI_Controller {
     //Просмотр графика курсов
 	public function index()
 	{
+		if (!empty($_GET['ID_ep']))
+		{
+			$ID_ep = $this->input->get('ID_ep');
+		}
+		else
+		{
+			$ID_ep = NULL;
+		}
+
 		//Данные из БД
 		$this->load->model('course_m');
-		$data['course'] = $this->course_m->sel_course();
+		$data['course'] = $this->course_m->sel_course($ID_ep);
 
 		$date = new DateTime('2023-09-01');
 		for ($i = 1; $i <= 45; $i++) {

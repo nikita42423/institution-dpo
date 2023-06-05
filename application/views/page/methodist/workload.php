@@ -15,7 +15,7 @@
 						<th></th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody id="table_body_workload">
 					<?php 
                     foreach ($workload as $row) {?>
 					<tr>

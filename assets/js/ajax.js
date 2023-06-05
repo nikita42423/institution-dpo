@@ -1,5 +1,6 @@
-//Фильтрование образовательной программы
 $(document).ready(function(){
+
+    //Фильтрование образовательной программы
     $('.filter_ep').change(function(){
         let ID_focus = document.getElementById('id_focus').value;
         let ID_type_ep = document.getElementById('id_type_ep').value;
@@ -17,9 +18,7 @@ $(document).ready(function(){
         })
     })
 
-
-//Фильтрование дисциплины
-
+    //Фильтрование дисциплины
     $('.filter_discipline').change(function(){ 
         let ID_ep = document.getElementById('id_ep').value;
         $.ajax({
@@ -33,9 +32,21 @@ $(document).ready(function(){
         })
     })
 
+    //Фильтрование преподавателя
+    $('.filter_workload').change(function(){ 
+    let ID_user = document.getElementById('id_user').value;
+    $.ajax({
+        type: 'POST',
+        url: 'workload/filter_workload',
+        data: ({ID_user: ID_user}),
+        dataType:'html',
+        success: function(result) {
+            $('#table_body_workload').html(result);
+        }
+    })
+    })
 
-//Модальное окно для Вида ОП, Направления, Вида документа и Формы обучения
-
+    //Модальное окно для Вида ОП, Направления, Вида документа и Формы обучения
 	$('#modal_info').on('show.bs.modal', function (event) {
 
 	var button = $(event.relatedTarget) 		// кнопка, которая вызывает модаль
@@ -47,8 +58,7 @@ $(document).ready(function(){
 	})
 
 
-//Модальное окно для Образовательной программы
-
+    //Модальное окно для Образовательной программы
 	$('#modal_ep').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget) 		// кнопка, которая вызывает модаль
 

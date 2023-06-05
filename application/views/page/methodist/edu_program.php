@@ -48,7 +48,7 @@
 								<a type="submit" class="btn btn-dark" href="discipline/browse_one?ID_ep=<?=$row['ID_ep']?>">Уч. план</a>
 
 								<!-- График курсов -->
-								<a type="submit" class="btn btn-dark" href="schedule/browse">График</a>
+								<a type="submit" class="btn btn-dark" href="course/index?ID_ep=<?=$row['ID_ep']?>">График</a>
 							
 							</div>
 						</td>

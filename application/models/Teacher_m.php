@@ -9,7 +9,7 @@ class Teacher_m extends CI_Model {
     //Выбрать преподаватель
     public function sel_teacher()
     {
-        $query = $this->db->where("ID_role", 5)
+        $query = $this->db->where('ID_role', 5)
                           ->get('users');
         return $query->result_array();
     }

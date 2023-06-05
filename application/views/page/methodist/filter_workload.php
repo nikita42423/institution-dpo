@@ -1,60 +1,28 @@
-<main class="container-fluid">
+<main class="container">
 
-	<div class="row justify-content-md-center">
-		<div class="col col-lg-1">
-		</div>
+	<div class="row">
 		<div class="col-md-auto">
-			<h1 class="display-3 text-center mb-3">Нагрузка преподавателей<a class="btn btn-primary m-3" href="teacher/browse">Преподаватель</a>
+			<h1 class="display-3 mb-3">Нагрузка преподавателей<a class="btn btn-primary m-3" href="teacher/browse">Преподаватель</a>
 			</h1>
 		</div>
-		<div class="col col-lg-1">
-			<h1 class="display-6 text-center mb-3 text-success"><?=$this->session->userdata('msg')?></h1>
-		</div>
 	</div>
-	
+	<hr>
+
 	<!-- Фильтр -->
 	<div class="container">
-		<div class="row justify-content-md-center">
-			<div class="col col-lg-1"></div>
-			<div class="col-md-auto">
-				<form class="justify-content-md-center mb-3 card" action="" method="post">
-					<div class="card-header">
-						Фильтр
-					</div>
-					<div class="card-body">
-						<div class="row">
-					
-							<div class="col-auto">
-								<label for="name_focus" class="form-label">Направление</label>
-								<select class="form-select filter_ep" id="id_focus">
-				
-								</select>
-							</div>
-							<div class="col-auto">
-								<label for="name_type_ep" class="form-label">Вид ОП</label>
-								<select class="form-select filter_ep" id="id_type_ep">
-								
-								</select>
-							</div>
-							<div class="col-auto">
-								<label for="name_form" class="form-label">Форма обучения</label>
-								<select class="form-select filter_ep" id="id_form">
-								
-								</select>
-							</div>
-							<div class="col-auto">
-								<label for="name_type_doc" class="form-label">Вид документа</label>
-								<select class="form-select filter_ep" id="id_type_doc">
-							
-								</select>
-							</div>
-							
-						</div>
-					</div>
-				</form>
 
+		<div class="row g-3 mb-3">
+			<div class="col-auto">
+				<input type="text" readonly class="form-control-plaintext" value="ФИО преподавателя">
 			</div>
-			<div class="col col-lg-1">
+			<div class="col-auto">
+				<select class="form-select filter_workload" id="id_user">
+					<option value="all" selected>Все</option>
+					<?php foreach($teacher as $row) {?>
+					<option value="<?=$row['ID_user']?>"><?=$row['full_name']?></option>
+					<?php }?>
+				</select>
 			</div>
+
 		</div>
 	</div>

@@ -12,10 +12,6 @@
     <script src="assets/js/jquery-3.7.0.min.js"></script>
     <script src="assets/js/ajax.js"></script>
 
-    <!-- bootstrap-extension -->
-    <link href="assets/css/bootstrap-extension.css" rel="stylesheet">
-    <script src="assets/js/bootstrap-extension.js"></script>
-
     <link href="assets/css/style.css" rel="stylesheet">
 
 

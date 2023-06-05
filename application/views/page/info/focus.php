@@ -36,7 +36,7 @@
 						<td><?=$row['name_focus']?></td>
 						<td>
 							<!-- Изменить -->
-							<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+							<button type="button" class="btn btn-primary m-0" data-bs-toggle="modal"
 								data-bs-target="#modal_info"
 								data-id_info="<?=$row['ID_focus']?>"
 								data-name_info="<?=$row['name_focus']?>">
@@ -45,7 +45,7 @@
 							</button>
 
 							<!-- Удалить -->
-							<a href="focus/del_focus?ID_focus='.<?=$row['ID_focus']?>" class="btn btn-danger">
+							<a href="focus/del_focus?ID_focus='.<?=$row['ID_focus']?>" class="btn btn-dark m-0">
 								<i class="bi-trash" aria-hidden="true"></i>
 							</a>
 						</td>

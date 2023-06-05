@@ -36,7 +36,7 @@
 						<td><?=$row['name_form']?></td>
 						<td>
 							<!-- Изменить -->
-							<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+							<button type="button" class="btn btn-primary m-0" data-bs-toggle="modal"
 								data-bs-target="#modal_info"
 								data-id_info="<?=$row['ID_form']?>"
 								data-name_info="<?=$row['name_form']?>">
@@ -45,7 +45,7 @@
 							</button>
 
 							<!-- Удалить -->
-							<a href="form_teach/del_form_teach?ID_form=<?=$row['ID_form']?>" class="btn btn-danger">
+							<a href="form_teach/del_form_teach?ID_form=<?=$row['ID_form']?>" class="btn btn-dark m-0">
 								<i class="bi-trash" aria-hidden="true"></i>
 							</a>
 						</td>

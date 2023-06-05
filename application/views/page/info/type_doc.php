@@ -36,7 +36,7 @@
 						<td><?=$row['name_type_doc']?></td>
 						<td>
 							<!-- Изменить -->
-							<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+							<button type="button" class="btn btn-primary m-0" data-bs-toggle="modal"
 								data-bs-target="#modal_info"
 								data-id_info="<?=$row['ID_type_doc']?>"
 								data-name_info="<?=$row['name_type_doc']?>">
@@ -45,7 +45,7 @@
 							</button>
 
 							<!-- Удалить -->
-							<a href="type_doc/del_type_doc?ID_type_doc=<?=$row['ID_type_doc']?>" class="btn btn-danger">
+							<a href="type_doc/del_type_doc?ID_type_doc=<?=$row['ID_type_doc']?>" class="btn btn-dark m-0">
 								<i class="bi-trash" aria-hidden="true"></i>
 							</a>
 						</td>

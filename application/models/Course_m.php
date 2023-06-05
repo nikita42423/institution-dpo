@@ -7,9 +7,10 @@ class Course_m extends CI_Model {
     }
     
     //Выбрать курс
-    public function sel_course()
+    public function sel_course($ID_ep)
     {
         $query = $this->db->join('edu_program as p', 'c.ID_ep=p.ID_ep')
+                          ->where_in('c.ID_ep', $ID_ep)
                           ->get('course as c');
         return $query->result_array();
     }

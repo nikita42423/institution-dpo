@@ -36,7 +36,7 @@
 						<td><?=$row['name_type_ep']?></td>
 						<td>
 							<!-- Изменить -->
-							<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+							<button type="button" class="btn btn-primary m-0" data-bs-toggle="modal"
 								data-bs-target="#modal_info"
 								data-id_info="<?=$row['ID_type_ep']?>"
 								data-name_info="<?=$row['name_type_ep']?>"
@@ -44,7 +44,7 @@
 							</button>
 
 							<!-- Удалить -->
-							<a href="type_ep/del_type_ep?ID_type_ep='.<?=$row['ID_type_ep']?>" class="btn btn-danger">
+							<a href="type_ep/del_type_ep?ID_type_ep='.<?=$row['ID_type_ep']?>" class="btn btn-dark m-0">
 								<i class="bi-trash" aria-hidden="true"></i>
 							</a>
 						</td>
