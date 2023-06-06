@@ -12,8 +12,6 @@
 	<div class="container">
 
 		<div class="row g-3 mb-3">
-			
-				
 			<div class="col-auto">
 				<label id="id_focus" class="form-label">Направление</label>
 				<select class="form-select filter_teacher_of_focus" id="id_focus_of_workload">

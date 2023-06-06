@@ -32,20 +32,6 @@ $(document).ready(function(){
         })
     })
 
-    //Фильтрование преподавателя
-    $('.filter_workload').change(function(){ 
-        let ID_user = document.getElementById('id_user').value;
-        $.ajax({
-            type: 'POST',
-            url: 'workload/filter_workload',
-            data: ({ID_user: ID_user}),
-            dataType:'html',
-            success: function(result) {
-                $('#table_body_workload').html(result);
-            }
-        })
-    })
-
     //Список преподавателей зависит от направления
     $('.filter_teacher_of_focus').change(function(){
         let ID_focus = document.getElementById('id_focus_of_workload').value;
@@ -56,6 +42,23 @@ $(document).ready(function(){
             dataType:'html',
             success: function(result) {
                 $('#id_teacher_of_workload').html(result);
+            }
+        })
+    })
+
+    //Фильтрование нагрузки преподавателя зависит от преподавателя!!!!!!!!!!
+    // SELECT course.ID_course, course.ID_ep, name_discipline, ID_load
+    // FROM course, edu_program, discipline LEFT JOIN workload ON workload.ID_discipline=discipline.ID_discipline
+    // WHERE course.ID_ep=edu_program.ID_ep AND discipline.ID_ep=edu_program.ID_ep
+    $('.filter_workload').change(function(){ 
+        let ID_user = document.getElementById('id_user').value;
+        $.ajax({
+            type: 'POST',
+            url: 'workload/filter_workload',
+            data: ({ID_user: ID_user}),
+            dataType:'html',
+            success: function(result) {
+                $('#table_body_workload').html(result);
             }
         })
     })
