@@ -15,10 +15,10 @@ class Teacher_m extends CI_Model {
     }
 
     //Выполнить процедуру "Добавить преподаватель"
-    public function add_teacher($full_name, $login, $passwrods, $profession, $work_exp)
+    public function add_teacher($full_name, $login, $passwords, $profession, $work_exp)
     {
         $sql = "CALL add_teacher (?,?,?,?,?)";
-        $this->db->query($sql, array($full_name, $login, $passwrods, $profession, $work_exp));
+        $this->db->query($sql, array($full_name, $login, $passwords, $profession, $work_exp));
     }
 
     //Удалить преподаватель
@@ -28,9 +28,9 @@ class Teacher_m extends CI_Model {
     }
 
     //Выполнить процедуру "Изменить преподаватель"
-    public function upd_teacher($ID_user, $full_name, $login, $passwrods, $profession, $work_exp)
+    public function upd_teacher($ID_user, $full_name, $login, $passwords, $profession, $work_exp)
     {
-        $sql = "CALL upd_teacher (?, ?,?,?,?,?)";
-        $this->db->query($sql, array($ID_user, $full_name, $login, $passwrods, $profession, $work_exp));
+        $sql = "CALL upd_teacher (?,?,?,?,?,?)";
+        $this->db->query($sql, array($ID_user, $full_name, $login, $passwords, $profession, $work_exp));
     }
 }

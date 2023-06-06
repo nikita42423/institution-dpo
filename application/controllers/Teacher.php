@@ -25,11 +25,11 @@ class Teacher extends CI_Controller {
             $profession = $this->input->post('profession');
             $work_exp = $this->input->post('work_exp');
             $login = $this->input->post('login');
-            $passwrods = $this->input->post('passwords');
+            $passwords = $this->input->post('passwords');
 
             //Данные из БД
             $this->load->model('teacher_m');
-            $this->teacher_m->add_teacher($full_name, $login, $passwrods, $profession, $work_exp);
+            $this->teacher_m->add_teacher($full_name, $login, $passwords, $profession, $work_exp);
             redirect('teacher/browse');
         }
 
@@ -57,10 +57,10 @@ class Teacher extends CI_Controller {
         $profession = $this->input->post('profession');
         $work_exp = $this->input->post('work_exp');
         $login = $this->input->post('login');
-        $passwrods = $this->input->post('passwords');
+        $passwords = $this->input->post('passwords');
 
         $this->load->model('teacher_m');
-        $this->teacher_m->upd_teacher($ID_user, $full_name, $login, $passwrods, $profession, $work_exp);
+        $this->teacher_m->upd_teacher($ID_user, $full_name, $login, $passwords, $profession, $work_exp);
 
         redirect(base_url('teacher/browse'));
     }

@@ -37,8 +37,12 @@ class Course extends CI_Controller {
 		//Данные из БД
 		$this->load->model('edu_program_m');
 		$this->load->model('course_m');
-		$data['edu_program'] = $this->edu_program_m->sel_edu_program_for_course();
 
+		//Очистить таблицу
+		$this->course_m->empty_course();
+
+		//Выполнение добавления курсов
+		$data['edu_program'] = $this->edu_program_m->sel_edu_program_for_course();
 		$date = new DateTime('2023-09-01');
 
 		for ($i = 1; $i <= 45; $i++) {
@@ -52,7 +56,9 @@ class Course extends CI_Controller {
 			$i=1;
 			$t=1;
 			echo $count_course.'<br>';
-			while ($i <= $count_course) {
+
+			while ($i <= $count_course)
+			{
 				$name_course = $row['short_name'].'-'.$i;
 
 				if ($t <= 45) {
@@ -63,11 +69,11 @@ class Course extends CI_Controller {
 					$ID_ep = $row['ID_ep'];
 				
 					echo $name_course.' | '.$ID_ep.' | '.$date_start_teaching.' | '.$date_end_teaching.' <br>';
-					//$this->course_m->add_course($name_course, $ID_ep, $date_start_teaching, $date_end_teaching);
+					$this->course_m->add_course($name_course, $ID_ep, $date_start_teaching, $date_end_teaching);
 				}
 				$i++;
 			}
-			
 		}
+		redirect('course/index');
 	}
 }

@@ -26,4 +26,10 @@ class Course_m extends CI_Model {
         );
         $this->db->insert('course', $object);
     }
+
+    //Очистить график курсов
+    public function empty_course()
+    {
+        $this->db->empty_table('course');
+    }
 }
