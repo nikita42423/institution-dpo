@@ -8,7 +8,9 @@ class Teacher extends CI_Controller {
 	{
         //Данные из БД
         $this->load->model('teacher_m');
-        $data['teacher'] = $this->teacher_m->sel_teacher();
+        $this->load->model('focus_m');
+        $data['teacher'] = $this->teacher_m->sel_teacher(NULL);
+        $data['focus'] = $this->focus_m->sel_focus();
 
 		$this->load->view('template/header');
         $this->load->view('template/sidebar');
@@ -26,13 +28,13 @@ class Teacher extends CI_Controller {
             $work_exp = $this->input->post('work_exp');
             $login = $this->input->post('login');
             $passwords = $this->input->post('passwords');
+            $ID_focus = $this->input->post('ID_focus');
 
             //Данные из БД
             $this->load->model('teacher_m');
-            $this->teacher_m->add_teacher($full_name, $login, $passwords, $profession, $work_exp);
+            $this->teacher_m->add_teacher($full_name, $login, $passwords, $profession, $work_exp, $ID_focus);
             redirect('teacher/browse');
         }
-
 	}
 
     //Удаление преподавателя

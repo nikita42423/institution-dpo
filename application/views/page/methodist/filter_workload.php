@@ -12,15 +12,21 @@
 	<div class="container">
 
 		<div class="row g-3 mb-3">
+			
+				
 			<div class="col-auto">
-				<input type="text" readonly class="form-control-plaintext" value="ФИО преподавателя">
-			</div>
-			<div class="col-auto">
-				<select class="form-select filter_workload" id="id_user">
-					<option value="all" selected>Все</option>
-					<?php foreach($teacher as $row) {?>
-					<option value="<?=$row['ID_user']?>"><?=$row['full_name']?></option>
+				<label id="id_focus" class="form-label">Направление</label>
+				<select class="form-select filter_teacher_of_focus" id="id_focus_of_workload">
+					<?php foreach($focus as $row) {?>
+					<option value="<?=$row['ID_focus']?>"><?=$row['name_focus']?></option>
 					<?php }?>
+				</select>
+			</div>
+
+			<div class="col-auto">
+				<label id="id_user" class="form-label">ФИО преподавателя</label>
+				<select class="form-select filter_workload_of_teacher" id="id_teacher_of_workload">
+					<!-- Тут список преподавателей -->
 				</select>
 			</div>
 

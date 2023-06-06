@@ -34,27 +34,40 @@ $(document).ready(function(){
 
     //Фильтрование преподавателя
     $('.filter_workload').change(function(){ 
-    let ID_user = document.getElementById('id_user').value;
-    $.ajax({
-        type: 'POST',
-        url: 'workload/filter_workload',
-        data: ({ID_user: ID_user}),
-        dataType:'html',
-        success: function(result) {
-            $('#table_body_workload').html(result);
-        }
+        let ID_user = document.getElementById('id_user').value;
+        $.ajax({
+            type: 'POST',
+            url: 'workload/filter_workload',
+            data: ({ID_user: ID_user}),
+            dataType:'html',
+            success: function(result) {
+                $('#table_body_workload').html(result);
+            }
+        })
     })
+
+    //Список преподавателей зависит от направления
+    $('.filter_teacher_of_focus').change(function(){
+        let ID_focus = document.getElementById('id_focus_of_workload').value;
+        $.ajax({
+            type: 'POST',
+            url: 'workload/filter_teacher_of_focus',
+            data: ({ID_focus: ID_focus}),
+            dataType:'html',
+            success: function(result) {
+                $('#id_teacher_of_workload').html(result);
+            }
+        })
     })
 
     //Модальное окно для Вида ОП, Направления, Вида документа и Формы обучения
 	$('#modal_info').on('show.bs.modal', function (event) {
-
-	var button = $(event.relatedTarget) 		// кнопка, которая вызывает модаль
-	var id_info = button.data('id_info')		
-	var name_info = button.data('name_info'); 	
-	var modal = $(this);					    //Здесь изменяем содержимое модали
-	modal.find('.modal-body #id_info').val(id_info);
-	modal.find('.modal-body #name_info').val(name_info);
+        var button = $(event.relatedTarget) 		// кнопка, которая вызывает модаль
+        var id_info = button.data('id_info')		
+        var name_info = button.data('name_info'); 	
+        var modal = $(this);					    //Здесь изменяем содержимое модали
+        modal.find('.modal-body #id_info').val(id_info);
+        modal.find('.modal-body #name_info').val(name_info);
 	})
 
 

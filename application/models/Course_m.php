@@ -25,6 +25,14 @@ class Course_m extends CI_Model {
             'date_end_teaching' => $date_end_teaching
         );
         $this->db->insert('course', $object);
+
+        // $object = array(
+        //     'name_discipline' => $name_course,
+        //     'ID_ep' => $ID_ep,
+        //     'date_start_teaching' => $date_start_teaching,
+        //     'date_end_teaching' => $date_end_teaching
+        // );
+        // $this->db->insert('discipline', $object);
     }
 
     //Очистить график курсов

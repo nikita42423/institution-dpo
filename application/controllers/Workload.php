@@ -9,8 +9,10 @@ class Workload extends CI_Controller {
 		//Данные из БД
 		$this->load->model('workload_m');
 		$this->load->model('teacher_m');
+		$this->load->model('focus_m');
 		$data['workload'] = $this->workload_m->sel_workload(NULL);
 		$data['teacher'] = $this->teacher_m->sel_teacher(NULL);
+		$data['focus'] = $this->focus_m->sel_focus();
 
 		$this->load->view('template/header');
         $this->load->view('template/sidebar');
@@ -34,6 +36,19 @@ class Workload extends CI_Controller {
 
 			redirect('workload/browse');
 		}
+	}
+
+	//Список преподавателей от направления
+	public function filter_teacher_of_focus()
+	{
+		$ID_focus = $_POST['ID_focus'];
+		$this->load->model('teacher_m');
+		$teacher = $this->teacher_m->sel_teacher($ID_focus);
+		$str = '';
+			foreach($teacher as $row) {
+				$str .= '<option value="'.$row['ID_teacher'].'">'.$row['full_name'].'</option>';
+			}
+		echo $str;
 	}
 
 	//Фильтрование нагрузки преподавателя
@@ -69,4 +84,5 @@ class Workload extends CI_Controller {
 			echo $str;
 		}
 	}
+
 }

@@ -7,18 +7,20 @@ class Teacher_m extends CI_Model {
     }
     
     //Выбрать преподаватель
-    public function sel_teacher()
+    public function sel_teacher($ID_focus)
     {
-        $query = $this->db->where('ID_role', 5)
-                          ->get('users');
+        $query = $this->db->join('focus as f', 'f.ID_focus=u.ID_focus')
+                          ->where('ID_role', 5)
+                          ->where_in('u.ID_focus', $ID_focus)
+                          ->get('users as u');
         return $query->result_array();
     }
 
     //Выполнить процедуру "Добавить преподаватель"
-    public function add_teacher($full_name, $login, $passwords, $profession, $work_exp)
+    public function add_teacher($full_name, $login, $passwords, $profession, $work_exp, $ID_focus)
     {
-        $sql = "CALL add_teacher (?,?,?,?,?)";
-        $this->db->query($sql, array($full_name, $login, $passwords, $profession, $work_exp));
+        $sql = "CALL add_teacher (?,?,?,?,?,?)";
+        $this->db->query($sql, array($full_name, $login, $passwords, $profession, $work_exp, $ID_focus));
     }
 
     //Удалить преподаватель

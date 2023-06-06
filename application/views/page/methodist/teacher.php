@@ -20,6 +20,14 @@
                         <input type="text" class="form-control" id="profession" name="profession" value="" required>
                     </div>
                     <div class="col">
+                        <label for="work_exp" class="form-label">Направление</label>
+                        <select class="form-select" id="id_focus" name="ID_focus">
+                            <?php foreach($focus as $row) {?>
+                            <option value="<?=$row['ID_focus']?>"><?=$row['name_focus']?></option>
+                            <?php }?>
+                        </select>
+                    </div>
+                    <div class="col">
                         <label for="work_exp" class="form-label">Трудовой стаж</label>
                         <input type="text" class="form-control" id="work_exp" name="work_exp" value="" required>
                     </div>
@@ -57,6 +65,7 @@
 						<th>Логин</th>
 						<th>Пароль</th>
 						<th>Профессия</th>
+                        <th>Направление</th>
 						<th>Трудовой стаж</th>
 						<th></th>
 					</tr>
@@ -69,6 +78,7 @@
 						<td><?=$row['login']?></td>
 						<td><?=$row['passwords']?></td>
 						<td><?=$row['profession']?></td>
+                        <td><?=$row['name_focus']?></td>
 						<td><?=$row['work_exp']?></td>
 						<td>
                             <div class="btn-group" role="group">
