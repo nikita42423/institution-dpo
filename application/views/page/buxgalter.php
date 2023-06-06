@@ -93,15 +93,15 @@
 			</div>
 			<div class="col-md-1" data-bs-target="#modal_ep">
 				<label for="amount_hour" class="form-label">Кол-во часов</label>
-				<input type="text" class="form-control" id="amount_hour" value="<?=$row['amount_hour']?>"  readonly>
+				<input type="text" class="form-control" id="amount_hour" value="0"  readonly>
 			</div>
 			<div class="col-md-2" data-bs-target="#modal_ep">
 				<label for="name_form" class="form-label">Форма обучения</label>
-				<input type="text" class="form-control" id="name_form" value="<?=$row['name_form']?>" readonly>
+				<input type="text" class="form-control" id="name_form" value="Очная" readonly>
 			</div>
 			<div class="col-md-1" data-bs-target="#modal_ep">
 				<label for="count_in_group" class="form-label">Человек</label>
-				<input type="text" class="form-control" id="count_in_group" value="<?=$row['count_in_group']?>" id="count_in_group" readonly>
+				<input type="text" class="form-control" id="count_in_group" value="0" id="count_in_group" readonly>
 			</div>
 
 			

@@ -185,7 +185,8 @@ $(document).ready(function(){
 
 //изменение списка при выборе checkbox (бухгалтера)
 $(document).ready(function(){
-    $('input[name=check_price]').change(function() {
+    $('input[name=check_price]').change(function(e) {
+        e.preventDefault();
         let check_price = document.getElementById('check_price').checked;
         if(check_price == true) document.querySelector('#filtrbux_button').innerHTML = 'Изменить';
         else if(check_price == false) document.querySelector('#filtrbux_button').innerHTML = 'Добавить';
@@ -196,15 +197,80 @@ $(document).ready(function(){
             dataType: 'json',
             success: function(result){
                 document.getElementById('ID_ep').options.length = 0;    //очистка выпадающего меню
-                for(i in result)
+              //если массив пустой
+              if(!result || !result.length) $('#ID_ep').append(`<option>Пусто</option>`);
+              //не пустой
+              else if(result || result.length)
+              {
+              
+              for(i in result)
+              {
+                  $('#ID_ep').append(`<option value="${result[i].ID_ep}">${result[i].name_ep}</option>`);
+              }
+            }
+         }
+        })
+    })
+});
+
+//фильтрация для бухгалтера - о полученных доходах
+$(document).ready(function(){
+    $('.filter_sum_buxg').change(function(){
+        let ID_focus = document.getElementById('id_focus').value;
+        let ID_ep = document.getElementById('id_ep').value;
+        let date1 = document.getElementById('begin_date').value;
+        let date2 = document.getElementById('end_date').value;
+
+        $.ajax({
+            type: 'POST',
+            url: 'buxgalter2/get_sum',
+            data: ({ID_focus: ID_focus, ID_ep: ID_ep, date1:date1, date2:date2}),
+            success: function(result) {
+                let data =  JSON.parse(result);
+                $('#example_body').empty();  //очистка таблицы
+                for(i in data)
                 {
-                    $('#ID_ep').append(`<option value="${result[i].ID_ep}">${result[i].name_ep}</option>`);
+                    $('#example').append(`<tr>
+                            <td>${data[i].name_ep}</td>
+                            <td>${data[i].name_course}</td>
+                            <td>${data[i].count_people} / ${data[i].count_in_group}</td>
+                            <td>${data[i].price}</td>
+                        </tr>`);
                 }
             }
         })
     })
 });
 
+
+//фильтрация + вывод (история прайса)
+$(document).ready(function(){
+    $('.filter_history').change(function(){
+        let ID_ep = document.getElementById('id_ep').value;
+        let date1 = document.getElementById('date1').value;
+        let date2 = document.getElementById('date2').value;
+
+        $.ajax({
+            type: 'POST',
+            url: 'buxgalter/filter_history',
+            data: ({ID_ep: ID_ep, date1:date1, date2:date2}),
+            success: function(result) {
+                let data =  JSON.parse(result);
+                $('#example_history').empty();  //очистка таблицы
+                for(i in data)
+                {
+                    $('#example').append(`<tr>
+                            <td>${data[i].name_ep}</td>
+                            <td>${data[i].date_start_price}</td>
+                            <td>${data[i].cost_hour}</td>
+                            <td>${data[i].price}</td>
+                        </tr>`);
+
+                }
+            }
+        })
+    })
+});
 
 //Изменение данные клиента (персональные данные)
 $(document).ready(function(){

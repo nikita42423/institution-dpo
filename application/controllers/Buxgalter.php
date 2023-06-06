@@ -61,10 +61,7 @@ class Buxgalter extends CI_Controller {
 		  // var_dump($result);
 
 		  echo json_encode($result);
-
-
-
-			
+		
 		}
 
 	}
@@ -109,7 +106,7 @@ class Buxgalter extends CI_Controller {
 	}
 
 
-
+    //история прайса
 	public function posmotr_bux()
 	{
          //Сессия
@@ -118,14 +115,32 @@ class Buxgalter extends CI_Controller {
          $ID_user = $session['ID_user'];
 
 		 $this->load->model('bufgalter_m');
-		 $data['edu_program'] = $this->bufgalter_m->sel_price_null();
-	
+		 $data['edu_program'] = $this->bufgalter_m->sel_edu_program();
+		 $data['history'] = $this->bufgalter_m->history_price(NULL, NULL, NULL);
 
 		$this->load->view('template/header.php');
 		$this->load->view('page/buxgalter3.php',  $data);
 
 	}
    
+
+	//фильтрация и вывод для просмотра истории прайса
+	public function filter_history()
+	{
+		$ID_ep = $_POST['ID_ep'];
+		$date1 = $_POST['date1'];
+		$date2 = $_POST['date2'];
+
+		if($ID_ep == 'all') $ID_ep = NULL;
+		if(empty($date1)) $date1 = NULL;
+		if(empty($date2)) $date2 = NULL;
+
+		$this->load->model('bufgalter_m');
+		$result = $this->bufgalter_m->history_price($ID_ep, $date1, $date2);
+
+		echo json_encode($result);
+	}
+
 
 	
 }

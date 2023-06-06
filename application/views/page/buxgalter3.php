@@ -69,7 +69,7 @@
 		<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 			<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 				<h1 class="h2">
-				Посмотр история цены
+				Просмотр история цены
                 </h1>
 				
 			</div>
@@ -87,21 +87,21 @@
 						<div class="row">
 					
 							<div class="col-md-4">
-								<label for="name_focus" class="form-label">Наименование ОП</label>
-								<select class="form-select filter_focus_buxg filter_buxg" id="id_focus">
+								<label for="id_ep" class="form-label">Наименование ОП</label>
+								<select class="form-select filter_history" id="id_ep">
 									<option value="all" selected>Все</option>
-									<?php foreach($focus as $row) {?>
-									<option value="<?=$row['ID_focus']?>"><?=$row['name_focus']?></option>
+									<?php foreach($edu_program  as $row) {?>
+									<option value="<?=$row['ID_ep']?>"><?=$row['name_ep']?></option>
 									<?php }?>
 								</select>
 							</div>
 							<div class="col-md-2">
 								<label for="date1" class="form-label">Период с:</label>
-				                <input type="date" class="form-control" id="date1" value="" id="date1">
+				                <input type="date" class="form-control filter_history" id="date1">
 							</div>
 							<div class="col-md-2">
-							    <label for="date2" class="form-label">Период с:</label>
-				                <input type="date" class="form-control" id="date2" value="" id="date2">
+							    <label for="date2" class="form-label">Период по:</label>
+				                <input type="date" class="form-control filter_history" id="date2">
 							</div>
 						
 							
@@ -138,20 +138,20 @@
 					
 								<th>Наименование ОП</th>
 								<th>дата</th>
-								<th>Цена</th>
 								<th>Педчаса</th>
+								<th>Цена</th>
 							
 							</tr>
 						</thead>
-						<tbody id="search_buxg">
-						<!-- <?php foreach($edu_p as $row) {?>
+						<tbody id="example_history">
+						<?php foreach($history  as $row) {?>
 							<tr>
 								<td><?=$row['name_ep']?></td>
 								<td><?=$row['date_start_price']?></td>
 								<td><?=$row['cost_hour']?></td>
 								<td><?=$row['price']?></td>	
 							</tr>
-						<?php } ?> -->
+						<?php } ?>
 
 						</tbody>
 					</table>

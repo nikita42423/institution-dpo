@@ -79,19 +79,19 @@
 					<div class="col-lg-8"><div>
 
 <div id = "get_income">
-	<form class="row g-3" action="" id="" method="post">
+	<form class="row g-3" method="post">
 		<div class="col-md-6">
 			<label for="begin_date" class="form-label">C</label>
-			<input type="date" class="form-control" id="begin_date">
+			<input type="date" class="form-control filter_sum_buxg" id="begin_date">
 		</div>
 		<div class="col-md-6">
 			<label for="end_date" class="form-label">ПО</label>
-			<input type="date" class="form-control" id="end_date">
+			<input type="date" class="form-control filter_sum_buxg" id="end_date">
 		</div>
 	<br>
 		<div class="col-md-6">
-			<label for="ID_focus" class="form-label">Направление</label>
-			<select class="form-select" id="ID_focus">
+			<label for="id_focus" class="form-label">Направление</label>
+			<select class="form-select filter_sum_buxg" id="id_focus">
 			    <option value="all">Все</option>
 				<?php foreach ($focus as $row) {?>
 					<option value="<?=$row['ID_focus']?>"><?=$row['name_focus']?></option>
@@ -99,8 +99,8 @@
 			</select>
 		</div>
 		<div class="col-md-6">
-		<label for="ID_ep" class="form-label">Наименование ОП</label>
-			<select class="form-select" id="ID_ep">
+		<label for="id_ep" class="form-label">Наименование ОП</label>
+			<select class="form-select filter_sum_buxg" id="id_ep">
 				<option value="all">Все</option>
 				<?php foreach ($edu_program as $row) {?>
 					<option value="<?=$row['ID_ep']?>"><?=$row['name_ep']?></option>
@@ -148,7 +148,7 @@
 							
 							</tr>
 						</thead>
-						<tbody>
+						<tbody id="example_body">
 						<?php foreach($sum_table as $row) {?>
 							<tr>
 								<td><?=$row['name_ep']?></td>

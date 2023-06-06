@@ -97,15 +97,24 @@ class Buxgalter2 extends CI_Controller {
 	}
 
 
+	//фильтрация о полученных доходах
 	public function get_sum()
 	{
+		$ID_focus = $_POST['ID_focus'];
 		$ID_ep = $_POST['ID_ep'];
 
-		$cost_hour = $_POST['cost_hour'];
-		$price = $_POST['price'];
+		$date1 = $_POST['date1'];
+		$date2 = $_POST['date2'];
+
+		if($ID_focus == 'all') $ID_focus = NULL;
+		if($ID_ep == 'all') $ID_ep = NULL;
+		if(empty($date1)) $date1 = NULL;
+		if(empty($date2)) $date2 = NULL;
+
+		
 		
 		$this->load->model('bufgalter_m');
-		$result = $this->bufgalter_m->upd_price($ID_ep, $cost_hour, $price);
+		$result = $this->bufgalter_m->sel_sum($ID_focus, $ID_ep, $date1, $date2);
 
 		echo json_encode($result);
 	}

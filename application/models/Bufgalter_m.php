@@ -83,7 +83,7 @@ class Bufgalter_m extends CI_Model {
 
 
     //информация о полученных доходах
-    public function sel_sum($ID_focus, $ID_ep, $ID_course, $date1, $date2)
+    public function sel_sum($ID_focus, $ID_ep, $date1, $date2)
     {
         $this->db->join('course', 'course.ID_course = s.ID_course')
                     ->join('edu_program', 'edu_program.ID_ep = course.ID_ep')
@@ -91,11 +91,11 @@ class Bufgalter_m extends CI_Model {
                     ->join('price_edu', 'price_edu.ID_ep = edu_program.ID_ep')
                     ->where_in('edu_program.ID_focus', $ID_focus)
                     ->where_in('edu_program.ID_ep', $ID_ep)
-                    ->where_in('s.ID_course', $ID_course)
+                   // ->where_in('s.ID_course', $ID_course)
                     ->where('status_application = "обучение" AND date_payment IS NOT NULL');
 
-        if($date1 != NULL) $this->db->where("date_payment <= '$date1'");
-        if($date2 != NULL) $this->db->where("date_payment >= '$date2'");
+        if($date1 != NULL) $this->db->where("date_payment >= '$date1'");
+        if($date2 != NULL) $this->db->where("date_payment <= '$date2'");
 
         $this->db->select('*');
         $this->db->select('count(*) as count_people');  //кол-во записей
@@ -106,6 +106,23 @@ class Bufgalter_m extends CI_Model {
         return $query->result_array();
         // return $this->db->last_query();
     }
+
+
+    
+    //история прайса
+    public function history_price($ID_ep, $date1, $date2)
+    {
+        $this->db->join('edu_program', 'edu_program.ID_ep = p.ID_ep')
+                ->where_in('edu_program.ID_ep', $ID_ep);
+
+        if($date1 != NULL) $this->db->where("date_start_price >= '$date1'");
+        if($date2 != NULL) $this->db->where("date_start_price <= '$date2'");
+
+        $query = $this->db->get('price_edu as p');
+        return $query->result_array();
+    }
+
+    
 
     
    
