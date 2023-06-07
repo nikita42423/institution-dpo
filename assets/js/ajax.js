@@ -46,12 +46,9 @@ $(document).ready(function(){
         })
     })
 
-    //Фильтрование нагрузки преподавателя зависит от преподавателя!!!!!!!!!!
-    // SELECT course.ID_course, course.ID_ep, name_discipline, ID_load
-    // FROM course, edu_program, discipline LEFT JOIN workload ON workload.ID_discipline=discipline.ID_discipline
-    // WHERE course.ID_ep=edu_program.ID_ep AND discipline.ID_ep=edu_program.ID_ep
-    $('.filter_workload').change(function(){ 
-        let ID_user = document.getElementById('id_user').value;
+    //Фильтрование нагрузки преподавателя зависит от преподавателя
+    $('.filter_workload_of_teacher').change(function(){
+        let ID_user = document.getElementById('id_teacher_of_workload').value;
         $.ajax({
             type: 'POST',
             url: 'workload/filter_workload',

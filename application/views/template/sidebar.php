@@ -32,8 +32,15 @@
 				<li class="nav-item mb-3">
 					<a class="nav-link" href="course/index">График курсов</a>
 				</li>
-				<li class="nav-item mb-3">
-					<a class="nav-link" href="workload/browse">Нагрузка преподавателей</a>
+				<li class="nav-item mb-3 dropdown">
+					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Нагрузка преподавателей
+					</a>
+					<ul class="dropdown-menu dropdown-menu-dark">
+						<li><a class="dropdown-item" href="workload/browse">Нагрузки преподавателей</a></li>
+						<li><a class="dropdown-item" href="workload/browse_no_load">Нераспределенные нагрузки преподавателей</a></li>
+						<li><a class="dropdown-item" href="teacher/browse">Регистрация преподавателей</a></li>
+					</ul>
 				</li>
 				<a class="btn btn-outline-light mt-3" href="main/index">Выйти из системы</a>
 			</ul>

@@ -19,6 +19,25 @@ class Workload_m extends CI_Model {
         return $query->result_array();
     }
 
+    //Выбрать нераспределенные нагрузки преподавателей
+    public function sel_no_workload($ID_focus)
+    {
+        $sql = "SELECT edu_program.ID_ep, course.ID_course, discipline.ID_discipline, 
+        name_ep,  name_course, name_discipline,date_start_teaching, date_end_teaching,
+        COALESCE( discipline.amount_hour, edu_program.amount_hour,  0) AS amount_hour
+        FROM edu_program LEFT JOIN course ON edu_program.ID_ep  = course.ID_ep 
+        LEFT JOIN discipline ON discipline.ID_ep = edu_program.ID_ep
+        WHERE id_focus=$ID_focus AND NOT EXISTS (select * FROM workload WHERE workload.ID_course=course.ID_course AND workload.ID_discipline = discipline.ID_discipline AND ID_teacher IS NOT NULL)";
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
+
+    //Добавить нагрузку преподавателей
+    public function add_workload($data)
+    {
+        $this->db->insert('workload', $data);
+    }
+
     //Удалить нагрузку преподавателей
     public function del_workload($data)
     {

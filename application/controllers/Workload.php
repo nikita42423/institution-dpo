@@ -21,6 +21,50 @@ class Workload extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
+	//Просмотр нераспределенные нагрузки преподавателя
+	public function browse_no_load()
+	{
+		//Данные из БД
+		$this->load->model('workload_m');
+		$this->load->model('teacher_m');
+		$this->load->model('focus_m');
+
+		$data['focus'] = $this->focus_m->sel_focus();
+		$ID_focus = 1;
+
+		if (!empty($_POST))
+		{
+			$ID_focus = $_POST['id_focus_of_no_workload'];
+		}
+		$data['no_workload'] = $this->workload_m->sel_no_workload($ID_focus);
+		$data['teacher'] = $this->teacher_m->sel_teacher($ID_focus);
+
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar');
+		$this->load->view('page/methodist/filter_no_workload', $data);
+		$this->load->view('page/methodist/no_workload');
+		$this->load->view('template/footer');
+	}
+
+	//Добавить нагрузки преподавателя
+	public function add_workload()
+	{
+		var_dump($_GET);
+		// if (!empty($_GET['ID_teacher'] && $_GET['ID_course'] && $_GET['ID_discipline']))
+		// {
+		// 	$data = array(
+		// 		'ID_teacher' 	=> $_GET['ID_teacher'],
+		// 		'ID_course'     => $_GET['ID_course'],
+		// 		'ID_discipline' => $_GET['ID_discipline']
+		// 	);
+			
+		// 	$this->load->model('workload_m');
+		// 	$this->workload_m->add_workload($data);
+
+		// 	redirect('workload/browse_no_load');
+		// }
+	}
+
 	//удаление нагрузки преподавателя
 	public function del_workload()
 	{
@@ -45,8 +89,9 @@ class Workload extends CI_Controller {
 		$this->load->model('teacher_m');
 		$teacher = $this->teacher_m->sel_teacher($ID_focus);
 		$str = '';
+			$str .= '<option value="">Выбрать...</option>';
 			foreach($teacher as $row) {
-				$str .= '<option value="'.$row['ID_teacher'].'">'.$row['full_name'].'</option>';
+				$str .= '<option value="'.$row['ID_user'].'">'.$row['full_name'].'</option>';
 			}
 		echo $str;
 	}
@@ -57,7 +102,6 @@ class Workload extends CI_Controller {
 		if (!empty($_POST))
 		{
 			$ID_teacher = $_POST['ID_user'];
-			if ($ID_teacher == 'all') {$ID_teacher = NULL;}
 
 			$this->load->model('workload_m');
 			$workload = $this->workload_m->sel_workload($ID_teacher);
@@ -84,5 +128,4 @@ class Workload extends CI_Controller {
 			echo $str;
 		}
 	}
-
 }
