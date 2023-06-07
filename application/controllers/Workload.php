@@ -49,20 +49,19 @@ class Workload extends CI_Controller {
 	//Добавить нагрузки преподавателя
 	public function add_workload()
 	{
-		var_dump($_GET);
-		// if (!empty($_GET['ID_teacher'] && $_GET['ID_course'] && $_GET['ID_discipline']))
-		// {
-		// 	$data = array(
-		// 		'ID_teacher' 	=> $_GET['ID_teacher'],
-		// 		'ID_course'     => $_GET['ID_course'],
-		// 		'ID_discipline' => $_GET['ID_discipline']
-		// 	);
+		if (!empty($_GET['ID_teacher'] && $_GET['ID_course'] && $_GET['ID_discipline']))
+		{
+			$data = array(
+				'ID_teacher' 	=> $_GET['ID_teacher'],
+				'ID_course'     => $_GET['ID_course'],
+				'ID_discipline' => $_GET['ID_discipline']
+			);
 			
-		// 	$this->load->model('workload_m');
-		// 	$this->workload_m->add_workload($data);
+			$this->load->model('workload_m');
+			$this->workload_m->add_workload($data);
 
-		// 	redirect('workload/browse_no_load');
-		// }
+			redirect('workload/browse_no_load');
+		}
 	}
 
 	//удаление нагрузки преподавателя
