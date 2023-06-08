@@ -176,7 +176,7 @@
 
 				  <!--ФИЛЬТРЫ ДЛЯ ОКОНЧАНИИ ОБ ОБУЕНИЯ-->
 				  <div class="col-md-auto">
-				<form class="justify-content-md-center mb-3 card" action="" method="post">
+				<form class="justify-content-md-center mb-3 card" method="post">
 					<div class="card-header">
 						Фильтр
 					</div>

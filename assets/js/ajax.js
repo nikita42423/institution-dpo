@@ -478,126 +478,7 @@ $(document).ready(function(){
         })
     });
 
-    //изменение заявки
-function editStatement(id)
-{
-    $.ajax({
-        type: 'POST',
-        url: 'manager/success',
-        data: {ID_application:id},
-        dataType: 'json',
-        success: function(result){
-            alert(result);
-        }
-    })
-
-    let ID_focus = document.getElementById('id_focus').value;
-    let ID_form = document.getElementById('id_form').value;
-    let status = document.getElementById('status').value;
-
-    $.ajax({
-        type: 'POST',
-        url: 'manager/filter_zaivk',
-        data: ({ID_focus: ID_focus, ID_form: ID_form, status:status}),
-        success: function(result) {
-            let data =  JSON.parse(result);
-            $('#zayav_tbody').empty();  //очистка таблицы
-            for(i in data)
-            {
-                $('#zayav').append(`<tr>
-                        <td>${data[i].full_name}</td>
-                        <td>${data[i].phone}</td>
-                        <td>${data[i].email}</td>
-                        <td>${data[i].name_type_doc}</td>
-                        <td>${data[i].name_focus}</td>
-                        <td>${data[i].name_ep}</td>
-                        <td>${data[i].name_course}</td>
-                        <td>${data[i].date_start_teaching}</td>
-                        <td>${data[i].date_end_teaching}</td>
-                        <td>${data[i].date_contract}</td>
-                        <td>${data[i].date_payment}</td>
-                        <td>${data[i].status_application}</td>
-                        <td>
-                        <!-- Принять дата договора-->
-                        <button type="button" class="btn btn-success" onclick="editStatement(${data[i].ID_application})" id="success_btn" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="принять дата договора">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
-<path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z"/>
-</svg>
-</button>
-                            
-                            <!-- Удалить ид заявки -->
-                            <button type="button" class="btn btn-danger" onclick="deleteStatement(${data[i].ID_application})" id="fail_btn" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="удалить">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
-<path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
-</svg>
-</button>
-                        </td>	
-                    </tr>`);
-            }
-        }
-    })
-}
-
-//удаление заявки
-function deleteStatement(id)
-{
-    $.ajax({
-        type: 'POST',
-        url: 'manager/fail',
-        data: {ID_application:id},
-        dataType: 'json',
-        success: function(result){
-            alert(result);
-        }
-    })
-
-    let ID_focus = document.getElementById('id_focus').value;
-    let ID_form = document.getElementById('id_form').value;
-    let status = document.getElementById('status').value;
-
-    $.ajax({
-        type: 'POST',
-        url: 'manager/filter_zaivk',
-        data: ({ID_focus: ID_focus, ID_form: ID_form, status:status}),
-        success: function(result) {
-            let data =  JSON.parse(result);
-            $('#zayav_tbody').empty();  //очистка таблицы
-            for(i in data)
-            {
-                $('#zayav').append(`<tr>
-                        <td>${data[i].full_name}</td>
-                        <td>${data[i].phone}</td>
-                        <td>${data[i].email}</td>
-                        <td>${data[i].name_type_doc}</td>
-                        <td>${data[i].name_focus}</td>
-                        <td>${data[i].name_ep}</td>
-                        <td>${data[i].name_course}</td>
-                        <td>${data[i].date_start_teaching}</td>
-                        <td>${data[i].date_end_teaching}</td>
-                        <td>${data[i].date_contract}</td>
-                        <td>${data[i].date_payment}</td>
-                        <td>${data[i].status_application}</td>
-                        <td>
-                        <!-- Принять дата договора-->
-                        <button type="button" class="btn btn-success" onclick="editStatement(${data[i].ID_application})" id="success_btn" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="принять дата договора">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
-<path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z"/>
-</svg>
-</button>
-                            
-                            <!-- Удалить ид заявки -->
-                            <button type="button" class="btn btn-danger" onclick="deleteStatement(${data[i].ID_application})" id="fail_btn" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="удалить">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
-<path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
-</svg>
-</button>
-                        </td>	
-                    </tr>`);
-            }
-        }
-    })
-}
-
+  
 
 //фильтрация - об окончании (менеджер)
 $(document).ready(function(){
@@ -688,6 +569,128 @@ $(document).on('click', '.editEndStatus', function () {
 });
 
 
+  //изменение заявки
+  function editStatement(id)
+  {
+      $.ajax({
+          type: 'POST',
+          url: 'manager/success',
+          data: {ID_application:id},
+          dataType: 'json',
+          success: function(result){
+              alert(result);
+          }
+      })
+  
+      let ID_focus = document.getElementById('id_focus').value;
+      let ID_form = document.getElementById('id_form').value;
+      let status = document.getElementById('status').value;
+  
+      $.ajax({
+          type: 'POST',
+          url: 'manager/filter_zaivk',
+          data: ({ID_focus: ID_focus, ID_form: ID_form, status:status}),
+          success: function(result) {
+              let data =  JSON.parse(result);
+              $('#zayav_tbody').empty();  //очистка таблицы
+              for(i in data)
+              {
+                  $('#zayav').append(`<tr>
+                          <td>${data[i].full_name}</td>
+                          <td>${data[i].phone}</td>
+                          <td>${data[i].email}</td>
+                          <td>${data[i].name_type_doc}</td>
+                          <td>${data[i].name_focus}</td>
+                          <td>${data[i].name_ep}</td>
+                          <td>${data[i].name_course}</td>
+                          <td>${data[i].date_start_teaching}</td>
+                          <td>${data[i].date_end_teaching}</td>
+                          <td>${data[i].date_contract}</td>
+                          <td>${data[i].date_payment}</td>
+                          <td>${data[i].status_application}</td>
+                          <td>
+                          <!-- Принять дата договора-->
+                          <button type="button" class="btn btn-success" onclick="editStatement(${data[i].ID_application})" id="success_btn" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="принять дата договора">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+  <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z"/>
+  </svg>
+  </button>
+                              
+                              <!-- Удалить ид заявки -->
+                              <button type="button" class="btn btn-danger" onclick="deleteStatement(${data[i].ID_application})" id="fail_btn" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="удалить">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+  <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
+  </svg>
+  </button>
+                          </td>	
+                      </tr>`);
+              }
+          }
+      })
+  }
+  
+  //удаление заявки
+  function deleteStatement(id)
+  {
+      $.ajax({
+          type: 'POST',
+          url: 'manager/fail',
+          data: {ID_application:id},
+          dataType: 'json',
+          success: function(result){
+              alert(result);
+          }
+      })
+  
+      let ID_focus = document.getElementById('id_focus').value;
+      let ID_form = document.getElementById('id_form').value;
+      let status = document.getElementById('status').value;
+  
+      $.ajax({
+          type: 'POST',
+          url: 'manager/filter_zaivk',
+          data: ({ID_focus: ID_focus, ID_form: ID_form, status:status}),
+          success: function(result) {
+              let data =  JSON.parse(result);
+              $('#zayav_tbody').empty();  //очистка таблицы
+              for(i in data)
+              {
+                  $('#zayav').append(`<tr>
+                          <td>${data[i].full_name}</td>
+                          <td>${data[i].phone}</td>
+                          <td>${data[i].email}</td>
+                          <td>${data[i].name_type_doc}</td>
+                          <td>${data[i].name_focus}</td>
+                          <td>${data[i].name_ep}</td>
+                          <td>${data[i].name_course}</td>
+                          <td>${data[i].date_start_teaching}</td>
+                          <td>${data[i].date_end_teaching}</td>
+                          <td>${data[i].date_contract}</td>
+                          <td>${data[i].date_payment}</td>
+                          <td>${data[i].status_application}</td>
+                          <td>
+                          <!-- Принять дата договора-->
+                          <button type="button" class="btn btn-success" onclick="editStatement(${data[i].ID_application})" id="success_btn" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="принять дата договора">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+  <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z"/>
+  </svg>
+  </button>
+                              
+                              <!-- Удалить ид заявки -->
+                              <button type="button" class="btn btn-danger" onclick="deleteStatement(${data[i].ID_application})" id="fail_btn" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="удалить">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+  <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
+  </svg>
+  </button>
+                          </td>	
+                      </tr>`);
+              }
+          }
+      })
+  }
+  
+
+
 //формирование документа об окончании обучения
 $(document).ready(function(){
     $('#editEndStatement').submit(function(){
@@ -721,26 +724,6 @@ $(document).ready(function(){
     })
 });
 
-
-//изменение или добавление  прайса (бухгалтер)
-$(document).ready(function(){
-
-    $('#show_resh').submit(function(){
-        let ID_ep = document.getElementById('ID_ep').value;
-        let cost_hour = document.getElementById('res1').innerHTML;
-        let price = document.getElementById('res9').innerHTML;
-        let check_price = document.getElementById('check_price').checked;
-        $.ajax({
-            type: 'POST',
-            url: 'buxgalter/edit_price',
-            data: { ID_ep:ID_ep, cost_hour:cost_hour, price:price, check_price:check_price},
-            dataType: 'json',
-            success: function(result){
-                alert(result);
-            }
-        })
-    })
-});
 
 
 

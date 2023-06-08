@@ -80,13 +80,13 @@ class Statement_M extends CI_Model {
         $this->db->join('users', 'users.ID_user = s.ID_student')
                         ->join('course', 'course.ID_course = s.ID_course')
                         ->join('edu_program', 'edu_program.ID_ep = course.ID_ep')
-                        ->where_in('s.ID_course', $ID_course)
+                        ->where_in('course.ID_course', $ID_course)
                         ->where_in('edu_program.ID_ep', $ID_ep);
 
                         if($status != NULL) $this->db->where('status_application', $status);
                         else{
-                            $this->db->where('status_application = "обучение"');
-                            $this->db->or_where('status_application = "окончена"');
+                            $this->db->where('(status_application = "обучение"');
+                            $this->db->or_where('status_application = "окончена")');
                         }
 
         $query = $this->db->get('statement as s');

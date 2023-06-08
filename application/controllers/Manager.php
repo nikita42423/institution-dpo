@@ -103,8 +103,7 @@ class Manager extends CI_Controller {
 		$this->load->model('statement_m');
 
 		$result = $this->statement_m->success_application($ID_application);
-		if($result != TRUE) $result = 'Изменение не выполнено!';
-		echo json_encode($result);
+		if($result != TRUE) echo json_encode('Изменение не выполнено!');
 	}
 
 	
@@ -115,8 +114,7 @@ class Manager extends CI_Controller {
 		$this->load->model('statement_m');
 
 		$result = $this->statement_m->delete_application($ID_application);
-		if($result != TRUE) $result = 'Удаление не выполнено!';
-		echo json_encode($result);
+		if($result != TRUE) echo json_encode('Удаление не выполнено!');
 	}
 
 	//фильтрация заявок об окончании
