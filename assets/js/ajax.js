@@ -556,6 +556,8 @@ $(document).on('click', '.editEndStatus', function () {
         let ID_application = document.getElementById('success').value;
         alert(ID_application);
 
+
+        
         $.ajax({
             type: 'POST',
             url: 'manager/success',
