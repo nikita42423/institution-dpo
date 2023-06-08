@@ -21,8 +21,8 @@
 	<div class="table-responsive">
 		<div class="data_table">
 
-			<table id="table_form_teach" class="table table-striped" style="width:100%">
-				<thead>
+			<table id="table_form_teach" class="table table-hover" style="width:100%">
+				<thead class="table-dark">
 					<tr>
 						<th>№</th>
 						<th>Наименование формы обучения</th>
@@ -41,12 +41,12 @@
 								data-id_info="<?=$row['ID_form']?>"
 								data-name_info="<?=$row['name_form']?>">
 
-								<i class="bi-pencil" aria-hidden="true"></i>
+								<span data-bs-toggle="tooltip" data-bs-placement="left" title="Изменить"><i class="bi-pencil" aria-hidden="true"></i></span>
 							</button>
 
 							<!-- Удалить -->
 							<a href="form_teach/del_form_teach?ID_form=<?=$row['ID_form']?>" class="btn btn-dark m-0">
-								<i class="bi-trash" aria-hidden="true"></i>
+								<span data-bs-toggle="tooltip" data-bs-placement="right" title="Удалить"><i class="bi-trash" aria-hidden="true"></i></span>
 							</a>
 						</td>
 					</tr>

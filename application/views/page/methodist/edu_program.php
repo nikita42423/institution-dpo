@@ -14,7 +14,7 @@
 						<td></td>
 					</tr>
 				</thead>
-				<tbody id="table_body_ep">
+				<tbody>
 					<?php foreach ($edu_program as $row) {?>
 					<tr>
 						<th scope="row"><?=$row['ID_ep']?></th>

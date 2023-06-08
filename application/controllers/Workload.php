@@ -10,7 +10,17 @@ class Workload extends CI_Controller {
 		$this->load->model('workload_m');
 		$this->load->model('teacher_m');
 		$this->load->model('focus_m');
-		$data['workload'] = $this->workload_m->sel_workload(NULL);
+
+		if (!empty($_GET['ID_teacher']))
+		{
+			$ID_teacher = $_GET['ID_teacher'];
+		}
+		else
+		{
+			$ID_teacher = NULL;
+		}
+
+		$data['workload'] = $this->workload_m->sel_workload($ID_teacher);
 		$data['teacher'] = $this->teacher_m->sel_teacher(NULL);
 		$data['focus'] = $this->focus_m->sel_focus();
 
@@ -69,6 +79,7 @@ class Workload extends CI_Controller {
 	{
 		if (!empty($_GET['ID_load']))
 		{
+			$ID_teacher = $_GET['ID_teacher'];
 			$data = array(
 				'ID_load' => $this->input->get('ID_load'),
 			);
@@ -77,7 +88,7 @@ class Workload extends CI_Controller {
 			$this->load->model('workload_m');
 			$data['workload'] = $this->workload_m->del_workload($data);
 
-			redirect('workload/browse');
+			redirect('workload/browse?ID_teacher='.$ID_teacher);
 		}
 	}
 
@@ -105,26 +116,39 @@ class Workload extends CI_Controller {
 			$this->load->model('workload_m');
 			$workload = $this->workload_m->sel_workload($ID_teacher);
 			$str = '';
-				foreach ($workload as $row) {
-				$str .= '<tr>
-					<td>'.$row['name_course'].'</td>
-					<td>'.$row['short_name'].'</td>
-					<td>'.$row['date_start_teaching'].'</td>
-					<td>'.$row['date_end_teaching'].'</td>
-					<td>'.$row['name_discipline'].'</td>
-					<td>'.$row['amount_hour'].'</td>
-					<td>
-						<div class="btn-group" role="group">
-							<!-- Удалить -->
-							<a href="workload/del_workload?ID_load='.$row['ID_load'].'" class="btn btn-dark">
-								<i class="bi-trash" aria-hidden="true"></i>
-							</a>
-						</div>
-					</td>
-				</tr>';
-				}
 
+			if (!empty($workload))
+			{
+				$count = 0;
+
+				foreach ($workload as $row)
+				{
+					$count += $row['amount_hour'];
+					$str .= '<tr>
+						<td>'.$row['name_course'].'</td>
+						<td>'.$row['short_name'].'</td>
+						<td>'.$row['date_start_teaching'].'</td>
+						<td>'.$row['date_end_teaching'].'</td>
+						<td>'.$row['name_discipline'].'</td>
+						<td>'.$row['amount_hour'].'</td>
+						<td>
+							<div class="btn-group" role="group">
+								<!-- Удалить -->
+								<a href="workload/del_workload?ID_load='.$row['ID_load'].'&ID_teacher='.$ID_teacher.'" class="btn btn-dark">
+									<i class="bi-trash" aria-hidden="true"></i>
+								</a>
+							</div>
+						</td>
+					</tr>';
+				}
+				$str .= '<tr><td colspan="7"><h3 class="">Всего '.$count.' часов </h3></td></tr>';
+			}
+			else
+			{
+				$str = '<tr><td colspan="7"><h1 class="text-center mt-3">Нет нагрузок этого преподавателя</h1></td></tr>';
+			}
 			echo $str;
+
 		}
 	}
 }

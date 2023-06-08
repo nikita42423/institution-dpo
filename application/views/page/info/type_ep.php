@@ -21,8 +21,8 @@
 	<div class="table-responsive">
 		<div class="data_table">
 
-			<table id="table_type_ep" class="table table-striped" style="width:100%">
-				<thead>
+			<table id="table_type_ep" class="table table-hover" style="width:100%">
+				<thead class="table-dark">
 					<tr>
 						<th>№</th>
 						<th>Наименование вида ОП</th>
@@ -39,13 +39,13 @@
 							<button type="button" class="btn btn-primary m-0" data-bs-toggle="modal"
 								data-bs-target="#modal_info"
 								data-id_info="<?=$row['ID_type_ep']?>"
-								data-name_info="<?=$row['name_type_ep']?>"
-								><i class="bi-pencil" aria-hidden="true"></i>
+								data-name_info="<?=$row['name_type_ep']?>">
+								<span data-bs-toggle="tooltip" data-bs-placement="left" title="Изменить"><i class="bi-pencil" aria-hidden="true"></i></span>
 							</button>
 
 							<!-- Удалить -->
 							<a href="type_ep/del_type_ep?ID_type_ep='.<?=$row['ID_type_ep']?>" class="btn btn-dark m-0">
-								<i class="bi-trash" aria-hidden="true"></i>
+								<span data-bs-toggle="tooltip" data-bs-placement="right" title="Удалить"><i class="bi-trash" aria-hidden="true"></i></span>
 							</a>
 						</td>
 					</tr>

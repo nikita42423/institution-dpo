@@ -34,7 +34,7 @@
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-dark">
                                         <?php foreach ($teacher as $row1) {?>
-                                            <li><a class="dropdown-item" href="workload/add_workload?ID_teacher='<?=$row1['ID_user']?>'&ID_course=<?=$row['ID_course']?>&ID_discipline=<?=$row['ID_discipline']?>"><?=$row1['full_name']?></a></li>
+                                            <li><a class="dropdown-item" href="workload/add_workload?ID_teacher=<?=$row1['ID_user']?>&ID_course=<?=$row['ID_course']?>&ID_discipline=<?=$row['ID_discipline']?>"><?=$row1['full_name']?></a></li>
                                         <?php }?>
                                     </ul>
                                 </div>

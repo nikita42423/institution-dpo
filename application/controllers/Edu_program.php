@@ -43,7 +43,17 @@ class Edu_program extends CI_Controller {
 
 			$this->load->model('edu_program_m');
 			$edu_program = $this->edu_program_m->sel_edu_program($ID_focus, $ID_type_ep, $ID_form, $ID_type_doc);
-			$str = '';
+			$str = '
+			<thead class="table-dark">
+				<tr>
+					<th>№</th>
+					<td>Наименование</td>
+					<td>Направление</td>
+					<td>Стоимость</td>
+					<td></td>
+				</tr>
+			</thead>
+			<tbody>';
 				foreach ($edu_program as $row) {
 				$str .= '<tr>
 					<th scope="row">'.$row['ID_ep'].'</th>
@@ -80,7 +90,7 @@ class Edu_program extends CI_Controller {
 					</td>
 				</tr>';
 				}
-
+				$str .= '</tbody>';
 			echo $str;
 		}
 	}

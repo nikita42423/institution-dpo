@@ -21,8 +21,8 @@
 	<div class="table-responsive">
 		<div class="data_table">
 
-			<table id="table_focus" class="table table-striped" style="width:100%">
-				<thead>
+			<table id="table_focus" class="table table-hover" style="width:100%">
+				<thead class="table-dark">
 					<tr>
 						<th>№</th>
 						<th>Наименование направления</th>
@@ -41,12 +41,12 @@
 								data-id_info="<?=$row['ID_focus']?>"
 								data-name_info="<?=$row['name_focus']?>">
 
-								<i class="bi-pencil" aria-hidden="true"></i>
+								<span data-bs-toggle="tooltip" data-bs-placement="left" title="Изменить"><i class="bi-pencil" aria-hidden="true"></i></span>
 							</button>
 
 							<!-- Удалить -->
 							<a href="focus/del_focus?ID_focus='.<?=$row['ID_focus']?>" class="btn btn-dark m-0">
-								<i class="bi-trash" aria-hidden="true"></i>
+								<span data-bs-toggle="tooltip" data-bs-placement="right" title="Удалить"><i class="bi-trash" aria-hidden="true"></i>
 							</a>
 						</td>
 					</tr>
