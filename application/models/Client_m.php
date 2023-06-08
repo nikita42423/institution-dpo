@@ -15,6 +15,14 @@ class Client_m extends CI_Model {
         return $query->result_array();
     }
 
+     //курсы
+     public function course()
+     {
+         $query = $this->db->get('course');
+         return $query->result_array();
+     }
+     
+
 
     // пользователь для клиента (персональные данные)
     public function sel_user($ID_user)
