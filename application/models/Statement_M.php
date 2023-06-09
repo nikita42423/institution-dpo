@@ -9,7 +9,7 @@ class Statement_M extends CI_Model {
     //отображение заявки
     public function sel_statement($ID_focus, $ID_form, $status)
     {
-        $this->db->join('users', 'users.ID_user = s.ID_student')
+        $this->db->join('users', 'users.ID_user = s.ID_user')
                         ->join('course', 'course.ID_course = s.ID_course')
                         ->join('edu_program', 'edu_program.ID_ep = course.ID_ep')
                         ->join('focus', 'focus.ID_focus = edu_program.ID_focus')
@@ -26,7 +26,7 @@ class Statement_M extends CI_Model {
     //отображение заявки - зачислена
     public function sel_accepted($ID_course, $ID_ep)
     {
-        $this->db->join('users', 'users.ID_user = s.ID_student')
+        $this->db->join('users', 'users.ID_user = s.ID_user')
                         ->join('course', 'course.ID_course = s.ID_course')
                         ->join('edu_program', 'edu_program.ID_ep = course.ID_ep')
                         ->where_in('s.ID_course', $ID_course)
@@ -77,7 +77,7 @@ class Statement_M extends CI_Model {
     //отображение заявки об окончании
     public function sel_end($ID_course, $ID_ep, $status)
     {
-        $this->db->join('users', 'users.ID_user = s.ID_student')
+        $this->db->join('users', 'users.ID_user = s.ID_user')
                         ->join('course', 'course.ID_course = s.ID_course')
                         ->join('edu_program', 'edu_program.ID_ep = course.ID_ep')
                         ->where_in('course.ID_course', $ID_course)

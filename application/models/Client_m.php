@@ -53,7 +53,7 @@ class Client_m extends CI_Model {
     {
         $data = array(
             'ID_course' => $ID_course,
-            'ID_student' => $ID_user,
+            'ID_user' => $ID_user,
             'status_application' => 'подана'
         );
 
@@ -64,12 +64,12 @@ class Client_m extends CI_Model {
     //история курсов клиента
     public function get_history_course($ID_user)
     {
-        $query = $this->db->where('statement.ID_student =  users.ID_user')
+        $query = $this->db->where('statement.ID_user =  users.ID_user')
                             ->where('statement.ID_course = course.ID_course')
                             ->where('course.ID_ep = edu_program.ID_ep')
                             ->where('edu_program.ID_focus = focus.ID_focus')
                             ->where('edu_program.ID_type_ep = type_ep.ID_type_ep')
-                            ->where('ID_user', $ID_user)
+                            ->where('statement.ID_user', $ID_user)
                           ->get('statement, users, course, edu_program, focus, type_ep');
        return $query->result_array();
     }
