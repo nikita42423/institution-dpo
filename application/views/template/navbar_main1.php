@@ -106,7 +106,7 @@ main {
         <div class="row">
 
             <div class="col-lg-2">
-              <img src="assets/img/logo.png" alt="" width="60" height="130">
+              <img src="assets/img/logo.png" alt="" width="200" height="130">
             </div>
             <div class="col-lg-6">
             <nav class="navbar navbar-expand-lg navbar-dark" style="margin-top: 4%;">
