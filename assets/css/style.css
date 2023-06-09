@@ -15,3 +15,8 @@
     padding-left: 0px;
     padding-right: 0px;
 }
+
+.td-color-red {
+    color: red;
+    background-color: red;
+  }

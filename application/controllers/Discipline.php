@@ -6,6 +6,9 @@ class Discipline extends CI_Controller {
 	//Просмотр одного учебного плана (дисциплины)
 	public function browse_one()
 	{
+		//Сессия
+		$data['session'] = $this->session->userdata('login_session');
+
 		if (!empty($_GET['ID_ep'])) {
 			$ID_ep = $_GET['ID_ep'];
 			
@@ -18,9 +21,9 @@ class Discipline extends CI_Controller {
 
 			
 			$this->load->view('template/header.php');
-			$this->load->view('template/sidebar.php');
-			$this->load->view('page/methodist/add_discipline.php', $data);
-			$this->load->view('page/methodist/discipline.php', $data);
+			$this->load->view('template/sidebar.php', $data);
+			$this->load->view('page/methodist/add_discipline.php');
+			$this->load->view('page/methodist/discipline.php');
 			$this->load->view('template/footer.php');
 
 			$this->load->view('page/methodist/modal_upd_discipline.php');
