@@ -6,13 +6,16 @@ class Type_ep extends CI_Controller {
     //Просмотр вида ОП
 	public function browse()
 	{
+		//Сессия
+		$data['session'] = $this->session->userdata('login_session');
+
         //Данные из БД
         $this->load->model('type_ep_m');
         $data['type_ep'] = $this->type_ep_m->sel_type_ep();
 
 		$this->load->view('template/header.php');
-        $this->load->view('template/sidebar.php');
-		$this->load->view('page/info/type_ep.php', $data);
+        $this->load->view('template/sidebar.php', $data);
+		$this->load->view('page/info/type_ep.php');
         $this->load->view('template/footer.php');
         
         $this->load->view('page/methodist/modal_info.php');

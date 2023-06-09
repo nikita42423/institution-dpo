@@ -6,6 +6,9 @@ class My_workload extends CI_Controller {
     //Просмотр своей нагрузки преподавателя
 	public function browse()
 	{
+		//Сессия
+		$data['session'] = $this->session->userdata('login_session');
+
         $ID_teacher = 5;
         $data['teacher'] = 'Кузнецов Н. В.';
 

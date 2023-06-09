@@ -4,7 +4,7 @@
 		<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDark" aria-controls="offcanvasDark">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		<a class="navbar-brand" href="#">ФИО методиста</a>
+		<a class="navbar-brand" href="#">Методист <?=$session['full_name']?></a>
 		<a class="navbar-brand" href="#"></a>
 
 		<div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDark" aria-labelledby="offcanvasDarkLabel">

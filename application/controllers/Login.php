@@ -43,13 +43,13 @@ class Login extends CI_Controller {
 				break;
 				case '3': redirect(base_url('manager/zaivk'));
 				break;
-				case '2': redirect(base_url('type_ep/browse'));
+				case '2': redirect(base_url('edu_program/browse'));
 				break;
 				case '6': redirect(base_url('buxgalter/index'));
 				break;
 				case '4': redirect(base_url('clients/lizcab'));
 				break;
-				case '5': redirect(base_url('teachers/index'));
+				case '5': redirect(base_url('my_workload/browse'));
 				break;
 			}
 		}

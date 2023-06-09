@@ -6,13 +6,16 @@ class Form_teach extends CI_Controller {
     //Просмотр формы обучения
 	public function browse()
 	{
+		//Сессия
+		$data['session'] = $this->session->userdata('login_session');
+
         //Данные из БД
         $this->load->model('form_teach_m');
         $data['form_teach'] = $this->form_teach_m->sel_form_teach();
 
 		$this->load->view('template/header.php');
-        $this->load->view('template/sidebar.php');
-		$this->load->view('page/info/form_teach.php', $data);
+        $this->load->view('template/sidebar.php', $data);
+		$this->load->view('page/info/form_teach.php');
         $this->load->view('template/footer.php');
         
         $this->load->view('page/methodist/modal_info.php');

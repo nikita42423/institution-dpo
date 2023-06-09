@@ -6,13 +6,16 @@ class Focus extends CI_Controller {
     //Просмотр направления
 	public function browse()
 	{
+		//Сессия
+		$data['session'] = $this->session->userdata('login_session');
+
         //Данные из БД
         $this->load->model('focus_m');
         $data['focus'] = $this->focus_m->sel_focus();
 
 		$this->load->view('template/header.php');
-        $this->load->view('template/sidebar.php');
-		$this->load->view('page/info/focus.php', $data);
+        $this->load->view('template/sidebar.php', $data);
+		$this->load->view('page/info/focus.php');
         $this->load->view('template/footer.php');
         
         $this->load->view('page/methodist/modal_info.php');

@@ -6,6 +6,9 @@ class Edu_program extends CI_Controller {
 	//Просмотр образовательной программы
 	public function browse()
 	{
+		//Сессия
+		$data['session'] = $this->session->userdata('login_session');
+		
 		//Данные из БД
 		$this->load->model('edu_program_m');
 		$this->load->model('focus_m');
@@ -20,9 +23,9 @@ class Edu_program extends CI_Controller {
 
 		$this->load->view('page/methodist/modal_ep.php');
 		$this->load->view('template/header.php');
-		$this->load->view('template/sidebar.php');
-		$this->load->view('page/methodist/filter_edu_program.php', $data);
-		$this->load->view('page/methodist/edu_program.php', $data);
+		$this->load->view('template/sidebar.php', $data);
+		$this->load->view('page/methodist/filter_edu_program.php');
+		$this->load->view('page/methodist/edu_program.php');
 		$this->load->view('template/footer.php');
 	}
 

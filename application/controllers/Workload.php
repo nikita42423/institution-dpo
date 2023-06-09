@@ -6,6 +6,9 @@ class Workload extends CI_Controller {
     //Просмотр нагрузки преподавателя
 	public function browse()
 	{
+		//Сессия
+		$data['session'] = $this->session->userdata('login_session');
+
 		//Данные из БД
 		$this->load->model('workload_m');
 		$this->load->model('teacher_m');
@@ -25,8 +28,8 @@ class Workload extends CI_Controller {
 		$data['focus'] = $this->focus_m->sel_focus();
 
 		$this->load->view('template/header');
-        $this->load->view('template/sidebar');
-		$this->load->view('page/methodist/filter_workload', $data);
+        $this->load->view('template/sidebar', $data);
+		$this->load->view('page/methodist/filter_workload');
 		$this->load->view('page/methodist/workload');
 		$this->load->view('template/footer');
 	}
@@ -34,6 +37,9 @@ class Workload extends CI_Controller {
 	//Просмотр нераспределенные нагрузки преподавателя
 	public function browse_no_load()
 	{
+		//Сессия
+		$data['session'] = $this->session->userdata('login_session');
+
 		//Данные из БД
 		$this->load->model('workload_m');
 		$this->load->model('teacher_m');
@@ -50,8 +56,8 @@ class Workload extends CI_Controller {
 		$data['teacher'] = $this->teacher_m->sel_teacher($ID_focus);
 
 		$this->load->view('template/header');
-		$this->load->view('template/sidebar');
-		$this->load->view('page/methodist/filter_no_workload', $data);
+		$this->load->view('template/sidebar', $data);
+		$this->load->view('page/methodist/filter_no_workload');
 		$this->load->view('page/methodist/no_workload');
 		$this->load->view('template/footer');
 	}

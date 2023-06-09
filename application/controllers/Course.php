@@ -6,6 +6,9 @@ class Course extends CI_Controller {
     //Просмотр графика курсов
 	public function index()
 	{
+		//Сессия
+		$data['session'] = $this->session->userdata('login_session');
+
 		if (!empty($_GET['ID_ep']))
 		{
 			$ID_ep = $this->input->get('ID_ep');
@@ -26,8 +29,8 @@ class Course extends CI_Controller {
 		}
 
 		$this->load->view('template/header.php');
-        $this->load->view('template/sidebar.php');
-		$this->load->view('page/methodist/course.php', $data);
+        $this->load->view('template/sidebar.php', $data);
+		$this->load->view('page/methodist/course.php');
 		$this->load->view('template/footer.php');
 	}
 

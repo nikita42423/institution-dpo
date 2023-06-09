@@ -6,13 +6,16 @@ class Type_doc extends CI_Controller {
     //Просмотр вида документа
 	public function browse()
 	{
+		//Сессия
+		$data['session'] = $this->session->userdata('login_session');
+
         //Данные из БД
         $this->load->model('type_doc_m');
         $data['type_doc'] = $this->type_doc_m->sel_type_doc();
 
 		$this->load->view('template/header.php');
-        $this->load->view('template/sidebar.php');
-		$this->load->view('page/info/type_doc.php', $data);
+        $this->load->view('template/sidebar.php', $data);
+		$this->load->view('page/info/type_doc.php');
         $this->load->view('template/footer.php');
         
         $this->load->view('page/methodist/modal_info.php');

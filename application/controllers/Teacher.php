@@ -6,6 +6,9 @@ class Teacher extends CI_Controller {
     //Просмотр преподавателя
 	public function browse()
 	{
+		//Сессия
+		$data['session'] = $this->session->userdata('login_session');
+
         //Данные из БД
         $this->load->model('teacher_m');
         $this->load->model('focus_m');
@@ -13,8 +16,8 @@ class Teacher extends CI_Controller {
         $data['focus'] = $this->focus_m->sel_focus();
 
 		$this->load->view('template/header');
-        $this->load->view('template/sidebar');
-		$this->load->view('page/methodist/teacher', $data);
+        $this->load->view('template/sidebar', $data);
+		$this->load->view('page/methodist/teacher');
         $this->load->view('page/methodist/modal_teacher');
         $this->load->view('template/footer');
 	}
