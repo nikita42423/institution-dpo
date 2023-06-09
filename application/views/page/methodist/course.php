@@ -89,8 +89,8 @@
 		</tbody>
 	</table>
 	<div class="mt-3">
-			<p><b>Цветы и их обозначения:</b></p>
-			<small class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-secondary-emphasis bg-secondary-subtle border border-secondary-subtle rounded-2">Свободен</small>
-			<small class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-2">Занят</small>
+		<p><b>Цветы и их обозначения:</b></p>
+		<small class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-secondary-emphasis bg-secondary-subtle border border-secondary-subtle rounded-2">Свободен</small>
+		<small class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-2">Занят</small>
 	</div>
 </main>
