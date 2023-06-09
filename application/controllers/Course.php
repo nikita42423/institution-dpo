@@ -3,6 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Course extends CI_Controller {
 
+
+
+	
     //Просмотр графика курсов
 	public function index()
 	{
