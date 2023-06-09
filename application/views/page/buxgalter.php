@@ -77,6 +77,7 @@
 <div id="show_resh">
 
 
+
             <form class="row g-3" action="" id="filtrbux" method="post">
 			<div class="col-md-1">
 				<input type="checkbox" class="form-check-input" id="check_price" name="check_price" value="1" checked>
