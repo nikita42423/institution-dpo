@@ -61,13 +61,18 @@
                                 <td><?=$row['name_ep']?></td>
                                 <!-- <td><?=$row['name_course']?></td> -->
                                 <td><?=$row['price']?></td>
-                                <td><!-- Кнопка-триггер модального окна -->
-                                <button type="button" class="btn btn-primary addStatement" data-bs-toggle="modal" data-bs-target="#addStatement" 
+                                <td><!-- График курсов -->
+                                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">График курсов</button>
+
+                                 
+
+
+                                <!-- <button type="button" class="btn btn-primary addStatement" data-bs-toggle="modal" data-bs-target="#addStatement" 
                                 data-id_course="<?=$row['ID_course']?>" data-name_course="<?=$row['name_course']?>">
                                   График курсов
-                                </button>
+                                </button> -->
 
-                                <!-- Модальное окно -->
+                             
                                 </td>
                                 </tr>
                             <?php } ?>
@@ -76,7 +81,82 @@
                   </div>
 
                 </div>
-                        <div class="modal fade" id="addStatement" tabindex="-1" role="dialog" aria-hidden="true">
+
+             
+
+                            <div class="offcanvas offcanvas-end" style="width: 85%;" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                            <div class="offcanvas-header">
+                              <h5 class="offcanvas-title" id="offcanvasRightLabel">График курсов "Наименование ОП"</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                              
+                            <table id="table_course" class="table table-hover table-bordered border-dark" style="width:100%">
+                                    <thead>
+                                      <tr class="">
+                                        <th class="text-table-rotate" rowspan="2">Курс</th>
+                                        <th class="text-table-rotate" rowspan="2">Код ОП</th>
+                                        <th class="text-nowrap text-center" rowspan="2">Наименование ОП</th>
+                                        <?php
+                                        for ($i = 1; $i <= 45; $i++) {
+                                          echo '<th class="text-table-rotate" style="padding-left: 0px;padding-right: 0px;">'.$header_table[$i].'</th>';
+                                        }?>
+                                      </tr>
+                                      <tr>
+                                        <?php
+                                        for ($i = 1; $i <= 45; $i++) {
+                                          echo '<th class="text-center" style="padding: 0px;">'.$i.'</th>';
+                                        }?>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <?php
+                                      $i=1;
+
+                                      foreach ($course as $row) {?>
+                                      <tr>
+                                        <td><?=$row['name_course']?></td>
+                                        <td><?=$row['ID_ep']?></td>
+                                        <td><?=$row['short_name']?></td>
+                                        <?php
+                                        $color[1]='class="table-primary"';
+                                        $color[2]='class="table-secondary"';
+                                        $color[3]='class="table-success"';
+                                        $color[4]='class="table-danger"';
+                                        $color[5]='class="table-warning"';
+                                        $color[6]='class="table-info"';
+                                        $color[7]='class="table-dark"';
+
+                                        $date1 = new DateTime($row['date_start_teaching']);
+                                        $date2 = new DateTime($row['date_end_teaching']);
+                              
+                                        for ($i = 1; $i <= 45; $i++) {
+                                          $d = $header_table[$i];
+                                          $date = new DateTime($d);
+
+                                          if ($date >= $date1 && $date <= $date2) {
+                                            echo '<td class="table-primary text-primary-emphasis">+</td>';
+                                          }
+                                          else {
+                                            echo "<td></td>";
+                                          }
+
+                                        }
+                                        echo '</tr>';
+                                      }?>
+                                      
+                                    </tbody>
+                             </table>
+
+
+                            </div>
+                          </div>
+
+
+
+
+
+                        <!-- <div class="modal fade" id="addStatement" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog">
                           <div class="modal-content">
                             <div class="modal-header">
@@ -99,7 +179,7 @@
                             
                           </div>
                         </div>
-                        </div>
+                        </div> -->
             </div>
         </div>
     </div>
