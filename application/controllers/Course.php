@@ -20,6 +20,8 @@ class Course extends CI_Controller {
 
 		//Данные из БД
 		$this->load->model('course_m');
+		$this->load->model('edu_program_m');
+		$data['edu_program'] = $this->edu_program_m->sel_edu_program(NULL,NULL,NULL,NULL);
 		$data['course'] = $this->course_m->sel_course($ID_ep);
 
 		$date = new DateTime('2023-09-01');
