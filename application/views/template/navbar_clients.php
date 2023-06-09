@@ -1,4 +1,4 @@
-<header>
+<header style="margin: 2%">
 <div class="jumbotron">
             <button class="btn btn-primary head" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
@@ -8,25 +8,26 @@
 
                 <div class="offcanvas offcanvas-start" style="width: 30%;" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel" ><img src="assets/img/log.png" alt="" width="200" height="200">
-                    <?=$session['full_name']?></h5>
-                                       
+                    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel" > <a class="nav-link" href="main/index"><img src="assets/img/log.png" alt="" width="200" height="200"></a></h5>
+                                   
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
+                   
                 </div>
                 <div class="offcanvas-body ">
-             
+                <h5 class="offcanvas-title"><?=$session['full_name']?></h5><hr>
+                
                         <div class="nav">
                         
                                 <ul class="nav flex-column">
                                 <li class="nav-item">
                                     <a class="nav-link active" aria-current="page" href="clients/lizcab">ЛИЧНЫЙ КАБИНЕТ</a>
                                 </li>
-                                <li class="nav-item">
+                                <!-- <li class="nav-item">
                                     <a class="nav-link" href="clients/index">КУРСЫ</a>
-                                </li>
+                                </li> -->
                             
                                 <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="login/index"><button type="button" class="btn btn-outline-dark">ВЫЙТИ ИЗ СИСТЕМЫ</button></a>
+                                <a class="nav-link active" aria-current="page" href="main/out"><button type="button" class="btn btn-outline-dark">ВЫЙТИ ИЗ СИСТЕМЫ</button></a>
                                 </li>
                                 </ul>
                         </div><hr>

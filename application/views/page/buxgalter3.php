@@ -60,7 +60,7 @@
 					</li>
 					
 					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="main/out"><button type="button" class="btn btn-outline-dark">ВЫЙТИ ИЗ СИСТЕМЫ</button></a>
+						<a class="nav-link active" aria-current="page" href="login/kill_all_session"><button type="button" class="btn btn-outline-dark">Выйти из системы</button></a>
 					</li>
 				</ul>
 			</div>
@@ -69,55 +69,49 @@
 		<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 			<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 				<h1 class="h2">
-				О полученных доходах
+				Просмотр история цены
                 </h1>
 				
 			</div>
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-2"></div>
-					<div class="col-lg-8"><div>
+					<div class="col-lg-1"></div>
+					<div class="col-lg-10"><div>
 
-<div id = "get_income">
-	<form class="row g-3" method="post">
-		<div class="col-md-6">
-			<label for="begin_date" class="form-label">C</label>
-			<input type="date" class="form-control filter_sum_buxg" id="begin_date">
-		</div>
-		<div class="col-md-6">
-			<label for="end_date" class="form-label">ПО</label>
-			<input type="date" class="form-control filter_sum_buxg" id="end_date">
-		</div>
-	<br>
-		<div class="col-md-6">
-			<label for="id_focus" class="form-label">Направление</label>
-			<select class="form-select filter_sum_buxg" id="id_focus">
-			    <option value="all">Все</option>
-				<?php foreach ($focus as $row) {?>
-					<option value="<?=$row['ID_focus']?>"><?=$row['name_focus']?></option>
-				<?php }?>
-			</select>
-		</div>
-		<div class="col-md-6">
-		<label for="id_ep" class="form-label">Наименование ОП</label>
-			<select class="form-select filter_sum_buxg" id="id_ep">
-				<option value="all">Все</option>
-				<?php foreach ($edu_program as $row) {?>
-					<option value="<?=$row['ID_ep']?>"><?=$row['name_ep']?></option>
-				<?php }?>
-			</select>
-		</div>
-		<!-- <div class="col-md-4">
-			<label for="validationDefault13" class="form-label">Дисциплина</label>
-			<select class="form-select" id="validationDefault13">
-				<option value="">...</option>
-			</select>
-		</div> -->
+					<div class="col-md-auto">
+				<form class="justify-content-md-center mb-3 card" method="post">
+					<div class="card-header">
+						Фильтр
+					</div>
+					<div class="card-body">
+						<div class="row">
+					
+							<div class="col-md-4">
+								<label for="id_ep" class="form-label">Наименование ОП</label>
+								<select class="form-select filter_history" id="id_ep">
+									<option value="all" selected>Все</option>
+									<?php foreach($edu_program  as $row) {?>
+									<option value="<?=$row['ID_ep']?>"><?=$row['name_ep']?></option>
+									<?php }?>
+								</select>
+							</div>
+							<div class="col-md-2">
+								<label for="date1" class="form-label">Период с:</label>
+				                <input type="date" class="form-control filter_history" id="date1">
+							</div>
+							<div class="col-md-2">
+							    <label for="date2" class="form-label">Период по:</label>
+				                <input type="date" class="form-control filter_history" id="date2">
+							</div>
+						
+							
+						</div>
+					</div>
+				</form>
 
-	</form>
-</div>
+			</div>
 
-					<div class="col-lg-2"></div>
+					<div class="col-lg-1"></div>
 				</div>
 			</div>
 
@@ -141,27 +135,51 @@
 					<table id="example" class="table" style="width:100%">
 						<thead>
 							<tr>
+					
 								<th>Наименование ОП</th>
-								<th>Курс</th>
-								<th>Кол-во мест</th>
-								<th>Сумма</th>
+								<th>дата</th>
+								<th>Педчаса</th>
+								<th>Цена</th>
 							
 							</tr>
 						</thead>
-						<tbody id="example_body">
-						<?php foreach($sum_table as $row) {?>
+						<tbody id="example_history">
+						<?php foreach($history  as $row) {?>
 							<tr>
 								<td><?=$row['name_ep']?></td>
-								<td><?=$row['name_course']?></td>
-								<td><?=$row['count_people']?> / <?=$row['count_in_group']?></td>
-								<td><?=$row['price']?></td>
+								<td><?=$row['date_start_price']?></td>
+								<td><?=$row['cost_hour']?></td>
+								<td><?=$row['price']?></td>	
 							</tr>
-							
 						<?php } ?>
-							
+
 						</tbody>
 					</table>
 				</div>
+				</div>
+<!-- Modal -->
+<div class="modal fade" id="editPrice" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-body">
+	  <form id="edit_price" method="post">
+  <div class="mb-3">
+	<input type="hidden" id="ID_ep" name="ID_ep">
+    <label class="form-label">Педчаса</label>
+    <input type="text" class="form-control" id="cost_hour" name="cost_hour" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Цена</label>
+    <input type="text" class="form-control" id="price" name="price">
+  </div>
+  <button type="submit" class="btn btn-primary">изменить</button>
+</form>
+  </div>
+</div>
+  </div>
+</div>
+
 
 			</div>
 		</main>

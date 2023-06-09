@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1>Личный кабинет</h1>
-
+                
             <div class="accordion" id="accordionExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingOne">
@@ -52,7 +52,7 @@
       <div class="accordion-body">
 
 
-      <table class="table">
+      <table class="table table-striped" id="history_course">
   <thead>
     <tr>
       <th scope="col">Курсы</th>
@@ -67,17 +67,20 @@
     </tr>
   </thead>
   <tbody>
+  <?php foreach($history as $row) {?>
     <tr>
-      <td>fdfdd</td>
-      <td>fdfd</td>
-      <td>fdf</td>
-      <td>@fdfd</td>
-      <td>@fdfd</td>
-      <td>fdfd</td>
-      <td>fdf</td>
-      <td>@fdfd</td>
-      <td>@fdfd</td>
+      <td><?=$row['name_course']?></td>
+      <td><?=$row['name_focus']?></td>
+      <td><?=$row['name_ep']?></td>
+      <td><?=$row['name_type_ep']?></td>
+      <td><?=$row['date_start_teaching']?></td>
+      <td><?=$row['date_end_teaching']?></td>
+      <td><?=$row['phone']?></td>
+      <td><?=$row['email']?></td>
+      <td><?=$row['status_application']?></td>
     </tr>
+    <?php } ?>
+
 
   </tbody>
 

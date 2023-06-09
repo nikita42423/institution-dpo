@@ -1,166 +1,195 @@
-<section id="glav">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-1"></div>
-                <div class="col-lg-10" style="margin-top: 2%;">
+    <section id="cours">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 style="text-align: center; padding: 2%; color: blue;"><b>КУРСЫ</b></h1>
+                <form class="row g-3 needs-validation" method="post">
+    <div class="col-md-3">
+    <label class="form-label">Направление подготовки</label>
+        <select class="form-select filter_client" id="id_focus">
+          <option value="all" selected>Все</option>
+          <?php foreach($focus as $row) {?>
+            <option value="<?=$row['ID_focus']?>"><?=$row['name_focus']?></option>
+          <?php }?>
+        </select>
+      </div>
+      <div class="col-md-3">
+      <label class="form-label">Форма обучения</label>
+        <select class="form-select filter_client" id="id_form">
+          <option value="all" selected>Все</option>
+          <?php foreach($form_teach as $row) {?>
+            <option value="<?=$row['ID_form']?>"><?=$row['name_form']?></option>
+          <?php }?>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Период: с</label>
+        <input type="date" class="form-control filter_client" id="date1">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">по</label>
+        <input type="date" class="form-control filter_client" id="date2">
+        </select>
+      </div>
+    
+  </form>
+                <div class="table-responsive">
 
-                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-indicators">
-                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                        </div>
-                        <div class="carousel-inner">
-                          <div class="carousel-item active"  data-bs-interval="5000">
-                            <img src="assets/img/1.jpg" class="d-block w-100" alt="..." height="500">
-                          </div>
-                          <div class="carousel-item"  data-bs-interval="5000">
-                            <img src="assets/img/2.jpg" class="d-block w-100" alt="..." height="500">
-                          </div>
-                          <div class="carousel-item"  data-bs-interval="5000">
-                            <img src="assets/img/3.jpg" class="d-block w-100" alt="..." height="500">
-                          </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                          <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                          <span class="visually-hidden">Next</span>
-                        </button>
-                      </div>
+				<!-- Скрипт для пагинации -->
+				<script>
+				$(document).ready(function () {
+					var table = $('#curs').DataTable({
+						
+					});
+
+				});
+				</script>
+
+				<div class="data_table">
+					<table id="curs" class="table" style="width:100%">
+						<thead>
+							<tr class="text-center">
+								<th>Программа </th>
+								<!-- <th>Курсы </th> -->
+								<th>Цена</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody id="client_curs">
+               <?php foreach($clientcours as $row) {?>
+                            <tr class="text-center">
+                                <td><?=$row['name_ep']?></td>
+                                <!-- <td><?=$row['name_course']?></td> -->
+                                <td><?=$row['price']?></td>
+                                <td><!-- Кнопка-триггер модального окна -->
+                                <button type="button" class="btn btn-primary addStatement" data-bs-toggle="modal" data-bs-target="#addStatement" 
+                                data-id_course="<?=$row['ID_course']?>" data-name_course="<?=$row['name_course']?>">
+                                  График курсов
+                                </button>
+
+                                <!-- Модальное окно -->
+                                </td>
+                                </tr>
+                            <?php } ?>
+                      </tbody>
+                    </table>
+                  </div>
 
                 </div>
-                <div class="col-lg-1"></div>
+                        <div class="modal fade" id="addStatement" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="nameCourseModal">Курс </h5>
+                            </div>
+                            <div class="modal-body">
+                            <form id="add_statement" method="post">
+                              <div class="form-outline mb-4">
+                                <input type="hidden" id="ID_course" name="ID_course">
+                                <input type="hidden" id="ID_user" name="ID_user" value="<?php echo $ID_user;?>">
+                                <label class="form-label">Вы подтверждаете подачу заявки?</label>
+                              </div>
+                              <div class="d-flex justify-content-center">
+                                <button type="submit"
+                                  class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Да</button>
+                              </div>
+                              </form>
+                              
+                            </div>
+                            
+                          </div>
+                        </div>
+                        </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section id="curs">
-        <div class="container">
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
+
+</section>
+  
+<section class="text-center text-lg-start">
+  <style>
+    .cascading-right {
+      margin-right: -50px;
+    }
+
+    @media (max-width: 991.98px) {
+      .cascading-right {
+        margin-right: 0;
+      }
+    }
+  </style>
+
+  <!-- Jumbotron -->
+  <div class="container py-4">
+    <div class="row g-0 align-items-center">
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <div class="card cascading-right" style=" background: hsla(0, 0%, 100%, 0.55); backdrop-filter: blur(30px);">
+          <div class="card-body p-5 shadow-5">
+            <h2 class="fw-bold mb-5">Подберём идеальную программу</h2>
+            
             <div class="row">
-                <div class="col-lg-12">
-                <h1>НАПРАВЛЕНИЕ</h1>
-                <div class="row row-cols-1 row-cols-md-3 g-6">
-                  <a href="main/nabravel" style=" text-decoration: none;">
-  <div class="col">
-  <div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="assets/img/11.jpg" class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title" style="text-align: center; color: brown; padding-top: 10%">ИНФОРМАЦИОННЫЕ СИСТЕМЫ И ПРОГРАММИРОВАНИЕ</h5>
-      </div>
+  <div class="col-4">
+    <div class="list-group text-center" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home">Профессиональная переподготовка</a>
+      <a class="list-group-item list-group-item-action" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="list-profile">Повышение квалификации</a>
+      <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab" aria-controls="list-messages">Общеразвивающая программа</a>
     </div>
   </div>
-</div>
-  </div>
-  </a>
-  <a href="login/index" style=" text-decoration: none;">
-  <div class="col">
-  <div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="assets/img/22.jpg" class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title" style="text-align: center; color: brown; padding-top: 10%">ПСИХОЛОГИЯ</h5>
-      </div>
+  <div class="col-8">
+    <div class="tab-content text-justify" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list"><b>Профессиональная переподготовка</b> — это обучение и практика 
+        для достижения новой карьерной цели. Включает в себя и короткие курсы, на которых можно получить дополнительные навыки для текущей 
+        профессии, и получение второго высшего образования по другой специальности, и переквалификацию.</div>
+      <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list"><b>Повышения квалификации</b> — дать актуальные сведения о нововведениях в профессии, обучить работе в 
+      новой программе или на новом оборудовании. <br>
+     <b> Повышение квалификации </b> и переподготовка — это дополнительное профессиональное образование. </div>
+      <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">Дополнительная общеобразовательная <b> (общеразвивающая) программа</b> – это программа для детей и взрослых, определяющая направленность, адресность, 
+      структуру, содержание, последовательность, сроки и объём реализации образовательных услуг.</div>
     </div>
   </div>
 </div>
-  </div>
-  </a> <a href="login/index" style=" text-decoration: none;">
-  <div class="col">
-  <div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="assets/img/33.jpg" class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title" style="text-align: center; color: brown; padding-top: 10%">ИНОСТРАННЫЕ ЯЗЫКИ</h5>
-      </div>
-    </div>
-  </div>
-</div>
-  </div>
-  </a> <a href="login/index" style=" text-decoration: none;">
-  <div class="col">
-  <div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="assets/img/44.jpg" class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title" style="text-align: center; color: brown; padding-top: 10%">ФИНАНСЫ И БУХГАЛТЕРСКИЙ УЧЕТ</h5>
-      </div>
-    </div>
-  </div>
-</div>
-  </div>
-  </a> <a href="login/index" style=" text-decoration: none;">
-  <div class="col">
-  <div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="assets/img/55.jpg" class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title" style="text-align: center; color: brown; padding-top: 10%">ПЕДАГОГИКА И ДИДАКТИКА</h5>
-      </div>
-    </div>
-  </div>
-</div>
-  </div>
-  </a> <a href="login/index" style=" text-decoration: none;">
-  <div class="col">
-  <div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="assets/img/66.jpg" class="img-fluid rounded-start" alt="..." height="30">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title" style="text-align: center; color: brown; padding-top: 10%">ЮРИСПРУДЕНЦИЯ И ПРАВО</h5>
-      </div>
-    </div>
-  </div>
-</div>
-  </div>
-  </a>
-            </div>
+           
+
+
+          </div>
         </div>
-    </section>
+      </div>
+
+      <div class="col-lg-6 mb-5 mb-lg-0">
+      <img src="assets/img/log.png" alt=""  height="" class="w-100 rounded-4 shadow-4">
+      
+      </div>
+    </div>
+  </div>
+  <!-- Jumbotron -->
+</section>
+
 
     <section id="aboutus" style="margin-bottom: 3%;">
 		<div class="container">
-      <h1>О БИЗНЕС - ШКОЛЕ</h1>
+      <h1 style="text-align: center; padding: 2%; color: blue;"><b>О БИЗНЕС - ШКОЛЕ</b></h1>
 			<div class="clearfix">
 				<img src="assets/img/4.jpg" class="col-md-6 float-md-start mb-3 ms-md-3 m-3" alt="...">
 				<div class="text-justify p-3">
-					<p><b>Цель проекта Все Курсы Онлайн - помогать людям познавать новую информацию каждый день и добиваться успеха в жизни.</b></p> 
-					<p>Для этого был создан удобный сайт со всеми образовательными программами онлайн и дистанционными курсами со всего мира.</p>
-					<p>Главные достоинства проекта - удобный поиск курсов при помощи фильтров и категорий. Можно отобрать только платные курсы онлайн или только курсы онлайн для детей и взрослых. Отдельными спецпроектами выделены образовательные видео и вебинары. Также крайне полезна возможность записаться на курс или уточнить дополнительную информацию посредством функционала сайта Все Курсы Онлайн.</p> 
-					<p>Все события рынка онлайн-образования освещаются на Всех Курсах Онлайн.</p>
-					<p>На сайте - удобный дизайн, адаптированный к любым размерам экрана, в том числе будет удобен для просмотра с экранов мобильных устройств.</p>
+					<p ><b style="text-align:center">Цель проекта Все Курсы Онлайн - помогать людям познавать новую информацию каждый день и добиваться успеха в жизни.</b></p> 
+					<p style="text-align:justify" >Для этого был создан удобный сайт со всеми образовательными программами онлайн и дистанционными курсами со всего мира.</p>
+					<p style="text-align:justify">Главные достоинства проекта - удобный поиск курсов при помощи фильтров и категорий. Можно отобрать только платные курсы онлайн или только курсы онлайн для детей и взрослых. Отдельными спецпроектами выделены образовательные видео и вебинары. Также крайне полезна возможность записаться на курс или уточнить дополнительную информацию посредством функционала сайта Все Курсы Онлайн.</p> 
+					<p style="text-align:justify">Все события рынка онлайн-образования освещаются на Всех Курсах Онлайн.</p>
+					<p style="text-align:justify">На сайте - удобный дизайн, адаптированный к любым размерам экрана, в том числе будет удобен для просмотра с экранов мобильных устройств.</p>
 				</div>
 			</div>
 		</div>
     </section>
 
+
               
-  <section style="background: linear-gradient(90deg, #b9deed, #efefef); padding-bottom: 2%;">
+  <!-- <section style="background: linear-gradient(90deg, #b9deed, #efefef); padding-bottom: 2%;">
   <div class="container my-5 py-5">
     <div class="row d-flex justify-content-center">
       <div class="col-md-12 col-lg-10">
-            <h1>ОТЗЫВЫ</h1>
+            <h1 style="text-align: center; padding: 2%; color: blue;">ОТЗЫВЫ</h1>
         <div class="card text-dark">
           <div class="card-body p-4">
             <div class="d-flex flex-start">
@@ -255,8 +284,8 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 
-          
+<script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
 

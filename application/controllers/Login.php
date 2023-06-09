@@ -1,6 +1,7 @@
 
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
 class Login extends CI_Controller {
 
 	public function index()
@@ -40,13 +41,13 @@ class Login extends CI_Controller {
 			{
 				case '1': redirect((base_url('director/index')));
 				break;
-				case '3': redirect(base_url('manager/index'));
+				case '3': redirect(base_url('manager/zaivk'));
 				break;
 				case '2': redirect(base_url('type_ep/browse'));
 				break;
 				case '6': redirect(base_url('buxgalter/index'));
 				break;
-				case '4': redirect(base_url('clients/index'));
+				case '4': redirect(base_url('clients/lizcab'));
 				break;
 				case '5': redirect(base_url('teachers/index'));
 				break;

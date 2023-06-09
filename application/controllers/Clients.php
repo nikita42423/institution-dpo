@@ -6,16 +6,24 @@ class Clients extends CI_Controller {
 	public function index()
 	{
 		//Сессия
-		$data['session'] = $this->session->userdata('login_session');
-		$session=$data['session'];
-		$ID_user = $session['ID_user'];
+		// $data['session'] = $this->session->userdata('login_session');
+		// $session=$data['session'];
 
-		$this->load->model('client_m');
-        $data['clientcours'] = $this->client_m->sel_cours();
+		// $ID_user = $session['ID_user'];
+		// $data['ID_user'] = $ID_user;
 
-		$this->load->view('template/header.php');
-		$this->load->view('template/navbar_clients.php', $data);
-		$this->load->view('page/clients_curs.php');
+		// $this->load->model('client_m');
+		// $this->load->model('focus_m');
+		// $this->load->model('form_teach_m');
+
+
+        // $data['clientcours'] = $this->client_m->sel_cours();
+		// $data['focus'] = $this->focus_m->sel_focus();
+		// $data['form_teach'] = $this->form_teach_m->sel_form_teach();
+
+		// $this->load->view('template/header.php');
+		// $this->load->view('template/navbar_clients.php', $data);
+		//$this->load->view('page/clients_curs.php',  $data);
 
 		
 	
@@ -32,10 +40,12 @@ class Clients extends CI_Controller {
 
 		$this->load->model('client_m');
 		$data['client'] = $this->client_m->sel_user($ID_user);
+		$data['history'] = $this->client_m->get_history_course($ID_user);
 
 		$this->load->view('template/header.php');
 		$this->load->view('template/navbar_clients.php', $data);
 		$this->load->view('page/clients.php', $data);
+		
 		
 	}
 
@@ -55,6 +65,42 @@ class Clients extends CI_Controller {
 		echo json_encode($update);
 	}
 
+
+	//добавление заявки клиента
+	public function add_stat()
+	{
+		$ID_course = $_POST['ID_course'];
+		$ID_user = $_POST['ID_user'];
+
+		$this->load->model('client_m');
+		$create = $this->client_m->add_statement($ID_course, $ID_user);
+
+		if($create == TRUE) $create = 'Заявка оформлена!';
+		echo json_encode($create);
+	}
+
+
+	//фильтрация по курсам
+	public function filter_client()
+	{
+		$ID_focus = $_POST['ID_focus'];
+		$ID_form = $_POST['ID_form'];
+		$date1 = $_POST['date1'];
+		$date2 = $_POST['date2'];
+
+		if($ID_focus == 'all') $ID_focus = NULL;
+		if($ID_form == 'all') $ID_form = NULL;
+		if(empty($date1)) $date1 = NULL;
+		if(empty($date2)) $date2 = NULL;
+
+		$this->load->model('client_m');
+		$course = $this->client_m->sel_course($ID_focus, $ID_form, $date1, $date2);
+
+		echo json_encode($course);
+	}
+
+
+	
 	
 
 	
