@@ -77,7 +77,7 @@ class Main extends CI_Controller {
 
 
 
-		
+
 		//фильтрация гостя по ОП (курсы)
 	public function filter_guest()
 	{

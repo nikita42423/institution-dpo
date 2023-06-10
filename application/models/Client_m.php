@@ -87,6 +87,7 @@ class Client_m extends CI_Model {
                           ->where('c.ID_ep = e.ID_ep');
                           if($date1 != NULL) $this->db->where("c.date_start_teaching <= '$date1'");
                           if($date2 != NULL) $this->db->where("c.date_end_teaching >= '$date2'");
+                          $this->db->group_by('name_ep');
                           $query = $this->db->get('edu_program as e, course as c');
         return $query->result_array();
     }
