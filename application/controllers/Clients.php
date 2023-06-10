@@ -70,7 +70,7 @@ class Clients extends CI_Controller {
 	public function add_stat()
 	{
 		$ID_course = $_POST['ID_course'];
-		$ID_user = $_POST('ID_user');
+		$ID_user = $_POST['ID_user'];
 		
 		$this->load->model('client_m');
 		$create = $this->client_m->add_statement($ID_course, $ID_user);
