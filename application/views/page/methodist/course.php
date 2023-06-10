@@ -24,7 +24,7 @@
 		</div>
 	</div>
 
-	<table id="table_course" class="table table-hover table-bordered border-dark" style="width:100%">
+	<table id="table_course" class="table table-hover table-bordered border-dark table-sm" style="width:100%">
 		<thead>
 			<tr class="">
 				<th class="text-table-rotate" rowspan="2">Курс</th>

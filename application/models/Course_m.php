@@ -9,7 +9,18 @@ class Course_m extends CI_Model {
     //Выбрать курс
     public function sel_course($ID_ep)
     {
-        $sql = 'SELECT COUNT(CASE WHEN status_application = "обучение" THEN 1 END) AS count_user, c.ID_course, name_course, short_name, name_focus, name_type_ep, count_in_group, date_start_teaching, date_end_teaching, c.ID_ep, name_ep
+        $sql = '
+        SELECT COUNT(CASE WHEN status_application = "обучение" THEN 1 END) AS count_user,
+            c.ID_course,
+            name_course,
+            short_name,
+            name_focus,
+            name_type_ep,
+            count_in_group,
+            date_start_teaching,
+            date_end_teaching,
+            c.ID_ep,
+            name_ep
         FROM course AS c LEFT JOIN statement as s ON s.ID_course=c.ID_course, edu_program, focus, type_ep
         WHERE c.ID_ep=edu_program.ID_ep AND edu_program.ID_focus=focus.ID_focus AND edu_program.ID_type_ep=type_ep.ID_type_ep ';
         if (!empty($ID_ep)) {$sql .= 'AND c.ID_ep='.$ID_ep.' ';}

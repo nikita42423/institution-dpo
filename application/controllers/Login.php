@@ -39,7 +39,7 @@ class Login extends CI_Controller {
 
 			switch($ID_role)
 			{
-				case '1': redirect((base_url('director/index')));
+				case '1': redirect((base_url('director/report_count_student')));
 				break;
 				case '3': redirect(base_url('manager/zaivk'));
 				break;
