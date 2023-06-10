@@ -33,9 +33,6 @@ class Type_ep extends CI_Controller {
             $this->load->model('type_ep_m');
             $this->type_ep_m->add_type_ep($data);
 
-            //Сообщение об успеха
-            $this->session->set_flashdata('msg', 'Успешно добавлен!');
-
             redirect(base_url('type_ep/browse'));
         }
 	}
@@ -50,9 +47,6 @@ class Type_ep extends CI_Controller {
         $this->load->model('type_ep_m');
         $this->type_ep_m->del_type_ep($data);
 
-        //Сообщение об успеха
-        $this->session->set_flashdata('msg', 'Успешно удален!');
-
         redirect(base_url('type_ep/browse'));
     }
 
@@ -66,9 +60,6 @@ class Type_ep extends CI_Controller {
 
         $this->load->model('type_ep_m');
         $this->type_ep_m->upd_type_ep($id, $data);
-
-        //Сообщение об успеха
-        $this->session->set_flashdata('msg', 'Успешно изменен!');
 
         redirect(base_url('type_ep/browse'));
     }

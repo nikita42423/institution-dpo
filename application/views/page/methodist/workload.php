@@ -29,13 +29,13 @@
 								<td><?=$row['date_end_teaching']?></td>
 								<td><?=$row['name_discipline']?></td>
 								<td><?=$row['amount_hour']?></td>
-								<td>
-									<div class="btn-group" role="group">
-										<!-- Удалить -->
-										<a href="workload/del_workload?ID_load=<?=$row['ID_load']?>" class="btn btn-dark">
-											<i class="bi-trash" aria-hidden="true"></i>
-										</a>
-									</div>
+								<td class="col-1 text-end">
+
+									<!-- Удалить -->
+									<a href="workload/del_workload?ID_load=<?=$row['ID_load']?>" class="btn btn-dark m-0">
+										<i class="bi-trash" aria-hidden="true"></i>
+									</a>
+
 								</td>
 							</tr>
 

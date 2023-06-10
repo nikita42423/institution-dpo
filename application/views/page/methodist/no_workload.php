@@ -25,11 +25,11 @@
 						<td><?=$row['date_start_teaching']?></td>
 						<td><?=$row['date_end_teaching']?></td>
 						<td><?=$row['amount_hour']?></td>
-						<td>
+						<td class="text-end">
                             <!-- Назначить преподаватель -->
                             <div class="dropdown">
                                 <div class="dropdown">
-                                    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <button class="btn btn-primary dropdown-toggle m-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <i class="bi-person-add" aria-hidden="true"></i>
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-dark">
@@ -54,6 +54,7 @@
 <script>
 $(document).ready(function () {
 	var table = $('#table_workload').DataTable({
+		lengthChange:false,
 		buttons:['excel', 'pdf'], //['copy', 'csv', 'excel', 'pdf', 'print']
 	});
 	table.buttons().container().appendTo('#table_workload_wrapper .col-md-6:eq(0)');

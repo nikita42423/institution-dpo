@@ -39,7 +39,7 @@
 					<ul class="dropdown-menu dropdown-menu-dark">
 						<li><a class="dropdown-item" href="workload/browse">Нагрузки преподавателей</a></li>
 						<li><a class="dropdown-item" href="workload/browse_no_load">Нераспределенные нагрузки</a></li>
-						<li><a class="dropdown-item" href="teacher/browse">Регистрация преподавателей</a></li>
+						<li><a class="dropdown-item" href="reg_teacher/browse">Регистрация преподавателей</a></li>
 					</ul>
 				</li>
 				<a class="btn btn-outline-light mt-3" href="main/index">Выйти из системы</a>

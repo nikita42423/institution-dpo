@@ -13,7 +13,7 @@ $(document).ready(function(){
             data: ({ID_focus: ID_focus, ID_type_ep: ID_type_ep, ID_form: ID_form, ID_type_doc: ID_type_doc}),
             dataType:'html',
             success: function(result) {
-                $('#table_ep').html(result);
+                $('#program').html(result);
             }
         })
     })

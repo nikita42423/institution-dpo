@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Teacher extends CI_Controller {
+class Reg_teacher extends CI_Controller {
 
     //Просмотр преподавателя
 	public function browse()
@@ -17,7 +17,7 @@ class Teacher extends CI_Controller {
 
 		$this->load->view('template/header');
         $this->load->view('template/sidebar', $data);
-		$this->load->view('page/methodist/teacher');
+		$this->load->view('page/methodist/reg_teacher');
         $this->load->view('page/methodist/modal_teacher');
         $this->load->view('template/footer');
 	}
@@ -36,7 +36,7 @@ class Teacher extends CI_Controller {
             //Данные из БД
             $this->load->model('teacher_m');
             $this->teacher_m->add_teacher($full_name, $login, $passwords, $profession, $work_exp, $ID_focus);
-            redirect('teacher/browse');
+            redirect('reg_teacher/browse');
         }
 	}
 
@@ -51,7 +51,7 @@ class Teacher extends CI_Controller {
         $this->load->model('teacher_m');
         $this->teacher_m->del_teacher($data);
 
-        redirect(base_url('teacher/browse'));
+        redirect(base_url('reg_teacher/browse'));
     }
 
     //Изменить преподаватель
@@ -67,6 +67,6 @@ class Teacher extends CI_Controller {
         $this->load->model('teacher_m');
         $this->teacher_m->upd_teacher($ID_user, $full_name, $login, $passwords, $profession, $work_exp);
 
-        redirect(base_url('teacher/browse'));
+        redirect(base_url('reg_teacher/browse'));
     }
 }

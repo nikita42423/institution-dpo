@@ -2,7 +2,6 @@
 
 	<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 		<h1 class="display-3 text-center mb-3">Справочная информация</h1>
-		<h1 class="display-6 text-center mb-3 text-success"><?=$this->session->userdata('msg')?></h1>
 	</div>
 
 	<h2>Форма обучения</h2>
@@ -24,7 +23,6 @@
 			<table id="table_form_teach" class="table table-hover" style="width:100%">
 				<thead class="table-dark">
 					<tr>
-						<th>№</th>
 						<th>Наименование формы обучения</th>
 						<th></th>
 					</tr>
@@ -32,22 +30,24 @@
 				<tbody>
 					<?php foreach ($form_teach as $row) {?>
 					<tr>
-						<th scope="row"><?=$row['ID_form']?></th>
-						<td><?=$row['name_form']?></td>
-						<td>
-							<!-- Изменить -->
-							<button type="button" class="btn btn-primary m-0" data-bs-toggle="modal"
-								data-bs-target="#modal_info"
-								data-id_info="<?=$row['ID_form']?>"
-								data-name_info="<?=$row['name_form']?>">
+						<td class="col-10"><?=$row['name_form']?></td>
+						<td class="col-2 text-end">
+							<div class="btn-group" role="group">
 
-								<span data-bs-toggle="tooltip" data-bs-placement="left" title="Изменить"><i class="bi-pencil" aria-hidden="true"></i></span>
-							</button>
+								<!-- Изменить -->
+								<button type="button" class="btn btn-primary m-0" data-bs-toggle="modal"
+									data-bs-target="#modal_info"
+									data-id_info="<?=$row['ID_form']?>"
+									data-name_info="<?=$row['name_form']?>">
+									<span data-bs-toggle="tooltip" data-bs-placement="left" title="Изменить"><i class="bi-pencil" aria-hidden="true"></i></span>
+								</button>
 
-							<!-- Удалить -->
-							<a href="form_teach/del_form_teach?ID_form=<?=$row['ID_form']?>" class="btn btn-dark m-0">
-								<span data-bs-toggle="tooltip" data-bs-placement="right" title="Удалить"><i class="bi-trash" aria-hidden="true"></i></span>
-							</a>
+								<!-- Удалить -->
+								<a href="form_teach/del_form_teach?ID_form=<?=$row['ID_form']?>" class="btn btn-dark m-0">
+									<span data-bs-toggle="tooltip" data-bs-placement="right" title="Удалить"><i class="bi-trash" aria-hidden="true"></i></span>
+								</a>
+								
+							</div>
 						</td>
 					</tr>
 					<?php }?>

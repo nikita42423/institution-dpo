@@ -2,7 +2,6 @@
 
 	<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 		<h1 class="display-3 text-center mb-3">Справочная информация</h1>
-		<h1 class="display-6 text-center mb-3 text-success"><?=$this->session->userdata('msg')?></h1>
 	</div>
 
 	<h2>Направление</h2>
@@ -24,7 +23,6 @@
 			<table id="table_focus" class="table table-hover" style="width:100%">
 				<thead class="table-dark">
 					<tr>
-						<th>№</th>
 						<th>Наименование направления</th>
 						<th></th>
 					</tr>
@@ -32,22 +30,24 @@
 				<tbody>
 					<?php foreach ($focus as $row) {?>
 					<tr>
-						<th scope="row"><?=$row['ID_focus']?></th>
-						<td><?=$row['name_focus']?></td>
-						<td>
-							<!-- Изменить -->
-							<button type="button" class="btn btn-primary m-0" data-bs-toggle="modal"
-								data-bs-target="#modal_info"
-								data-id_info="<?=$row['ID_focus']?>"
-								data-name_info="<?=$row['name_focus']?>">
+						<td class="col-10"><?=$row['name_focus']?></td>
+						<td class="col-2 text-end">
+							<div class="btn-group" role="group">
 
-								<span data-bs-toggle="tooltip" data-bs-placement="left" title="Изменить"><i class="bi-pencil" aria-hidden="true"></i></span>
-							</button>
+								<!-- Изменить -->
+								<button type="button" class="btn btn-primary m-0" data-bs-toggle="modal"
+									data-bs-target="#modal_info"
+									data-id_info="<?=$row['ID_focus']?>"
+									data-name_info="<?=$row['name_focus']?>">
+									<span data-bs-toggle="tooltip" data-bs-placement="left" title="Изменить"><i class="bi-pencil" aria-hidden="true"></i></span>
+								</button>
 
-							<!-- Удалить -->
-							<a href="focus/del_focus?ID_focus='.<?=$row['ID_focus']?>" class="btn btn-dark m-0">
-								<span data-bs-toggle="tooltip" data-bs-placement="right" title="Удалить"><i class="bi-trash" aria-hidden="true"></i>
-							</a>
+								<!-- Удалить -->
+								<a href="focus/del_focus?ID_focus='.<?=$row['ID_focus']?>" class="btn btn-dark m-0">
+									<span data-bs-toggle="tooltip" data-bs-placement="right" title="Удалить"><i class="bi-trash" aria-hidden="true"></i></span>
+								</a>
+
+							</div>
 						</td>
 					</tr>
 					<?php }?>

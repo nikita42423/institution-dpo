@@ -33,9 +33,6 @@ class Focus extends CI_Controller {
             $this->load->model('focus_m');
             $this->focus_m->add_focus($data);
 
-            //Сообщение об успеха
-            $this->session->set_flashdata('msg', 'Успешно добавлен!');
-
             redirect(base_url('focus/browse'));
         }
 	}
@@ -50,9 +47,6 @@ class Focus extends CI_Controller {
         $this->load->model('focus_m');
         $this->focus_m->del_focus($data);
 
-        //Сообщение об успеха
-        $this->session->set_flashdata('msg', 'Успешно удален!');
-
         redirect(base_url('focus/browse'));
     }
 
@@ -66,9 +60,6 @@ class Focus extends CI_Controller {
 
         $this->load->model('focus_m');
         $this->focus_m->upd_focus($id, $data);
-
-        //Сообщение об успеха
-        $this->session->set_flashdata('msg', 'Успешно изменен!');
 
         redirect(base_url('focus/browse'));
     }

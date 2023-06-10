@@ -2,7 +2,6 @@
 	
 	<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 		<h1 class="display-3 text-center mb-3">Справочная информация</h1>
-		<h1 class="display-6 text-center mb-3 text-success"><?=$this->session->userdata('msg')?></h1>
 	</div>
 
 	<h2>Вид ОП</h2>
@@ -24,7 +23,6 @@
 			<table id="table_type_ep" class="table table-hover" style="width:100%">
 				<thead class="table-dark">
 					<tr>
-						<th>№</th>
 						<th>Наименование вида ОП</th>
 						<th></th>
 					</tr>
@@ -32,21 +30,24 @@
 				<tbody>
 					<?php foreach ($type_ep as $row) {?>
 					<tr>
-						<th scope="row"><?=$row['ID_type_ep']?></th>
-						<td><?=$row['name_type_ep']?></td>
-						<td>
-							<!-- Изменить -->
-							<button type="button" class="btn btn-primary m-0" data-bs-toggle="modal"
-								data-bs-target="#modal_info"
-								data-id_info="<?=$row['ID_type_ep']?>"
-								data-name_info="<?=$row['name_type_ep']?>">
-								<span data-bs-toggle="tooltip" data-bs-placement="left" title="Изменить"><i class="bi-pencil" aria-hidden="true"></i></span>
-							</button>
+						<td class="col-10"><?=$row['name_type_ep']?></td>
+						<td class="col-2 text-end">
+							<div class="btn-group" role="group">
 
-							<!-- Удалить -->
-							<a href="type_ep/del_type_ep?ID_type_ep='.<?=$row['ID_type_ep']?>" class="btn btn-dark m-0">
-								<span data-bs-toggle="tooltip" data-bs-placement="right" title="Удалить"><i class="bi-trash" aria-hidden="true"></i></span>
-							</a>
+								<!-- Изменить -->
+								<button type="button" class="btn btn-primary m-0" data-bs-toggle="modal"
+									data-bs-target="#modal_info"
+									data-id_info="<?=$row['ID_type_ep']?>"
+									data-name_info="<?=$row['name_type_ep']?>">
+									<span data-bs-toggle="tooltip" data-bs-placement="left" title="Изменить"><i class="bi-pencil" aria-hidden="true"></i></span>
+								</button>
+
+								<!-- Удалить -->
+								<a href="type_ep/del_type_ep?ID_type_ep='.<?=$row['ID_type_ep']?>" class="btn btn-dark m-0">
+									<span data-bs-toggle="tooltip" data-bs-placement="right" title="Удалить"><i class="bi-trash" aria-hidden="true"></i></span>
+								</a>
+								
+							</div>
 						</td>
 					</tr>
 					<?php }?>

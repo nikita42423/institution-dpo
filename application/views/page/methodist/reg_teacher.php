@@ -2,7 +2,7 @@
 
     <div class="row justify-content-md-center mb-3">
         <div class="col-md-auto">
-            <h1 class="display-6 text-center mb-3">Преподаватель</h1>
+            <h1 class="display-6 text-center mb-3">Регистрация преподавателя</h1>
         </div>
     </div>
 
@@ -80,23 +80,22 @@
 						<td><?=$row['profession']?></td>
                         <td><?=$row['name_focus']?></td>
 						<td><?=$row['work_exp']?></td>
-						<td>
+						<td class="text-end">
                             <div class="btn-group" role="group">
                                 <!-- Изменить -->
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                <button type="button" class="btn btn-primary m-0" data-bs-toggle="modal"
                                     data-bs-target="#modal_teacher"
                                     data-id_user="<?=$row['ID_user']?>"
                                     data-full_name="<?=$row['full_name']?>"
                                     data-profession="<?=$row['profession']?>"
                                     data-work_exp="<?=$row['work_exp']?>"
                                     data-login="<?=$row['login']?>"
-                                    data-passwords="<?=$row['passwords']?>"
-                                    >
+                                    data-passwords="<?=$row['passwords']?>">
                                     <i class="bi-pencil" aria-hidden="true"></i>
                                 </button>
 
                                 <!-- Удалить -->
-                                <a href="teacher/del_teacher?ID_user=<?=$row['ID_user']?>" class="btn btn-dark">
+                                <a href="teacher/del_teacher?ID_user=<?=$row['ID_user']?>" class="btn btn-dark m-0">
                                     <i class="bi-trash" aria-hidden="true"></i>
                                 </a>
                             </div>

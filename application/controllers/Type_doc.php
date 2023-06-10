@@ -33,9 +33,6 @@ class Type_doc extends CI_Controller {
             $this->load->model('type_doc_m');
             $this->type_doc_m->add_type_doc($data);
 
-            //Сообщение об успеха
-            $this->session->set_flashdata('msg', 'Успешно добавлен!');
-
             redirect(base_url('type_doc/browse'));
         }
 	}
@@ -50,9 +47,6 @@ class Type_doc extends CI_Controller {
         $this->load->model('type_doc_m');
         $this->type_doc_m->del_type_doc($data);
 
-        //Сообщение об успеха
-        $this->session->set_flashdata('msg', 'Успешно удален!');
-
         redirect(base_url('type_doc/browse'));
     }
 
@@ -66,9 +60,6 @@ class Type_doc extends CI_Controller {
 
         $this->load->model('type_doc_m');
         $this->type_doc_m->upd_type_doc($id, $data);
-
-        //Сообщение об успеха
-        $this->session->set_flashdata('msg', 'Успешно изменен!');
 
         redirect(base_url('type_doc/browse'));
     }

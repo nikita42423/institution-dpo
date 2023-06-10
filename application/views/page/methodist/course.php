@@ -26,13 +26,14 @@
 
 	<table id="table_course" class="table table-hover table-bordered border-dark table-sm" style="width:100%">
 		<thead>
-			<tr class="">
-				<th class="text-table-rotate" rowspan="2">Курс</th>
+			<tr>
+				<th class="text-nowrap text-center" rowspan="2">Курс</th>
 				<th class="text-table-rotate" rowspan="2">Код ОП</th>
 				<th class="text-nowrap text-center" rowspan="2">Наименование ОП</th>
 				<?php
 				for ($i = 1; $i <= 45; $i++) {
-					echo '<th class="text-table-rotate" style="padding-left: 0px;padding-right: 0px;">'.$header_table[$i].'</th>';
+					$data = new DateTime($header_table[$i]);
+					echo '<th class="text-table-rotate" style="padding-left: 0px;padding-right: 0px;">'.$data->format('d.m').'</th>';
 				}?>
 			</tr>
 			<tr>
@@ -51,13 +52,13 @@
 				if ($row['count_user'] >= $row['count_in_group'])
 				{
 					//занято
-					$td = '<td class="table-danger text-danger"><small>-</small></td>';
+					$td = '<td class="table-danger text-danger p-0 text-center align-middle"><small>'.$row['count_user'].'</small></td>';
 					echo '<td class="d-grid gap-2 m-0 pt-1 pb-1"><a class="btn btn-danger btn-sm disabled" href="clients/add_stat?id_course='.$row['ID_course'].'">'.$row['name_course'].'</a></td>';
 				}
 				else
 				{
 					//свободно
-					$td = '<td class="table-secondary"><small>'.$row['count_user'].'<small></td>';
+					$td = '<td class="table-secondary p-0 text-center align-middle"><small>'.$row['count_user'].'<small></td>';
 					echo '<td class="d-grid gap-2 m-0 pt-1 pb-1"><a class="btn btn-primary btn-sm" href="clients/add_stat?id_course='.$row['ID_course'].'">'.$row['name_course'].'</a></td>';
 				}
 				$name_ep = mb_substr($row['name_ep'], 0, 15, 'utf-8').'...';
