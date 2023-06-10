@@ -59,10 +59,10 @@
                <?php foreach($clientcours as $row) {?>
                             <tr class="text-center">
                                 <td><?=$row['name_ep']?></td>
-                                <!-- <td><?=$row['name_course']?></td> -->
                                 <td><?=$row['price']?></td>
                                 <td><!-- График курсов -->
-                                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">График курсов</button>
+                                <button class="btn btn-primary viewingCourse" type="button" data-bs-toggle="offcanvas" data-id_ep="<?=$row['ID_ep']?>" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                                График курсов</button>
 
                                  
 
@@ -74,7 +74,7 @@
 
                              
                                 </td>
-                                </tr>
+                             </tr>
                             <?php } ?>
                       </tbody>
                     </table>
@@ -86,7 +86,7 @@
 
                             <div class="offcanvas offcanvas-end" style="width: 85%;" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
                             <div class="offcanvas-header">
-                              <h5 class="offcanvas-title" id="offcanvasRightLabel">График курсов "Наименование ОП"</h5>
+                              <h5 class="offcanvas-title" id="offcanvasRightLabel">График курсов</h5>
                               <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
                             <div class="offcanvas-body">
@@ -94,6 +94,7 @@
                             <table id="table_course" class="table table-hover table-bordered border-dark" style="width:100%">
                                     <thead>
                                       <tr class="">
+                                      <th class="text-table-rotate" rowspan="2"></th>
                                         <th class="text-table-rotate" rowspan="2">Курс</th>
                                         <th class="text-table-rotate" rowspan="2">Код ОП</th>
                                         <th class="text-nowrap text-center" rowspan="2">Наименование ОП</th>
@@ -109,23 +110,33 @@
                                         }?>
                                       </tr>
                                     </thead>
-                                    <tbody>
+                                    <form id="recept_application" method="post">
+                                    <tbody  id="recept_application_tbody">
                                       <?php
                                       $i=1;
 
                                       foreach ($course as $row) {?>
                                       <tr>
+                                      <?php 
+                                          if ($row['count_user'] >= $row['count_in_group'])
+                                          {
+                                            //занято
+                                            $td = '<td class="table-danger text-danger-emphasis">-</td>';
+                                            echo '<td class="d-grid gap-2 m-0 pt-1 pb-1"><button type="button" class="btn btn-danger btn-sm disabled" >-</button></td>';
+                                          }
+                                          else
+                                          {
+                                            //свободно
+                                            $td = '<td class="table-primary text-primary-emphasis">+</td>';
+                                            echo '<td class="d-grid gap-2 m-0 pt-1 pb-1"><button type="button" class="btn btn-primary btn-sm" onclick="receptionApplication('.$row['ID_course'].', '.$ID_user.')" >Запись</button></td>';
+                                          }
+                                        ?>
+
                                         <td><?=$row['name_course']?></td>
                                         <td><?=$row['ID_ep']?></td>
                                         <td><?=$row['short_name']?></td>
                                         <?php
-                                        $color[1]='class="table-primary"';
-                                        $color[2]='class="table-secondary"';
-                                        $color[3]='class="table-success"';
-                                        $color[4]='class="table-danger"';
-                                        $color[5]='class="table-warning"';
-                                        $color[6]='class="table-info"';
-                                        $color[7]='class="table-dark"';
+                                       
 
                                         $date1 = new DateTime($row['date_start_teaching']);
                                         $date2 = new DateTime($row['date_end_teaching']);
@@ -135,7 +146,7 @@
                                           $date = new DateTime($d);
 
                                           if ($date >= $date1 && $date <= $date2) {
-                                            echo '<td class="table-primary text-primary-emphasis">+</td>';
+                                            echo  $td;
                                           }
                                           else {
                                             echo "<td></td>";
@@ -146,6 +157,7 @@
                                       }?>
                                       
                                     </tbody>
+                                    </form>
                              </table>
 
 

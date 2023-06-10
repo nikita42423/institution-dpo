@@ -126,7 +126,7 @@
 			<div class="table-responsive">
 
 <div class="data_table">
-	<table id="zachit" class="table table-striped" style="width:100%;">
+	<table id="zachit" class="table" style="width:100%;">
 		<thead>
 			<tr>
 				<th>Выбрать</th>
@@ -231,7 +231,7 @@
 			<div class="table-responsive">
 
 <div class="data_table">
-	<table id="zachit_end" class="table table-striped" style="width:100%;">
+	<table id="zachit_end" class="table" style="width:100%;">
 		<thead>
 			<tr>
 				<th>ФИО слушателей</th>
