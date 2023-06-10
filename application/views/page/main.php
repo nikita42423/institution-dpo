@@ -1,4 +1,4 @@
-    <section id="cours">
+<section id="cours">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -59,24 +59,116 @@
                <?php foreach($clientcours as $row) {?>
                             <tr class="text-center">
                                 <td><?=$row['name_ep']?></td>
-                                <!-- <td><?=$row['name_course']?></td> -->
                                 <td><?=$row['price']?></td>
-                                <td><!-- Кнопка-триггер модального окна -->
-                                <button type="button" class="btn btn-primary addStatement" data-bs-toggle="modal" data-bs-target="#addStatement" 
+                                <td><!-- График курсов -->
+                                <button class="btn btn-primary viewingCourse" type="button" data-bs-toggle="offcanvas" data-id_ep="<?=$row['ID_ep']?>" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                                График курсов</button>
+
+                                 
+
+
+                                <!-- <button type="button" class="btn btn-primary addStatement" data-bs-toggle="modal" data-bs-target="#addStatement" 
                                 data-id_course="<?=$row['ID_course']?>" data-name_course="<?=$row['name_course']?>">
                                   График курсов
-                                </button>
+                                </button> -->
 
-                                <!-- Модальное окно -->
+                             
                                 </td>
-                                </tr>
+                             </tr>
                             <?php } ?>
                       </tbody>
                     </table>
                   </div>
 
                 </div>
-                        <div class="modal fade" id="addStatement" tabindex="-1" role="dialog" aria-hidden="true">
+
+             
+
+                            <div class="offcanvas offcanvas-end" style="width: 85%;" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                            <div class="offcanvas-header">
+                              <h5 class="offcanvas-title" id="offcanvasRightLabel">График курсов</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                              
+                            <table id="table_course" class="table table-hover table-bordered border-dark" style="width:100%">
+                                    <thead>
+                                      <tr class="">
+                                      <th class="text-table-rotate" rowspan="2"></th>
+                                        <th class="text-table-rotate" rowspan="2">Курс</th>
+                                        <th class="text-table-rotate" rowspan="2">Код ОП</th>
+                                        <th class="text-nowrap text-center" rowspan="2">Наименование ОП</th>
+                                        <?php
+                                        for ($i = 1; $i <= 45; $i++) {
+                                          echo '<th class="text-table-rotate" style="padding-left: 0px;padding-right: 0px;">'.$header_table[$i].'</th>';
+                                        }?>
+                                      </tr>
+                                      <tr>
+                                        <?php
+                                        for ($i = 1; $i <= 45; $i++) {
+                                          echo '<th class="text-center" style="padding: 0px;">'.$i.'</th>';
+                                        }?>
+                                      </tr>
+                                    </thead>
+                                    <form id="recept_application" method="post">
+                                    <tbody  id="recept_application_tbody">
+                                      <?php
+                                      $i=1;
+
+                                      foreach ($course as $row) {?>
+                                      <tr>
+                                      <?php 
+                                          if ($row['count_user'] >= $row['count_in_group'])
+                                          {
+                                            //занято
+                                            $td = '<td class="table-danger text-danger-emphasis">-</td>';
+                                            echo '<td class="d-grid gap-2 m-0 pt-1 pb-1"><button type="button" class="btn btn-danger btn-sm disabled" >-</button></td>';
+                                          }
+                                          else
+                                          {
+                                            //свободно
+                                            $td = '<td class="table-primary text-primary-emphasis">+</td>';
+                                            echo '<td class="d-grid gap-2 m-0 pt-1 pb-1"><button type="button" class="btn btn-primary btn-sm" onclick="receptionApplication('.$row['ID_course'].', '.$ID_user.')" >Запись</button></td>';
+                                          }
+                                        ?>
+
+                                        <td><?=$row['name_course']?></td>
+                                        <td><?=$row['ID_ep']?></td>
+                                        <td><?=$row['short_name']?></td>
+                                        <?php
+                                       
+
+                                        $date1 = new DateTime($row['date_start_teaching']);
+                                        $date2 = new DateTime($row['date_end_teaching']);
+                              
+                                        for ($i = 1; $i <= 45; $i++) {
+                                          $d = $header_table[$i];
+                                          $date = new DateTime($d);
+
+                                          if ($date >= $date1 && $date <= $date2) {
+                                            echo  $td;
+                                          }
+                                          else {
+                                            echo "<td></td>";
+                                          }
+
+                                        }
+                                        echo '</tr>';
+                                      }?>
+                                      
+                                    </tbody>
+                                    </form>
+                             </table>
+
+
+                            </div>
+                          </div>
+
+
+
+
+
+                        <!-- <div class="modal fade" id="addStatement" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog">
                           <div class="modal-content">
                             <div class="modal-header">
@@ -99,7 +191,7 @@
                             
                           </div>
                         </div>
-                        </div>
+                        </div> -->
             </div>
         </div>
     </div>

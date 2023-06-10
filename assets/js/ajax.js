@@ -431,8 +431,8 @@ $(document).ready(function(){
                           
                             <td>${data[i].price}</td>
                             <td>
-                            <button type="button" class="btn btn-primary addStatement" data-bs-toggle="modal" data-bs-target="#addStatement" data-id_course="${data[i].ID_course}" data-name_course="${data[i].name_course}">
-                                график курсов
+                            <button class="btn btn-primary viewingCourse" type="button" data-bs-toggle="offcanvas" data-id_ep="${data[i].ID_ep}" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                                График курсов
                             </button>
                            </td>
                         </tr>`);
@@ -452,6 +452,53 @@ $(document).on('click', '.editPrice', function () {
     $('#cost_hour').val(cost_hour);
     $('#price').val(price);
 });
+
+//педеча гость фильтры 
+
+$(document).on('click', '.viewingCourse', function () {
+    var ID_ep = $(this).data('id_ep');
+    $('#recept_application_tbody').empty();  //очистка таблицы
+    $.ajax({
+        type: 'POST',
+        url: 'main/filter_guest',
+        data: ({ ID_ep:ID_ep }),
+        dataType: 'html',
+        success: function(result){
+
+            $('#recept_application_tbody').html(result);
+        }
+    })
+});
+
+
+//прием заявок (Гость)
+function receptionApplication(id, user)
+{
+    // e = e || window.event;
+    // e.preventDefault();
+    var site = window.location.origin;  //базовый адрес
+
+    // //если ID_user пустой, тогда переход на авторизацию
+    if(!user){
+        window.location.replace(site + '/login/index'); 
+    }
+    //если сессия есть, то выполнить
+    else {
+        $.ajax({
+            type: 'POST',
+            url: 'clients/add_stat',
+            data: {ID_course:id, ID_user:user},
+            success: function(result){
+                window.location.replace(site + '/clients/lizcab');  //переход страницы
+            }
+        })
+    }
+
+}
+
+
+
+
 
 //Изменение данные прайса
 $(document).ready(function(){

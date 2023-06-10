@@ -92,7 +92,7 @@ class Bufgalter_m extends CI_Model {
                     ->where_in('edu_program.ID_focus', $ID_focus)
                     ->where_in('edu_program.ID_ep', $ID_ep)
                    // ->where_in('s.ID_course', $ID_course)
-                    ->where('status_application = "обучение" AND date_payment IS NOT NULL');
+                   ->where('(status_application = "обучение" OR status_application = "зачислена") AND date_payment IS NOT NULL');
 
         if($date1 != NULL) $this->db->where("date_payment >= '$date1'");
         if($date2 != NULL) $this->db->where("date_payment <= '$date2'");
@@ -100,7 +100,8 @@ class Bufgalter_m extends CI_Model {
         $this->db->select('*');
         $this->db->select('count(*) as count_people');  //кол-во записей
         $this->db->select_sum('price'); //сумма цены
-        $this->db->group_by('name_ep');
+        $this->db->group_by('name_course');
+      //  $this->db->group_by('name_ep');
 
         $query = $this->db->get('statement as s');
         return $query->result_array();
