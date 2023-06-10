@@ -1,4 +1,4 @@
-    <section id="cours">
+<section id="cours">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -128,7 +128,7 @@
                                           {
                                             //свободно
                                             $td = '<td class="table-primary text-primary-emphasis">+</td>';
-                                            echo '<td class="d-grid gap-2 m-0 pt-1 pb-1"><button type="button" class="btn btn-primary btn-sm" onclick="receptionApplication(event, '.$row['ID_course'].', '.$ID_user.')" >Запись</button></td>';
+                                            echo '<td class="d-grid gap-2 m-0 pt-1 pb-1"><button type="button" class="btn btn-primary btn-sm" onclick="receptionApplication('.$row['ID_course'].', '.$ID_user.')" >Запись</button></td>';
                                           }
                                         ?>
 

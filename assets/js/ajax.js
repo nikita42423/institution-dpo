@@ -472,10 +472,10 @@ $(document).on('click', '.viewingCourse', function () {
 
 
 //прием заявок (Гость)
-function receptionApplication(e, id, user)
+function receptionApplication(id, user)
 {
-    e = e || window.event;
-    e.preventDefault();
+    // e = e || window.event;
+    // e.preventDefault();
     var site = window.location.origin;  //базовый адрес
 
     // //если ID_user пустой, тогда переход на авторизацию

@@ -68,17 +68,17 @@ class Main extends CI_Controller {
 	}
 
 
-		//Выход и удаление сессии
-		public function out()
-		{
-			session_destroy();
-			redirect('main/index');
-		}
+	//Выход и удаление сессии
+	public function out()
+	{
+		session_destroy();
+		redirect('main/index');
+	}
 
 
 
 
-		//фильтрация гостя по ОП (курсы)
+	//фильтрация гостя по ОП (курсы)
 	public function filter_guest()
 	{
 		//Сессия
