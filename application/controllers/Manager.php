@@ -9,19 +9,25 @@ class Manager extends CI_Controller {
 		$data['session'] = $this->session->userdata('login_session');
 		$session=$data['session'];
 		$ID_user = $session['ID_user'];
+		if (isset($data['session']))
+		{
+			$this->load->model('focus_m');
+			$this->load->model('form_teach_m');
+			$this->load->model('statement_m');
 
-		$this->load->model('focus_m');
-		$this->load->model('form_teach_m');
-		$this->load->model('statement_m');
+			$data['focus'] = $this->focus_m->sel_focus();
+			$data['form_teach'] = $this->form_teach_m->sel_form_teach();
+			$data['statement'] = $this->statement_m->sel_statement(NULL, NULL, NULL);
 
-		$data['focus'] = $this->focus_m->sel_focus();
-		$data['form_teach'] = $this->form_teach_m->sel_form_teach();
-		$data['statement'] = $this->statement_m->sel_statement(NULL, NULL, NULL);
+			$this->load->view('template/header.php');
 
-		$this->load->view('template/header.php');
-
-		$this->load->view('page/manager.php', $data);
-		$this->load->view('template/footer.php');
+			$this->load->view('page/manager.php', $data);
+			$this->load->view('template/footer.php');
+		}
+		else
+		{
+			redirect('main/index');
+		}
 	}
 
 	public function formatiz()

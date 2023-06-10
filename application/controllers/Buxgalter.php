@@ -5,18 +5,24 @@ class Buxgalter extends CI_Controller {
 
 	public function index()
 	{
-         //Сессия
-         $data['session'] = $this->session->userdata('login_session');
-         $session=$data['session'];
-         $ID_user = $session['ID_user'];
+		//Сессия
+		$data['session'] = $this->session->userdata('login_session');
+		$session=$data['session'];
+		$ID_user = $session['ID_user'];
 
-		 $this->load->model('bufgalter_m');
-		 $data['edu_program'] = $this->bufgalter_m->sel_price_null();
-	
+		if (isset($data['session']))
+		{
+			$this->load->model('bufgalter_m');
+			$data['edu_program'] = $this->bufgalter_m->sel_price_null();
+		
 
-		$this->load->view('template/header.php');
-		$this->load->view('page/buxgalter.php',  $data);
-
+			$this->load->view('template/header.php');
+			$this->load->view('page/buxgalter.php',  $data);
+		}
+		else
+		{
+			redirect('main/index');
+		}
 	}
 
 	public function shic_op()

@@ -8,17 +8,25 @@ class Director extends CI_Controller {
 	{
 		//Сессия
 		$data['session'] = $this->session->userdata('login_session');
+		if (isset($data['session'])) {
+			//Сессия
+			$data['session'] = $this->session->userdata('login_session');
 
-		//Данные из БД
-		$this->load->model('course_m');
-		$this->load->model('edu_program_m');
-		$data['edu_program'] = $this->edu_program_m->sel_edu_program(NULL,NULL,NULL,NULL);
-		$data['course'] = $this->course_m->sel_course(NULL);
+			//Данные из БД
+			$this->load->model('course_m');
+			$this->load->model('edu_program_m');
+			$data['edu_program'] = $this->edu_program_m->sel_edu_program(NULL,NULL,NULL,NULL);
+			$data['course'] = $this->course_m->sel_course(NULL);
 
-		$this->load->view('template/header');
-		$this->load->view('template/sidebar_director', $data);
-		$this->load->view('page/director/report_count_student');
-		$this->load->view('template/footer');
+			$this->load->view('template/header');
+			$this->load->view('template/sidebar_director', $data);
+			$this->load->view('page/director/report_count_student');
+			$this->load->view('template/footer');
+		}
+		else
+		{
+			redirect('main/index');
+		}
 	}
 
 	//Просмотр сведений о рейтинге образовательных программ ДПО за период

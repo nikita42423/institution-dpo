@@ -36,16 +36,21 @@ class Clients extends CI_Controller {
 		$data['session'] = $this->session->userdata('login_session');
 		$session=$data['session'];
 		$ID_user = $session['ID_user'];
-        
 
-		$this->load->model('client_m');
-		$data['client'] = $this->client_m->sel_user($ID_user);
-		$data['history'] = $this->client_m->get_history_course($ID_user);
+		if (isset($data['session']))
+		{
+			$this->load->model('client_m');
+			$data['client'] = $this->client_m->sel_user($ID_user);
+			$data['history'] = $this->client_m->get_history_course($ID_user);
 
-		$this->load->view('template/header.php');
-		$this->load->view('template/navbar_clients.php', $data);
-		$this->load->view('page/clients.php', $data);
-		
+			$this->load->view('template/header.php');
+			$this->load->view('template/navbar_clients.php', $data);
+			$this->load->view('page/clients.php', $data);
+		}
+		else
+		{
+			redirect('main/index');
+		}
 		
 	}
 

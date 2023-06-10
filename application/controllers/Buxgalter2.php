@@ -6,23 +6,29 @@ class Buxgalter2 extends CI_Controller {
 
     public function index()
 	{
-		 //Сессия
-		 $data['session'] = $this->session->userdata('login_session');
-         $session=$data['session'];
-         $ID_user = $session['ID_user'];
+		//Сессия
+		$data['session'] = $this->session->userdata('login_session');
+		$session=$data['session'];
+		$ID_user = $session['ID_user'];
 
-		  //загрузка модели
-	     $this->load->model('bufgalter_m');
-		 $data['focus'] = $this->bufgalter_m->sel_focus();
+		if (isset($data['session']))
+		{
+			//загрузка модели
+			$this->load->model('bufgalter_m');
+			$data['focus'] = $this->bufgalter_m->sel_focus();
 
-		$data['edu_program'] = $this->bufgalter_m->sel_edu_program();
-		$data['sum_table'] = $this->bufgalter_m->sel_sum(NULL, NULL, NULL, NULL, NULL);
+			$data['edu_program'] = $this->bufgalter_m->sel_edu_program();
+			$data['sum_table'] = $this->bufgalter_m->sel_sum(NULL, NULL, NULL, NULL, NULL);
 
 
 
-		$this->load->view('template/header.php');
-		$this->load->view('page/buxgalter2.php', $data);
-
+			$this->load->view('template/header.php');
+			$this->load->view('page/buxgalter2.php', $data);
+		}
+		else
+		{
+			redirect('main/index');
+		}
 	}
 
 	public function show_epo()

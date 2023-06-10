@@ -25,7 +25,7 @@ class Main extends CI_Controller {
 		$data['session'] = $this->session->userdata('login_session');
 		$session=$data['session'];
 
-		if(isset($data['session']))
+		if (isset($data['session']))
 		{
 			$ID_user = $session['ID_user'];
 			$data['ID_user'] = $ID_user;

@@ -1,7 +1,7 @@
 <main class="container">
     <div class="row">
         <div class="col-10"><h1 class="display-6 m-3">Добро пожаловать, преподаватель <b><?=$session['full_name']?></b></h1></div>
-        <div class="col-2"><a class="btn btn-outline-dark mt-3" href="main/index">Выйти из системы</a></div>
+        <div class="col-2"><a class="btn btn-outline-dark mt-3" href="main/out">Выйти из системы</a></div>
     </div>
     
 
