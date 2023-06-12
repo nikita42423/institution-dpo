@@ -43,7 +43,7 @@ class Main extends CI_Controller {
 		$data['focus'] = $this->focus_m->sel_focus();
 		$data['form_teach'] = $this->form_teach_m->sel_form_teach();
 
-		$data['course'] = $this->course_m->sel_course(NULL);
+		$data['course'] = $this->course_m->sel_course(NULL, NULL);
 
 		$date = new DateTime('2023-09-01');
 		for ($i = 1; $i <= 45; $i++) {

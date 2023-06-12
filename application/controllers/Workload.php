@@ -118,7 +118,8 @@ class Workload extends CI_Controller {
 		if (!empty($_POST))
 		{
 			$ID_teacher = $_POST['ID_user'];
-
+			if ($ID_teacher == '') {$ID_teacher = NULL;}
+			
 			$this->load->model('workload_m');
 			$workload = $this->workload_m->sel_workload($ID_teacher);
 			$str = '';
@@ -141,7 +142,7 @@ class Workload extends CI_Controller {
 						
 							<!-- Удалить -->
 							<a href="workload/del_workload?ID_load='.$row['ID_load'].'&ID_teacher='.$ID_teacher.'" class="btn btn-dark m-0">
-								<i class="bi-trash" aria-hidden="true"></i>
+								<span data-bs-toggle="tooltip" data-bs-placement="left" title="Удалить"><i class="bi-trash" aria-hidden="true"></i></span>
 							</a>
 
 						</td>

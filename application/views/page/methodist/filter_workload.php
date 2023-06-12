@@ -16,6 +16,7 @@
 				<label id="id_focus" class="form-label">Направление</label>
 				<select class="form-select filter_teacher_of_focus" id="id_focus_of_workload">
 					<option value="">Выбрать...</option>
+					<option value="all">Все</option>
 					<?php foreach($focus as $row) {?>
 					<option value="<?=$row['ID_focus']?>"><?=$row['name_focus']?></option>
 					<?php }?>

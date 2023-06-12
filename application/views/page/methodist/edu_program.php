@@ -41,7 +41,9 @@
 			
 								<!-- Изменить -->
 								<button type="button" class="btn btn-primary m-0">
-									<span data-bs-toggle="tooltip" data-bs-placement="left" title="Изменить"><i class="bi-pencil" aria-hidden="true"></span></i>
+									<span data-bs-toggle="tooltip" data-bs-placement="left" title="Изменить">
+										<i class="bi-pencil" aria-hidden="true"></i>
+									</span>
 								</button>
 
 								<!-- Учебный план -->

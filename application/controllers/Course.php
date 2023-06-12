@@ -3,9 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Course extends CI_Controller {
 
-
-
-	
     //Просмотр графика курсов
 	public function index()
 	{
@@ -21,11 +18,22 @@ class Course extends CI_Controller {
 			$ID_ep = NULL;
 		}
 
+		if (!empty($_GET['ID_focus']))
+		{
+			$ID_focus = $this->input->get('ID_focus');
+		}
+		else
+		{
+			$ID_focus = NULL;
+		}
+
 		//Данные из БД
 		$this->load->model('course_m');
 		$this->load->model('edu_program_m');
+		$this->load->model('focus_m');
+		$data['course'] = $this->course_m->sel_course($ID_ep, $ID_focus);
 		$data['edu_program'] = $this->edu_program_m->sel_edu_program(NULL,NULL,NULL,NULL);
-		$data['course'] = $this->course_m->sel_course($ID_ep);
+		$data['focus'] = $this->focus_m->sel_focus();
 
 		$date = new DateTime('2023-09-01');
 		for ($i = 1; $i <= 45; $i++) {

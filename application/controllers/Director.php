@@ -15,8 +15,8 @@ class Director extends CI_Controller {
 			//Данные из БД
 			$this->load->model('course_m');
 			$this->load->model('edu_program_m');
-			$data['edu_program'] = $this->edu_program_m->sel_edu_program(NULL,NULL,NULL,NULL);
-			$data['course'] = $this->course_m->sel_course(NULL);
+			$data['edu_program'] = $this->edu_program_m->sel_edu_program(NULL, NULL, NULL, NULL);
+			$data['course'] = $this->course_m->sel_course(NULL, NULL);
 
 			$this->load->view('template/header');
 			$this->load->view('template/sidebar_director', $data);

@@ -22,7 +22,7 @@
 					<a class="nav-link" href="director/report_rating_ep">Просмотр сведений о рейтинге образовательных программ ДПО</a>
 				</li>
 				<li class="nav-item mb-3">
-					<a class="nav-link" href="director/report_work_teacher">Просмотр сведений о работе преподавателей за период</a>
+					<a class="nav-link" href="director/report_work_teacher">Просмотр сведений о работе преподавателей</a>
 				</li>
 				<a class="btn btn-outline-light mt-3" href="main/out">Выйти из системы</a>
 			</ul>

@@ -18,7 +18,6 @@ $(document).ready(function(){
         })
     })
 
-
     //Фильтрование дисциплины
     $('.filter_discipline').change(function(){ 
         let ID_ep = document.getElementById('id_ep').value;
@@ -36,15 +35,30 @@ $(document).ready(function(){
     //Список преподавателей зависит от направления
     $('.filter_teacher_of_focus').change(function(){
         let ID_focus = document.getElementById('id_focus_of_workload').value;
-        $.ajax({
-            type: 'POST',
-            url: 'workload/filter_teacher_of_focus',
-            data: ({ID_focus: ID_focus}),
-            dataType:'html',
-            success: function(result) {
-                $('#id_teacher_of_workload').html(result);
-            }
-        })
+
+        if (ID_focus == 'all') {
+            let ID_user = null;
+            $.ajax({
+                type: 'POST',
+                url: 'workload/filter_workload',
+                data: ({ID_user: ID_user}),
+                dataType:'html',
+                success: function(result) {
+                    $('#table_body_workload').html(result);
+                }
+            })
+        }
+        else {
+            $.ajax({
+                type: 'POST',
+                url: 'workload/filter_teacher_of_focus',
+                data: ({ID_focus: ID_focus}),
+                dataType:'html',
+                success: function(result) {
+                    $('#id_teacher_of_workload').html(result);
+                }
+            })
+        }
     })
 
     //Фильтрование нагрузки преподавателя зависит от преподавателя
@@ -57,6 +71,21 @@ $(document).ready(function(){
             dataType:'html',
             success: function(result) {
                 $('#table_body_workload').html(result);
+            }
+        })
+    })
+
+    //Фильтрование 
+    $('.filter_rating_ep').change(function(){
+        let date1 = document.getElementById('date1_rating_ep').value;
+        let date2 = document.getElementById('date2_rating_ep').value;
+        $.ajax({
+            type: 'POST',
+            url: 'director/filter_rating_ep',
+            data: ({date1: date1, date2: date2}),
+            dataType:'html',
+            success: function(result) {
+                $('#table_director').html(result);
             }
         })
     })
@@ -124,9 +153,7 @@ $(document).ready(function(){
 	})
 });
 
-
-
-//--------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------
 
 // Фильтрование расчет стоимости услуги
 $(document).ready(function(){

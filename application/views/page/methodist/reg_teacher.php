@@ -114,6 +114,7 @@
 <script>
 $(document).ready(function () {
 	var table = $('#table_teacher').DataTable({
+        lengthChange:false,
 		buttons:['excel', 'pdf'], //['copy', 'csv', 'excel', 'pdf', 'print']
 	});
 	table.buttons().container().appendTo('#table_teacher_wrapper .col-md-6:eq(0)');
