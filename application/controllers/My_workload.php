@@ -8,9 +8,10 @@ class My_workload extends CI_Controller {
 	{
 		//Сессия
 		$data['session'] = $this->session->userdata('login_session');
+		$session = $data['session'];
 
-        $ID_teacher = 5;
-        $data['teacher'] = 'Кузнецов Н. В.';
+        $ID_teacher = $session['ID_user'];
+        $data['teacher'] = $session['full_name'];
 
 		//Данные из БД
 		$this->load->model('workload_m');

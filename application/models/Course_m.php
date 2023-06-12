@@ -33,7 +33,7 @@ class Course_m extends CI_Model {
         $query = $this->db->query($sql);
         return $query->result_array();
     }
-    
+
     //Добавить график курсов
     public function add_course($name_course, $ID_ep, $date_start_teaching, $date_end_teaching)
     {

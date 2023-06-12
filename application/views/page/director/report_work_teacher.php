@@ -2,8 +2,28 @@
 
 <main class="ms-sm-auto col-lg-12 px-md-4 container">
     <h1 class="text-center display-6 m-3">Просмотр сведений о работе преподавателей</h1>
-    <div class="table-responsive">
-        <table class="table table-hover" id="table_work_teacher">
+
+    <!-- Период с ... по ... -->
+    <form class="justify-content-md-center mb-3 card" action="" method="post">
+        <div class="card-header">
+            Период
+        </div>
+        <div class="card-body">
+            <div class="row justify-content-center">
+                <div class="col-3">
+                    <label for="name_form" class="form-label">Дата с</label>
+                    <input type="date" class="form-control filter_work_teacher" id="date1_work_teacher" name="date1_work_teacher">
+                </div>
+                <div class="col-3">
+                    <label for="name_form" class="form-label">Дата по</label>
+                    <input type="date" class="form-control filter_work_teacher" id="date2_work_teacher" name="date2_work_teacher">
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="table-responsive" id="table_director">
+        <table class="table table-hover table-sm" id="table_work_teacher">
             <thead class="table-dark">
                 <tr>
                     <th>№</th>
@@ -47,14 +67,3 @@
 <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
 <script src="assets/js/dashboard.js"></script>
-
-<!-- Скрипт для таблицы (поиск и пагинация) -->
-<script>
-    $(document).ready(function() {
-        var table = $('#table_work_teacher').DataTable({
-            lengthChange:false,
-            buttons: ['excel', 'pdf'] //['copy', 'csv', 'excel', 'pdf', 'print']
-        });
-        table.buttons().container().appendTo('#table_work_teacher_wrapper .col-md-6:eq(0)');
-    });
-</script>

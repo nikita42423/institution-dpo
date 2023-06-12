@@ -75,13 +75,28 @@ $(document).ready(function(){
         })
     })
 
-    //Фильтрование 
+    //Фильтрование сведений о рейтинге образовательных программ ДПО за период
     $('.filter_rating_ep').change(function(){
         let date1 = document.getElementById('date1_rating_ep').value;
         let date2 = document.getElementById('date2_rating_ep').value;
         $.ajax({
             type: 'POST',
             url: 'director/filter_rating_ep',
+            data: ({date1: date1, date2: date2}),
+            dataType:'html',
+            success: function(result) {
+                $('#table_director').html(result);
+            }
+        })
+    })
+
+    //Фильтрование сведений о работе преподавателей за период
+    $('.filter_work_teacher').change(function(){
+        let date1 = document.getElementById('date1_work_teacher').value;
+        let date2 = document.getElementById('date2_work_teacher').value;
+        $.ajax({
+            type: 'POST',
+            url: 'director/filter_work_teacher',
             data: ({date1: date1, date2: date2}),
             dataType:'html',
             success: function(result) {

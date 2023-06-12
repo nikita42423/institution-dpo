@@ -94,7 +94,7 @@ class Main extends CI_Controller {
 		$this->load->model('course_m');
 
 		$ID_ep = $_POST['ID_ep'];
-		$course = $this->course_m->sel_course($ID_ep);
+		$course = $this->course_m->sel_course($ID_ep, NULL);
 		$str = '';
 
 		$date = new DateTime('2023-09-01');

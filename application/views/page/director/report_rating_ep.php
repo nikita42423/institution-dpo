@@ -22,7 +22,7 @@
         </div>
     </form>
 
-    <div class="table-responsive table_director">
+    <div class="table-responsive" id="table_director">
         <table class="table table-hover table-sm" id="table_rating_ep">
             <thead class="table-dark">
                 <tr>
@@ -30,7 +30,7 @@
                     <th>Вид</th>
                     <th>Направление</th>
                     <th>Наименование ОП</th>
-                    <th>Кол-во</th>
+                    <th class="col-1">Кол-во</th>
                     <th>Сумма</th>
                 </tr>
             </thead>
@@ -57,6 +57,17 @@
                 <?php }?>
             </tbody>
         </table>
+
+        <!-- Скрипт для таблицы (поиск и пагинация) -->
+        <script>
+            $(document).ready(function() {
+                var table = $('#table_rating_ep').DataTable({
+                    lengthChange:false,
+                    buttons: ['excel', 'pdf'] //['copy', 'csv', 'excel', 'pdf', 'print']
+                });
+                table.buttons().container().appendTo('#table_rating_ep_wrapper .col-md-6:eq(0)');
+            });
+        </script>
     </div>
 
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -71,14 +82,3 @@
 <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
 <script src="assets/js/dashboard.js"></script>
-
-<!-- Скрипт для таблицы (поиск и пагинация) -->
-<script>
-    $(document).ready(function() {
-        var table = $('#table_rating_ep').DataTable({
-            lengthChange:false,
-            buttons: ['excel', 'pdf'] //['copy', 'csv', 'excel', 'pdf', 'print']
-        });
-        table.buttons().container().appendTo('#table_rating_ep_wrapper .col-md-6:eq(0)');
-    });
-</script>
