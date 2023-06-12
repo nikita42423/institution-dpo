@@ -22,10 +22,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link active" aria-current="page" href="clients/lizcab">ЛИЧНЫЙ КАБИНЕТ</a>
                                 </li>
-                                <!-- <li class="nav-item">
-                                    <a class="nav-link" href="clients/index">КУРСЫ</a>
-                                </li> -->
-                            
+                              
                                 <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="main/out"><button type="button" class="btn btn-outline-dark">ВЫЙТИ ИЗ СИСТЕМЫ</button></a>
                                 </li>

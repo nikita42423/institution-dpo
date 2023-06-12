@@ -91,7 +91,6 @@ class Statement_m extends CI_Model {
 
         $query = $this->db->get('statement as s');
         return $query->result_array();
-        // return $this->db->last_query();
     }
 
     //изменение дока об окончании обучения

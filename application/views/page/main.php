@@ -63,16 +63,6 @@
                                 <td><!-- График курсов -->
                                 <button class="btn btn-primary viewingCourse" type="button" data-bs-toggle="offcanvas" data-id_ep="<?=$row['ID_ep']?>" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                                 График курсов</button>
-
-                                 
-
-
-                                <!-- <button type="button" class="btn btn-primary addStatement" data-bs-toggle="modal" data-bs-target="#addStatement" 
-                                data-id_course="<?=$row['ID_course']?>" data-name_course="<?=$row['name_course']?>">
-                                  График курсов
-                                </button> -->
-
-                             
                                 </td>
                              </tr>
                             <?php } ?>
@@ -163,35 +153,6 @@
 
                             </div>
                           </div>
-
-
-
-
-
-                        <!-- <div class="modal fade" id="addStatement" tabindex="-1" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="nameCourseModal">Курс </h5>
-                            </div>
-                            <div class="modal-body">
-                            <form id="add_statement" method="post">
-                              <div class="form-outline mb-4">
-                                <input type="hidden" id="ID_course" name="ID_course">
-                                <input type="hidden" id="ID_user" name="ID_user" value="<?php echo $ID_user;?>">
-                                <label class="form-label">Вы подтверждаете подачу заявки?</label>
-                              </div>
-                              <div class="d-flex justify-content-center">
-                                <button type="submit"
-                                  class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Да</button>
-                              </div>
-                              </form>
-                              
-                            </div>
-                            
-                          </div>
-                        </div>
-                        </div> -->
             </div>
         </div>
     </div>
@@ -274,110 +235,6 @@
 			</div>
 		</div>
     </section>
-
-
-              
-  <!-- <section style="background: linear-gradient(90deg, #b9deed, #efefef); padding-bottom: 2%;">
-  <div class="container my-5 py-5">
-    <div class="row d-flex justify-content-center">
-      <div class="col-md-12 col-lg-10">
-            <h1 style="text-align: center; padding: 2%; color: blue;">ОТЗЫВЫ</h1>
-        <div class="card text-dark">
-          <div class="card-body p-4">
-            <div class="d-flex flex-start">
-              <img class="rounded-circle shadow-1-strong me-3"
-                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(23).webp" alt="avatar" width="60"
-                height="60" />
-              <div>
-                <h6 class="fw-bold mb-1">Марина Викторова</h6>
-                <div class="d-flex align-items-center mb-3">
-                  <p class="mb-0">
-                    20 мая 2023г
-                  </p>
-                </div>
-                <p class="mb-0">
-                Очень хороший образовательный центр. С самого момента начала обучения только положительные эмоции... 
-                Всё ясно и понятно! Материал курса адекватный. Прошел повышение квалификации и получил доки в срок по почте после НГ следил по трекномеру как на алиэкспресс. 
-                Удостоверение передал в кадры, всё устраивает, вопросов нет. Так что рекомендую.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <hr class="my-0" />
-
-          <div class="card-body p-4">
-            <div class="d-flex flex-start">
-              <img class="rounded-circle shadow-1-strong me-3"
-                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(26).webp" alt="avatar" width="60"
-                height="60" />
-              <div>
-                <h6 class="fw-bold mb-1">Анна Хакаеева</h6>
-                <div class="d-flex align-items-center mb-3">
-                  <p class="mb-0">
-                    18 мая 2023г
-                  </p>
-                </div>
-                <p class="mb-0">
-                Прошли дистанционное обучение группой в учебном классе все вместе. Очень было интересно как в институте на очном. 
-                Все делились своим опытом. У нас произошло сплочение коллектива, стали чаще общаться на рабочие темы и просто. 
-                Повысили квалификацию не только в рамках курса, но и в общем, делились опытом. Время пролетело так быстро с таким позитивом
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <hr class="my-0" style="height: 1px;" />
-
-          <div class="card-body p-4">
-            <div class="d-flex flex-start">
-              <img class="rounded-circle shadow-1-strong me-3"
-                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(33).webp" alt="avatar" width="60"
-                height="60" />
-              <div>
-                <h6 class="fw-bold mb-1">Андруа Эритов</h6>
-                <div class="d-flex align-items-center mb-3">
-                  <p class="mb-0">
-                    15 апреля 2023г
-                  </p>
-                </div>
-                <p class="mb-0">
-                Прошел профессиональную переподготовку по медицине, все очень быстро оформили, договор и счет прислали в тот же день! Я им прислал на следующий день платежку 
-                что оплатил (платежку попросили прислать после оплаты чтобы ускорить) и мне сразу открыли программу обучения на портале. Прошел курс и сдал тест даже раньше. 
-                Приезжал в офис в назначенное время забрать документы как договаривались все мне передали без очереди и я расписался о получении. 
-                Сейчас выбираю второй курс обучения.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <hr class="my-0" />
-
-          <div class="card-body p-4">
-            <div class="d-flex flex-start">
-              <img class="rounded-circle shadow-1-strong me-3"
-                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(24).webp" alt="avatar" width="60"
-                height="60" />
-              <div>
-                <h6 class="fw-bold mb-1">Екатерина Андреева</h6>
-                <div class="d-flex align-items-center mb-3">
-                  <p class="mb-0">
-                    10 марта 2023г  
-                  </p>
-                </div>
-                <p class="mb-0">
-                Мне все понравилось, менеджеры помогли с выбором программы курса, были вежливы и отзывчивы. сам курс выбрала по логистике, 
-                обучение проходило максимально интересно, информации очень много, осталась довольна
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-
 
 <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
 

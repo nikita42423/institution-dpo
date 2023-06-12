@@ -107,12 +107,6 @@
 				<?php }?>
 			</select>
 		</div>
-		<!-- <div class="col-md-4">
-			<label for="validationDefault13" class="form-label">Дисциплина</label>
-			<select class="form-select" id="validationDefault13">
-				<option value="">...</option>
-			</select>
-		</div> -->
 
 	</form>
 </div>

@@ -97,9 +97,7 @@ class Manager extends CI_Controller {
 			$data = $_POST['invalidCheck'][$i];
 			if(isset($data)) $result = $this->statement_m->update_accepted($data);
 		}
-		// // if(isset($ID_application)) $result = $this->statement_m->update_accepted($ID_application);
-		// if($result != TRUE) $result = 'Изменение не выполнено! Выберите чекбоксы';
-		// echo json_encode($result);
+
 	}
 
 	//прием заявок = зачислена

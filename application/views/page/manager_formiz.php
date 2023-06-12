@@ -108,16 +108,7 @@
 									<?php }?>
 								</select>
 							</div>
-							<!-- <div class="col-md-3">
 							
-							<label for="date1" class="form-label">С</label>
-							<input type="date" class="form-control" id="date1">
-						
-							</div>
-							<div class="col-md-3">
-							<label for="date2" class="form-label">ПО</label>
-							<input type="date" class="form-control" id="date2">
-							</div> -->
 						</div>
 					</div>
 				</form>
@@ -213,16 +204,7 @@
 
 								</select>
 							</div>
-							<!-- <div class="col-md-3">
-							
-							<label for="date1" class="form-label">С</label>
-							<input type="date" class="form-control" id="date1">
 						
-							</div>
-							<div class="col-md-3">
-							<label for="date2" class="form-label">ПО</label>
-							<input type="date" class="form-control" id="date2">
-							</div> -->
 						</div>
 					</div>
 				</form>

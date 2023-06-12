@@ -211,11 +211,7 @@ $(document).ready(function(){
             id[i-1] = idelem;
             v[i-1] = document.getElementById(idelem).value;
         }
- 
 
-      
-      //  ids = '#res'+ id.substring(6,7);
- //  alert(id +' '+v);
         $.ajax({
 
             type: 'POST',
@@ -226,14 +222,9 @@ $(document).ready(function(){
                 dataType:'html',
             success: function(result) {
                 //а здесь из этого массива выберем и подставим куда нужно
-              //  $('#show_resh').html(result);
+            
                result =  JSON.parse(result);
-              // alert(result);
-            //    rvalue = [];
-                // for (i in result){
-                //     rvalue.push(result[i]);
-                // }
-            //   alert(rvalue);
+            
                 // посмотри что ты получил это объект а нам надо массив  я хотела не только значенимя получить но и имена куда вставить значения ИД
               const aArr = Object.entries(result);
               aArr.forEach(([key, value])=>{
@@ -516,8 +507,7 @@ $(document).on('click', '.viewingCourse', function () {
 //прием заявок (Гость)
 function receptionApplication(id, user)
 {
-    // e = e || window.event;
-    // e.preventDefault();
+   
     var site = window.location.origin;  //базовый адрес
 
     // //если ID_user пустой, тогда переход на авторизацию

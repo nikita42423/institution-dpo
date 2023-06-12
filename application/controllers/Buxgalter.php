@@ -40,7 +40,6 @@ class Buxgalter extends CI_Controller {
 		if (!empty($_POST))
 		{
 		//Эти значения подставляй в формул
-	  	//давай поробуем сформировать результат как массив Имя=Значение посмотри формат json
 
 		  $res1 = $_POST['raster1'] * $_POST['amount_hour']; // сумма оплатф труда преподавателей
 		  $res2 = $res1  * $_POST['raster2'] / 100; //30% оплата труда администратор
@@ -63,8 +62,6 @@ class Buxgalter extends CI_Controller {
 		  $result['res7'] = number_format($res7, 2, '.', '');	
 		  $result['res8'] = number_format($res8, 2, '.', '');
 		  $result['res9'] = number_format($res9, 2, '.', '');
-  
-		  // var_dump($result);
 
 		  echo json_encode($result);
 		
