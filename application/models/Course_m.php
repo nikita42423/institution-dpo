@@ -48,4 +48,16 @@ class Course_m extends CI_Model {
     {
         $this->db->empty_table('course');
     }
+
+
+    
+    //список курсов по ОП
+    public function filter_ep($ID_ep)
+    {
+        $query = $this->db->where_in('ID_ep', $ID_ep)
+                            ->get('course');
+        return $query->result_array();
+    }
+
+    
 }

@@ -95,10 +95,10 @@
 							</div>
 							<div class="col-md-3">
 								<label for="name_focus" class="form-label">Образовательная программа</label>
-								<select class="form-select filter_zayav" id="id_focus">
+								<select class="form-select filter_zayav" id="id_ep">
 									<option value="all" selected>Все</option>
-									<?php foreach($focus as $row) {?>
-									<option value="<?=$row['ID_focus']?>"><?=$row['name_focus']?></option>
+									<?php foreach($edu_program  as $row) {?>
+									<option value="<?=$row['ID_ep']?>"><?=$row['name_ep']?></option>
 									<?php }?>
 								</select>
 							</div>
@@ -119,30 +119,29 @@
 									<option value="all" selected>Все</option>
 									
 									<option value="подана">подана</option>
-									<option value="не оплачена">не оплачена</option>
 									<option value="зачислена">зачислена</option>
 									<option value="обучение">обучение</option>
-									<option value="окончена">окончена</option>
+
                                 
 							
 								</select>
 							</div>
 							<div class="col-md-2">
 								<label for="name_form" class="form-label">Курсы</label>
-								<select class="form-select filter_zayav" id="id_form">
+								<select class="form-select filter_zayav" id="id_course">
 									<option value="all" selected>Все</option>
-									<?php foreach($form_teach as $row) {?>
-										<option value="<?=$row['ID_form']?>"><?=$row['name_form']?></option>
+									<?php foreach($course  as $row) {?>
+										<option value="<?=$row['ID_course']?>"><?=$row['name_course']?></option>
 									<?php }?>
 								</select>
 							</div>
 							<div class="col-md-2">
 								<label for="name_form" class="form-label">Период с:</label>
-								<input type="date" class="form-control" id="amount_hour" >
+								<input type="date" class="form-control filter_zayav" id="date1" >
 							</div>
 							<div class="col-md-2">
 								<label for="name_form" class="form-label">по:</label>
-								<input type="date" class="form-control" id="amount_hour" >
+								<input type="date" class="form-control filter_zayav" id="date2" >
 							</div>
 							
 						</div>
@@ -181,10 +180,6 @@
 								<th>Дата оплата</th>
 								<th>Статус</th>
 								<th></th>
-								
-
-
-							
 							</tr>
 						</thead>
 						<form id="edit_application" method="post">
@@ -195,7 +190,7 @@
 							  	<td><?=$row['full_name']?></td>	
 								<td><?=$row['phone']?></td>	
 								<td><?=$row['email']?></td>	
-								<td data-bs-toggle="tooltip" data-bs-placement="right" title="<?=$row['name_ep']?>" class=" text-truncate" style="max-width: 150px;"><?=$row['name_ep']?></td>
+								<td data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="<?=$row['name_ep']?>" class=" text-truncate" style="max-width: 150px;"><?=$row['name_ep']?></td>
 								<td><?=$row['name_course']?></td>
 								<td><?=$row['date_start_teaching']?></td>
 								<td><?=$row['date_end_teaching']?></td>
@@ -257,7 +252,7 @@
       <div class="card-body p-5">
         <h2 class="text-uppercase text-center mb-5">РЕГИСТРАЦИЯ</h2>
 
-        <form action="login/add_user_men" method="post">
+        <form action="manager/add_client" method="post">
 
           <div class="form-outline md-4">
             <input type="text" id="form3Example1cg" class="form-control form-control-lg" required name="full_name"/>
@@ -286,7 +281,7 @@
 
 		  <div class="form-outline md-4">
 			
-			<select class="form-select filter_zayav" id="ID_ep">
+			<select class="form-select filter_registr_client" id="id_ep_client">
 									<option value="all" selected>Все</option>
 									<?php foreach($focus as $row) {?>
 									<option value="<?=$row['ID_focus']?>"><?=$row['name_focus']?></option>
@@ -296,10 +291,10 @@
           </div>
 		  <div class="form-outline md-4">
 		
-			<select class="form-select filter_zayav" id="ID_ep">
+			<select class="form-select" id="id_course_client" name="id_course_client">
 									<option value="all" selected>Все</option>
-									<?php foreach($focus as $row) {?>
-									<option value="<?=$row['ID_focus']?>"><?=$row['name_focus']?></option>
+									<?php foreach($course  as $row) {?>
+										<option value="<?=$row['ID_course']?>"><?=$row['name_course']?> <?=date("j.m.y", strtotime($row['date_start_teaching']))?> по <?=date("j.m.y", strtotime($row['date_end_teaching']))?></option>
 									<?php }?>
 								</select>
 		   <label for="name_ep" class="form-label">Курс</label>

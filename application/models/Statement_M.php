@@ -23,6 +23,29 @@ class Statement_m extends CI_Model {
         return $query->result_array();
     }
 
+    //отображение заявки (Менеджер)
+    public function sel_stat_2($ID_focus, $ID_form, $status, $ID_ep, $ID_course, $date1, $date2)
+    {
+        $this->db->join('users', 'users.ID_user = s.ID_user')
+                        ->join('course', 'course.ID_course = s.ID_course')
+                        ->join('edu_program', 'edu_program.ID_ep = course.ID_ep')
+                        ->join('focus', 'focus.ID_focus = edu_program.ID_focus')
+                        ->join('form_teach', 'form_teach.ID_form = edu_program.ID_form')
+                        ->join('type_doc', 'type_doc.ID_type_doc = edu_program.ID_type_doc')
+                        ->where_in('edu_program.ID_focus', $ID_focus)
+                        ->where_in('edu_program.ID_ep', $ID_ep)
+                        ->where_in('course.ID_course', $ID_course)
+                        ->where_in('edu_program.ID_form', $ID_form);
+        if($status != NULL) $this->db->where_in('s.status_application', $status);
+        if($date1 != NULL) $this->db->where("course.date_start_teaching <= '$date1'");
+        if($date2 != NULL) $this->db->where("course.date_end_teaching >= '$date2'");
+
+        $query = $this->db->get('statement as s');
+        return $query->result_array();
+    }
+
+
+    
     //отображение заявки - зачислена
     public function sel_accepted($ID_course, $ID_ep)
     {

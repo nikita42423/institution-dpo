@@ -11,8 +11,7 @@ class Bufgalter_m extends CI_Model {
    public function sel_edu_program()
    {
     $query = $this->db //->where('price = 0')
-                     ->where('edu_program.ID_form = form_teach.ID_form')
-                     ->get('edu_program, form_teach');
+                        ->get('edu_program');
     return $query->result_array();
    }
 
@@ -97,10 +96,10 @@ class Bufgalter_m extends CI_Model {
         if($date1 != NULL) $this->db->where("date_payment >= '$date1'");
         if($date2 != NULL) $this->db->where("date_payment <= '$date2'");
 
-        $this->db->select('*');
-        $this->db->select('count(*) as count_people');  //кол-во записей
+        
+        $this->db->select('name_course, name_ep, count_in_group, count(*) as count_people');  //кол-во записей
         $this->db->select_sum('price'); //сумма цены
-        $this->db->group_by('name_course');
+        $this->db->group_by('name_course, name_ep, count_in_group');
       //  $this->db->group_by('name_ep');
 
         $query = $this->db->get('statement as s');

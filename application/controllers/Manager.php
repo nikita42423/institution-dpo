@@ -12,12 +12,16 @@ class Manager extends CI_Controller {
 		if (isset($data['session']))
 		{
 			$this->load->model('focus_m');
+			$this->load->model('bufgalter_m');	//ОП
+			$this->load->model('client_m');		//курсы
 			$this->load->model('form_teach_m');
 			$this->load->model('statement_m');
 
 			$data['focus'] = $this->focus_m->sel_focus();
+			$data['edu_program'] = $this->bufgalter_m->sel_edu_program();
+			$data['course'] = $this->client_m->course();
 			$data['form_teach'] = $this->form_teach_m->sel_form_teach();
-			$data['statement'] = $this->statement_m->sel_statement(NULL, NULL, NULL);
+			$data['statement'] = $this->statement_m->sel_stat_2(NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 			$this->load->view('template/header.php');
 
@@ -38,11 +42,11 @@ class Manager extends CI_Controller {
 		$ID_user = $session['ID_user'];
 
 		$this->load->model('client_m');
-		$this->load->model('edu_program_m');
+		$this->load->model('bufgalter_m');	//ОП
 		$this->load->model('statement_m');
 
 		$data['course'] = $this->client_m->course();
-		$data['edu_prog'] = $this->edu_program_m->sel_edu_program(NULL, NULL, NULL, NULL);
+		$data['edu_prog'] = $this->bufgalter_m->sel_edu_program();
 		$data['statement'] = $this->statement_m->sel_accepted(NULL, NULL);
 		$data['statement_end'] = $this->statement_m->sel_end(NULL, NULL, NULL);
 
@@ -58,15 +62,23 @@ class Manager extends CI_Controller {
 	public function filter_zaivk()
 	{
 		$ID_focus = $_POST['ID_focus'];
+		$ID_ep = $_POST['ID_ep'];
 		$ID_form = $_POST['ID_form'];
 		$status = $_POST['status'];
+		$ID_course = $_POST['ID_course'];
+		$date1 = $_POST['date1'];
+		$date2 = $_POST['date2'];
 
 		if($ID_focus == 'all') $ID_focus = NULL;
 		if($ID_form == 'all') $ID_form = NULL;
 		if($status == 'all') $status = NULL;
+		if($ID_ep == 'all') $ID_ep = NULL;
+		if($ID_course == 'all') $ID_course = NULL;
+		if(empty($date1)) $date1 = NULL;
+		if(empty($date2)) $date2 = NULL;
 
 		$this->load->model('statement_m');
-		$result = $this->statement_m->sel_statement($ID_focus, $ID_form, $status);
+		$result = $this->statement_m->sel_stat_2($ID_focus, $ID_form, $status, $ID_ep, $ID_course, $date1, $date2);
 
 		echo json_encode($result);
 	}
@@ -165,7 +177,41 @@ class Manager extends CI_Controller {
 		echo json_encode($result);
 	}
 
-	
+	//фильтрация ОП (менеджер)
+	public function filter_registr_client()
+	{
+		$ID_ep = $_POST['ID_ep'];
+
+
+		if($ID_ep == 'all') $ID_ep = NULL;
+
+		$this->load->model('course_m');
+		$result = $this->course_m->filter_ep($ID_ep);
+
+		echo json_encode($result);
+	}
+
+	//регистрация клиента (Менеджер)
+	public function add_client()
+	{
+		if (!empty($_POST))
+        {
+			$full_name = $this->input->post('full_name');
+			$phone = $this->input->post('phone');
+			$email = $this->input->post('email');
+			$login = $this->input->post('login');
+			$passwords = $this->input->post('passwords');
+			$ID_course = $this->input->post('id_course_client');
+
+            $this->load->model('user_m');
+			$valid = $this->user_m->validation_registration($login);
+			if(empty($valid))
+			{
+				$this->user_m->add_client_statement($full_name, $login, $passwords, $phone, $email, $ID_course);
+			}
+			redirect(base_url('manager/zaivk'));
+        }
+	}
 
 	
 }

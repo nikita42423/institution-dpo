@@ -601,13 +601,17 @@ $(document).ready(function(){
 $(document).ready(function(){
     $('.filter_zayav').change(function(){
         let ID_focus = document.getElementById('id_focus').value;
+        let ID_ep = document.getElementById('id_ep').value;
+        let ID_course = document.getElementById('id_course').value;
         let ID_form = document.getElementById('id_form').value;
         let status = document.getElementById('status').value;
+        let date1 = document.getElementById('date1').value;
+        let date2 = document.getElementById('date2').value;
 
         $.ajax({
             type: 'POST',
             url: 'manager/filter_zaivk',
-            data: ({ID_focus: ID_focus, ID_form: ID_form, status:status}),
+            data: ({ID_focus: ID_focus, ID_form: ID_form, status:status, ID_ep:ID_ep, ID_course:ID_course, date1:date1, date2:date2}),
             success: function(result) {
                 let data =  JSON.parse(result);
                 $('#zayav_tbody').empty();  //очистка таблицы
@@ -755,14 +759,18 @@ $(document).on('click', '.editEndStatus', function () {
           }
       })
   
-      let ID_focus = document.getElementById('id_focus').value;
-      let ID_form = document.getElementById('id_form').value;
-      let status = document.getElementById('status').value;
+        let ID_focus = document.getElementById('id_focus').value;
+        let ID_ep = document.getElementById('id_ep').value;
+        let ID_course = document.getElementById('id_course').value;
+        let ID_form = document.getElementById('id_form').value;
+        let status = document.getElementById('status').value;
+        let date1 = document.getElementById('date1').value;
+        let date2 = document.getElementById('date2').value;
   
       $.ajax({
           type: 'POST',
           url: 'manager/filter_zaivk',
-          data: ({ID_focus: ID_focus, ID_form: ID_form, status:status}),
+          data: ({ID_focus: ID_focus, ID_form: ID_form, status:status, ID_ep:ID_ep, ID_course:ID_course, date1:date1, date2:date2}),
           success: function(result) {
               let data =  JSON.parse(result);
               $('#zayav_tbody').empty();  //очистка таблицы
@@ -818,13 +826,17 @@ $(document).on('click', '.editEndStatus', function () {
       })
   
       let ID_focus = document.getElementById('id_focus').value;
+      let ID_ep = document.getElementById('id_ep').value;
+      let ID_course = document.getElementById('id_course').value;
       let ID_form = document.getElementById('id_form').value;
       let status = document.getElementById('status').value;
+      let date1 = document.getElementById('date1').value;
+      let date2 = document.getElementById('date2').value;
   
       $.ajax({
           type: 'POST',
           url: 'manager/filter_zaivk',
-          data: ({ID_focus: ID_focus, ID_form: ID_form, status:status}),
+          data: ({ID_focus: ID_focus, ID_form: ID_form, status:status, ID_ep:ID_ep, ID_course:ID_course, date1:date1, date2:date2}),
           success: function(result) {
               let data =  JSON.parse(result);
               $('#zayav_tbody').empty();  //очистка таблицы
@@ -990,3 +1002,33 @@ $(document).ready(function(){
         modal.find('.modal-body #type_practice').val(type_practice);
         modal.find('.modal-body #amount_hour_practice').val(amount_hour_practice);
     });
+
+
+
+
+    //фильтрация ОП (для менеджера)
+$(document).ready(function(){
+    $('.filter_registr_client').change(function(){
+        let ID_ep = document.getElementById('id_ep_client').value;
+
+        $.ajax({
+            type: 'POST',
+            url: 'manager/filter_registr_client',
+            data: ({ID_ep: ID_ep}),
+            success: function(result) {
+                let data =  JSON.parse(result);
+                document.getElementById('id_course_client').options.length = 0;    //очистка выпадающего меню
+                for(i in data)
+                {
+                    let data1 = new Date(data[i].date_start_teaching);
+                    let data2 = new Date(data[i].date_end_teaching);
+                    let format1 = data1.getDay() + '.' + (data1.getMonth()+1) + '.' + data1.getFullYear();
+                    let format2 = data2.getDay() + '.' + (data2.getMonth()+1) + '.' + data2.getFullYear();
+                    $('#id_course_client').append(`<option value="${data[i].ID_course}">${data[i].name_course} ${format1} по ${format2}</option>`);
+                }
+            }
+        })
+    })
+
+});
+
