@@ -43,6 +43,13 @@ class Edu_program_m extends CI_Model {
         return $row->ID_ep;         //Возвращает ИД из последней записи
     }
 
+    //Выполнить процедуру "Изменить образовательную программу"
+    public function upd_edu_program($name_ep, $ID_focus, $ID_type_ep, $ID_form, $time_week, $amount_hour, $ID_type_doc, $type_cert, $name_profession, $count_in_group, $ID_ep)
+    {
+        $sql = "CALL upd_edu_program (?,?,?,?,?,?,?,?,?,?,?)";
+        $this->db->query($sql, array($name_ep, $ID_focus, $ID_type_ep, $ID_form, $time_week, $amount_hour, $ID_type_doc, $type_cert, $name_profession, $count_in_group, $ID_ep));
+    }
+
     //Выбрать образовательную программу для курсов
     public function sel_edu_program_for_course()
     {

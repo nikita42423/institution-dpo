@@ -22,6 +22,7 @@ class Edu_program extends CI_Controller {
 		$data['type_doc'] = $this->type_doc_m->sel_type_doc();
 
 		$this->load->view('page/methodist/modal_ep');
+		$this->load->view('page/methodist/modal_upd_ep', $data);
 		$this->load->view('template/header');
 		$this->load->view('template/sidebar', $data);
 		$this->load->view('page/methodist/filter_edu_program');
@@ -102,6 +103,7 @@ class Edu_program extends CI_Controller {
 			<script>
 				$(document).ready(function () {
 					var table = $("#table_ep").DataTable({
+						lengthChange:false,
 						buttons:["excel", "pdf"]
 					});
 					table.buttons().container().appendTo("#table_ep_wrapper .col-md-6:eq(0)");
@@ -152,5 +154,27 @@ class Edu_program extends CI_Controller {
 		}
 	}
 
+	//Изменение образовательный программы
+	public function upd_edu_program()
+	{
+		if (!empty($_POST))
+		{
+			$ID_ep = $this->input->post('ID_ep');
+			$name_ep = $this->input->post('name_ep');
+			$name_profession = $this->input->post('name_profession');
+			$type_cert = $this->input->post('type_cert');
+			$ID_type_ep = $this->input->post('ID_type_ep');
+			$ID_focus = $this->input->post('ID_focus');
+			$ID_type_doc = $this->input->post('ID_type_doc');
+			$ID_form = $this->input->post('ID_form');
+			$time_week = $this->input->post('time_week');
+			$amount_hour = $this->input->post('amount_hour');
+			$count_in_group = $this->input->post('count_in_group');
 
+			$this->load->model('edu_program_m');
+			$this->edu_program_m->upd_edu_program($name_ep, $ID_focus, $ID_type_ep, $ID_form, $time_week, $amount_hour, $ID_type_doc, $type_cert, $name_profession, $count_in_group, $ID_ep);
+
+			redirect('edu_program/browse');
+		}
+	}
 }

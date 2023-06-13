@@ -34,15 +34,20 @@ class Director extends CI_Controller {
 	{
 		//Сессия
 		$data['session'] = $this->session->userdata('login_session');
+		if (isset($data['session'])) {
+			//Данные из БД
+			$this->load->model('report_m');
+			$data['rating_ep'] = $this->report_m->sel_rating_ep(NULL, NULL);
 
-		//Данные из БД
-		$this->load->model('report_m');
-		$data['rating_ep'] = $this->report_m->sel_rating_ep(NULL, NULL);
-
-		$this->load->view('template/header');
-		$this->load->view('template/sidebar_director', $data);
-		$this->load->view('page/director/report_rating_ep');
-		$this->load->view('template/footer');
+			$this->load->view('template/header');
+			$this->load->view('template/sidebar_director', $data);
+			$this->load->view('page/director/report_rating_ep');
+			$this->load->view('template/footer');
+		}
+		else
+		{
+			redirect('main/index');
+		}
 	}
 
 	//Фильтрование сведений о рейтинге образовательных программ ДПО за период
@@ -112,15 +117,16 @@ class Director extends CI_Controller {
 	{
 		//Сессия
 		$data['session'] = $this->session->userdata('login_session');
-		
-		//Данные из БД
-		$this->load->model('report_m');
-		$data['work_teacher'] = $this->report_m->sel_work_teacher(NULL, NULL);
+		if (isset($data['session'])) {
+			//Данные из БД
+			$this->load->model('report_m');
+			$data['work_teacher'] = $this->report_m->sel_work_teacher(NULL, NULL);
 
-		$this->load->view('template/header');
-		$this->load->view('template/sidebar_director', $data);
-		$this->load->view('page/director/report_work_teacher');
-		$this->load->view('template/footer');
+			$this->load->view('template/header');
+			$this->load->view('template/sidebar_director', $data);
+			$this->load->view('page/director/report_work_teacher');
+			$this->load->view('template/footer');
+		}
 	}
 
 	//Фильтрование сведений о работе преподавателей за период

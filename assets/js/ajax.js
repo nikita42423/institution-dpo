@@ -107,18 +107,17 @@ $(document).ready(function(){
 
     //Модальное окно для Вида ОП, Направления, Вида документа и Формы обучения
 	$('#modal_info').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget) 		// кнопка, которая вызывает модаль
+        var button = $(event.relatedTarget) 		
         var id_info = button.data('id_info')		
         var name_info = button.data('name_info'); 	
-        var modal = $(this);					    //Здесь изменяем содержимое модали
+        var modal = $(this);					    
         modal.find('.modal-body #id_info').val(id_info);
         modal.find('.modal-body #name_info').val(name_info);
 	})
 
-
     //Модальное окно для Образовательной программы
 	$('#modal_ep').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget) 		// кнопка, которая вызывает модаль
+        var button = $(event.relatedTarget) 		
 
         var ID_ep = button.data('ID_ep')
         var name_ep = button.data('name_ep');
@@ -132,7 +131,7 @@ $(document).ready(function(){
         var amount_hour = button.data('amount_hour');
         var count_in_group = button.data('count_in_group');
 
-        var modal = $(this);					    //Здесь изменяем содержимое модали
+        var modal = $(this);					    
         modal.find('.modal-body #ID_ep').val(ID_ep);
         modal.find('.modal-body #name_ep').val(name_ep);
         modal.find('.modal-body #name_profession').val(name_profession);
@@ -148,16 +147,57 @@ $(document).ready(function(){
         modal.find('.modal-body #count_in_group').val(count_in_group);
 	})
 
+    //Модальное окно для измененияОбразовательной программы
+	$('#modal_upd_ep').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var id_ep = button.data('id_ep')
+        var name_ep = button.data('name_ep');
+        var name_profession = button.data('name_profession');
+        var type_cert = button.data('type_cert');
+
+        var id_type_ep = button.data('id_type_ep');
+        var name_type_ep = button.data('name_type_ep');
+        var id_focus = button.data('id_focus');
+        var name_focus = button.data('name_focus');
+        var id_type_doc = button.data('id_type_doc');
+        var name_type_doc = button.data('name_type_doc');
+        var id_form = button.data('id_form');
+        var name_form = button.data('name_form');
+        
+        var time_week = button.data('time_week');
+        var amount_hour = button.data('amount_hour');
+        var count_in_group = button.data('count_in_group');
+
+        var modal = $(this);					    
+        modal.find('.modal-body #id_ep').val(id_ep);
+        modal.find('.modal-body #name_ep').val(name_ep);
+        modal.find('.modal-body #name_profession').val(name_profession);
+        modal.find('.modal-body #type_cert').val(type_cert);
+  
+        modal.find('.modal-body #name_type_ep').val(id_type_ep);
+        modal.find('.modal-body #name_type_ep').text(name_type_ep);
+        modal.find('.modal-body #name_focus').val(id_focus);
+        modal.find('.modal-body #name_focus').text(name_focus);
+        modal.find('.modal-body #name_type_doc').val(id_type_doc);
+        modal.find('.modal-body #name_type_doc').text(name_type_doc);
+        modal.find('.modal-body #name_form').val(id_form);
+        modal.find('.modal-body #name_form').text(name_form);
+
+        modal.find('.modal-body #time_week').val(time_week);
+        modal.find('.modal-body #amount_hour').val(amount_hour);
+        modal.find('.modal-body #count_in_group').val(count_in_group);
+	})
+
     //Модальное окно для Преподавателя
 	$('#modal_teacher').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget) 		// кнопка, которая вызывает модаль
+        var button = $(event.relatedTarget) 		
         var id_user = button.data('id_user');
         var full_name = button.data('full_name');
         var profession = button.data('profession');
         var work_exp = button.data('work_exp');
         var login = button.data('login');
         var passwords = button.data('passwords');
-        var modal = $(this);					    //Здесь изменяем содержимое модали
+        var modal = $(this);					    
         modal.find('.modal-body #id_user').val(id_user);
         modal.find('.modal-body #full_name').val(full_name);
         modal.find('.modal-body #profession').val(profession);
@@ -916,7 +956,7 @@ $(document).ready(function(){
 //Модальное окно для изменения Дисциплины
 
     $('#modal_upd_discipline').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget) // кнопка, которая вызывает модаль
+        var button = $(event.relatedTarget) 
         
         var id_ep = button.data('id_ep');
         var id_discipline = button.data('id_discipline');		
@@ -927,7 +967,7 @@ $(document).ready(function(){
         var type_practice = button.data('type_practice');
         var amount_hour_practice = button.data('amount_hour_practice');
 
-        var modal = $(this); //Здесь изменяем содержимое модали
+        var modal = $(this); 
         modal.find('.modal-body #id_ep').val(id_ep);
         modal.find('.modal-body #id_discipline').val(id_discipline);
         modal.find('.modal-body #name_discipline').val(name_discipline);

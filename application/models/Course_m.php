@@ -6,9 +6,6 @@ class Course_m extends CI_Model {
         $this->load->database();
     }
     
-
-
-    
     //Выбрать курс
     public function sel_course($ID_ep, $ID_focus)
     {
