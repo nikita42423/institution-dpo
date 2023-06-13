@@ -64,14 +64,14 @@ class Statement_m extends CI_Model {
         return $query;
     }
 
-     //удаление заявки
-    public function delete_application($ID_application)
-    {
-        $this->db->where('ID_application', $ID_application);
+    //  //удаление заявки
+    // public function delete_application($ID_application)
+    // {
+    //     $this->db->where('ID_application', $ID_application);
 
-        $query = $this->db->delete('statement');
-        return $query;
-    }
+    //     $query = $this->db->delete('statement');
+    //     return $query;
+    // }
 
     
     //отображение заявки об окончании

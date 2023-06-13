@@ -52,15 +52,22 @@
 						 Формирование для зачисления и документа
 						</a>
 					</li>
-					
+					<hr>
+					<li class="nav-item">
+					<button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">регистрация для клиента</button>
+					</li>
+					<hr>
 					
 					<li class="nav-item">
 						<a class="nav-link active" aria-current="page" href="main/out"><button type="button" class="btn btn-outline-dark">Выйти из системы</button></a>
 					</li>
+
+
+				
 				</ul>
 			</div>
 		</nav>
-
+	
 		<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 			<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 				<h1 class="h2">
@@ -86,8 +93,17 @@
 									<?php }?>
 								</select>
 							</div>
-							
 							<div class="col-md-3">
+								<label for="name_focus" class="form-label">Образовательная программа</label>
+								<select class="form-select filter_zayav" id="id_focus">
+									<option value="all" selected>Все</option>
+									<?php foreach($focus as $row) {?>
+									<option value="<?=$row['ID_focus']?>"><?=$row['name_focus']?></option>
+									<?php }?>
+								</select>
+							</div>
+							
+							<div class="col-md-2">
 								<label for="name_form" class="form-label">Форма обучения</label>
 								<select class="form-select filter_zayav" id="id_form">
 									<option value="all" selected>Все</option>
@@ -96,7 +112,8 @@
 									<?php }?>
 								</select>
 							</div>
-							<div class="col-md-3">
+							
+							<div class="col-md-2">
 								<label for="status" class="form-label">Статус</label>
 								<select class="form-select filter_zayav" id="status">
 									<option value="all" selected>Все</option>
@@ -110,10 +127,34 @@
 							
 								</select>
 							</div>
+							<div class="col-md-2">
+								<label for="name_form" class="form-label">Курсы</label>
+								<select class="form-select filter_zayav" id="id_form">
+									<option value="all" selected>Все</option>
+									<?php foreach($form_teach as $row) {?>
+										<option value="<?=$row['ID_form']?>"><?=$row['name_form']?></option>
+									<?php }?>
+								</select>
+							</div>
+							<div class="col-md-2">
+								<label for="name_form" class="form-label">Период с:</label>
+								<input type="date" class="form-control" id="amount_hour" >
+							</div>
+							<div class="col-md-2">
+								<label for="name_form" class="form-label">по:</label>
+								<input type="date" class="form-control" id="amount_hour" >
+							</div>
 							
 						</div>
+				
 					</div>
+									
 				</form>
+
+			
+             
+
+           
 
 			</div>
 
@@ -128,11 +169,10 @@
 					<table id="zayav" class="table" style="width:100%">
 						<thead>
 							<tr>
+								<th>№ Заявки</th>
 								<th>ФИО клиент</th>
 								<th>Телефон</th>
 								<th>Email</th>
-								<th>Вид</th>
-								<th>Направление</th>
 								<th>Наименование ОП</th>
 								<th>Курс </th>
 								<th>Дата сначала </th>
@@ -151,12 +191,11 @@
 						<tbody id="zayav_tbody">
 							<?php foreach($statement as $row) {?>
 							<tr>
+							    <td><?=$row['ID_application']?></td>	
 							  	<td><?=$row['full_name']?></td>	
 								<td><?=$row['phone']?></td>	
 								<td><?=$row['email']?></td>	
-								<td><?=$row['name_type_doc']?></td>	
-								<td><?=$row['name_focus']?></td>
-								<td><?=$row['name_ep']?></td>
+								<td data-bs-toggle="tooltip" data-bs-placement="right" title="<?=$row['name_ep']?>" class=" text-truncate" style="max-width: 150px;"><?=$row['name_ep']?></td>
 								<td><?=$row['name_course']?></td>
 								<td><?=$row['date_start_teaching']?></td>
 								<td><?=$row['date_end_teaching']?></td>
@@ -168,7 +207,7 @@
 								<?php if($row['status_application'] == 'подана') $visible = 'visible';
 										else $visible = 'invisible';
 								?>
-								
+
                                     <!-- Принять дата договора-->
 <button type="button" class="btn btn-success  <?=$visible?>" onclick="editStatement(<?=$row['ID_application']?>)" id="success_btn" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="принять дата договора">
 
@@ -177,14 +216,7 @@
 </svg>
 </button>
       
-                                    <!-- Удалить ид заявки --> 
-<button type="button" class="btn btn-danger" onclick="deleteStatement(<?=$row['ID_application']?>)" id="fail_btn" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="удалить">
-
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
-  <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
-</svg>
-</button>
-
+                                  
                                 </td>							
 							</tr>
 							<?php } ?>
@@ -210,3 +242,85 @@
 </script> -->
 
 <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+      <section class=" bg-image">
+  
+  <div class="col-12 ">
+    <div class="card" style="border-radius: 15px;">
+      <div class="card-body p-5">
+        <h2 class="text-uppercase text-center mb-5">РЕГИСТРАЦИЯ</h2>
+
+        <form action="login/add_user_men" method="post">
+
+          <div class="form-outline md-4">
+            <input type="text" id="form3Example1cg" class="form-control form-control-lg" required name="full_name"/>
+            <input type="hidden" id="form3Example1cga" class="form-control form-control-lg" required name="ID_role" value="4"/>
+            <label class="form-label" for="form3Example1cg">ФИО</label>
+          </div>
+
+          <div class="form-outline md-4">
+            <input type="text" id="form3Example2cg" class="form-control form-control-lg" required  name="phone"/>
+            <label class="form-label" for="form3Example2cg">Телефон</label>
+          </div>
+          <div class="form-outline md-4">
+            <input type="email" id="form3Example3cg" class="form-control form-control-lg" required   name="email"/>
+            <label class="form-label" for="form3Example3cg">E-mail</label>
+          </div>
+
+          <div class="form-outline md-4">
+            <input type="text" id="form3Example4cdg" class="form-control form-control-lg"  required  name="login"/>
+            <label class="form-label" for="form3Example4cdg">Логин</label>
+          </div>
+
+          <div class="form-outline md-4">
+            <input type="password" id="form3Example5cg" class="form-control form-control-lg" required  name="passwords" />
+            <label class="form-label" for="form3Example5cg">Пароль</label>
+          </div>
+
+		  <div class="form-outline md-4">
+			
+			<select class="form-select filter_zayav" id="ID_ep">
+									<option value="all" selected>Все</option>
+									<?php foreach($focus as $row) {?>
+									<option value="<?=$row['ID_focus']?>"><?=$row['name_focus']?></option>
+									<?php }?>
+								</select>
+           <label for="name_ep" class="form-label">Образовательная программа</label>
+          </div>
+		  <div class="form-outline md-4">
+		
+			<select class="form-select filter_zayav" id="ID_ep">
+									<option value="all" selected>Все</option>
+									<?php foreach($focus as $row) {?>
+									<option value="<?=$row['ID_focus']?>"><?=$row['name_focus']?></option>
+									<?php }?>
+								</select>
+		   <label for="name_ep" class="form-label">Курс</label>
+
+          </div>
+		  
+
+          <div class="d-flex justify-content-center">
+            <button type="submit"
+              class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Регистрация</button>
+          </div>
+
+        </form>
+
+      </div>
+</div>
+</div>
+</section>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
