@@ -48,7 +48,7 @@
 				<div class="data_table">
 					<table id="curs" class="table" style="width:100%">
 						<thead>
-							<tr class="text-center">
+							<tr>
 								<th>Программа </th>
 								<!-- <th>Курсы </th> -->
 								<th>Цена</th>
@@ -57,7 +57,7 @@
 						</thead>
 						<tbody id="client_curs">
                <?php foreach($clientcours as $row) {?>
-                            <tr class="text-center">
+                            <tr>
                                 <td><?=$row['name_ep']?></td>
                                 <td><?=$row['price']?></td>
                                 <td><!-- График курсов -->
