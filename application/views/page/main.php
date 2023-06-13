@@ -1,4 +1,3 @@
-
 <section id="cours">
     <div class="container">
         <div class="row">
