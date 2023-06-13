@@ -6,7 +6,7 @@
         </div>
     </div>
 
-    <form id="form_add_discipline" method="post" action="teacher/add_teacher" role="form" class="row g-3">
+    <form id="form_add_discipline" method="post" action="reg_teacher/add_teacher" role="form" class="row g-3">
         <div class="row">
             <div class="col-3"></div>
             <div class="col-6">
@@ -95,7 +95,7 @@
                                 </button>
 
                                 <!-- Удалить -->
-                                <a href="teacher/del_teacher?ID_user=<?=$row['ID_user']?>" class="btn btn-dark m-0">
+                                <a href="reg_teacher/del_teacher?ID_user=<?=$row['ID_user']?>" class="btn btn-dark m-0">
                                     <i class="bi-trash" aria-hidden="true"></i>
                                 </a>
                             </div>

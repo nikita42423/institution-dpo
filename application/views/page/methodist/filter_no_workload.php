@@ -2,7 +2,7 @@
 
 	<div class="row">
 		<div class="col-md-auto">
-			<h1 class="display-4 mb-3">Нераспределенные нагрузки преподавателей<a class="btn btn-primary m-3" href="teacher/browse">Преподаватель</a>
+			<h1 class="display-4 mb-3">Нераспределенные нагрузки преподавателей<a class="btn btn-primary m-3" href="reg_teacher/browse">Преподаватель</a>
 			</h1>
 		</div>
 	</div>
@@ -17,8 +17,9 @@
                 <div class="row">
                     <div class="col">
                     <select class="form-select filter_focus_for_noworkload" id="id_focus_of_no_workload" name="id_focus_of_no_workload">
+						<option value="all" <?php if ($ID_focus == NULL) {echo 'selected';}?>>Все</option>
                         <?php foreach($focus as $row) {?>
-                        <option value="<?=$row['ID_focus']?>"><?=$row['name_focus']?></option>
+                        <option value="<?=$row['ID_focus']?>" <?php if ($ID_focus == $row['ID_focus']) {echo 'selected';}?>><?=$row['name_focus']?></option>
                         <?php }?>
                     </select>
                     </div>

@@ -3,11 +3,11 @@
 	<div class="modal-dialog modal-dialog-centered modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h1 class="modal-title fs-5" id="exampleModalLabel">Подробнее</h1>
+				<h1 class="modal-title fs-5" id="exampleModalLabel">Изменение</h1>
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
 			</div>
 
-            <form action="teacher/upd_teacher" method="post">
+            <form action="reg_teacher/upd_teacher" method="post">
 				<div class="modal-body">
 
                     <input type="hidden" id="id_user" name="ID_user" value="">

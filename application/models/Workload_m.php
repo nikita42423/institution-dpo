@@ -24,10 +24,11 @@ class Workload_m extends CI_Model {
     {
         $sql = "SELECT edu_program.ID_ep, course.ID_course, discipline.ID_discipline, 
         name_ep,  name_course, name_discipline,date_start_teaching, date_end_teaching,
-        COALESCE( discipline.amount_hour, edu_program.amount_hour,  0) AS amount_hour
+        COALESCE( discipline.amount_hour, edu_program.amount_hour,  0) AS amount_hour, edu_program.ID_focus
         FROM edu_program LEFT JOIN course ON edu_program.ID_ep  = course.ID_ep 
         LEFT JOIN discipline ON discipline.ID_ep = edu_program.ID_ep
-        WHERE id_focus=$ID_focus AND NOT EXISTS (select * FROM workload WHERE workload.ID_course=course.ID_course AND workload.ID_discipline = discipline.ID_discipline AND ID_teacher IS NOT NULL)";
+        WHERE NOT EXISTS (select * FROM workload WHERE workload.ID_course=course.ID_course AND workload.ID_discipline = discipline.ID_discipline AND ID_teacher IS NOT NULL)";
+        if ($ID_focus != NULL) {$sql .= " AND id_focus=$ID_focus";}
         $query = $this->db->query($sql);
         return $query->result_array();
     }

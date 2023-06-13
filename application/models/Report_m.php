@@ -6,6 +6,21 @@ class Report_m extends CI_Model {
         $this->load->database();
     }
 
+    //Выбрать сведения о количестве обучающихся на курсах
+    public function sel_count_student()
+    {
+        $sql = '
+        SELECT name_ep, edu_program.id_ep, short_name,
+            SUM(CASE WHEN status_application="зачислена" THEN 1 ELSE 0 END) AS `count1`,
+            SUM(CASE WHEN status_application="обучение" THEN 1 ELSE 0 END) AS `count2`,
+            SUM(CASE WHEN status_application="окончена" THEN 1 ELSE 0 END) AS `count3`,
+            SUM(CASE WHEN status_application="подана" THEN 1 ELSE 0 END) AS `count4`
+        FROM edu_program LEFT JOIN course ON edu_program.ID_ep=course.ID_ep LEFT JOIN statement ON course.ID_course=statement.ID_course
+        GROUP BY name_ep, edu_program.id_ep, short_name';
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
+
     //Выбрать сведения о рейтинге образовательных программ ДПО за период
     public function sel_rating_ep($date1, $date2)
     {
@@ -56,3 +71,4 @@ class Report_m extends CI_Model {
         return $query->result_array();
     }
 }
+

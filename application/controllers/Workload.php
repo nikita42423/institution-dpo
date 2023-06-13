@@ -46,11 +46,18 @@ class Workload extends CI_Controller {
 		$this->load->model('focus_m');
 
 		$data['focus'] = $this->focus_m->sel_focus();
-		$ID_focus = 1;
+		$data['ID_focus'] = $ID_focus = NULL;
 
 		if (!empty($_POST))
 		{
-			$ID_focus = $_POST['id_focus_of_no_workload'];
+			if ($_POST['id_focus_of_no_workload'] != 'all')
+			{
+				$data['ID_focus'] = $ID_focus = $_POST['id_focus_of_no_workload'];
+			}
+			else
+			{
+				$data['ID_focus'] = $ID_focus = NULL;
+			}
 		}
 		$data['no_workload'] = $this->workload_m->sel_no_workload($ID_focus);
 		$data['teacher'] = $this->teacher_m->sel_teacher($ID_focus);
