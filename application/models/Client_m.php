@@ -6,7 +6,7 @@ class Client_m extends CI_Model {
         $this->load->database();
     }
     
-    //Выбрать образовательную программу (не так)
+    //Выбрать образовательную программу
     public function sel_cours()
     {
         $query = $this->db->where('course.ID_ep = edu_program.ID_ep')
@@ -80,19 +80,32 @@ class Client_m extends CI_Model {
     public function sel_course($ID_focus, $ID_form, $date1, $date2)
     {
         $this->db->select('e.ID_ep, name_ep, price')
-                 ->join('focus', 'focus.ID_focus=e.ID_focus')
-                 ->join('form_teach', 'form_teach.ID_form=e.ID_form')
-                 ->join('price_edu', 'price_edu.ID_ep=e.ID_ep')          //отображение цены
-                 ->where_in('e.ID_focus', $ID_focus)
-                 ->where_in('e.ID_form', $ID_form)
-                 ->where('c.ID_ep = e.ID_ep');
-                 if($date1 != NULL) $this->db->where("c.date_start_teaching <= '$date1'");
-                 if($date2 != NULL) $this->db->where("c.date_end_teaching >= '$date2'");
-                 $this->db->group_by('e.ID_ep, name_ep, price');
-                 $query = $this->db->get('edu_program as e, course as c');
-        return $query->result_array();
+                    ->join('focus', 'focus.ID_focus=e.ID_focus')
+                    ->join('form_teach', 'form_teach.ID_form=e.ID_form')
+                    ->join('price_edu', 'price_edu.ID_ep=e.ID_ep')          //отображение цены
+                    ->where_in('e.ID_focus', $ID_focus)
+                    ->where_in('e.ID_form', $ID_form)
+                    ->where('c.ID_ep = e.ID_ep');
+                    if($date1 != NULL) $this->db->where("c.date_start_teaching <= '$date1'");
+                    if($date2 != NULL) $this->db->where("c.date_end_teaching >= '$date2'");
+                    $this->db->group_by('e.ID_ep, name_ep');
+                    $query = $this->db->get('edu_program as e, course as c');
+                    return $query->result_array();
+
+      
+        
     }
 
+
+     //проверка на повтор заявок
+     public function validation_statement($ID_course, $ID_user)
+     {
+         $query = $this->db->where('ID_course', $ID_course)
+                             ->where('ID_user', $ID_user)
+                             ->get('statement');
+         return $query->result_array();
+     }
+     
 
      
     }

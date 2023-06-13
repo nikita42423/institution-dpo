@@ -104,16 +104,6 @@
 				<label for="count_in_group" class="form-label">Человек</label>
 				<input type="text" class="form-control" id="count_in_group" value="0" id="count_in_group" readonly>
 			</div>
-
-			
-			<!-- <div class="col-md-2" data-bs-target="#modal_ep">
-				<label for="count_in_group" class="form-label">Период с:</label>
-				<input type="date" class="form-control" id="count_in_group" value="" id="date1">
-			</div>
-			<div class="col-md-2" data-bs-target="#modal_ep">
-				<label for="count_in_group" class="form-label">по:</label>
-				<input type="date" class="form-control" id="count_in_group" value="" id="date2">
-			</div> -->
 			
 			<div class="col-md-2" style="padding-top: 2%">
 				<button class="btn btn-primary" type="submit" id="filtrbux_button">Изменить</button>

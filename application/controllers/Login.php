@@ -83,6 +83,28 @@ public function add_user()
 }
 
 
+public function add_user_men()
+{
+	if (!empty($_POST))
+        {
+            $data = array(
+                'full_name' => $this->input->post('full_name'),
+                'phone'       => $this->input->post('phone'),
+                'email'          => $this->input->post('email'),
+				'login'       => $this->input->post('login'),
+                'passwords'       => $this->input->post('passwords'),
+				'ID_role'       => $this->input->post('ID_role')
+
+            );
+
+            $this->load->model('user_m');
+            $this->user_m->add_user($data);
+
+            redirect(base_url('manager/zaivk'));
+        }
+}
+
+
 public function kill_all_session()
 {
 	$this->load->model('user_m');

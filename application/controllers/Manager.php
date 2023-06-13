@@ -97,9 +97,7 @@ class Manager extends CI_Controller {
 			$data = $_POST['invalidCheck'][$i];
 			if(isset($data)) $result = $this->statement_m->update_accepted($data);
 		}
-		// // if(isset($ID_application)) $result = $this->statement_m->update_accepted($ID_application);
-		// if($result != TRUE) $result = 'Изменение не выполнено! Выберите чекбоксы';
-		// echo json_encode($result);
+
 	}
 
 	//прием заявок = зачислена
@@ -113,15 +111,15 @@ class Manager extends CI_Controller {
 	}
 
 	
-	//удаление заявок
-	public function fail()
-	{
-		$ID_application = $_POST['ID_application'];
-		$this->load->model('statement_m');
+	// //удаление заявок
+	// public function fail()
+	// {
+	// 	$ID_application = $_POST['ID_application'];
+	// 	$this->load->model('statement_m');
 
-		$result = $this->statement_m->delete_application($ID_application);
-		if($result != TRUE) echo json_encode('Удаление не выполнено!');
-	}
+	// 	$result = $this->statement_m->delete_application($ID_application);
+	// 	if($result != TRUE) echo json_encode('Удаление не выполнено!');
+	// }
 
 	//фильтрация заявок об окончании
 	public function filter_end()

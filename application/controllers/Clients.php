@@ -3,32 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Clients extends CI_Controller {
 
-	public function index()
-	{
-		//Сессия
-		// $data['session'] = $this->session->userdata('login_session');
-		// $session=$data['session'];
-
-		// $ID_user = $session['ID_user'];
-		// $data['ID_user'] = $ID_user;
-
-		// $this->load->model('client_m');
-		// $this->load->model('focus_m');
-		// $this->load->model('form_teach_m');
-
-
-        // $data['clientcours'] = $this->client_m->sel_cours();
-		// $data['focus'] = $this->focus_m->sel_focus();
-		// $data['form_teach'] = $this->form_teach_m->sel_form_teach();
-
-		// $this->load->view('template/header.php');
-		// $this->load->view('template/navbar_clients.php', $data);
-		//$this->load->view('page/clients_curs.php',  $data);
-
-		
-	
-		
-	}
 
 	public function lizcab()
 	{
@@ -44,7 +18,7 @@ class Clients extends CI_Controller {
 			$data['history'] = $this->client_m->get_history_course($ID_user);
 
 			$this->load->view('template/header.php');
-			$this->load->view('template/navbar_clients.php', $data);
+		//	$this->load->view('template/navbar_clients.php', $data);
 			$this->load->view('page/clients.php', $data);
 		}
 		else
@@ -78,8 +52,13 @@ class Clients extends CI_Controller {
 		$ID_user = $_POST['ID_user'];
 		
 		$this->load->model('client_m');
-		$create = $this->client_m->add_statement($ID_course, $ID_user);
-		if($create != TRUE) echo json_encode('Заявка не оформлена!');
+		$valid = $this->client_m->validation_statement($ID_course, $ID_user);
+		if(!$valid){
+			$create = $this->client_m->add_statement($ID_course, $ID_user);
+			if($create != TRUE) echo json_encode('Заявка не оформлена!');
+			else echo json_encode($create);
+		}
+		else echo json_encode('Такая заявка существует! Выберите другую');
 	}
 
 
