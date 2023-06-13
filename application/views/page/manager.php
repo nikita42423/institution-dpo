@@ -165,6 +165,10 @@
 								<td><?=$row['status_application']?></td>
                                 						
 								<td>
+								<?php if($row['status_application'] == 'подана') $visible = 'visible';
+										else $visible = 'invisible';
+								?>
+								
                                     <!-- Принять дата договора-->
 <button type="button" class="btn btn-success  <?=$visible?>" onclick="editStatement(<?=$row['ID_application']?>)" id="success_btn" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="принять дата договора">
 
