@@ -94,5 +94,15 @@ class Client_m extends CI_Model {
     }
 
 
+     //проверка на повтор заявок
+     public function validation_statement($ID_course, $ID_user)
+     {
+         $query = $this->db->where('ID_course', $ID_course)
+                             ->where('ID_user', $ID_user)
+                             ->get('statement');
+         return $query->result_array();
+     }
+     
+
      
     }

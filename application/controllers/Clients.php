@@ -52,8 +52,13 @@ class Clients extends CI_Controller {
 		$ID_user = $_POST['ID_user'];
 		
 		$this->load->model('client_m');
-		$create = $this->client_m->add_statement($ID_course, $ID_user);
-		if($create != TRUE) echo json_encode('Заявка не оформлена!');
+		$valid = $this->client_m->validation_statement($ID_course, $ID_user);
+		if(!$valid){
+			$create = $this->client_m->add_statement($ID_course, $ID_user);
+			if($create != TRUE) echo json_encode('Заявка не оформлена!');
+			else echo json_encode($create);
+		}
+		else echo json_encode('Такая заявка существует! Выберите другую');
 	}
 
 
