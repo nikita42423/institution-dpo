@@ -89,6 +89,7 @@ class Client_m extends CI_Model {
                           if($date2 != NULL) $this->db->where("c.date_end_teaching >= '$date2'");
                           $this->db->group_by('name_ep');
                           $query = $this->db->get('edu_program as e, course as c');
+                       
         return $query->result_array();
     }
 
