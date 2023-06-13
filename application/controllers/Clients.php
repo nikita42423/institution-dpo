@@ -18,7 +18,7 @@ class Clients extends CI_Controller {
 			$data['history'] = $this->client_m->get_history_course($ID_user);
 
 			$this->load->view('template/header.php');
-			$this->load->view('template/navbar_clients.php', $data);
+		//	$this->load->view('template/navbar_clients.php', $data);
 			$this->load->view('page/clients.php', $data);
 		}
 		else

@@ -1,8 +1,14 @@
+
 <section id="cours">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h1 style="text-align: center; padding: 2%; color: blue;"><b>КУРСЫ</b></h1>
+              <hr>
+                <h1 style="text-align: center; padding: 1%; text-transform:uppercase;
+  font-size:52px;
+  font-family:'Verdana';
+  padding:15px; color: blue; "><b>КУРСЫ</b></h1>
+  <hr>
                 <form class="row g-3 needs-validation" method="post">
     <div class="col-md-3">
     <label class="form-label">Направление подготовки</label>
@@ -33,17 +39,18 @@
       </div>
     
   </form>
+   <br>
                 <div class="table-responsive">
 
 				<!-- Скрипт для пагинации -->
-				<script>
+				<!-- <script>
 				$(document).ready(function () {
 					var table = $('#curs').DataTable({
 						
 					});
 
 				});
-				</script>
+				</script> -->
 
 				<div class="data_table">
 					<table id="curs" class="table" style="width:100%">
@@ -222,7 +229,12 @@
 
     <section id="aboutus" style="margin-bottom: 3%;">
 		<div class="container">
-      <h1 style="text-align: center; padding: 2%; color: blue;"><b>О БИЗНЕС - ШКОЛЕ</b></h1>
+    <hr>
+                <h1 style="text-align: center; padding: 1%; text-transform:uppercase;
+  font-size:52px;
+  font-family:'Verdana';
+  padding:15px; color: blue; "><b>О БИЗНЕС - ШКОЛЕ</b></h1>
+  <hr>
 			<div class="clearfix">
 				<img src="assets/img/4.jpg" class="col-md-6 float-md-start mb-3 ms-md-3 m-3" alt="...">
 				<div class="text-justify p-3">

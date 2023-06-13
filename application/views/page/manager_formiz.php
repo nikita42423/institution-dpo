@@ -55,7 +55,7 @@
 					
 					
 					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="login/kill_all_session"><button type="button" class="btn btn-outline-dark">Выйти из системы</button></a>
+						<a class="nav-link active" aria-current="page" href="main/out"><button type="button" class="btn btn-outline-dark">Выйти из системы</button></a>
 					</li>
 				</ul>
 			</div>
@@ -338,7 +338,7 @@
  	 </div>
 </div>
 
-<!-- Скрипт для таблицы (поиск и пагинация) -->
+<!-- Скрипт для таблицы (поиск и пагинация)
 <script>
 	$(document).ready(function () {
 		var table = $('#zachit').DataTable({
@@ -346,6 +346,6 @@
 		});
 	//	table.buttons().container().appendTo('#table_ep_wrapper .col-md-6:eq(0)');
 	});
-</script>
+</script> -->
 
 <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
