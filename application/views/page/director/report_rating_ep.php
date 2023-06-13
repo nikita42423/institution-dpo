@@ -29,18 +29,22 @@
                     <th>№Рейтинг</th>
                     <th>Вид</th>
                     <th>Направление</th>
-                    <th>Наименование ОП</th>
+                    <th colspan="2">Наименование ОП</th>
                     <th class="col-1">Кол-во</th>
                     <th>Сумма</th>
                 </tr>
             </thead>
             <tbody>
-                <?php $i=1;
-                    foreach ($rating_ep as $row) {?>
+                <?php $i=1; $label=''; $value='';
+                    foreach ($rating_ep as $row) {
+                        $label .= $row['short_name'].',';
+                        $value .= $row['sum_price'].',';
+                    ?>
                     <tr>
                         <td><?=$i++?></td>
                         <td><?=$row['name_type_ep']?></td>
                         <td><?=$row['name_focus']?></td>
+                        <td><?=$row['short_name']?></td>
                         <td><?=$row['name_ep']?></td>
                         <td><?=$row['count_price']?></td>
                         <?php
@@ -58,25 +62,22 @@
             </tbody>
         </table>
 
-        <!-- Скрипт для таблицы (поиск и пагинация) -->
-        <script>
-            $(document).ready(function() {
-                var table = $('#table_rating_ep').DataTable({
-                    lengthChange:false,
-                    buttons: ['excel', 'pdf'] //['copy', 'csv', 'excel', 'pdf', 'print']
-                });
-                table.buttons().container().appendTo('#table_rating_ep_wrapper .col-md-6:eq(0)');
-            });
-        </script>
+        <!-- Сбор данных -->
+        <input type="hidden" id="chart_label" value="<?=$label?>">
+        <input type="hidden" id="chart_value" value="<?=$value?>">
+
+
     </div>
 
+
+
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Диаграмма</h1>
+        <h1 class="h2">Диаграмма <button class="btn btn-primary" id="chart_button">Обновить</button></h1>
         <div class="btn-toolbar mb-2 mb-md-0">
         </div>
     </div>
     <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
-    <!-- здесь будет запрос из бд надо вывести его результаты в html таблицу например -->
+
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>

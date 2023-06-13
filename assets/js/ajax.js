@@ -147,7 +147,7 @@ $(document).ready(function(){
         modal.find('.modal-body #count_in_group').val(count_in_group);
 	})
 
-    //Модальное окно для измененияОбразовательной программы
+    //Модальное окно для изменения Образовательной программы
 	$('#modal_upd_ep').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget)
         var id_ep = button.data('id_ep')

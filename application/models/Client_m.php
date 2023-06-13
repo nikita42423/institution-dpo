@@ -93,7 +93,6 @@ class Client_m extends CI_Model {
                  return $query->result_array();
     }
 
-
      //проверка на повтор заявок
      public function validation_statement($ID_course, $ID_user)
      {

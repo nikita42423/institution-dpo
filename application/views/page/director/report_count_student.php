@@ -17,7 +17,7 @@
             </thead>
             <tbody>
                 <?php 
-                $s1 = 0; $s2 = 0; $s3 = 0; $s4 = 0; $label = ""; $count = "";
+                $s1 = 0; $s2 = 0; $s3 = 0; $s4 = 0; $label = ""; $value = "";
                 foreach ($count_student as $row) {
                     $s1 += $row['count1'];
                     $s2 += $row['count2'];
@@ -25,7 +25,7 @@
                     $s4 += $row['count4'];
                     $ss1 = $row['count1'] + $row['count2'] + $row['count3'] + $row['count4'];
                     $label .= $row['short_name'].',';
-                    $count .= $ss1.',';
+                    $value .= $ss1.',';
                     ?>
                     <tr>
                         <td><?= $row['short_name'] ?></td>
@@ -47,11 +47,13 @@
                     </tr>
             </tbody>
         </table>
+
+        <!-- Сбор данных -->
+        <input type="hidden" id="chart_label" value="<?=$label?>">
+        <input type="hidden" id="chart_value" value="<?=$value?>">
     </div>
     
-    <!-- Сбор данных -->
-    <input type="hidden" id="name_ep" value="<?=$label?>">
-    <input type="hidden" id="count_stud" value="<?=$count?>">
+
 
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Диаграмма</h1>
@@ -60,7 +62,6 @@
     </div>
 
     <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
-    <!-- здесь будет запрос из бд надо вывести его результаты в html таблицу например -->
 
 </main>
 

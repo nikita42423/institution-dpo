@@ -33,8 +33,10 @@
                 </tr>
             </thead>
             <tbody>
-                <?php $i=1;
-                    foreach ($work_teacher as $row) {?>
+                <?php $i=1; $label=''; $value='';
+                    foreach ($work_teacher as $row) {
+                        $label .= $row['full_name'].',';
+                    ?>
                     <tr>
                         <td><?=$i++?></td>
                         <td><?=$row['full_name']?></td>
@@ -42,26 +44,34 @@
                         <?php
                             if ($row['sum_hour'] == NULL)
                             {
+                                $value .= '0,';
                                 echo '<td><b>0</b></td>';
                             }
                             else
                             {
-                                echo '<td><b>'.$row['sum_hour'].'</b></td>';
+                                $value .= $row['sum_hour'].',';
+                                echo '<td><b>'.$row['sum_hour'].'</b></td>';   
                             }
                         ?>                    
                     </tr>
                 <?php }?>
             </tbody>
         </table>
+
+        <!-- Сбор данных -->
+        <input type="hidden" id="chart_label" value="<?=$label?>">
+        <input type="hidden" id="chart_value" value="<?=$value?>">
+        
     </div>
 
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Диаграмма</h1>
+        <h1 class="h2">Диаграмма <button class="btn btn-primary" id="chart_button">Обновить</button></h1>
         <div class="btn-toolbar mb-2 mb-md-0">
         </div>
     </div>
+
     <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
-    <!-- здесь будет запрос из бд надо вывести его результаты в html таблицу например -->
+
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>

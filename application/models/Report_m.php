@@ -26,6 +26,7 @@ class Report_m extends CI_Model {
     {
         $sql = '
         SELECT
+            short_name,
             name_type_ep,
             name_focus,
             name_ep,
@@ -43,7 +44,7 @@ class Report_m extends CI_Model {
             $sql .= 'THEN price END) AS sum_price
         FROM (edu_program AS e, course AS c, price_edu AS p, type_ep AS t, focus AS f) LEFT JOIN statement AS s ON s.ID_course=c.ID_course
         WHERE c.ID_ep=e.ID_ep AND p.ID_ep=e.ID_ep AND e.ID_type_ep=t.ID_type_ep AND e.ID_focus=f.ID_focus
-        GROUP BY name_ep, name_type_ep, name_focus
+        GROUP BY short_name, name_ep, name_type_ep, name_focus
         ORDER BY sum_price DESC';
         $query = $this->db->query($sql);
         return $query->result_array();

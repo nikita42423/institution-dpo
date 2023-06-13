@@ -73,8 +73,10 @@ class Director extends CI_Controller {
                 </tr>
             </thead>
             <tbody>';
-                $i=1;
+				$i=1; $label=''; $value='';
 				foreach ($data['rating_ep'] as $row) {
+					$label .= $row['short_name'].',';
+					$value .= $row['sum_price'].',';
 					$str .= '<tr>
 						<td>'.$i++.'</td>
 						<td>'.$row['name_type_ep'].'</td>
@@ -95,16 +97,9 @@ class Director extends CI_Controller {
 			$str .= '</tbody>
         </table>
 
-		<!-- Скрипт для таблицы (поиск и пагинация) -->
-        <script>
-            $(document).ready(function() {
-                var table = $("#table_rating_ep").DataTable({
-                    lengthChange:false,
-                    buttons: ["excel", "pdf"]
-                });
-                table.buttons().container().appendTo("#table_rating_ep_wrapper .col-md-6:eq(0)");
-            });
-        </script>
+		<!-- Сбор данных -->
+		<input type="hidden" id="chart_label" value="'.$label.'">
+		<input type="hidden" id="chart_value" value="'.$value.'">
 		';
 			echo $str;
 		}
@@ -150,8 +145,9 @@ class Director extends CI_Controller {
                 </tr>
             </thead>
             <tbody>';
-                $i=1;
+				$i=1; $label=''; $value='';
 				foreach ($data['work_teacher'] as $row) {
+					$label .= $row['full_name'].',';
 					$str .= '<tr>
 						<td>'.$i++.'</td>
 						<td>'.$row['full_name'].'</td>
@@ -159,16 +155,23 @@ class Director extends CI_Controller {
 
 						if ($row['sum_hour'] == NULL)
 						{
+							$value .= '0,';
 							$str .= '<td><b>0</b></td>';
 						}
 						else
 						{
+							$value .= $row['sum_hour'].',';
 							$str .= '<td><b>'.$row['sum_hour'].'</b></td>';
 						}                  
 					$str .= '</tr>';
                 }
 			$str .= '</tbody>
-        </table>';
+        </table>
+
+		<!-- Сбор данных -->
+        <input type="hidden" id="chart_label" value="'.$label.'">
+        <input type="hidden" id="chart_value" value="'.$value.'">
+		';
 			echo $str;
 		}
 	}
