@@ -41,6 +41,11 @@ class Edu_program_m extends CI_Model {
                           ->order_by('ID_ep', 'ASC')
                           ->get('edu_program');
         $row = $query->last_row();  //Получить последнюю запись из таблицы
+        
+        $datetime = new DateTime();
+        $now = $datetime->format('Y-m-d');
+        $this->db->query("INSERT INTO price_edu(ID_ep, date_start_price) VALUES ('$row->ID_ep','$now')");
+
         return $row->ID_ep;         //Возвращает ИД из последней записи
     }
 

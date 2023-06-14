@@ -152,8 +152,8 @@ class Edu_program extends CI_Controller {
 			$this->load->model('edu_program_m');
 			$ID_ep = $this->edu_program_m->add_edu_program($name_ep, $ID_focus, $ID_type_ep, $ID_form, $time_week, $amount_hour, $ID_type_doc, $type_cert, $name_profession, $count_in_group);
 
-			$this->session->set_flashdata('ID_ep', $ID_ep); //Для переноски данных в другую страницу
-			redirect('discipline/browse');
+			//$this->session->set_flashdata('ID_ep', $ID_ep); //Для переноски данных в другую страницу
+			redirect('discipline/browse_one?ID_ep='.$ID_ep);
 		}
 	}
 
