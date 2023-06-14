@@ -102,7 +102,16 @@
 									<?php }?>
 								</select>
 							</div>
-							
+							<div class="col-md-2">
+								<label for="name_form" class="form-label">Курсы</label>
+								<select class="form-select filter_zayav" id="id_course">
+									<option value="all" selected>Все</option>
+									<?php foreach($course  as $row) {?>
+										<option value="<?=$row['ID_course']?>"><?=$row['name_course']?></option>
+									<?php }?>
+								</select>
+							</div>
+
 							<div class="col-md-2">
 								<label for="name_form" class="form-label">Форма обучения</label>
 								<select class="form-select filter_zayav" id="id_form">
@@ -126,15 +135,7 @@
 							
 								</select>
 							</div>
-							<div class="col-md-2">
-								<label for="name_form" class="form-label">Курсы</label>
-								<select class="form-select filter_zayav" id="id_course">
-									<option value="all" selected>Все</option>
-									<?php foreach($course  as $row) {?>
-										<option value="<?=$row['ID_course']?>"><?=$row['name_course']?></option>
-									<?php }?>
-								</select>
-							</div>
+							
 							<div class="col-md-2">
 								<label for="name_form" class="form-label">Период с:</label>
 								<input type="date" class="form-control filter_zayav" id="date1" >
@@ -143,6 +144,16 @@
 								<label for="name_form" class="form-label">по:</label>
 								<input type="date" class="form-control filter_zayav" id="date2" >
 							</div>
+
+							<div class="col-md-2" style="padding-top: 2%;">
+							     
+								   <!-- Button trigger modal -->
+									<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+									приказ для зачисления
+									</button>
+							</div>
+
+
 							
 						</div>
 				
@@ -151,7 +162,8 @@
 				</form>
 
 			
-             
+          
+
 
            
 
@@ -226,17 +238,49 @@
  	 </div>
 </div>
 
-<!-- Скрипт для таблицы (поиск и пагинация) -->
-<!-- <script>
-	$(document).ready(function () {
-		var table = $('#zayav').DataTable({
-			//buttons:['excel', 'pdf'] //['copy', 'csv', 'excel', 'pdf', 'print']
-		});
-	//	table.buttons().container().appendTo('#table_ep_wrapper .col-md-6:eq(0)');
-	});
-</script> -->
+ <!-- приказ для зачисчление -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel2">Приказ для зачисчления</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+	  <form action="" method="post">
 
-<script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
+<div class="form-outline md-4">
+  <input type="text" id="form3Example1cg" class="form-control form-control-lg" required name="full_name"/>
+  <input type="hidden" id="form3Example1cga" class="form-control form-control-lg" required name="ID_role" value="4"/>
+  <label class="form-label" for="form3Example1cg">№ приказ</label>
+</div>
+
+<div class="form-outline md-4">
+  <input type="date" id="form3Example2cg" class="form-control form-control-lg" required  name="phone"/>
+  <label class="form-label" for="form3Example2cg">Дата приказа</label>
+</div>
+<div class="col-md-2">
+<label for="name_form" class="form-label">Курсы</label>
+<select class="form-select filter_zayav" id="id_course">
+	<option value="all" selected>Все</option>
+	<?php foreach($course  as $row) {?>
+		<option value="<?=$row['ID_course']?>"><?=$row['name_course']?></option>
+	<?php }?>
+</select>
+</div>
+
+<div class="d-flex justify-content-center">
+  <button type="submit"
+	class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Зачисчление</button>
+</div>
+
+</form>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 
@@ -319,3 +363,19 @@
   </div>
 </div>
 
+
+
+
+
+
+<!-- Скрипт для таблицы (поиск и пагинация) -->
+<script>
+	$(document).ready(function () {
+		var table = $('#zayav').DataTable({
+			buttons:['excel', 'pdf'] //['copy', 'csv', 'excel', 'pdf', 'print']
+		});
+		table.buttons().container().appendTo('#zayav_wrapper .col-md-6:eq(0)');
+	});
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
