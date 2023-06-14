@@ -8,7 +8,7 @@ class Type_ep extends CI_Controller {
 	{
 		//Сессия
 		$data['session'] = $this->session->userdata('login_session');
-
+        if (isset($data['session'])) {
         //Данные из БД
         $this->load->model('type_ep_m');
         $data['type_ep'] = $this->type_ep_m->sel_type_ep();
@@ -19,6 +19,11 @@ class Type_ep extends CI_Controller {
         $this->load->view('template/footer.php');
         
         $this->load->view('page/methodist/modal_info.php');
+        }
+        else
+        {
+            redirect('main/index');
+        }
 	}
 
     //Добавление вида ОП

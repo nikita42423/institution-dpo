@@ -33,11 +33,9 @@
 					</ul>
 				</div>
 			</div>
-			<div class="col-auto align-self-center">
-				<div class="dropdown">
-					<h1 class="display-3 text-center mb-3">График курсов</h1>
-				</div>
-			</div>
+			<!-- <div class="col-auto align-self-center text-end">
+				<h1 class="display-6 text-success mb-3">График успешно сформирован</h1>
+			</div> -->
 		</div>
 	</div>
 
@@ -68,25 +66,44 @@
 				$s=0;
 				foreach ($course as $row) {
 					echo '<tr>';
+					$s = $row['count1'] + $row['count2'] + $row['count3'];
 
-					if ($row['count1'] >= $row['count_in_group'])
+
+					if ($s >= $row['count_in_group'])
 					{
+						if ($row['count1'] == 0 && $row['count2'] == 0)
+						{
+							$class = 'class="table-success';
+						}
+						else
+						{
+							$class = 'class="table-danger';
+						}
+
 						//занято
 						$td1 = '<td colspan="';
-						$td2 = '" class="table-danger text-danger p-0 text-center align-middle border-dark"><small>'.$row['count1'].'</small></td>';
+						$td2 = '" '.$class.' p-0 text-center align-middle border-dark" data-bs-html="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Подана: '.$row['count1'].'<br>Зачислена: '.$row['count2'].'<br>Окончена: '.$row['count3'].'<br>"><small>'.$s.'<small></td>';
 						
 						//Курс
 						echo '<td class="d-grid gap-2 m-0 pt-1 pb-1"><a class="btn btn-danger btn-sm disabled">'.$row['name_course'].'</a></td>';
 					}
 					else
 					{
-						$s = $row['count1'] + $row['count2'] + $row['count3'];
+						if ($row['count1'] != 0)
+						{
+							$class = 'class="table-primary';
+						} else if ($row['count2'] != 0)
+						{
+							$class = 'class="table-info';
+						} else if ($row['count3'] != 0)
+						{
+							$class = 'class="table-dark';
+						}
 
 						//свободно
 						$td1 = '<td colspan="';
-						if ($row['count1'] != 0) {$td2 = '" class="table-primary p-0 text-center align-middle border-dark" data-bs-html="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Подана: '.$row['count1'].'<br>Зачислена: '.$row['count2'].'<br>Окончена: '.$row['count3'].'<br>"><small>'.$s.'<small></td>';}
-						else if ($row['count2'] != 0) {$td2 = '" class="table-info p-0 text-center align-middle border-dark" data-bs-html="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Подана: '.$row['count1'].'<br>Зачислена: '.$row['count2'].'<br>Окончена: '.$row['count3'].'<br>"><small>'.$s.'<small></td>';}
-						else if ($row['count3'] != 0) {$td2 = '" class="table-dark p-0 text-center align-middle border-dark" data-bs-html="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Подана: '.$row['count1'].'<br>Зачислена: '.$row['count2'].'<br>Окончена: '.$row['count3'].'<br>"><small>'.$s.'<small></td>';};
+						$td2 = '" '.$class.' p-0 text-center align-middle border-dark" data-bs-html="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Подана: '.$row['count1'].'<br>Зачислена: '.$row['count2'].'<br>Окончена: '.$row['count3'].'<br>"><small>'.$s.'<small></td>';
+						
 						//Курс
 						echo '<td class="d-grid gap-2 m-0 pt-1 pb-1"><a class="btn btn-primary btn-sm">'.$row['name_course'].'</a></td>';
 					}

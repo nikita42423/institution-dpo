@@ -11,7 +11,7 @@ class Report_m extends CI_Model {
     {
         $sql = '
         SELECT name_ep, edu_program.id_ep, short_name,
-            SUM(CASE WHEN status_application="подана" THEN 1 ELSE 0 END) AS `count1`,
+            SUM(CASE WHEN status_application="подана" AND date_payment IS NOT NULL THEN 1 ELSE 0 END) AS `count1`,
             SUM(CASE WHEN status_application="зачислена" THEN 1 ELSE 0 END) AS `count2`,
             SUM(CASE WHEN status_application="окончена" THEN 1 ELSE 0 END) AS `count3`
         FROM edu_program LEFT JOIN course ON edu_program.ID_ep=course.ID_ep LEFT JOIN statement ON course.ID_course=statement.ID_course

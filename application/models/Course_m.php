@@ -11,9 +11,9 @@ class Course_m extends CI_Model {
     {
         $sql = '
         SELECT
-            COUNT(CASE WHEN status_application = "подана"  THEN 1 END) AS count1,
-            COUNT(CASE WHEN status_application = "зачислена"  THEN 1 END) AS count2,
-            COUNT(CASE WHEN status_application = "окончена"  THEN 1 END) AS count3,
+            COUNT(CASE WHEN status_application = "подана" AND date_payment IS NOT NULL THEN 1 END) AS count1,
+            COUNT(CASE WHEN status_application = "зачислена" THEN 1 END) AS count2,
+            COUNT(CASE WHEN status_application = "окончена" THEN 1 END) AS count3,
             c.ID_course,
             name_course,
             short_name,
@@ -25,8 +25,12 @@ class Course_m extends CI_Model {
             c.ID_ep,
             name_ep,
             edu_program.ID_focus
-        FROM course AS c LEFT JOIN statement as s ON s.ID_course=c.ID_course, edu_program, focus, type_ep
-        WHERE c.ID_ep=edu_program.ID_ep AND edu_program.ID_focus=focus.ID_focus AND edu_program.ID_type_ep=type_ep.ID_type_ep ';
+        FROM course AS c
+        	LEFT JOIN statement as s ON s.ID_course=c.ID_course
+        	LEFT JOIN edu_program ON c.ID_ep=edu_program.ID_ep
+            LEFT JOIN focus ON edu_program.ID_focus=focus.ID_focus
+            LEFT JOIN type_ep ON edu_program.ID_type_ep=type_ep.ID_type_ep
+        WHERE 1=1 ';
         if (!empty($ID_ep)) {$sql .= 'AND c.ID_ep='.$ID_ep.' ';}
         if (!empty($ID_focus)) {$sql .= 'AND edu_program.ID_focus='.$ID_focus.' ';}
         $sql .= 'GROUP BY c.ID_course, c.ID_ep, name_course, short_name, name_focus, name_type_ep, count_in_group';
