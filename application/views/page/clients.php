@@ -174,6 +174,10 @@
   </div>
 </div>
 
+<form method="post" action="<?php echo base_url('email/send_email_on_button_click'); ?>">
+    <input type="submit" name="submit" value="Send Email">
+</form>
+
             </div>
         </div>
     </div>
