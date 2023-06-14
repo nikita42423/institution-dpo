@@ -105,7 +105,7 @@ class Director extends CI_Controller {
 		}
 	}
 
-	//Просмотр сведений о работе преподавателей
+	//Просмотр сведений о работе преподавателей за период
 	public function report_work_teacher()
 	{
 		//Сессия
