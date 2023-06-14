@@ -105,8 +105,8 @@ class Main extends CI_Controller {
 
 		foreach ($course as $row) {
 			$str .= '<tr>';
-
-				if ($row['count_user'] >= $row['count_in_group'])
+			$s = $row['count1'] + $row['count1'] + $row['count1'];
+				if ($s >= $row['count_in_group'])
 				{
 				  //занято
 				  $td = '<td class="table-danger text-danger-emphasis">-</td>';

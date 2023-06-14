@@ -75,19 +75,12 @@
 			</div>
 
 <div id="show_resh">
-
-
-
-            <form class="row g-3"  id="filtrbux" method="post">
-			<div class="col-md-1">
-				<input type="checkbox" class="form-check-input" id="check_price" name="check_price" value="1" checked>
-    			<label class="form-check-label" >Прайс = 0</label>
-			</div>
-
+  <form class="row g-3"  id="filtrbux" method="post">
+			
 			<div class="col-md-3">
 				<label for="ID_ep" class="form-label">Образовательная программа</label>
-				<select class="form-select rechert" id="ID_ep" name="form_teach">
-				<option value="0">Все</option>
+				<select class="form-select rechert" id="ID_ep" name="ID_ep">
+				<option value="all">Выберите список</option>
 				<?php foreach ($edu_program as $row) {?>
 									<option value="<?=$row['ID_ep']?>"><?=$row['name_ep']?></option>
 								<?php }?>
@@ -103,11 +96,11 @@
 			</div>
 			<div class="col-md-1" data-bs-target="#modal_ep">
 				<label for="count_in_group" class="form-label">Человек</label>
-				<input type="text" class="form-control" id="count_in_group" value="0" id="count_in_group" readonly>
+				<input type="text" class="form-control" id="count_in_group" value="0" readonly>
 			</div>
 			<div class="col-md-2" data-bs-target="#modal_ep">
-				<label for="date" class="form-label">Дата</label>
-				<input type="date" class="form-control" id="count_in_group" id="date">
+				<label for="date_rechet" class="form-label">Дата</label>
+				<input type="date" class="form-control" id="date_end">
 			</div>
 			
 			

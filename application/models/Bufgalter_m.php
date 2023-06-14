@@ -107,11 +107,38 @@ class Bufgalter_m extends CI_Model {
                 ->where_in('edu_program.ID_ep', $ID_ep);
 
         if($date1 != NULL) $this->db->where("date_start_price >= '$date1'");
-        if($date2 != NULL) $this->db->where("date_start_price <= '$date2'");
+        if($date2 != NULL) $this->db->where("date_end_price  <= '$date2'");
 
         $query = $this->db->get('price_edu as p');
         return $query->result_array();
     }
+
+
+
+      //изменение данных прайса
+      public function add_pr($ID_ep, $cost_hour, $price, $date)
+      {
+          $data = array(
+              'cost_hour' => $cost_hour,
+              'price' => $price,
+              'date_end_price' => $date
+          );
+          $this->db->where('ID_ep', $ID_ep);
+          $this->db->where('date_end_price', NULL);
+  
+          $this->db->update('price_edu', $data);
+  
+  
+          $arr = array(
+              'ID_ep' => $ID_ep,
+              'cost_hour' => NULL,
+              'price' => NULL,
+              'date_start_price' => $date
+          );
+          $this->db->insert('price_edu', $arr);
+          // return $query;
+      }
+
 
     
 

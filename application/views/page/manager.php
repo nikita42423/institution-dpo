@@ -86,7 +86,7 @@
 					
 							<div class="col-md-3">
 								<label for="name_focus" class="form-label">Направление подготовки</label>
-								<select class="form-select filter_zayav" id="id_focus">
+								<select class="form-select filter_zayav f_focus" id="id_focus">
 									<option value="all" selected>Все</option>
 									<?php foreach($focus as $row) {?>
 									<option value="<?=$row['ID_focus']?>"><?=$row['name_focus']?></option>
@@ -95,7 +95,7 @@
 							</div>
 							<div class="col-md-3">
 								<label for="name_focus" class="form-label">Образовательная программа</label>
-								<select class="form-select filter_zayav" id="id_ep">
+								<select class="form-select filter_zayav f_ep" id="id_ep">
 									<option value="all" selected>Все</option>
 									<?php foreach($edu_program  as $row) {?>
 									<option value="<?=$row['ID_ep']?>"><?=$row['name_ep']?></option>
@@ -126,10 +126,9 @@
 								<label for="status" class="form-label">Статус</label>
 								<select class="form-select filter_zayav" id="status">
 									<option value="all" selected>Все</option>
-									
 									<option value="подана">подана</option>
 									<option value="зачислена">зачислена</option>
-									<option value="обучение">обучение</option>
+							
 
                                 
 							
@@ -216,7 +215,8 @@
 								?>
 
                                     <!-- Принять дата договора-->
-<button type="button" class="btn btn-success  <?=$visible?>" onclick="editStatement(<?=$row['ID_application']?>)" id="success_btn" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="принять дата договора">
+									<button type="button" class="btn btn-success  <?=$visible?>" onclick="editStatement(<?=$row['ID_application']?>)" id="success_btn" data-bs-toggle="tooltip"
+									 data-bs-placement="left" data-bs-title="принять дата договора">
 
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
   <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z"/>
@@ -238,7 +238,7 @@
  	 </div>
 </div>
 
- <!-- приказ для зачисчление -->
+  <!-- приказ для зачисчление -->
 <!-- Modal -->
 <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
   <div class="modal-dialog">
@@ -248,22 +248,21 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-	  <form action="" method="post">
+	  <form action="manager/add_order" method="post">
 
 <div class="form-outline md-4">
-  <input type="text" id="form3Example1cg" class="form-control form-control-lg" required name="full_name"/>
-  <input type="hidden" id="form3Example1cga" class="form-control form-control-lg" required name="ID_role" value="4"/>
+  <input type="text" id="form3Example1cg" class="form-control form-control-lg" required name="number_pricaz"/>
   <label class="form-label" for="form3Example1cg">№ приказ</label>
 </div>
 
 <div class="form-outline md-4">
-  <input type="date" id="form3Example2cg" class="form-control form-control-lg" required  name="phone"/>
+  <input type="date" id="form3Example2cg" class="form-control form-control-lg" required  name="date_pricaz"/>
   <label class="form-label" for="form3Example2cg">Дата приказа</label>
 </div>
-<div class="col-md-2">
+<div class="col-md-12">
 <label for="name_form" class="form-label">Курсы</label>
-<select class="form-select filter_zayav" id="id_course">
-	<option value="all" selected>Все</option>
+<select class="form-select" id="id_course_pricaz" name="id_course_pricaz">
+	<option value="all" selected>Выберите один курс</option>
 	<?php foreach($course  as $row) {?>
 		<option value="<?=$row['ID_course']?>"><?=$row['name_course']?></option>
 	<?php }?>
@@ -272,7 +271,7 @@
 
 <div class="d-flex justify-content-center">
   <button type="submit"
-	class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Зачисчление</button>
+	class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Зачисление</button>
 </div>
 
 </form>
@@ -280,7 +279,6 @@
     </div>
   </div>
 </div>
-
 
 
 

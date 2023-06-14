@@ -137,7 +137,8 @@
 							<tr>
 					
 								<th>Наименование ОП</th>
-								<th>дата</th>
+								<th>дата сначала</th>
+								<th>дата окончания</th>
 								<th>Педчаса</th>
 								<th>Цена</th>
 							
@@ -148,6 +149,7 @@
 							<tr>
 								<td><?=$row['name_ep']?></td>
 								<td><?=$row['date_start_price']?></td>
+								<td><?=$row['date_end_price']?></td>
 								<td><?=$row['cost_hour']?></td>
 								<td><?=$row['price']?></td>	
 							</tr>
