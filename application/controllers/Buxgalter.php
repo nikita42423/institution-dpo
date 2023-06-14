@@ -91,21 +91,22 @@ class Buxgalter extends CI_Controller {
 		$ID_ep = $_POST['ID_ep'];
 		$cost_hour = $_POST['cost_hour'];
 		$price = $_POST['price'];
-		$date = date('Y-m-d');
+		$date = $_POST[date('Y-m-d')];
+		$date = $_POST[date('Y-m-d')];
 
 		$check_price = $_POST['check_price'];
 		
 		$this->load->model('bufgalter_m');
-		if($check_price == 'true')
-		{
-			$showopres = $this->bufgalter_m->upd_price($ID_ep, $cost_hour, $price, $date);
-			if($showopres != TRUE) echo json_encode('Изменение не выполнено!');
-		}
-		else if($check_price == 'false')
-		{
+		// if($check_price == 'true')
+		// {
+		// 	$showopres = $this->bufgalter_m->upd_price($ID_ep, $cost_hour, $price, $date);
+		// 	if($showopres != TRUE) echo json_encode('Изменение не выполнено!');
+		// }
+		// else if($check_price == 'false')
+		// {
 			$showopres = $this->bufgalter_m->add_price($ID_ep, $cost_hour, $price, $date);
-			if($showopres != TRUE) echo json_encode('Добавление не выполнено!');
-		}
+			if($showopres != TRUE) echo json_encode('Изменение не выполнено!');
+		// }
 	}
 
 

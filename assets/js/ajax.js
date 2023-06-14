@@ -576,8 +576,6 @@ function receptionApplication(id, user)
 
 
 
-
-
 //Изменение данные прайса
 $(document).ready(function(){
 

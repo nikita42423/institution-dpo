@@ -248,11 +248,11 @@
 				<i class="bi bi-pencil-fill"></i>
 				</button>
 				</td>
-				<td><!-- Изменить данные -->
+				<!-- <td>
 				<button type="button" class="btn btn-warning editEndStatus" data-id_application="<?=$row['ID_application']?>" data-full_name="<?=$row['full_name']?>" data-status_doc="<?=$row['status_doc']?>" data-bs-toggle="modal" data-bs-target="#exampleModal2">
 				<i class="bi bi-file-earmark-medical-fill"></i>
 				</button>
-			 </td>
+			 </td> -->
 			</tr>
 			<?php } ?>
 		</tbody>
@@ -295,7 +295,7 @@
 				</div>
 				
 				<!-- Модальное окно -->
-				<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+				<!-- <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
 				<div class="modal-dialog">
 					<div class="modal-content">
 					<div class="modal-header">
@@ -325,7 +325,7 @@
 					</div>
 					</div>
 				</div>
-				</div>
+				</div> -->
 
      			</div>
 				</div>

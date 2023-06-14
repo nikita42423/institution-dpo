@@ -18,8 +18,9 @@ class Bufgalter_m extends CI_Model {
    
    public function sel_rast($ID_ep)
    {
+
+
     $query = $this->db->where('ID_ep', $ID_ep)
-                      ->where('edu_program.ID_form = form_teach.ID_form')
                       ->get('edu_program, form_teach');
     return $query->row_array();
    }
@@ -62,22 +63,12 @@ class Bufgalter_m extends CI_Model {
         );
 
         $query = $this->db->insert('price_edu', $data);
-        return $query;
-    }
 
-    //изменить данные прайса
-    public function upd_price($ID_ep, $cost_hour, $price, $date)
-    {
-        $data = array(
-            'cost_hour' => $cost_hour,
-            'price' => $price,
-            'date_start_price' => $date
-        );
-        $this->db->where('ID_ep', $ID_ep);
-
-
-        $query = $this->db->update('price_edu', $data);
-        return $query;
+        //изменить старую, указать что у нее закончился срок действия
+        $query = $this->db->update('price_edu', $date)
+                          ->where('ID_ep', $ID_ep)
+                          ->where('date_end_price', NULL);
+       // return $query;
     }
 
 
