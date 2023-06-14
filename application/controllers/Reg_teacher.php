@@ -54,7 +54,7 @@ class Reg_teacher extends CI_Controller {
         redirect(base_url('reg_teacher/browse'));
     }
 
-    //Изменить преподаватель
+    //Изменение преподавателя
     public function upd_teacher()
 	{
         $ID_user = $this->input->post('ID_user');

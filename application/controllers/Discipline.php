@@ -86,42 +86,4 @@ class Discipline extends CI_Controller {
 		}
 	}
 
-	//Фильтрование учебного плана (дисциплины)
-	// public function filter_discipline()
-	// {
-	// 	if (!empty($_POST))
-	// 	{
-	// 		$ID_ep = $_POST['ID_ep'];
-
-	// 		$this->load->model('discipline_m');
-	// 		$discipline = $this->discipline_m->sel_discipline($ID_ep);
-	// 		$str = '';
-	// 		$n = 1;
-	// 		foreach ($discipline as $row) {
-	// 		$str .='<tr>
-	// 			<td>'.$n++.'</td>
-	// 			<td>'.$row['name_discipline'].'</td>
-	// 			<td>'.$row['amount_hour'].'</td>
-	// 			<td>'.$row['amount_hour_work'].'</td>
-	// 			<td>'.$row['type_mid_cert'].'</td>
-	// 			<td>'.$row['type_practice'].'</td>
-	// 			<td>'.$row['amount_hour_practice'].'</td>
-	// 			<td>
-	// 				<div class="btn-group" role="group">
-	// 					<!-- Изменить -->
-	// 					<button type="button" class="btn btn-primary">
-	// 						<i class="bi-pencil" aria-hidden="true"></i>
-	// 					</button>
-	// 					<!-- Удалить -->
-	// 					<a href="" class="btn btn-danger">
-	// 						<i class="bi-trash" aria-hidden="true"></i>
-	// 					</a>
-	// 				</div>
-	// 			</td>
-	// 		</tr>';
-	// 		}
-
-	// 		echo $str;
-	// 	}
-	// }
 }

@@ -69,7 +69,7 @@ class Workload extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
-	//Добавить нагрузки преподавателя
+	//Добавление нагрузки преподавателя
 	public function add_workload()
 	{
 		if (!empty($_GET['ID_teacher'] && $_GET['ID_course'] && $_GET['ID_discipline']))
@@ -87,7 +87,7 @@ class Workload extends CI_Controller {
 		}
 	}
 
-	//удаление нагрузки преподавателя
+	//Удаление нагрузки преподавателя
 	public function del_workload()
 	{
 		if (!empty($_GET['ID_load']))

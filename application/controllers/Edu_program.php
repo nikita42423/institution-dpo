@@ -116,6 +116,9 @@ class Edu_program extends CI_Controller {
 	//Добавление образовательный программы
 	public function add_program()
 	{
+		//Сессия
+		$data['session'] = $this->session->userdata('login_session');
+
 		//Данные из БД
 		$this->load->model('edu_program_m');
 		$this->load->model('focus_m');
@@ -129,8 +132,8 @@ class Edu_program extends CI_Controller {
 		$data['type_doc'] = $this->type_doc_m->sel_type_doc();
 
 		$this->load->view('template/header');
-		$this->load->view('template/sidebar');
-		$this->load->view('page/methodist/add_edu_program', $data);
+		$this->load->view('template/sidebar', $data);
+		$this->load->view('page/methodist/add_edu_program');
 		$this->load->view('template/footer');
 
 		if (!empty($_POST))
