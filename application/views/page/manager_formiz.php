@@ -87,10 +87,20 @@
 					</div>
 					<div class="card-body">
 						<div class="row">
-					
+						<div class="col-md-3">
+									<label for="name_ep" class="form-label">Наименование ОП</label>
+									<select class="form-select filter_accept f_ep" id="id_ep">
+										<option value="all" selected>Все</option>
+										<?php foreach($edu_prog  as $row) {?>
+										<option value="<?=$row['ID_ep']?>"><?=$row['name_ep']?></option>
+										<?php }?>
+									</select>
+								</div>
+
+
 							<div class="col-md-3">
 								<label for="name_course" class="form-label">Курс</label>
-								<select class="form-select filter_accept" id="id_course_accept">
+								<select class="form-select filter_accept" id="id_course">
 									<option value="all" selected>Все</option>
 									
 									<?php foreach($course as $row) {?>
@@ -99,15 +109,7 @@
 
 								</select>
 							</div>
-							<div class="col-md-3">
-								<label for="name_ep" class="form-label">Наименование ОП</label>
-								<select class="form-select filter_accept" id="id_ep_accept">
-									<option value="all" selected>Все</option>
-									<?php foreach($edu_prog  as $row) {?>
-									  <option value="<?=$row['ID_ep']?>"><?=$row['name_ep']?></option>
-									<?php }?>
-								</select>
-							</div>
+							
 							
 						</div>
 					</div>
@@ -120,7 +122,7 @@
 	<table id="zachit" class="table" style="width:100%;">
 		<thead>
 			<tr>
-				<th>Выбрать</th>
+			
 				<th>ФИО слушателей</th>
 				<th>Курс</th>
 			
@@ -129,28 +131,14 @@
 		<tbody id="zachit_tbody">
 			<?php foreach($statement as $row) {?>
 			<tr>
-				<td>		
-					<div class="form-check">
-						<input class="form-check-input mx-auto" type="checkbox" value="<?=$row['ID_application']?>" id="invalidCheck" name="invalidCheck[]">
-					</div>
-				</td>
+				
 				<td><?=$row['full_name']?></td>
 				<td><?=$row['name_course']?></td>
 			</tr>
 			<?php } ?>
 		</tbody>
 	</table>
-	<form id="update_accepted" method="post">
-		<div class="row">
-			<div class="col-2">
-				<button class="btn btn-primary check_button" type="button">Выбрать все</button>
-			</div>
-			<div class="col-10 text-center">
-				<button class="btn btn-primary" type="submit">Приняты на обучение</button>
-			</div>
-		</div>
-
-	</form>
+	
 </div>
 </div>
 			   </div>
@@ -173,7 +161,16 @@
 					</div>
 					<div class="card-body">
 						<div class="row">
-					
+						<div class="col-md-3">
+								<label for="name_ep" class="form-label">Наименование ОП</label>
+								<select class="form-select filter_end f_ep_end" id="id_ep_end">
+									<option value="all" selected>Все</option>
+									<?php foreach($edu_prog as $row) {?>
+										<option value="<?=$row['ID_ep']?>"><?=$row['name_ep']?></option>
+									<?php }?>
+								</select>
+							</div>
+
 							<div class="col-md-3">
 								<label for="name_course" class="form-label">Курс</label>
 								<select class="form-select filter_end" id="id_course_end">
@@ -185,21 +182,12 @@
 
 								</select>
 							</div>
-							<div class="col-md-3">
-								<label for="name_ep" class="form-label">Наименование ОП</label>
-								<select class="form-select filter_end" id="id_ep_end">
-									<option value="all" selected>Все</option>
-									<?php foreach($edu_prog as $row) {?>
-										<option value="<?=$row['ID_ep']?>"><?=$row['name_ep']?></option>
-									<?php }?>
-								</select>
-							</div>
 
 							<div class="col-md-3">
 								<label for="status" class="form-label">Статус</label>
 								<select class="form-select filter_end" id="status_end">
 									<option value="all" selected>Все</option>
-									<option value="обучение">обучение</option>
+									<option value="зачислена">зачислена</option>
 									<option value="окончена">окончена</option>
 
 								</select>
@@ -223,7 +211,7 @@
 				<th>Дата окончания</th>
 				<th>Серия и номер документа</th>
 				<th>Дата  выдачи</th>
-				<th>Статус документа</th>
+	
 				<th></th>
 				<th></th>
 			
@@ -239,7 +227,7 @@
 				<td><?=$row['date_end_teaching']?></td>
 				<td><?=$row['series_doc']?></td>
 				<td><?=$row['date_give']?></td>
-				<td><?=$row['status_doc']?></td>
+	
 				<td><!-- Добавить данные -->
 				<button type="button" class="btn btn-primary editEndStatement" data-bs-toggle="modal" 
 				data-id_application="<?=$row['ID_application']?>" data-full_name="<?=$row['full_name']?>" 
@@ -248,11 +236,11 @@
 				<i class="bi bi-pencil-fill"></i>
 				</button>
 				</td>
-				<td><!-- Изменить данные -->
+				<!-- <td>
 				<button type="button" class="btn btn-warning editEndStatus" data-id_application="<?=$row['ID_application']?>" data-full_name="<?=$row['full_name']?>" data-status_doc="<?=$row['status_doc']?>" data-bs-toggle="modal" data-bs-target="#exampleModal2">
 				<i class="bi bi-file-earmark-medical-fill"></i>
 				</button>
-			 </td>
+			 </td> -->
 			</tr>
 			<?php } ?>
 		</tbody>
@@ -295,7 +283,7 @@
 				</div>
 				
 				<!-- Модальное окно -->
-				<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+				<!-- <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
 				<div class="modal-dialog">
 					<div class="modal-content">
 					<div class="modal-header">
@@ -325,7 +313,7 @@
 					</div>
 					</div>
 				</div>
-				</div>
+				</div> -->
 
      			</div>
 				</div>
@@ -338,14 +326,14 @@
  	 </div>
 </div>
 
-<!-- Скрипт для таблицы (поиск и пагинация)
+<!-- Скрипт для таблицы (поиск и пагинация) -->
 <script>
 	$(document).ready(function () {
 		var table = $('#zachit').DataTable({
-			//buttons:['excel', 'pdf'] //['copy', 'csv', 'excel', 'pdf', 'print']
+			buttons:['excel', 'pdf'] //['copy', 'csv', 'excel', 'pdf', 'print']
 		});
-	//	table.buttons().container().appendTo('#table_ep_wrapper .col-md-6:eq(0)');
+		table.buttons().container().appendTo('#zachit_wrapper .col-md-6:eq(0)');
 	});
-</script> -->
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>

@@ -13,7 +13,7 @@ class Buxgalter extends CI_Controller {
 		if (isset($data['session']))
 		{
 			$this->load->model('bufgalter_m');
-			$data['edu_program'] = $this->bufgalter_m->sel_price_null();
+			$data['edu_program'] = $this->bufgalter_m->sel_edu_program();
 		
 
 			$this->load->view('template/header.php');
@@ -91,21 +91,21 @@ class Buxgalter extends CI_Controller {
 		$ID_ep = $_POST['ID_ep'];
 		$cost_hour = $_POST['cost_hour'];
 		$price = $_POST['price'];
-		$date = date('Y-m-d');
+		$date = $_POST['date'];
 
-		$check_price = $_POST['check_price'];
+		//$check_price = $_POST['check_price'];
 		
 		$this->load->model('bufgalter_m');
-		if($check_price == 'true')
-		{
-			$showopres = $this->bufgalter_m->upd_price($ID_ep, $cost_hour, $price, $date);
-			if($showopres != TRUE) echo json_encode('Изменение не выполнено!');
-		}
-		else if($check_price == 'false')
-		{
-			$showopres = $this->bufgalter_m->add_price($ID_ep, $cost_hour, $price, $date);
-			if($showopres != TRUE) echo json_encode('Добавление не выполнено!');
-		}
+		// if($check_price == 'true')
+		// {
+		// 	$showopres = $this->bufgalter_m->upd_price($ID_ep, $cost_hour, $price, $date);
+		// 	if($showopres != TRUE) echo json_encode('Изменение не выполнено!');
+		// }
+		// else if($check_price == 'false')
+		// {
+			$showopres = $this->bufgalter_m->add_pr($ID_ep, $cost_hour, $price, $date);
+			//if($showopres != TRUE) echo json_encode('Изменение не выполнено!');
+		// }
 	}
 
 

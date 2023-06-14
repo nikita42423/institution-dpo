@@ -113,8 +113,9 @@
 
                                       foreach ($course as $row) {?>
                                       <tr>
-                                      <?php 
-                                          if ($row['count_user'] >= $row['count_in_group'])
+                                      <?php
+                                          $s = $row['count1'] + $row['count1'] + $row['count1'];
+                                          if ($s >= $row['count_in_group'])
                                           {
                                             //занято
                                             $td = '<td class="table-danger text-danger-emphasis">-</td>';

@@ -213,5 +213,38 @@ class Manager extends CI_Controller {
         }
 	}
 
+
+	//фильтрация направления
+	public function filter_focus()
+	{
+		$ID_focus = $_POST['ID_focus'];
+
+		if($ID_focus == 'all') $ID_focus = NULL;
+
+		$this->load->model('edu_program_m');
+		$result = $this->edu_program_m->filter_focus($ID_focus);
+
+		echo json_encode($result);
+	}
+
+
+	
+	//зачисление приказа
+	public function add_order()
+	{
+		if (!empty($_POST))
+        {
+			$number_pricaz = $this->input->post('number_pricaz');
+			$date_pricaz = $this->input->post('date_pricaz');
+			$ID_course = $this->input->post('id_course_pricaz');
+
+            $this->load->model('statement_m');
+			if($ID_course != 'all') $this->statement_m->update_pricaz($number_pricaz, $date_pricaz, $ID_course);
+
+			redirect(base_url('manager/zaivk'));
+        }
+	}
+
+	
 	
 }

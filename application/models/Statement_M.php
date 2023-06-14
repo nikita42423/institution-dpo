@@ -77,7 +77,7 @@ class Statement_m extends CI_Model {
     {
         $today = date('Y-m-d');
         $data = array(
-            'status_application' => 'зачислена',
+         //   'status_application' => 'зачислена',
             'date_payment' => $today,
             'date_contract' => $today,
         );
@@ -108,7 +108,7 @@ class Statement_m extends CI_Model {
 
                         if($status != NULL) $this->db->where('status_application', $status);
                         else{
-                            $this->db->where('(status_application = "обучение"');
+                            $this->db->where('(status_application = "зачислена"');
                             $this->db->or_where('status_application = "окончена")');
                         }
 
@@ -144,6 +144,35 @@ class Statement_m extends CI_Model {
         $query = $this->db->update('statement', $data);
         return $query;
     }
+
+
+     //кол-во заявок подана
+     public function count_podana($ID_course)
+     {
+         $query = $this->db->select('count(*)')
+                            ->where('date_payment IS NOT NULL')
+                            ->where('status_application = "подана"')
+                            ->where('ID_course', $ID_course)
+                            ->get('statement');
+         return $query->result_array();
+     }
+ 
+      //изменение № приказа
+      public function update_pricaz($number_pricaz, $date_pricaz, $ID_course)
+      {
+          $data = array(
+              'numer_pricaz' => $number_pricaz,
+              'date_pricaz' => $date_pricaz,
+              'status_application' => 'зачислена'
+          );
+          $this->db->where('ID_course', $ID_course);
+          $this->db->where('date_payment IS NOT NULL');
+          $this->db->where('status_application = "подана"');
+ 
+          $query = $this->db->update('statement', $data);
+          return $query;
+      }
+
 
 
 }

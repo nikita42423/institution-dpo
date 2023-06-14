@@ -282,13 +282,14 @@ $(document).ready(function(){
 
     $('#show_resh').submit(function(){
         let ID_ep = document.getElementById('ID_ep').value;
+        let date = document.getElementById('date_end').value;
         let cost_hour = document.getElementById('res1').innerHTML;
         let price = document.getElementById('res9').innerHTML;
-        let check_price = document.getElementById('check_price').checked;
+      
         $.ajax({
             type: 'POST',
             url: 'buxgalter/edit_price',
-            data: { ID_ep:ID_ep, cost_hour:cost_hour, price:price, check_price:check_price},
+            data: { ID_ep:ID_ep, cost_hour:cost_hour, price:price, date:date},
             dataType: 'json',
             success: function(result){
                 alert(result);
@@ -298,34 +299,34 @@ $(document).ready(function(){
 });
 
 //изменение списка при выборе checkbox (бухгалтера)
-$(document).ready(function(){
-    $('input[name=check_price]').change(function(e) {
-        e.preventDefault();
-        let check_price = document.getElementById('check_price').checked;
-        if(check_price == true) document.querySelector('#filtrbux_button').innerHTML = 'Изменить';
-        else if(check_price == false) document.querySelector('#filtrbux_button').innerHTML = 'Добавить';
-        $.ajax({
-            type: 'POST',
-            url: 'buxgalter/edit_select',
-            data: { check_price:check_price},
-            dataType: 'json',
-            success: function(result){
-                document.getElementById('ID_ep').options.length = 0;    //очистка выпадающего меню
-              //если массив пустой
-              if(!result || !result.length) $('#ID_ep').append(`<option>Пусто</option>`);
-              //не пустой
-              else if(result || result.length)
-              {
+// $(document).ready(function(){
+//     $('input[name=check_price]').change(function(e) {
+//         e.preventDefault();
+//         let check_price = document.getElementById('check_price').checked;
+//         if(check_price == true) document.querySelector('#filtrbux_button').innerHTML = 'Изменить';
+//         else if(check_price == false) document.querySelector('#filtrbux_button').innerHTML = 'Добавить';
+//         $.ajax({
+//             type: 'POST',
+//             url: 'buxgalter/edit_select',
+//             data: { check_price:check_price},
+//             dataType: 'json',
+//             success: function(result){
+//                 document.getElementById('ID_ep').options.length = 0;    //очистка выпадающего меню
+//               //если массив пустой
+//               if(!result || !result.length) $('#ID_ep').append(`<option>Пусто</option>`);
+//               //не пустой
+//               else if(result || result.length)
+//               {
               
-              for(i in result)
-              {
-                  $('#ID_ep').append(`<option value="${result[i].ID_ep}">${result[i].name_ep}</option>`);
-              }
-            }
-         }
-        })
-    })
-});
+//               for(i in result)
+//               {
+//                   $('#ID_ep').append(`<option value="${result[i].ID_ep}">${result[i].name_ep}</option>`);
+//               }
+//             }
+//          }
+//         })
+//     })
+// });
 
 //фильтрация для бухгалтера - о полученных доходах
 $(document).ready(function(){
@@ -376,6 +377,7 @@ $(document).ready(function(){
                     $('#example').append(`<tr>
                             <td>${data[i].name_ep}</td>
                             <td>${data[i].date_start_price}</td>
+                            <td>${data[i].date_end_price}</td>
                             <td>${data[i].cost_hour}</td>
                             <td>${data[i].price}</td>
                         </tr>`);
@@ -576,8 +578,6 @@ function receptionApplication(id, user)
 
 
 
-
-
 //Изменение данные прайса
 $(document).ready(function(){
 
@@ -679,16 +679,10 @@ $(document).ready(function(){
                             <td>${data[i].date_end_teaching}</td>
                             <td>${data[i].series_doc}</td>
                             <td>${data[i].date_give}</td>
-                            <td>${data[i].status_doc}</td>
+               
                             <td><!-- Добавить данные -->
                             <button type="button" class="btn btn-primary editEndStatement" data-bs-toggle="modal" data-id_application="${data[i].ID_application}" data-full_name="${data[i].full_name}" data-series_doc="${data[i].series_doc}" data-date_give="${data[i].date_give}" data-bs-target="#exampleModal">
                             <i class="bi bi-pencil-fill"></i>
-                            </button>
-                         </td>
-            
-                         <td><!-- Изменить данные -->
-                            <button type="button" class="btn btn-warning editEndStatus" data-id_application="${data[i].ID_application}" data-full_name="${data[i].full_name}" data-status_doc="${data[i].status_doc}" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                            <i class="bi bi-file-earmark-medical-fill"></i>
                             </button>
                          </td>
                         </tr>`);
@@ -920,8 +914,8 @@ $(document).ready(function(){
 //фильтрация - заявки зачислена (формирование для зачисления)
 $(document).ready(function(){
     $('.filter_accept').change(function(){
-        let ID_course = document.getElementById('id_course_accept').value;
-        let ID_ep = document.getElementById('id_ep_accept').value;
+        let ID_course = document.getElementById('id_course').value;
+        let ID_ep = document.getElementById('id_ep').value;
 
         $.ajax({
             type: 'POST',
@@ -933,11 +927,7 @@ $(document).ready(function(){
                 for(i in data)
                 {
                     $('#zachit').append(`<tr>
-                            <td>
-                                <div class="form-check">
-                                    <input class="form-check-input mx-auto" type="checkbox" value="${data[i].ID_application}" id="invalidCheck" name="invalidCheck[]">
-                                </div>
-                            </td>
+                            
                             <td>${data[i].full_name}</td>
                             <td>${data[i].name_course}</td>
                         </tr>`);
@@ -973,6 +963,68 @@ $(document).ready(function(){
         })
 
 });
+
+
+//фильтрация Направление/ОП
+$(document).ready(function(){
+    $('.f_focus').change(function(){
+        let ID_focus = document.getElementById('id_focus').value;
+
+        $.ajax({
+            type: 'POST',
+            url: 'manager/filter_focus',
+            data: ({ID_focus: ID_focus}),
+            success: function(result) {
+                let data =  JSON.parse(result);
+                document.getElementById('id_ep').options.length = 0;    //очистка выпадающего меню
+                $('#id_ep').append(`<option value="all">Все</option>`);
+                for(i in data)
+                {
+                    $('#id_ep').append(`<option value="${data[i].ID_ep}">${data[i].name_ep}</option>`);
+                }
+            }
+        })
+    })
+
+    $('.f_ep').change(function(){
+        let ID_ep = document.getElementById('id_ep').value;
+
+        $.ajax({
+            type: 'POST',
+            url: 'manager/filter_registr_client',
+            data: ({ID_ep: ID_ep}),
+            success: function(result) {
+                let data =  JSON.parse(result);
+                document.getElementById('id_course').options.length = 0;    //очистка выпадающего меню
+                $('#id_course').append(`<option value="all">Все</option>`);
+                for(i in data)
+                {
+                    $('#id_course').append(`<option value="${data[i].ID_course}">${data[i].name_course}</option>`);
+                }
+            }
+        })
+    })
+
+    $('.f_ep_end').change(function(){
+        let ID_ep = document.getElementById('id_ep_end').value;
+
+        $.ajax({
+            type: 'POST',
+            url: 'manager/filter_registr_client',
+            data: ({ID_ep: ID_ep}),
+            success: function(result) {
+                let data =  JSON.parse(result);
+                document.getElementById('id_course_end').options.length = 0;    //очистка выпадающего меню
+                $('#id_course_end').append(`<option value="all">Все</option>`);
+                for(i in data)
+                {
+                    $('#id_course_end').append(`<option value="${data[i].ID_course}">${data[i].name_course}</option>`);
+                }
+            }
+        })
+    })
+});
+
 
 
 
