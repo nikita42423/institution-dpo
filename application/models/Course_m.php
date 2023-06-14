@@ -10,7 +10,10 @@ class Course_m extends CI_Model {
     public function sel_course($ID_ep, $ID_focus)
     {
         $sql = '
-        SELECT COUNT(CASE WHEN status_application = "обучение" THEN 1 END) AS count_user,
+        SELECT
+            COUNT(CASE WHEN status_application = "подана"  THEN 1 END) AS count1,
+            COUNT(CASE WHEN status_application = "зачислена"  THEN 1 END) AS count2,
+            COUNT(CASE WHEN status_application = "окончена"  THEN 1 END) AS count3,
             c.ID_course,
             name_course,
             short_name,

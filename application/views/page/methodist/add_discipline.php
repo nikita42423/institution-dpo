@@ -2,7 +2,7 @@
 
     <div class="row justify-content-md-center mb-3">
         <div class="col-md-auto">
-            <h1 class="display-6 text-center mb-3">Образовательная программа<br><b>"<?=$ep->name_ep?>"</b></h1>
+            <h1 class="display-6 text-center mb-3">Учебный план<br><b>"<?=$ep->name_ep?>"</b></h1>
         </div>
     </div>
 

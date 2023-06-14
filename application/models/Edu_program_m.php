@@ -13,11 +13,12 @@ class Edu_program_m extends CI_Model {
                           ->join('type_ep', 'type_ep.ID_type_ep=e.ID_type_ep')
                           ->join('form_teach', 'form_teach.ID_form=e.ID_form')
                           ->join('type_doc', 'type_doc.ID_type_doc=e.ID_type_doc')
-                          ->join('price_edu', 'price_edu.ID_ep=e.ID_ep')
+                          ->join('price_edu', 'price_edu.ID_ep=e.ID_ep', 'left')
                           ->where_in('e.ID_focus', $ID_focus)
                           ->where_in('e.ID_type_ep', $ID_type_ep)
                           ->where_in('e.ID_form', $ID_form)
                           ->where_in('e.ID_type_doc', $ID_type_doc)
+                          ->where('date_end_price', NULL)
                           ->get('edu_program as e');
         return $query->result_array();
     }

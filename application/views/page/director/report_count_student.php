@@ -8,10 +8,9 @@
             <thead class="table-dark">
                 <tr>
                     <th colspan="2">Программа</th>
-                    <th class="text-center">зачислена</th>
-                    <th class="text-center">обучение</th>
-                    <th class="text-center">окончена</th>
                     <th class="text-center">подана</th>
+                    <th class="text-center">зачислена</th>
+                    <th class="text-center">окончена</th>
                     <th class="text-center">Всего</th>
                 </tr>
             </thead>
@@ -22,8 +21,7 @@
                     $s1 += $row['count1'];
                     $s2 += $row['count2'];
                     $s3 += $row['count3'];
-                    $s4 += $row['count4'];
-                    $ss1 = $row['count1'] + $row['count2'] + $row['count3'] + $row['count4'];
+                    $ss1 = $row['count1'] + $row['count2'] + $row['count3'];
                     $label .= $row['short_name'].',';
                     $value .= $ss1.',';
                     ?>
@@ -33,7 +31,6 @@
                         <td class="text-center"><?= $row['count1'] ?></td>
                         <td class="text-center"><?= $row['count2'] ?></td>
                         <td class="text-center"><?= $row['count3'] ?></td>
-                        <td class="text-center"><?= $row['count4'] ?></td>
                         <td class="text-center"><b><?= $ss1 ?></b></td>
                     </tr>
                 <?php } ?>
@@ -42,7 +39,6 @@
                         <td class="text-center"><b><?= $s1 ?></b></td>
                         <td class="text-center"><b><?= $s2 ?></b></td>
                         <td class="text-center"><b><?= $s3 ?></b></td>
-                        <td class="text-center"><b><?= $s4 ?></b></td>
                         <td class="text-center"><b><?= $s1 + $s2 + $s3 + $s4 ?></b></td>
                     </tr>
             </tbody>
