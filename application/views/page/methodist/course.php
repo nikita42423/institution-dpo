@@ -97,7 +97,7 @@
 							$class = 'class="table-warning';
 						} else if ($row['count3'] != 0)
 						{
-							$class = 'class="table-dark';
+							$class = 'class="table-success';
 						} else
 						{
 							$class = 'class="table-secondary';
