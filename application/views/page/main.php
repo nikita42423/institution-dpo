@@ -122,7 +122,7 @@
                                           // }
                                         ?>
                                     <form id="recept_application" method="post">
-		<tbody>
+		<tbody id="recept_application_tbody">
 			<?php
 				$i=1;
 				$j=1;
@@ -289,4 +289,3 @@
     </section>
 
 <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
-
