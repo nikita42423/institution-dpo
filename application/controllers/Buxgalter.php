@@ -71,18 +71,18 @@ class Buxgalter extends CI_Controller {
 
 
 	//изменение выпадающего списка программы (Бухгалтера)
-	public function edit_select()
-	{
-		$check_price = $_POST['check_price'];
-		$this->load->model('bufgalter_m');
+	// public function edit_select()
+	// {
+	// 	$check_price = $_POST['check_price'];
+	// 	$this->load->model('bufgalter_m');
 
-		//если выбран price = 0
-		if($check_price == 'true') $result = $this->bufgalter_m->sel_price_null();
-		//если не price = 0
-		else if($check_price == 'false') $result = $this->bufgalter_m->sel_edu_program();
+	// 	//если выбран price = 0
+	// 	if($check_price == 'true') $result = $this->bufgalter_m->sel_price_null();
+	// 	//если не price = 0
+	// 	else if($check_price == 'false') $result = $this->bufgalter_m->sel_edu_program();
 
-		echo json_encode($result);
-	}
+	// 	echo json_encode($result);
+	// }
 
 
 	//изменение или добавление цены
