@@ -106,55 +106,94 @@
                                         }?>
                                       </tr>
                                     </thead>
-                                    <form id="recept_application" method="post">
-                                    <tbody  id="recept_application_tbody">
                                       <?php
-                                      $i=1;
-
-                                      foreach ($course as $row) {?>
-                                      <tr>
-                                      <?php
-                                          $s = $row['count1'] + $row['count1'] + $row['count1'];
-                                          if ($s >= $row['count_in_group'])
-                                          {
-                                            //занято
-                                            $td = '<td class="table-danger text-danger-emphasis">-</td>';
-                                            echo '<td class="d-grid gap-2 m-0 pt-1 pb-1"><button type="button" class="btn btn-danger btn-sm disabled" >-</button></td>';
-                                          }
-                                          else
-                                          {
-                                            //свободно
-                                            $td = '<td class="table-primary text-primary-emphasis">+</td>';
-                                            echo '<td class="d-grid gap-2 m-0 pt-1 pb-1"><button type="button" class="btn btn-primary btn-sm" onclick="receptionApplication('.$row['ID_course'].', '.$ID_user.')" >Запись</button></td>';
-                                          }
+                                          // $s = $row['count1'] + $row['count1'] + $row['count1'];
+                                          // if ($s >= $row['count_in_group'])
+                                          // {
+                                          //   //занято
+                                          //   $td = '<td class="table-danger text-danger-emphasis">-</td>';
+                                          //   echo '<td class="d-grid gap-2 m-0 pt-1 pb-1"><button type="button" class="btn btn-danger btn-sm disabled" >-</button></td>';
+                                          // }
+                                          // else
+                                          // {
+                                          //   //свободно
+                                          //   $td = '<td class="table-primary text-primary-emphasis">+</td>';
+                                          //   echo '<td class="d-grid gap-2 m-0 pt-1 pb-1"><button type="button" class="btn btn-primary btn-sm" onclick="receptionApplication('.$row['ID_course'].', '.$ID_user.')" >Запись</button></td>';
+                                          // }
                                         ?>
-                                        
+                                    <form id="recept_application" method="post">
+		<tbody>
+			<?php
+				$i=1;
+				$j=1;
+				$s=0;
+				foreach ($course as $row) {
+					echo '<tr>';
+					$s = $row['count1'] + $row['count2'] + $row['count3'];
 
-                                        <td><?=$row['name_course']?></td>
-                                        <td><?=$row['ID_ep']?></td>
-                                        <td><?=$row['short_name']?></td>
-                                        <?php
-                                       
+					//Проверка, переполнен ли курс
+					if ($s >= $row['count_in_group'])
+					{
 
-                                        $date1 = new DateTime($row['date_start_teaching']);
-                                        $date2 = new DateTime($row['date_end_teaching']);
-                              
-                                        for ($i = 1; $i <= 45; $i++) {
-                                          $d = $header_table[$i];
-                                          $date = new DateTime($d);
+						//занято
+						$td1 = '<td colspan="';
+						$td2 = '" class="table-danger" p-0 text-center align-middle border-dark">-</td>';
+						
+						//Курс
+						echo '<td class="d-grid gap-2 m-0 pt-1 pb-1"><button type="button" class="btn btn-danger btn-sm disabled" >-</button></td>';
+					}
+					else
+					{
 
-                                          if ($date >= $date1 && $date <= $date2) {
-                                            echo  $td;
-                                          }
-                                          else {
-                                            echo "<td></td>";
-                                          }
+						//свободно
+						$td1 = '<td colspan="';
+						$td2 = '" class="table-primary" p-0 text-center align-middle border-dark" data-bs-html="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Подана: '.$row['count1'].'<br>Зачислена: '.$row['count2'].'<br>Окончена: '.$row['count3'].'<br>"><small>'.$s.'<small></td>';
+						
+						//Курс (проверка, если курс начнется обучение, то недоступены заявки)
+						if ($row['status_course'] == 'Обучение')
+						{
+							echo '<td class="d-grid gap-2 m-0 pt-1 pb-1"><button type="button" class="btn btn-danger btn-sm disabled" >-</button></td>';
+						}
+						else
+						{
+              echo '<td class="d-grid gap-2 m-0 pt-1 pb-1"><button type="button" class="btn btn-primary btn-sm" onclick="receptionApplication('.$row['ID_course'].', '.$ID_user.')" >Запись</button></td>';
+						}
+					}
+				?>
 
-                                        }
-                                        echo '</tr>';
-                                      }?>
-                                      
-                                    </tbody>
+				<!-- Код ОП -->
+				<td class="text-center"><?=$row['name_course']?></td>
+        <td class="text-center"><?=$row['ID_ep']?></td>
+				<td data-bs-toggle="tooltip" data-bs-placement="top" title="<?=$row['name_ep']?>">
+						<span class="d-inline-block text-truncate" style="max-width: 150px;"><?=$row['name_ep']?></span>
+					
+				</td>
+				<?php
+				$date1 = new DateTime($row['date_start_teaching']);
+				$date2 = new DateTime($row['date_end_teaching']);
+				
+				for ($i = 1; $i <= 45; $i++) {
+					$d = $header_table[$i];
+					$date = new DateTime($d);
+
+					if ($date >= $date1 && $date <= $date2) {
+						
+						if ($date == $date2) {
+							echo $td1.$j.$td2;
+							$j=1;
+						} else {
+							$j++;
+						}
+					}
+					else {
+						echo "<td></td>";
+					}
+
+				}
+				echo '</tr>';
+			}?>
+			
+		</tbody>
                                     </form>
                              </table>
 
