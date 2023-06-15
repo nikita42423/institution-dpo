@@ -107,19 +107,7 @@
                                       </tr>
                                     </thead>
                                       <?php
-                                          // $s = $row['count1'] + $row['count1'] + $row['count1'];
-                                          // if ($s >= $row['count_in_group'])
-                                          // {
-                                          //   //занято
-                                          //   $td = '<td class="table-danger text-danger-emphasis">-</td>';
-                                          //   echo '<td class="d-grid gap-2 m-0 pt-1 pb-1"><button type="button" class="btn btn-danger btn-sm disabled" >-</button></td>';
-                                          // }
-                                          // else
-                                          // {
-                                          //   //свободно
-                                          //   $td = '<td class="table-primary text-primary-emphasis">+</td>';
-                                          //   echo '<td class="d-grid gap-2 m-0 pt-1 pb-1"><button type="button" class="btn btn-primary btn-sm" onclick="receptionApplication('.$row['ID_course'].', '.$ID_user.')" >Запись</button></td>';
-                                          // }
+                                  
                                         ?>
                                     <form id="recept_application" method="post">
 		<tbody id="recept_application_tbody">
