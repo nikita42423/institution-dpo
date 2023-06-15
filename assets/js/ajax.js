@@ -550,11 +550,11 @@ $(document).on('click', '.viewingCourse', function () {
 function receptionApplication(id, user)
 {
    
-    var site = window.location.origin;  //базовый адрес
+    //var site = window.location.origin;  //базовый адрес
 
     // //если ID_user пустой, тогда переход на авторизацию
     if(!user){
-        window.location.replace(site + '/login/index'); 
+        window.location.replace('login/index'); 
     }
     //если сессия есть, то выполнить
     else {
@@ -568,7 +568,7 @@ function receptionApplication(id, user)
                     alert(result);
                 }
                 else if(result == true){
-                    window.location.replace(site + '/clients/lizcab');  //переход страницы
+                    window.location.replace('clients/lizcab');  //переход страницы
                 } 
             }
         })
