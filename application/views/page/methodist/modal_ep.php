@@ -37,6 +37,10 @@
 							<label for="name_form" class="form-label"><b>Форма обучения</b></label>
 							<input type="text" class="form-control mb-3" id="name_form" name="name_form" value="" readonly>
 						</div>
+						<div class="col">
+							<label for="short_name" class="form-label"><b>Краткое наим. программы</b></label>
+							<input type="text" class="form-control mb-3" id="short_name" name="short_name" value="" readonly>
+						</div>
 					</div>
 
 					<div class="row mb-5">

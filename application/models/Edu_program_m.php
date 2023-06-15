@@ -32,10 +32,10 @@ class Edu_program_m extends CI_Model {
     }
 
     //Выполнить процедуру "Добавить образовательную программу"
-    public function add_edu_program($name_ep, $ID_focus, $ID_type_ep, $ID_form, $time_week, $amount_hour, $ID_type_doc, $type_cert, $name_profession, $count_in_group)
+    public function add_edu_program($name_ep, $ID_focus, $ID_type_ep, $ID_form, $time_week, $amount_hour, $ID_type_doc, $type_cert, $name_profession, $count_in_group, $short_name)
     {
-        $sql = "CALL add_program (?,?,?,?,?,?,?,?,?,?)";
-        $this->db->query($sql, array($name_ep, $ID_focus, $ID_type_ep, $ID_form, $time_week, $amount_hour, $ID_type_doc, $type_cert, $name_profession, $count_in_group));
+        $sql = "CALL add_program (?,?,?,?,?,?,?,?,?,?,?)";
+        $this->db->query($sql, array($name_ep, $ID_focus, $ID_type_ep, $ID_form, $time_week, $amount_hour, $ID_type_doc, $type_cert, $name_profession, $count_in_group, $short_name));
         
         $query = $this->db->select('ID_ep')
                           ->order_by('ID_ep', 'ASC')
@@ -50,10 +50,10 @@ class Edu_program_m extends CI_Model {
     }
 
     //Выполнить процедуру "Изменить образовательную программу"
-    public function upd_edu_program($name_ep, $ID_focus, $ID_type_ep, $ID_form, $time_week, $amount_hour, $ID_type_doc, $type_cert, $name_profession, $count_in_group, $ID_ep)
+    public function upd_edu_program($name_ep, $ID_focus, $ID_type_ep, $ID_form, $time_week, $amount_hour, $ID_type_doc, $type_cert, $name_profession, $count_in_group, $ID_ep, $short_name)
     {
-        $sql = "CALL upd_edu_program (?,?,?,?,?,?,?,?,?,?,?)";
-        $this->db->query($sql, array($name_ep, $ID_focus, $ID_type_ep, $ID_form, $time_week, $amount_hour, $ID_type_doc, $type_cert, $name_profession, $count_in_group, $ID_ep));
+        $sql = "CALL upd_edu_program (?,?,?,?,?,?,?,?,?,?,?,?)";
+        $this->db->query($sql, array($name_ep, $ID_focus, $ID_type_ep, $ID_form, $time_week, $amount_hour, $ID_type_doc, $type_cert, $name_profession, $count_in_group, $ID_ep, $short_name));
     }
 
     //Выбрать образовательную программу для курсов

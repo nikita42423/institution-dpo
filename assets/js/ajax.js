@@ -130,6 +130,7 @@ $(document).ready(function(){
         var time_week = button.data('time_week');
         var amount_hour = button.data('amount_hour');
         var count_in_group = button.data('count_in_group');
+        var short_name = button.data('short_name');
 
         var modal = $(this);					    
         modal.find('.modal-body #ID_ep').val(ID_ep);
@@ -145,6 +146,7 @@ $(document).ready(function(){
         modal.find('.modal-body #time_week').val(time_week);
         modal.find('.modal-body #amount_hour').val(amount_hour);
         modal.find('.modal-body #count_in_group').val(count_in_group);
+        modal.find('.modal-body #short_name').val(short_name);
 	})
 
     //Модальное окно для изменения Образовательной программы
@@ -167,6 +169,7 @@ $(document).ready(function(){
         var time_week = button.data('time_week');
         var amount_hour = button.data('amount_hour');
         var count_in_group = button.data('count_in_group');
+        var short_name = button.data('short_name');
 
         var modal = $(this);					    
         modal.find('.modal-body #id_ep').val(id_ep);
@@ -186,6 +189,7 @@ $(document).ready(function(){
         modal.find('.modal-body #time_week').val(time_week);
         modal.find('.modal-body #amount_hour').val(amount_hour);
         modal.find('.modal-body #count_in_group').val(count_in_group);
+        modal.find('.modal-body #short_name').val(short_name);
 	})
 
     //Модальное окно для Преподавателя

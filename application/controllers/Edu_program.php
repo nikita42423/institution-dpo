@@ -154,9 +154,10 @@ class Edu_program extends CI_Controller {
 			$time_week = $this->input->post('time_week');
 			$amount_hour = $this->input->post('amount_hour');
 			$count_in_group = $this->input->post('count_in_group');
+			$short_name = $this->input->post('short_name');
 
 			$this->load->model('edu_program_m');
-			$ID_ep = $this->edu_program_m->add_edu_program($name_ep, $ID_focus, $ID_type_ep, $ID_form, $time_week, $amount_hour, $ID_type_doc, $type_cert, $name_profession, $count_in_group);
+			$ID_ep = $this->edu_program_m->add_edu_program($name_ep, $ID_focus, $ID_type_ep, $ID_form, $time_week, $amount_hour, $ID_type_doc, $type_cert, $name_profession, $count_in_group, $short_name);
 
 			//$this->session->set_flashdata('ID_ep', $ID_ep); //Для переноски данных в другую страницу
 			redirect('discipline/browse_one?ID_ep='.$ID_ep);
@@ -179,9 +180,10 @@ class Edu_program extends CI_Controller {
 			$time_week = $this->input->post('time_week');
 			$amount_hour = $this->input->post('amount_hour');
 			$count_in_group = $this->input->post('count_in_group');
+			$short_name = $this->input->post('short_name');
 
 			$this->load->model('edu_program_m');
-			$this->edu_program_m->upd_edu_program($name_ep, $ID_focus, $ID_type_ep, $ID_form, $time_week, $amount_hour, $ID_type_doc, $type_cert, $name_profession, $count_in_group, $ID_ep);
+			$this->edu_program_m->upd_edu_program($name_ep, $ID_focus, $ID_type_ep, $ID_form, $time_week, $amount_hour, $ID_type_doc, $type_cert, $name_profession, $count_in_group, $ID_ep, $short_name);
 
 			redirect('edu_program/browse');
 		}

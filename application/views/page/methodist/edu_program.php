@@ -31,6 +31,7 @@
 									data-time_week="<?=$row["time_week"]?>"
 									data-amount_hour="<?=$row["amount_hour"]?>"
 									data-count_in_group="<?=$row["count_in_group"]?>"
+									data-short_name="<?=$row["short_name"]?>"
 								><?=$row["name_ep"]?></button>
 							</span>
 						</td>
@@ -58,7 +59,9 @@
 
 									data-time_week="<?=$row["time_week"]?>"
 									data-amount_hour="<?=$row["amount_hour"]?>"
-									data-count_in_group="<?=$row["count_in_group"]?>">
+									data-count_in_group="<?=$row["count_in_group"]?>"
+									data-short_name="<?=$row["short_name"]?>"
+									>
 									<span data-bs-toggle="tooltip" data-bs-placement="left" title="Изменить">
 										<i class="bi-pencil" aria-hidden="true"></i>
 									</span>

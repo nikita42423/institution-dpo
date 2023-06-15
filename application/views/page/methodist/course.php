@@ -4,6 +4,8 @@
 			<div class="col-auto">
 				<h1 class="display-3 text-center mb-3">График курсов</h1>
 			</div>
+
+			<?php if (!isset($_GET['ID_ep'])) {?>
 			<div class="col-auto align-self-center">
 				<a class="btn btn-primary m-3" href="course/form_course">Формировать</a>
 			</div>
@@ -36,6 +38,7 @@
 			<div class="col-auto align-self-center text-end">
 				<h1 class="display-6 text-success mb-3"><?=$this->session->flashdata('msg');?></h1>
 			</div>
+			<?php }?>
 		</div>
 	</div>
 
