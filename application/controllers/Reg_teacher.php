@@ -35,7 +35,23 @@ class Reg_teacher extends CI_Controller {
 
             //Данные из БД
             $this->load->model('teacher_m');
-            $this->teacher_m->add_teacher($full_name, $login, $passwords, $profession, $work_exp, $ID_focus);
+            $login_check = $this->teacher_m->sel_user();
+            $i=0;
+
+            //Проверка, существует ли логин
+            foreach ($login_check as $row)
+            {
+                if ($login == $row['login']) {$i++; break;}
+            }
+
+            if ($i == 0)
+            {
+                $this->teacher_m->add_teacher($full_name, $login, $passwords, $profession, $work_exp, $ID_focus);
+            }
+            else
+            {
+                $this->session->set_flashdata('msg', 'Такой логин существует!');
+            }
             redirect('reg_teacher/browse');
         }
 	}
@@ -64,9 +80,25 @@ class Reg_teacher extends CI_Controller {
         $login = $this->input->post('login');
         $passwords = $this->input->post('passwords');
 
+        //Данные из БД
         $this->load->model('teacher_m');
-        $this->teacher_m->upd_teacher($ID_user, $full_name, $login, $passwords, $profession, $work_exp);
+        $login_check = $this->teacher_m->sel_user();
+        $i=0;    
+            
+        //Проверка, существует ли логин
+        foreach ($login_check as $row)
+        {
+            if ($login == $row['login']) {$i++; break;}
+        }
 
+        if ($i == 0)
+        {
+            $this->teacher_m->upd_teacher($ID_user, $full_name, $login, $passwords, $profession, $work_exp);
+        }
+        else
+        {
+            $this->session->set_flashdata('msg', 'Такой логин существует!');
+        }
         redirect(base_url('reg_teacher/browse'));
     }
 }

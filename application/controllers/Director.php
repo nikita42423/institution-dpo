@@ -120,6 +120,10 @@ class Director extends CI_Controller {
 			$this->load->view('page/director/report_work_teacher');
 			$this->load->view('template/footer');
 		}
+		else
+		{
+			redirect('main/index');
+		}
 	}
 
 	//Фильтрование сведений о работе преподавателей за период

@@ -16,6 +16,13 @@ class Teacher_m extends CI_Model {
         return $query->result_array();
     }
 
+    //Выбрать пользователь для проверки при регистрации преподавателя
+    public function sel_user()
+    {
+        $query = $this->db->get('users');
+        return $query->result_array();
+    }
+
     //Выполнить процедуру "Добавить преподаватель"
     public function add_teacher($full_name, $login, $passwords, $profession, $work_exp, $ID_focus)
     {

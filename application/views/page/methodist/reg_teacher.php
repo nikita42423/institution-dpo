@@ -3,6 +3,7 @@
     <div class="row justify-content-md-center mb-3">
         <div class="col-md-auto">
             <h1 class="display-6 text-center mb-3">Регистрация преподавателя</h1>
+            <h3 class="text-center text-danger mb-3"><?= $this->session->flashdata('msg');?></h3>
         </div>
     </div>
 

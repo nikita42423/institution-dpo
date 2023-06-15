@@ -8,26 +8,32 @@ class Edu_program extends CI_Controller {
 	{
 		//Сессия
 		$data['session'] = $this->session->userdata('login_session');
-		
-		//Данные из БД
-		$this->load->model('edu_program_m');
-		$this->load->model('focus_m');
-		$this->load->model('type_ep_m');
-		$this->load->model('form_teach_m');
-		$this->load->model('type_doc_m');
-		$data['edu_program'] = $this->edu_program_m->sel_edu_program(NULL, NULL, NULL, NULL);
-		$data['focus'] = $this->focus_m->sel_focus();
-		$data['type_ep'] = $this->type_ep_m->sel_type_ep();
-		$data['form_teach'] = $this->form_teach_m->sel_form_teach();
-		$data['type_doc'] = $this->type_doc_m->sel_type_doc();
+		if (isset($data['session']))
+		{
+			//Данные из БД
+			$this->load->model('edu_program_m');
+			$this->load->model('focus_m');
+			$this->load->model('type_ep_m');
+			$this->load->model('form_teach_m');
+			$this->load->model('type_doc_m');
+			$data['edu_program'] = $this->edu_program_m->sel_edu_program(NULL, NULL, NULL, NULL);
+			$data['focus'] = $this->focus_m->sel_focus();
+			$data['type_ep'] = $this->type_ep_m->sel_type_ep();
+			$data['form_teach'] = $this->form_teach_m->sel_form_teach();
+			$data['type_doc'] = $this->type_doc_m->sel_type_doc();
 
-		$this->load->view('page/methodist/modal_ep');
-		$this->load->view('page/methodist/modal_upd_ep', $data);
-		$this->load->view('template/header');
-		$this->load->view('template/sidebar', $data);
-		$this->load->view('page/methodist/filter_edu_program');
-		$this->load->view('page/methodist/edu_program');
-		$this->load->view('template/footer');
+			$this->load->view('page/methodist/modal_ep');
+			$this->load->view('page/methodist/modal_upd_ep', $data);
+			$this->load->view('template/header');
+			$this->load->view('template/sidebar', $data);
+			$this->load->view('page/methodist/filter_edu_program');
+			$this->load->view('page/methodist/edu_program');
+			$this->load->view('template/footer');
+		}
+		else
+		{
+			redirect('main/index');
+		}
 	}
 
 	//Фильтрование обр. программы

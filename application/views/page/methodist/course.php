@@ -33,9 +33,9 @@
 					</ul>
 				</div>
 			</div>
-			<!-- <div class="col-auto align-self-center text-end">
-				<h1 class="display-6 text-success mb-3">График успешно сформирован</h1>
-			</div> -->
+			<div class="col-auto align-self-center text-end">
+				<h1 class="display-6 text-success mb-3"><?=$this->session->flashdata('msg');?></h1>
+			</div>
 		</div>
 	</div>
 

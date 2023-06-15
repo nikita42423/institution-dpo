@@ -9,24 +9,31 @@ class Discipline extends CI_Controller {
 		//Сессия
 		$data['session'] = $this->session->userdata('login_session');
 
-		if (!empty($_GET['ID_ep'])) {
-			$ID_ep = $_GET['ID_ep'];
-			
-			//Данные из БД
-			$this->load->model('edu_program_m');
-			$this->load->model('discipline_m');
-			
-			$data['ep']		    = $this->edu_program_m->sel_edu_program_one($ID_ep);
-			$data['discipline'] = $this->discipline_m->sel_discipline($ID_ep);
+		if (isset($data['session']))
+		{
+			if (!empty($_GET['ID_ep'])) {
+				$ID_ep = $_GET['ID_ep'];
+				
+				//Данные из БД
+				$this->load->model('edu_program_m');
+				$this->load->model('discipline_m');
+				
+				$data['ep']		    = $this->edu_program_m->sel_edu_program_one($ID_ep);
+				$data['discipline'] = $this->discipline_m->sel_discipline($ID_ep);
 
-			
-			$this->load->view('template/header.php');
-			$this->load->view('template/sidebar.php', $data);
-			$this->load->view('page/methodist/add_discipline.php');
-			$this->load->view('page/methodist/discipline.php');
-			$this->load->view('template/footer.php');
+				
+				$this->load->view('template/header.php');
+				$this->load->view('template/sidebar.php', $data);
+				$this->load->view('page/methodist/add_discipline.php');
+				$this->load->view('page/methodist/discipline.php');
+				$this->load->view('template/footer.php');
 
-			$this->load->view('page/methodist/modal_upd_discipline.php');
+				$this->load->view('page/methodist/modal_upd_discipline.php');
+			}
+		}
+		else
+		{
+			redirect('main/index');
 		}
 	}
 
