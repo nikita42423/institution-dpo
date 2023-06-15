@@ -59,14 +59,6 @@ class Main extends CI_Controller {
 	
 	}
 
-	public function nabravel()
-	{
-		$this->load->view('template/header.php');
-		$this->load->view('template/navb.php');
-		$this->load->view('page/nabrav.php');
-
-	}
-
 
 	//Выход и удаление сессии
 	public function out()

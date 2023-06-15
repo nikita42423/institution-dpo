@@ -105,11 +105,11 @@ public function add_user_men()
 }
 
 
-public function kill_all_session()
-{
-	$this->load->model('user_m');
-	$this->user_m->kill_session();
-	redirect(base_url());
-}
+// public function kill_all_session()
+// {
+// 	$this->load->model('user_m');
+// 	$this->user_m->kill_session();
+// 	redirect(base_url());
+// }
 
 }
