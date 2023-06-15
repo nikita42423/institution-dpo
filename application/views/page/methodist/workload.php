@@ -6,6 +6,7 @@
             <table id="table_workload" class="table table-hover" style="width:100%">
 				<thead class="table-dark">
 					<tr>
+						<th>ФИО преподавателя</th>
 						<th>Курс</th>
 						<th>Наименование ОП</th>
 						<th>Дата начала</th>
@@ -23,6 +24,7 @@
 						foreach ($workload as $row) {
 							$count += $row['amount_hour'];?>
 							<tr>
+								<td><?=$row['full_name']?></td>
 								<td><?=$row['name_course']?></td>
 								<td><?=$row['short_name']?></td>
 								<td><?=$row['date_start_teaching']?></td>

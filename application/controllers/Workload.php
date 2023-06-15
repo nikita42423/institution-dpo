@@ -81,7 +81,7 @@ class Workload extends CI_Controller {
 			);
 			
 			$this->load->model('workload_m');
-			$this->workload_m->add_workload($data);
+			//$this->workload_m->add_workload($data);
 
 			redirect('workload/browse_no_load');
 		}
@@ -139,6 +139,7 @@ class Workload extends CI_Controller {
 				{
 					$count += $row['amount_hour'];
 					$str .= '<tr>
+						<td>'.$row['full_name'].'</td>
 						<td>'.$row['name_course'].'</td>
 						<td>'.$row['short_name'].'</td>
 						<td>'.$row['date_start_teaching'].'</td>

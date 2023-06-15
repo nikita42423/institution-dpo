@@ -24,7 +24,8 @@ class Course_m extends CI_Model {
             date_end_teaching,
             c.ID_ep,
             name_ep,
-            edu_program.ID_focus
+            edu_program.ID_focus,
+            status_course
         FROM course AS c
         	LEFT JOIN statement as s ON s.ID_course=c.ID_course
         	LEFT JOIN edu_program ON c.ID_ep=edu_program.ID_ep

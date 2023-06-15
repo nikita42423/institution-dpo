@@ -4,8 +4,8 @@
 		<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDark" aria-controls="offcanvasDark">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		<a class="navbar-brand" href="#">Директор <?=$session['full_name']?></a>
-		<a class="navbar-brand" href="#"></a>
+		<a class="navbar-brand">Директор <?=$session['full_name']?></a>
+		<a class="navbar-brand"></a>
 
 		<div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDark" aria-labelledby="offcanvasDarkLabel">
 			<div class="offcanvas-header">

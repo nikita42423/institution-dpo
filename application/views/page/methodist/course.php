@@ -68,7 +68,7 @@
 					echo '<tr>';
 					$s = $row['count1'] + $row['count2'] + $row['count3'];
 
-
+					//Проверка, переполнен ли курс
 					if ($s >= $row['count_in_group'])
 					{
 						if ($row['count1'] == 0 && $row['count2'] == 0)
@@ -94,27 +94,36 @@
 							$class = 'class="table-primary';
 						} else if ($row['count2'] != 0)
 						{
-							$class = 'class="table-info';
+							$class = 'class="table-warning';
 						} else if ($row['count3'] != 0)
 						{
 							$class = 'class="table-dark';
+						} else
+						{
+							$class = 'class="table-secondary';
 						}
 
 						//свободно
 						$td1 = '<td colspan="';
 						$td2 = '" '.$class.' p-0 text-center align-middle border-dark" data-bs-html="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Подана: '.$row['count1'].'<br>Зачислена: '.$row['count2'].'<br>Окончена: '.$row['count3'].'<br>"><small>'.$s.'<small></td>';
 						
-						//Курс
-						echo '<td class="d-grid gap-2 m-0 pt-1 pb-1"><a class="btn btn-primary btn-sm">'.$row['name_course'].'</a></td>';
+						//Курс (проверка, если курс начнется обучение, то недоступены заявки)
+						if ($row['status_course'] == 'Обучение')
+						{
+							echo '<td class="d-grid gap-2 m-0 pt-1 pb-1"><a class="btn btn-danger btn-sm disabled">'.$row['name_course'].'</a></td>';
+						}
+						else
+						{
+							echo '<td class="d-grid gap-2 m-0 pt-1 pb-1"><a class="btn btn-primary btn-sm ">'.$row['name_course'].'</a></td>';
+						}
 					}
 				?>
 
 				<!-- Код ОП -->
 				<td class="text-center"><?=$row['ID_ep']?></td>
-				<td>
-					<span data-bs-toggle="tooltip" data-bs-placement="right" title="<?=$row['name_ep']?>">
+				<td data-bs-toggle="tooltip" data-bs-placement="top" title="<?=$row['name_ep']?>">
 						<span class="d-inline-block text-truncate" style="max-width: 150px;"><?=$row['name_ep']?></span>
-					</span>
+					
 				</td>
 				<?php
 				$date1 = new DateTime($row['date_start_teaching']);
@@ -145,7 +154,10 @@
 	</table>
 	<div class="mt-3">
 		<p><b>Цветы и их обозначения:</b></p>
-		<small class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-secondary-emphasis bg-secondary-subtle border border-secondary-subtle rounded-2">Свободен</small>
-		<small class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-2">Занят</small>
+		<small class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-secondary-emphasis bg-secondary-subtle border border-secondary-subtle rounded-2">Свободна</small>
+		<small class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-2">Подана</small>
+		<small class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-warning-emphasis bg-warning-subtle border border-warning-subtle rounded-2">Обучение</small>
+		<small class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-success-emphasis bg-success-subtle border border-success-subtle rounded-2">Закончена</small>
+		<small class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-2">Переполнена</small>
 	</div>
 </main>
