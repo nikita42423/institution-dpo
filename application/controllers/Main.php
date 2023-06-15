@@ -103,6 +103,7 @@ class Main extends CI_Controller {
 			$date->modify('+7 day');
 		}
 
+		
 		foreach ($course as $row) {
 			$str .= '<tr>';
 			$s = $row['count1'] + $row['count1'] + $row['count1'];
