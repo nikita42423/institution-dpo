@@ -63,15 +63,13 @@ class Edu_program_m extends CI_Model {
         return $query->result_array();
     }
 
-
-
-     //список ОП по направлению
-     public function filter_focus($ID_focus)
-     {
-         $query = $this->db->where_in('ID_focus', $ID_focus)
-                             ->get('edu_program');
-         return $query->result_array();
-     }
+    //список ОП по направлению
+    public function filter_focus($ID_focus)
+    {
+        $query = $this->db->where_in('ID_focus', $ID_focus)
+                            ->get('edu_program');
+        return $query->result_array();
+    }
 
      
 }

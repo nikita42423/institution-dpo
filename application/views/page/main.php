@@ -90,7 +90,7 @@
                             <table id="table_course" class="table table-hover table-bordered border-dark" style="width:100%">
                                     <thead>
                                       <tr class="">
-                                        
+                                      <th class="text-table-rotate" rowspan="2"></th>
                                         <th class="text-table-rotate" rowspan="2">Курс</th>
                                         <th class="text-table-rotate" rowspan="2">Код ОП</th>
                                         <th class="text-nowrap text-center" rowspan="2">Наименование ОП</th>
@@ -162,7 +162,8 @@
 				?>
 
 				<!-- Код ОП -->
-				<td class="text-center"><?=$row['ID_ep']?></td>
+				<td class="text-center"><?=$row['name_course']?></td>
+        <td class="text-center"><?=$row['ID_ep']?></td>
 				<td data-bs-toggle="tooltip" data-bs-placement="top" title="<?=$row['name_ep']?>">
 						<span class="d-inline-block text-truncate" style="max-width: 150px;"><?=$row['name_ep']?></span>
 					
