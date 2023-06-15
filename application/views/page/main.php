@@ -122,7 +122,7 @@
                                           // }
                                         ?>
                                     <form id="recept_application" method="post">
-		<tbody>
+		<tbody id="recept_application_tbody">
 			<?php
 				$i=1;
 				$j=1;
