@@ -96,8 +96,8 @@ class Course extends CI_Controller {
 		// 		$i++;
 		// 	}
 		// }
-
-		$this->session->flashdata('msg', 'График успешно сформирован!');
+		
+		$this->session->set_flashdata('msg', 'График успешно сформирован!');
 		redirect('course/index');
 	}
 }
