@@ -6,9 +6,12 @@
 			</div>
 
 			<?php if (!isset($_GET['ID_ep'])) {?>
-			<div class="col-auto align-self-center">
-				<a class="btn btn-primary m-3" href="course/form_course">Формировать</a>
-			</div>
+			<form action="course/form_course" method="post">
+				<div class="col-auto align-self-center">
+					<input type="date" name="date_course">
+					<button type="submit" class="btn btn-primary m-3">Формировать</button>
+				</div>
+			</form>
 			<div class="col-auto align-self-center">
 				<div class="dropdown">
 					<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -71,7 +74,7 @@
 			foreach ($course as $row) {
 
 				//Не выводится в таблицу курс, у которого имеет статус "Окончен"
-				if ($row['status_course'] != 'Окончен')
+				if ($row['status_course'] != 'Архив')
 				{
 					echo '<tr>';
 					$s = $row['count1'] + $row['count2'] + $row['count3'];

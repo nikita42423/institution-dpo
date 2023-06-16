@@ -55,9 +55,10 @@ class Course_m extends CI_Model {
     //Обновить статус курсов
     public function end_course()
     {
-        $this->db->set('status_course', 'Окончен')
+        $this->db->set('status_course', 'Архив')
                  ->where('status_course', 'Запланирован')
                  ->or_where('status_course', 'Обучение')
+                 ->or_where('status_course', 'Окончен')
                  ->update('course');
     }
     
@@ -69,5 +70,4 @@ class Course_m extends CI_Model {
         return $query->result_array();
     }
 
-    
 }
