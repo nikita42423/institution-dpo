@@ -67,7 +67,10 @@
 			$i=1;
 			$j=1;
 			$s=0;
+
 			foreach ($course as $row) {
+
+				//Не выводится в таблицу курс, у которого имеет статус "Окончен"
 				if ($row['status_course'] != 'Окончен')
 				{
 					echo '<tr>';
@@ -139,8 +142,8 @@
 						$d = $header_table[$i];
 						$date = new DateTime($d);
 
+						//Закрашивает ячейку, если есть курс
 						if ($date >= $date1 && $date <= $date2) {
-							
 							if ($date == $date2) {
 								echo $td1.$j.$td2;
 								$j=1;
