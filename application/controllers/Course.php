@@ -63,15 +63,17 @@ class Course extends CI_Controller {
 		//Изменить актуельные курсы на законченные
 		$this->course_m->end_course();
 
-		//Выполнение добавления курсов
+		//Выбрать добавления курсов
 		$data['edu_program'] = $this->edu_program_m->sel_edu_program_for_course();
 		$date = new DateTime('2023-09-01');
 
+		//Формирование заголовка
 		for ($i = 1; $i <= 45; $i++) {
 			$data['header_table'][$i] = $date->format('y.m.d');
 			$date->modify('+7 day');
 		}
 
+		//Добавление курса
 		foreach ($data['edu_program'] as $row) {
 			//Сколько курсов за год
 			$count_course = intdiv(45, $row['time_week']);
