@@ -60,8 +60,8 @@ class Course extends CI_Controller {
 		$this->load->model('edu_program_m');
 		$this->load->model('course_m');
 
-		//Очистить таблицу
-		$this->course_m->empty_course();
+		//Изменить актуельные курсы на законченные
+		$this->course_m->end_course();
 
 		//Выполнение добавления курсов
 		$data['edu_program'] = $this->edu_program_m->sel_edu_program_for_course();

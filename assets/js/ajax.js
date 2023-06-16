@@ -110,7 +110,8 @@ $(document).ready(function(){
         var button = $(event.relatedTarget) 		
         var id_info = button.data('id_info')		
         var name_info = button.data('name_info'); 	
-        var modal = $(this);					    
+        var modal = $(this);
+
         modal.find('.modal-body #id_info').val(id_info);
         modal.find('.modal-body #name_info').val(name_info);
 	})
@@ -131,8 +132,8 @@ $(document).ready(function(){
         var amount_hour = button.data('amount_hour');
         var count_in_group = button.data('count_in_group');
         var short_name = button.data('short_name');
+        var modal = $(this);		
 
-        var modal = $(this);					    
         modal.find('.modal-body #ID_ep').val(ID_ep);
         modal.find('.modal-body #name_ep').val(name_ep);
         modal.find('.modal-body #name_profession').val(name_profession);
@@ -170,8 +171,8 @@ $(document).ready(function(){
         var amount_hour = button.data('amount_hour');
         var count_in_group = button.data('count_in_group');
         var short_name = button.data('short_name');
-
         var modal = $(this);					    
+
         modal.find('.modal-body #id_ep').val(id_ep);
         modal.find('.modal-body #name_ep').val(name_ep);
         modal.find('.modal-body #name_profession').val(name_profession);
@@ -192,8 +193,31 @@ $(document).ready(function(){
         modal.find('.modal-body #short_name').val(short_name);
 	})
 
-    //Модальное окно для Преподавателя
-	$('#modal_teacher').on('show.bs.modal', function (event) {
+    //Модальное окно для изменения дисциплины
+	$('#modal_upd_discipline').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var id_ep = button.data('id_ep');
+        var id_discipline = button.data('id_discipline');
+        var name_discipline = button.data('name_discipline');
+        var amount_hour = button.data('amount_hour');
+        var amount_hour_work = button.data('amount_hour_work');
+        var type_mid_cert = button.data('type_mid_cert');
+        var type_practice = button.data('type_practice');
+        var amount_hour_practice = button.data('amount_hour_practice');
+        var modal = $(this);
+
+        modal.find('.modal-body #id_ep').val(id_ep);
+        modal.find('.modal-body #id_discipline').val(id_discipline);
+        modal.find('.modal-body #name_discipline').val(name_discipline);
+        modal.find('.modal-body #amount_hour').val(amount_hour);
+        modal.find('.modal-body #amount_hour_work').val(amount_hour_work);
+        modal.find('.modal-body #type_mid_cert').val(type_mid_cert);
+        modal.find('.modal-body #type_practice').val(type_practice);
+        modal.find('.modal-body #amount_hour_practice').val(amount_hour_practice);
+	})
+
+    //Модальное окно для изменения преподавателя
+	$('#modal_upd_teacher').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget) 		
         var id_user = button.data('id_user');
         var full_name = button.data('full_name');
@@ -201,14 +225,15 @@ $(document).ready(function(){
         var work_exp = button.data('work_exp');
         var login = button.data('login');
         var passwords = button.data('passwords');
-        var modal = $(this);					    
+        var modal = $(this);
+
         modal.find('.modal-body #id_user').val(id_user);
         modal.find('.modal-body #full_name').val(full_name);
         modal.find('.modal-body #profession').val(profession);
         modal.find('.modal-body #work_exp').val(work_exp);
         modal.find('.modal-body #login').val(login);
+        modal.find('.modal-body #my_login').val(login);
         modal.find('.modal-body #passwords').val(passwords);
-        
 	})
 });
 

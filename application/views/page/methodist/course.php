@@ -64,10 +64,12 @@
 		</thead>
 		<tbody>
 			<?php
-				$i=1;
-				$j=1;
-				$s=0;
-				foreach ($course as $row) {
+			$i=1;
+			$j=1;
+			$s=0;
+			foreach ($course as $row) {
+				if ($row['status_course'] != 'Окончен')
+				{
 					echo '<tr>';
 					$s = $row['count1'] + $row['count2'] + $row['count3'];
 
@@ -87,8 +89,8 @@
 						$td1 = '<td colspan="';
 						$td2 = '" '.$class.' p-0 text-center align-middle border-dark" data-bs-html="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Подана: '.$row['count1'].'<br>Зачислена: '.$row['count2'].'<br>Окончена: '.$row['count3'].'<br>"><small>'.$s.'<small></td>';
 						
-						//Курс
-						echo '<td class="d-grid gap-2 m-0 pt-1 pb-1"><a class="btn btn-danger btn-sm disabled">'.$row['name_course'].'</a></td>';
+						//Курс (индикатор)
+						echo '<td data-bs-toggle="tooltip" data-bs-placement="left" title="Подача заявки недоступна" class="d-grid gap-2 m-0 pt-1 pb-1"><a class="btn btn-danger btn-sm disabled">'.$row['name_course'].'</a></td>';
 					}
 					else
 					{
@@ -113,46 +115,46 @@
 						//Курс (проверка, если курс начнется обучение, то недоступены заявки)
 						if ($row['status_course'] == 'Обучение')
 						{
-							echo '<td class="d-grid gap-2 m-0 pt-1 pb-1"><a class="btn btn-danger btn-sm disabled">'.$row['name_course'].'</a></td>';
+							//Курс (индикатор)
+							echo '<td data-bs-toggle="tooltip" data-bs-placement="left" title="Подача заявки недоступна" class="d-grid gap-2 m-0 pt-1 pb-1"><a class="btn btn-danger btn-sm disabled">'.$row['name_course'].'</a></td>';
 						}
 						else
 						{
-							echo '<td class="d-grid gap-2 m-0 pt-1 pb-1"><a class="btn btn-primary btn-sm ">'.$row['name_course'].'</a></td>';
+							//Курс (индикатор)
+							echo '<td data-bs-toggle="tooltip" data-bs-placement="left" title="Подача заявки доступна" class="d-grid gap-2 m-0 pt-1 pb-1"><a class="btn btn-primary btn-sm ">'.$row['name_course'].'</a></td>';
 						}
-					}
-				?>
+					}?>
 
-				<!-- Код ОП -->
-				<td class="text-center"><?=$row['ID_ep']?></td>
-				<td data-bs-toggle="tooltip" data-bs-placement="top" title="<?=$row['name_ep']?>">
-						<span class="d-inline-block text-truncate" style="max-width: 150px;"><?=$row['name_ep']?></span>
-					
-				</td>
-				<?php
-				$date1 = new DateTime($row['date_start_teaching']);
-				$date2 = new DateTime($row['date_end_teaching']);
-				
-				for ($i = 1; $i <= 45; $i++) {
-					$d = $header_table[$i];
-					$date = new DateTime($d);
-
-					if ($date >= $date1 && $date <= $date2) {
+					<!-- Код ОП -->
+					<td class="text-center"><?=$row['ID_ep']?></td>
+					<td data-bs-toggle="tooltip" data-bs-placement="top" title="<?=$row['name_ep']?>">
+							<span class="d-inline-block text-truncate" style="max-width: 150px;"><?=$row['name_ep']?></span>
 						
-						if ($date == $date2) {
-							echo $td1.$j.$td2;
-							$j=1;
-						} else {
-							$j++;
+					</td>
+					<?php
+					$date1 = new DateTime($row['date_start_teaching']);
+					$date2 = new DateTime($row['date_end_teaching']);
+					
+					for ($i = 1; $i <= 45; $i++) {
+						$d = $header_table[$i];
+						$date = new DateTime($d);
+
+						if ($date >= $date1 && $date <= $date2) {
+							
+							if ($date == $date2) {
+								echo $td1.$j.$td2;
+								$j=1;
+							} else {
+								$j++;
+							}
+						}
+						else {
+							echo "<td></td>";
 						}
 					}
-					else {
-						echo "<td></td>";
-					}
-
+					echo '</tr>';
 				}
-				echo '</tr>';
 			}?>
-			
 		</tbody>
 	</table>
 	<div class="mt-3">
@@ -160,7 +162,7 @@
 		<small class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-secondary-emphasis bg-secondary-subtle border border-secondary-subtle rounded-2">Свободна</small>
 		<small class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-2">Подана</small>
 		<small class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-warning-emphasis bg-warning-subtle border border-warning-subtle rounded-2">Обучение</small>
-		<small class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-success-emphasis bg-success-subtle border border-success-subtle rounded-2">Закончена</small>
+		<small class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-success-emphasis bg-success-subtle border border-success-subtle rounded-2">Окончена</small>
 		<small class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-2">Переполнена</small>
 	</div>
 </main>

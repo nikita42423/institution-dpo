@@ -20,7 +20,16 @@
                     foreach ($no_workload as $row) {?>
 					<tr>
 						<td><?=$row['name_ep']?></td>
-						<td><?=$row['name_course']?></td>
+						<td>
+							<?php if (!empty($row['name_course']))
+							{
+								echo $row['name_course'];
+							}
+							else
+							{
+								echo '<small class="d-inline-flex px-2 py-1 fw-semibold text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-2">Отсутствует</small>';
+							}?>	
+						</td>
 						<td><?=$row['name_discipline']?></td>
 						<td><?=$row['date_start_teaching']?></td>
 						<td><?=$row['date_end_teaching']?></td>
@@ -29,7 +38,7 @@
                             <!-- Назначить преподаватель -->
                             <div class="dropdown">
                                 <div class="dropdown">
-                                    <button class="btn btn-primary dropdown-toggle m-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <button class="btn btn-primary dropdown-toggle m-0" type="button" data-bs-toggle="dropdown" aria-expanded="false" <?php if (empty($row['name_course'])) {echo "disabled";}?>>
                                         <i class="bi-person-add" aria-hidden="true"></i>
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-dark">

@@ -18,7 +18,7 @@ class Reg_teacher extends CI_Controller {
 		$this->load->view('template/header');
         $this->load->view('template/sidebar', $data);
 		$this->load->view('page/methodist/reg_teacher');
-        $this->load->view('page/methodist/modal_teacher');
+        $this->load->view('page/methodist/modal_upd_teacher');
         $this->load->view('template/footer');
 	}
 
@@ -73,12 +73,13 @@ class Reg_teacher extends CI_Controller {
     //Изменение преподавателя
     public function upd_teacher()
 	{
-        $ID_user = $this->input->post('ID_user');
-        $full_name = $this->input->post('full_name');
+        $ID_user    = $this->input->post('ID_user');
+        $full_name  = $this->input->post('full_name');
         $profession = $this->input->post('profession');
-        $work_exp = $this->input->post('work_exp');
-        $login = $this->input->post('login');
-        $passwords = $this->input->post('passwords');
+        $work_exp   = $this->input->post('work_exp');
+        $login      = $this->input->post('login');
+        $my_login   = $this->input->post('my_login');
+        $passwords  = $this->input->post('passwords');
 
         //Данные из БД
         $this->load->model('teacher_m');
@@ -88,7 +89,7 @@ class Reg_teacher extends CI_Controller {
         //Проверка, существует ли логин
         foreach ($login_check as $row)
         {
-            if ($login == $row['login']) {$i++; break;}
+            if ($login == $row['login'] && $my_login != $row['login']) {$i++;}
         }
 
         if ($i == 0)

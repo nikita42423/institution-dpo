@@ -85,7 +85,7 @@
                             <div class="btn-group" role="group">
                                 <!-- Изменить -->
                                 <button type="button" class="btn btn-primary m-0" data-bs-toggle="modal"
-                                    data-bs-target="#modal_teacher"
+                                    data-bs-target="#modal_upd_teacher"
                                     data-id_user="<?=$row['ID_user']?>"
                                     data-full_name="<?=$row['full_name']?>"
                                     data-profession="<?=$row['profession']?>"

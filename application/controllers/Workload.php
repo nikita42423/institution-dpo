@@ -85,6 +85,10 @@ class Workload extends CI_Controller {
 
 			redirect('workload/browse_no_load');
 		}
+		else
+		{
+			echo '?????????';
+		}
 	}
 
 	//Удаление нагрузки преподавателя

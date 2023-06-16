@@ -5,7 +5,7 @@
 	</div>
 
 	<h2>Форма обучения</h2>
-	<form class="row g-3 mb-3" action="form_teach/add_form_teach')?>" method="post">
+	<form class="row g-3 mb-3" action="form_teach/add_form_teach" method="post">
 		<div class="col-auto">
 			<input type="text" readonly class="form-control-plaintext" value="Наим. формы обучения">
 		</div>
