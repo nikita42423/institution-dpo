@@ -17,23 +17,21 @@
 					<?php foreach ($edu_program as $row) {?>
 					<tr>
 						<td class="col-6">
-							<span data-bs-toggle="tooltip" data-bs-placement="right" title="Подробнее">
-								<button type="button" data-bs-toggle="modal" class="btn btn-light m-0" 
-									data-bs-target="#modal_ep"
-									data-id_ep="<?=$row["ID_ep"]?>"
-									data-name_ep="<?=$row["name_ep"]?>"
-									data-name_profession="<?=$row["name_profession"]?>"
-									data-type_cert="<?=$row["type_cert"]?>"
-									data-name_type_ep="<?=$row["name_type_ep"]?>"
-									data-name_focus="<?=$row["name_focus"]?>"
-									data-name_type_doc="<?=$row["name_type_doc"]?>"
-									data-name_form="<?=$row["name_form"]?>"
-									data-time_week="<?=$row["time_week"]?>"
-									data-amount_hour="<?=$row["amount_hour"]?>"
-									data-count_in_group="<?=$row["count_in_group"]?>"
-									data-short_name="<?=$row["short_name"]?>"
-								><?=$row["name_ep"]?></button>
-							</span>
+							<button type="button" data-bs-toggle="modal" class="btn btn-light m-0" 
+								data-bs-target="#modal_ep"
+								data-id_ep="<?=$row["ID_ep"]?>"
+								data-name_ep="<?=$row["name_ep"]?>"
+								data-name_profession="<?=$row["name_profession"]?>"
+								data-type_cert="<?=$row["type_cert"]?>"
+								data-name_type_ep="<?=$row["name_type_ep"]?>"
+								data-name_focus="<?=$row["name_focus"]?>"
+								data-name_type_doc="<?=$row["name_type_doc"]?>"
+								data-name_form="<?=$row["name_form"]?>"
+								data-time_week="<?=$row["time_week"]?>"
+								data-amount_hour="<?=$row["amount_hour"]?>"
+								data-count_in_group="<?=$row["count_in_group"]?>"
+								data-short_name="<?=$row["short_name"]?>"
+							><span data-bs-toggle="tooltip" data-bs-placement="right" title="Подробнее"><?=$row["name_ep"]?></span></button>
 						</td>
 						<td class="col-2"><?=$row["name_focus"]?></td>
 						<td class="col-1"><?=$row["price"]?></td>
