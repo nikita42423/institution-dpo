@@ -21,6 +21,7 @@ class Buxgalter extends CI_Controller {
 		}
 		else
 		{
+			
 			redirect('main/index');
 		}
 	}
