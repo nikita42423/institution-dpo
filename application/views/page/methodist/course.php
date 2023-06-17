@@ -55,8 +55,8 @@
 				<th class="text-nowrap text-center" rowspan="2">Наименование ОП</th>
 				<?php
 				for ($i = 1; $i <= 45; $i++) {
-					$data = new DateTime($header_table[$i]);
-					echo '<th class="text-table-rotate" style="padding-left: 0px;padding-right: 0px;">'.$data->format('d.m').'</th>';
+					$date = new DateTime($header_table[$i]);
+					echo '<th class="text-table-rotate" style="padding-left: 0px;padding-right: 0px;">'.$date->format('d.m').'</th>';
 				}?>
 			</tr>
 			<tr>
@@ -75,7 +75,7 @@
 			foreach ($course as $row) {
 
 				//Не выводится в таблицу курс, у которого имеет статус "Окончен"
-				if ($row['status_course'] == 'Архив')
+				if ($row['status_course'] != 'Архив')
 				{
 					echo '<tr>';
 					$s = $row['count1'] + $row['count2'] + $row['count3'];
@@ -146,10 +146,9 @@
 					<?php
 					$date1 = new DateTime($row['date_start_teaching']);
 					$date2 = new DateTime($row['date_end_teaching']);
-					
+
 					for ($i = 1; $i <= 45; $i++) {
-						$d = $header_table[$i];
-						$date = new DateTime($d);
+						$date = new DateTime($header_table[$i]);
 
 						//Закрашивает ячейку, если есть курс
 						if ($date >= $date1 && $date <= $date2) {

@@ -68,7 +68,7 @@ class Course extends CI_Controller {
 		$data['edu_program'] = $this->edu_program_m->sel_edu_program_for_course();
 			//$date = new DateTime('2023-09-01');
 
-		$date = new DateTime('2023-01-09');
+		$date = new DateTime('2023-09-01');
 
 		//Формирование заголовка
 		for ($i = 1; $i <= 45; $i++) {
