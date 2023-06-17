@@ -2,7 +2,7 @@
 
 	<div class="row">
 		<div class="col-md-auto">
-			<h1 class="display-3 mb-3">Нагрузка преподавателей<a class="btn btn-primary m-3" href="teacher/browse">Преподаватель</a>
+			<h1 class="display-3 mb-3">Нагрузка преподавателей<a class="btn btn-primary m-3" href="reg_teacher/browse">Преподаватель</a>
 			</h1>
 		</div>
 	</div>

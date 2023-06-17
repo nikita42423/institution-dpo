@@ -1,5 +1,5 @@
 <!-- Модальное окно -->
-<div class="modal fade" id="modal_teacher" tabindex="-1">
+<div class="modal fade" id="modal_upd_teacher" tabindex="-1">
 	<div class="modal-dialog modal-dialog-centered modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -11,6 +11,8 @@
 				<div class="modal-body">
 
                     <input type="hidden" id="id_user" name="ID_user" value="">
+                    <input type="hidden" id="my_login" name="my_login" value="">
+                    
                     <label for="full_name" class="form-label">ФИО преподавателя</label>
                     <input type="text" class="form-control mb-3" id="full_name" name="full_name" value="" required>
 

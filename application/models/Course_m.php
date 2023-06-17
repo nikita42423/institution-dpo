@@ -46,15 +46,20 @@ class Course_m extends CI_Model {
             'name_course' => $name_course,
             'ID_ep' => $ID_ep,
             'date_start_teaching' => $date_start_teaching,
-            'date_end_teaching' => $date_end_teaching
+            'date_end_teaching' => $date_end_teaching,
+            'status_course' => 'Запланирован'
         );
         $this->db->insert('course', $object);
     }
 
-    //Очистить график курсов
-    public function empty_course()
+    //Обновить статус курсов
+    public function end_course()
     {
-        $this->db->empty_table('course');
+        $this->db->set('status_course', 'Архив')
+                 ->where('status_course', 'Запланирован')
+                 ->or_where('status_course', 'Обучение')
+                 ->or_where('status_course', 'Окончен')
+                 ->update('course');
     }
     
     //Список курсов по ОП
@@ -65,5 +70,4 @@ class Course_m extends CI_Model {
         return $query->result_array();
     }
 
-    
 }

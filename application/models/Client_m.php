@@ -35,12 +35,13 @@ class Client_m extends CI_Model {
 
 
      //изменить данные клиента (персональные данные)
-     public function upd_user($ID_user, $full_name, $phone, $address)
+     public function upd_user($ID_user, $full_name, $phone, $address, $file_dogovor)
      {
          $data = array(
              'full_name' => $full_name,
              'phone' => $phone,
-             'address' => $address
+             'address' => $address,
+             'file_dogovor' => $file_dogovor
          );
          $this->db->where('ID_user', $ID_user);
 

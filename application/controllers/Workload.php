@@ -81,9 +81,13 @@ class Workload extends CI_Controller {
 			);
 			
 			$this->load->model('workload_m');
-			//$this->workload_m->add_workload($data);
+			$this->workload_m->add_workload($data);
 
 			redirect('workload/browse_no_load');
+		}
+		else
+		{
+			echo '?????????';
 		}
 	}
 

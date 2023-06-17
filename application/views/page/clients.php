@@ -99,7 +99,7 @@
     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
       <div class="accordion-body">
        
-      <form id="edit_client" method="post">
+      <form id="edit_client" method="post" enctype="multipart/form-data">
 
       <div class="form-outline mb-4">
               <?php foreach ($client as $row) {}?>
@@ -116,12 +116,21 @@
           <input type="text" id="address" class="form-control form-control-lg" required   name="address" value="<?=$row['address']?>" />
             <label class="form-label" for="address">Адрес</label>
           </div>
+
+
+          <div class="col-md-4">
+          <input type="hidden" name="MAX_FILE_SIZE" value="300000000000000000">
+            <label for="file_dogovor" class="form-label">Файл договор</label>
+            <input type="file" class="form-control" id="file_dogovor" name="file_dogovor" value="<?=$row['file_dogovor']?>" >
+            
+          </div>
           <div class="d-flex justify-content-center">
             <button type="submit"
               class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">сохранить</button>
           </div>
 
         </form>
+        
      
       </div>
     </div>

@@ -2,7 +2,8 @@
 
     <div class="row justify-content-md-center mb-3">
         <div class="col-md-auto">
-            <h1 class="display-6 text-center mb-3">Учебный план<br><b>"<?=$ep->name_ep?>"</b></h1>
+            <h1 class="display-4 text-center mb-3">Учебный план</h1>
+            <h3 class="text-center mb-3">Программа "<?=$ep->name_ep;?>" объем "<?=$ep->amount_hour;?>" часов</h3>
         </div>
     </div>
 
@@ -10,7 +11,7 @@
         <div class="row">
             <div class="col-3"></div>
             <div class="col-6">
-                <input type="hidden" name="ID_ep" value="<?=$_GET['ID_ep']?>">
+                <input type="hidden" id="id_ep" name="ID_ep" value="<?=$_GET['ID_ep']?>">
                 
                 <label for="name_discipline" class="form-label">Наименование дисциплины</label>
                 <input type="text" class="form-control mb-3" id="name_discipline" name="name_discipline" value="" required>
