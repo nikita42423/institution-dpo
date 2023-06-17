@@ -6,12 +6,13 @@
 			</div>
 
 			<?php if (!isset($_GET['ID_ep'])) {?>
-			<form action="course/form_course" method="post">
+			
 				<div class="col-auto align-self-center">
-					<input type="date" name="date_course">
+					<form action="course/form_course" method="post">
 					<button type="submit" class="btn btn-primary m-3">Формировать</button>
+					</form>
 				</div>
-			</form>
+			
 			<div class="col-auto align-self-center">
 				<div class="dropdown">
 					<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -50,7 +51,7 @@
 			<!-- Заголовок -->
 			<tr>
 				<th class="text-nowrap text-center" rowspan="2">Курс</th>
-				<th class="text-table-rotate" rowspan="2">Код ОП</th>
+				<th class="text-nowrap" rowspan="2">Коррекция</th>
 				<th class="text-nowrap text-center" rowspan="2">Наименование ОП</th>
 				<?php
 				for ($i = 1; $i <= 45; $i++) {
@@ -74,7 +75,7 @@
 			foreach ($course as $row) {
 
 				//Не выводится в таблицу курс, у которого имеет статус "Окончен"
-				if ($row['status_course'] != 'Архив')
+				if ($row['status_course'] == 'Архив')
 				{
 					echo '<tr>';
 					$s = $row['count1'] + $row['count2'] + $row['count3'];
@@ -95,11 +96,12 @@
 						$td1 = '<td colspan="';
 						$td2 = '" '.$class.' p-0 text-center align-middle border-dark" data-bs-html="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Подана: '.$row['count1'].'<br>Зачислена: '.$row['count2'].'<br>Окончена: '.$row['count3'].'<br>"><small>'.$s.'<small></td>';
 						
-						//Курс (индикатор)
-						echo '<td data-bs-toggle="tooltip" data-bs-placement="left" title="Подача заявки недоступна" class="d-grid gap-2 m-0 pt-1 pb-1"><a class="btn btn-danger btn-sm disabled">'.$row['name_course'].'</a></td>';
+						//Курс (переполнен)
+						echo '<td class="d-grid gap-2 m-0 pt-1 pb-1"><a class="btn btn-danger btn-sm disabled">'.$row['name_course'].'</a></td>';
 					}
 					else
 					{
+						//Закрашение ячейки цветом
 						if ($row['count1'] != 0)
 						{
 							$class = 'class="table-primary';
@@ -114,28 +116,32 @@
 							$class = 'class="table-secondary';
 						}
 
-						//свободно
+						//свободно ()
 						$td1 = '<td colspan="';
 						$td2 = '" '.$class.' p-0 text-center align-middle border-dark" data-bs-html="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Подана: '.$row['count1'].'<br>Зачислена: '.$row['count2'].'<br>Окончена: '.$row['count3'].'<br>"><small>'.$s.'<small></td>';
 						
-						//Курс (проверка, если курс начнется обучение, то недоступены заявки)
+						//Курс (проверка)
 						if ($row['status_course'] == 'Обучение')
 						{
-							//Курс (индикатор)
-							echo '<td data-bs-toggle="tooltip" data-bs-placement="left" title="Подача заявки недоступна" class="d-grid gap-2 m-0 pt-1 pb-1"><a class="btn btn-danger btn-sm disabled">'.$row['name_course'].'</a></td>';
+							echo '<td class="d-grid gap-2 m-0 pt-1 pb-1"><a class="btn btn-danger btn-sm disabled">'.$row['name_course'].'</a></td>';
 						}
 						else
 						{
-							//Курс (индикатор)
-							echo '<td data-bs-toggle="tooltip" data-bs-placement="left" title="Подача заявки доступна" class="d-grid gap-2 m-0 pt-1 pb-1"><a class="btn btn-primary btn-sm ">'.$row['name_course'].'</a></td>';
+							echo '<td class="d-grid gap-2 m-0 pt-1 pb-1"><a class="btn btn-primary btn-sm ">'.$row['name_course'].'</a></td>';
 						}
 					}?>
 
 					<!-- Код ОП -->
-					<td class="text-center"><?=$row['ID_ep']?></td>
+					<td class="text-center">
+						<?php if ($row['count1'] == 0 && $row['count2'] == 0 && $row['count3'] == 0) {
+							echo '<div class="btn-group" role="group">';
+							echo '<button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal_upd_course" data-id_course="'.$row['ID_course'].'" data-date_start_teaching="'.$row['date_start_teaching'].'" data-date_end_teaching="'.$row['date_end_teaching'].'"><span data-bs-toggle="tooltip" data-bs-placement="top" title="Изменить"><i class="bi-pencil" aria-hidden="true"></i></span></button>';
+							echo '<a class="btn btn-dark btn-sm" href="course/del_course?ID_course='.$row['ID_course'].'"><span data-bs-toggle="tooltip" data-bs-placement="top" title="Удалить"><i class="bi-trash" aria-hidden="true"></i></span></a>';		
+							echo '</div>';
+						}?>
+					</td>
 					<td data-bs-toggle="tooltip" data-bs-placement="top" title="<?=$row['name_ep']?>">
-							<span class="d-inline-block text-truncate" style="max-width: 150px;"><?=$row['name_ep']?></span>
-						
+						<span class="d-inline-block text-truncate" style="max-width: 150px;"><?=$row['name_ep']?></span>
 					</td>
 					<?php
 					$date1 = new DateTime($row['date_start_teaching']);
@@ -172,3 +178,16 @@
 		<small class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-2">Переполнена</small>
 	</div>
 </main>
+
+<script>
+	$('#modal_upd_course').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) 		
+        var id_course = button.data('id_course');
+		var date_start_teaching = button.data('date_start_teaching');
+		var date_end_teaching = button.data('date_end_teaching');
+        var modal = $(this);
+        modal.find('.modal-body #id_course').val(id_course);
+		modal.find('.modal-body #date_start_teaching').val(date_start_teaching);
+		modal.find('.modal-body #date_end_teaching').val(date_end_teaching);
+	})
+</script>

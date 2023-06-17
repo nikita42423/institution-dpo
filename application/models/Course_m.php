@@ -70,4 +70,19 @@ class Course_m extends CI_Model {
         return $query->result_array();
     }
 
+    //Изменить курсов
+    public function upd_course($ID_course, $date1, $date2)
+    {
+        $this->db->set('date_start_teaching', $date1)
+                 ->set('date_end_teaching', $date2)
+                 ->where('ID_course', $ID_course)
+                 ->update('course');
+    }
+
+    //Удалить курс
+    public function del_course($ID_course)
+    {
+        $this->db->where('ID_course', $ID_course)
+                 ->delete('course');
+    }
 }

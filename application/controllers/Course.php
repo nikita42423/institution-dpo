@@ -43,6 +43,7 @@ class Course extends CI_Controller {
 			}
 
 			$this->load->view('template/header.php');
+			$this->load->view('page/methodist/modal_upd_course.php');
 			$this->load->view('template/sidebar.php', $data);
 			$this->load->view('page/methodist/course.php');
 			$this->load->view('template/footer.php');
@@ -67,7 +68,7 @@ class Course extends CI_Controller {
 		$data['edu_program'] = $this->edu_program_m->sel_edu_program_for_course();
 			//$date = new DateTime('2023-09-01');
 
-		$date = new DateTime($_POST['date_course']);
+		$date = new DateTime('2023-01-09');
 
 		//Формирование заголовка
 		for ($i = 1; $i <= 45; $i++) {
@@ -103,5 +104,53 @@ class Course extends CI_Controller {
 		
 		$this->session->set_flashdata('msg', 'График успешно сформирован!');
 		redirect('course/index');
+	}
+
+	//Изменить курс по датам
+	public function upd_course()
+	{
+		//Сессия
+		$data['session'] = $this->session->userdata('login_session');
+		if (isset($data['session']))
+		{
+			if (!empty($_POST))
+			{
+				$ID_course = $_POST['ID_course'];
+				$date1 = $_POST['date_start_teaching'];
+				$date2 = $_POST['date_end_teaching'];
+
+				//Данные из БД
+				$this->load->model('course_m');
+				$this->course_m->upd_course($ID_course, $date1, $date2);
+			}
+			redirect('course/index');
+		}
+		else
+		{
+			redirect('main/index');
+		}
+	}
+
+	//Удалить курс
+	public function del_course()
+	{
+		//Сессия
+		$data['session'] = $this->session->userdata('login_session');
+		if (isset($data['session']))
+		{
+			if (!empty($_GET['ID_course']))
+			{
+				$ID_course = $_GET['ID_course'];
+
+				//Данные из БД
+				$this->load->model('course_m');
+				$this->course_m->del_course($ID_course);
+			}
+			redirect('course/index');
+		}
+		else
+		{
+			redirect('main/index');
+		}
 	}
 }
