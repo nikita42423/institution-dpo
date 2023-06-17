@@ -421,14 +421,16 @@ $(document).ready(function(){
 $(document).ready(function(){
 
     $('#edit_client').submit(function(){
+
         let ID_user = document.getElementById('ID_user').value;
         let full_name = document.getElementById('full_name').value;
         let phone = document.getElementById('phone').value;
         let address = document.getElementById('address').value;
+        let file_dogovor = document.getElementById('file_dogovor').value;
         $.ajax({
             type: 'POST',
             url: 'clients/edit_client',
-            data: { ID_user:ID_user, full_name:full_name, phone:phone, address:address},
+            data: { ID_user:ID_user, full_name:full_name, phone:phone, address:address, file_dogovor:file_dogovor},
             dataType: 'json',
             success: function(result){
                 alert(result);

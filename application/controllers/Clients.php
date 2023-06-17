@@ -34,11 +34,27 @@ class Clients extends CI_Controller {
 		$full_name = $_POST['full_name'];
 		$phone = $_POST['phone'];
 		$address = $_POST['address'];
+		$file_dogovor = $_POST['file_dogovor'];
 
 		$ID_user = $_POST['ID_user'];
-
 		$this->load->model('client_m');
-		$update = $this->client_m->upd_user($ID_user, $full_name, $phone, $address);
+		if(!empty($_FILES))
+		{
+			$dir = 'files/';
+			$dat = strripos(basename($_FILES['file_dogovor']['name']), '.', $offset = 0);
+			$sub = substr(basename($_FILES['file_dogovor']['name']), $dat);
+			$file_dogovor = $dir.$ID_user.$sub;
+			if(move_uploaded_file($_FILES['file_dogovor']['tmp_name'], $file_dogovor))
+			{
+				$this->client_m->upd_user($ID_user, $file_dogovor);
+			}
+			else
+			{
+				echo "Возможная атака с помощью файловой загрузки!\n";
+			}
+		}
+		$this->load->model('client_m');
+		$update = $this->client_m->upd_user($ID_user, $full_name, $phone, $address, $file_dogovor);
 
 		if($update == TRUE) $update = 'Изменение выполнено!';
 		echo json_encode($update);
