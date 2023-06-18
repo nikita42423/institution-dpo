@@ -153,4 +153,23 @@ class Course extends CI_Controller {
 			redirect('main/index');
 		}
 	}
+
+	//Добавить курс
+	public function add_one_course()
+	{
+		if (!empty($_POST))
+		{
+			$data = array(
+				'name_course' => $_POST['name_course'],
+				'ID_ep' => $_POST['ID_ep'],
+				'date_start_teaching' => $_POST['date1'],
+				'date_end_teaching' => $_POST['date2']
+			);
+
+			$this->load->model('course_m');
+			$this->course_m->add_one_course($data);
+			
+			redirect('course/index');
+		}
+	}
 }

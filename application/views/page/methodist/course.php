@@ -1,51 +1,96 @@
 <main class="col-md-9 ms-sm-auto col-lg-11 px-md-4">
-	<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-		<div class="row">
-			<div class="col-auto">
-				<h1 class="display-3 text-center mb-3">График курсов</h1>
-			</div>
+	
+	<!-- Заголовок и кнопка формирования -->
+	<div class="col-auto align-self-center">
+		<form action="course/form_course" method="post">
+			<h1 class="display-3 text-center mb-3">
+				График курсов <button type="submit" class="btn btn-primary m-3">Формировать</button>
+			</h1>
+		</form>
+	</div>
 
-			<?php if (!isset($_GET['ID_ep'])) {?>
-			
-				<div class="col-auto align-self-center">
-					<form action="course/form_course" method="post">
-					<button type="submit" class="btn btn-primary m-3">Формировать</button>
-					</form>
-				</div>
-			
+	<!-- Фильтрация и добавление курса -->
+	<div class="d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom text-center">
+		<div class="row">
+			<!-- Фильтрация -->
 			<div class="col-auto align-self-center">
-				<div class="dropdown">
-					<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Образовательная программа
-					</button>
-					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="course/index">Все</a></li>
-						<?php foreach($edu_program as $row) {?>
-							<li><a class="dropdown-item" href="course/index?ID_ep=<?=$row['ID_ep']?>"><?=$row['name_ep']?></a></li>
-						<?php }?>
-					</ul>
-				</div>
+				<form class="card mb-3" action="" method="post">
+					<div class="card-header">Фильтр</div>
+					<div class="card-body">
+						<div class="row">
+						
+						<div class="col-auto align-self-center">
+							<div>
+								<label class="form-label">Выбирать из списка для фильтрации курса</label>
+							</div>
+							<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Образовательная программа
+							</button>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="course/index">Все</a></li>
+								<?php foreach($edu_program as $row) {?>
+									<li><a class="dropdown-item" href="course/index?ID_ep=<?=$row['ID_ep']?>"><?=$row['name_ep']?></a></li>
+								<?php }?>
+							</ul>
+					
+							<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Направление
+							</button>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="course/index">Все</a></li>
+								<?php foreach($focus as $row) {?>
+									<li><a class="dropdown-item" href="course/index?ID_focus=<?=$row['ID_focus']?>"><?=$row['name_focus']?></a></li>
+								<?php }?>
+							</ul>
+						</div>
+							
+						</div>
+					</div>
+				</form>
 			</div>
+			
+			<!-- Добавление курса -->
 			<div class="col-auto align-self-center">
-				<div class="dropdown">
-					<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Направление
-					</button>
-					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="course/index">Все</a></li>
-						<?php foreach($focus as $row) {?>
-							<li><a class="dropdown-item" href="course/index?ID_focus=<?=$row['ID_focus']?>"><?=$row['name_focus']?></a></li>
-						<?php }?>
-					</ul>
-				</div>
+				<form class="card mb-3" action="course/add_one_course" method="post">
+					<div class="card-header">Добавить новый курс</div>
+					<div class="card-body">
+						<div class="row">
+							<div class="col-auto">
+								<label for="name_focus" class="form-label">Образовательная программа</label>
+								<select class="form-select" name="ID_ep">
+									<?php foreach($edu_program as $row) {?>
+									<option value="<?=$row['ID_ep']?>"><?=$row['name_ep']?></option>
+									<?php }?>
+								</select>
+							</div>
+							<div class="col-auto">
+								<label for="name_course" class="form-label">Наименование курса</label>
+								<input type="text" class="form-control" name="name_course" required>
+							</div>
+							<div class="col-auto">
+								<label for="date1" class="form-label">Дата с</label>
+								<input type="date" class="form-control" name="date1" required>
+							</div>
+							<div class="col-auto">
+								<label for="date2" class="form-label">Дата по</label>
+								<input type="date" class="form-control" name="date2" required>
+							</div>
+							<div class="col-auto align-self-end">
+								<button type="submit" class="btn btn-primary">Добавить</button>
+							</div>
+						</div>
+					</div>
+				</form>
 			</div>
+			
 			<div class="col-auto align-self-center text-end">
 				<h1 class="display-6 text-success mb-3"><?=$this->session->flashdata('msg');?></h1>
 			</div>
-			<?php }?>
+			
 		</div>
 	</div>
 
+	<!-- График курсов -->
 	<table id="table_course" class="table table-hover table-bordered border-dark table-sm" style="width:100%">
 		<thead>
 			<!-- Заголовок -->

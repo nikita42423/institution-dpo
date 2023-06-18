@@ -85,4 +85,10 @@ class Course_m extends CI_Model {
         $this->db->where('ID_course', $ID_course)
                  ->delete('course');
     }
+
+    //Добавить один курс
+    public function add_one_course($data)
+    {
+        $this->db->insert('course', $data);
+    }
 }
