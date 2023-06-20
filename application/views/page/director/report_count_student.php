@@ -1,28 +1,9 @@
 <!-- <link href="assets/css/dashboard.css" rel="stylesheet"> -->
 
 <main class="ms-sm-auto col-lg-12 px-md-4 container">
-    <h1 class="text-center display-6 m-3">Просмотр сведений о количестве обучающихся на курсах</h1>
+    <h1 class="text-center display-6 m-3">Просмотр сведений о количестве обучающихся на курсах на <?=date('d.m.Y')?></h1>
 
-    <!-- Период с ... по ... -->
-    <form class="justify-content-md-center mb-3 card" action="" method="post">
-        <div class="card-header">
-            Период
-        </div>
-        <div class="card-body">
-            <div class="row justify-content-center">
-                <div class="col-3">
-                    <label for="name_form" class="form-label">Дата с</label>
-                    <input type="date" class="form-control filter_count_student" id="date1_count_student" name="date1_count_student">
-                </div>
-                <div class="col-3">
-                    <label for="name_form" class="form-label">Дата по</label>
-                    <input type="date" class="form-control filter_count_student" id="date2_count_student" name="date2_count_student">
-                </div>
-            </div>
-        </div>
-    </form>
-
-    <div class="table-responsive" id="table_director">
+    <div class="table-responsive">
         <table class="table table-hover table-sm" id="table_count_student">
             <thead class="table-dark">
                 <tr>
@@ -35,7 +16,7 @@
             </thead>
             <tbody>
                 <?php 
-                $s1 = 0; $s2 = 0; $s3 = 0; $label = ""; $value = "";
+                $s1 = 0; $s2 = 0; $s3 = 0; $s4 = 0; $label = ""; $value = "";
                 foreach ($count_student as $row) {
                     $s1 += $row['count1'];
                     $s2 += $row['count2'];
@@ -58,7 +39,7 @@
                         <td class="text-center"><b><?= $s1 ?></b></td>
                         <td class="text-center"><b><?= $s2 ?></b></td>
                         <td class="text-center"><b><?= $s3 ?></b></td>
-                        <td class="text-center"><b><?= $s1 + $s2 + $s3 ?></b></td>
+                        <td class="text-center"><b><?= $s1 + $s2 + $s3 + $s4 ?></b></td>
                     </tr>
             </tbody>
         </table>

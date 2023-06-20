@@ -9,7 +9,7 @@
 						<th>Программа</th>
 						<th>Курс</th>
 						<th>Дисциплина</th>
-						<th>Дата старта</th>
+						<th>Дата начала</th>
 						<th>Дата окончания</th>
 						<th>Объем часов</th>
 						<th></th>
@@ -46,7 +46,7 @@
 										$i = 0;
 										foreach ($teacher as $row1) {
 											if ($row['ID_focus'] == $row1['ID_focus']) {?>
-                                            	<li><a class="dropdown-item" href="workload/add_workload?ID_teacher=<?=$row1['ID_user']?>&ID_course=<?=$row['ID_course']?>&ID_discipline=<?=$row['ID_discipline']?>"><?=$row1['full_name']?></a></li>
+                                            	<li><a class="dropdown-item" href="workload/add_workload?ID_teacher=<?=$row1['ID_user']?>&ID_course=<?=$row['ID_course']?>&ID_discipline=<?=$row['ID_discipline']?>&ID_focus=<?=$row['ID_focus']?>"><?=$row1['full_name']?></a></li>
                                         	<?php $i++;} 
 										}
 										if ($i == 0) {echo '<li><a class="dropdown-item">Нет преподавателя</a></li>';}

@@ -2,8 +2,8 @@
 
 	<div class="row">
 		<div class="col-md-auto">
-			<h1 class="display-4 mb-3">Нераспределенные нагрузки преподавателей<a class="btn btn-primary m-3" href="reg_teacher/browse">Преподаватель</a>
-			</h1>
+			<h3 class="display-4 mb-3">Распределение нагрузки преподавателей<a class="btn btn-primary m-3" href="reg_teacher/browse">Преподаватель</a>
+			</h3>
 		</div>
 	</div>
 	<hr>

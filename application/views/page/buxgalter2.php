@@ -89,24 +89,24 @@
 			<input type="date" class="form-control filter_sum_buxg" id="end_date">
 		</div>
 	<br>
-		<div class="col-md-6">
-			<label for="id_focus" class="form-label">Направление</label>
-			<select class="form-select filter_sum_buxg" id="id_focus">
-			    <option value="all">Все</option>
-				<?php foreach ($focus as $row) {?>
-					<option value="<?=$row['ID_focus']?>"><?=$row['name_focus']?></option>
-				<?php }?>
-			</select>
-		</div>
-		<div class="col-md-6">
-		<label for="id_ep" class="form-label">Наименование ОП</label>
-			<select class="form-select filter_sum_buxg" id="id_ep">
-				<option value="all">Все</option>
-				<?php foreach ($edu_program as $row) {?>
-					<option value="<?=$row['ID_ep']?>"><?=$row['name_ep']?></option>
-				<?php }?>
-			</select>
-		</div>
+		<!--<div class="col-md-6">-->
+		<!--	<label for="id_focus" class="form-label">Направление</label>-->
+		<!--	<select class="form-select filter_sum_buxg" id="id_focus">-->
+		<!--	    <option value="all">Все</option>-->
+		<!--		<?php foreach ($focus as $row) {?>-->
+		<!--			<option value="<?=$row['ID_focus']?>"><?=$row['name_focus']?></option>-->
+		<!--		<?php }?>-->
+		<!--	</select>-->
+		<!--</div>-->
+		<!--<div class="col-md-6">-->
+		<!--<label for="id_ep" class="form-label">Наименование ОП</label>-->
+		<!--	<select class="form-select filter_sum_buxg" id="id_ep">-->
+		<!--		<option value="all">Все</option>-->
+		<!--		<?php foreach ($edu_program as $row) {?>-->
+		<!--			<option value="<?=$row['ID_ep']?>"><?=$row['name_ep']?></option>-->
+		<!--		<?php }?>-->
+		<!--	</select>-->
+		<!--</div>-->
 
 	</form>
 </div>
@@ -145,11 +145,11 @@
 						<tbody id="example_body">
 						<?php foreach($sum_table as $row) {?>
 							<tr>
-								<td><?=$row['name_ep']?></td>
-								<td><?=$row['name_course']?></td>
-								<td><?=$row['count_people']?> / <?=$row['count_in_group']?></td>
-								<td><?=$row['price']?></td>
-							</tr>
+							<td><?=$row['name_ep']?></td>
+							<td></td>
+							<td><?=$row['count_people']?> / <?=$row['count_in_group']?></td>
+							<td><?=$row['price']?></td>
+						</tr>
 							
 						<?php } ?>
 							

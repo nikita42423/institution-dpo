@@ -46,8 +46,13 @@ class Workload extends CI_Controller {
 		$this->load->model('focus_m');
 
 		$data['focus'] = $this->focus_m->sel_focus();
-		$data['ID_focus'] = $ID_focus = NULL;
 
+        if(!empty($_GET['ID_focus'])){
+             $data['ID_focus'] =$ID_focus =  $_GET['ID_focus']; 
+        }
+        else{
+             $data['ID_focus'] = $ID_focus = NULL;
+        }
 		if (!empty($_POST))
 		{
 			if ($_POST['id_focus_of_no_workload'] != 'all')
@@ -59,6 +64,7 @@ class Workload extends CI_Controller {
 				$data['ID_focus'] = $ID_focus = NULL;
 			}
 		}
+
 		$data['no_workload'] = $this->workload_m->sel_no_workload($ID_focus);
 		$data['teacher'] = $this->teacher_m->sel_teacher($ID_focus);
 
@@ -81,13 +87,9 @@ class Workload extends CI_Controller {
 			);
 			
 			$this->load->model('workload_m');
-			$this->workload_m->add_workload($data);
+		    $this->workload_m->add_workload($data);
 
-			redirect('workload/browse_no_load');
-		}
-		else
-		{
-			echo '?????????';
+			redirect('workload/browse_no_load?ID_focus='.$_GET['ID_focus']);
 		}
 	}
 

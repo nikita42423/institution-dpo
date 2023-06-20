@@ -51,6 +51,7 @@ class Buxgalter extends CI_Controller {
 		  $res7 =  $res1 + $res2 + $res3 + $res4 + $res5 + $res6 ; // общая сумма затрат
 		  $res8 = $res7 * $_POST['raster8'] / 100; // прибыль 20% от общей суммы затрат
 		  $res9 = $res8 +  $res7; //общая стоимость услуги
+		  $res10 = round($res9 / $_POST['count_in_group']);
 		   
 		  $result = [];
 		  $result['res1'] = number_format($res1, 2, '.', '');
@@ -62,7 +63,7 @@ class Buxgalter extends CI_Controller {
 		  $result['res7'] = number_format($res7, 2, '.', '');	
 		  $result['res8'] = number_format($res8, 2, '.', '');
 		  $result['res9'] = number_format($res9, 2, '.', '');
-
+	      $result['res10'] = number_format($res10, 2, '.', '');
 		  echo json_encode($result);
 		
 		}
@@ -103,9 +104,9 @@ class Buxgalter extends CI_Controller {
 		// }
 		// else if($check_price == 'false')
 		// {
-			$showopres = $this->bufgalter_m->add_pr($ID_ep, $cost_hour, $price, $date);
-			//if($showopres != TRUE) echo json_encode('Изменение не выполнено!');
-		// }
+			$showopres = $this->bufgalter_m->add_price($ID_ep, $cost_hour, $price, $date);
+		//	if($showopres != TRUE) echo json_encode('Изменение не выполнено!');
+// 	}
 	}
 
 

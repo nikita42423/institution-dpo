@@ -53,8 +53,6 @@ class Edu_program extends CI_Controller {
 
 			$this->load->model('edu_program_m');
 			$edu_program = $this->edu_program_m->sel_edu_program($ID_focus, $ID_type_ep, $ID_form, $ID_type_doc);
-
-			//Возвращает результат
 			$str = '
 			<table id="table_ep" class="table table-hover" style="width:100%">
 				<thead class="table-dark">
@@ -90,30 +88,8 @@ class Edu_program extends CI_Controller {
 							<div class="btn-group" role="group"> 
 			
 								<!-- Изменить -->
-								<button type="button" class="btn btn-primary m-0" data-bs-toggle="modal" class="btn btn-light m-0" 
-									data-bs-target="#modal_upd_ep"
-									data-id_ep="'.$row["ID_ep"].'"
-									data-name_ep="'.$row["name_ep"].'"
-									data-name_profession="'.$row["name_profession"].'"
-									data-type_cert="'.$row["type_cert"].'"
-
-									data-id_type_ep="'.$row["ID_type_ep"].'"
-									data-name_type_ep="'.$row["name_type_ep"].'"
-									data-id_focus="'.$row["ID_focus"].'"
-									data-name_focus="'.$row["name_focus"].'"
-									data-id_type_doc="'.$row["ID_type_doc"].'"
-									data-name_type_doc="'.$row["name_type_doc"].'"
-									data-id_form="'.$row["ID_form"].'"
-									data-name_form="'.$row["name_form"].'"
-
-									data-time_week="'.$row["time_week"].'"
-									data-amount_hour="'.$row["amount_hour"].'"
-									data-count_in_group="'.$row["count_in_group"].'"
-									data-short_name="'.$row["short_name"].'"
-									>
-									<span data-bs-toggle="tooltip" data-bs-placement="left" title="Изменить">
-										<i class="bi-pencil" aria-hidden="true"></i>
-									</span>
+								<button type="button" class="btn btn-primary m-0">
+									<span data-bs-toggle="tooltip" data-bs-placement="left" title="Изменить"><i class="bi-pencil" aria-hidden="true"></span></i>
 								</button>
 
 								<!-- Учебный план -->

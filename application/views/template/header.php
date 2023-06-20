@@ -8,9 +8,9 @@
 
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/font/bootstrap-icons.css" rel="stylesheet">
-    
+     <script src="assets/js/jquery-3.7.0.min.js"></script>   
     <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/jquery-3.7.0.min.js"></script>
+
     
     <script src="assets/js/ajax.js"></script>
 

@@ -52,9 +52,19 @@ class Bufgalter_m extends CI_Model {
     }
 
 
-      //добавление данных прайса
+      //добавление данных прайса при расчете стоимости
     public function add_price($ID_ep, $cost_hour, $price, $date)
     {
+        // $data = array(
+        //     'date_end_price' => $date
+        // );
+        // //изменить старую, указать что у нее закончился срок действияИзменить надо срок окончания!!!!
+        // $query = $this->db->update('price_edu', $data)
+        //                   ->where('ID_ep', $ID_ep)
+        //                   ->where('date_end_price', NULL);
+        $sql = 'update price_edu set date_end_price =? where ID_ep = ? ';
+        $this->db->query($sql, array($date, $ID_ep));
+        //длбавить новую цену                  
         $data = array(
             'ID_ep' => $ID_ep,
             'cost_hour' => $cost_hour,
@@ -64,10 +74,6 @@ class Bufgalter_m extends CI_Model {
 
         $query = $this->db->insert('price_edu', $data);
 
-        //изменить старую, указать что у нее закончился срок действия
-        $query = $this->db->update('price_edu', $date)
-                          ->where('ID_ep', $ID_ep)
-                          ->where('date_end_price', NULL);
        // return $query;
     }
 
@@ -75,25 +81,34 @@ class Bufgalter_m extends CI_Model {
     //информация о полученных доходах
     public function sel_sum($ID_focus, $ID_ep, $date1, $date2)
     {
-        $this->db->join('course', 'course.ID_course = s.ID_course')
-                    ->join('edu_program', 'edu_program.ID_ep = course.ID_ep')
-                    ->join('focus', 'focus.ID_focus = edu_program.ID_focus')
-                    ->join('price_edu', 'price_edu.ID_ep = edu_program.ID_ep')
-                    ->where_in('edu_program.ID_focus', $ID_focus)
-                    ->where_in('edu_program.ID_ep', $ID_ep)
-                   // ->where_in('s.ID_course', $ID_course)
-                   ->where('(status_application = "обучение" OR status_application = "зачислена") AND date_payment IS NOT NULL');
+    //     $this->db->join('course', 'course.ID_course = s.ID_course')
+    //                 ->join('edu_program', 'edu_program.ID_ep = course.ID_ep')
+    //                 ->join('focus', 'focus.ID_focus = edu_program.ID_focus')
+    //                 ->join('price_edu', 'price_edu.ID_ep = edu_program.ID_ep')
+    //                 ->where_in('edu_program.ID_focus', $ID_focus)
+    //                 ->where_in('edu_program.ID_ep', $ID_ep)
+    //               // ->where_in('s.ID_course', $ID_course)
+    //               ->where('(status_application = "обучение" OR status_application = "зачислена") AND date_payment IS NOT NULL');
 
-        if($date1 != NULL) $this->db->where("date_payment >= '$date1'");
-        if($date2 != NULL) $this->db->where("date_payment <= '$date2'");
+    //     if($date1 != NULL) $this->db->where("date_payment >= '$date1'");
+    //     if($date2 != NULL) $this->db->where("date_payment <= '$date2'");
 
         
-        $this->db->select('name_course, name_ep, count_in_group, count(*) as count_people');  //кол-во записей
-        $this->db->select_sum('price'); //сумма цены
-        $this->db->group_by('name_course, name_ep, count_in_group');
-      //  $this->db->group_by('name_ep');
+    //     $this->db->select('name_course, name_ep, count_in_group, count(*) as count_people');  //кол-во записей
+    //     $this->db->select_sum('price'); //сумма цены
+    //     $this->db->group_by('name_course, name_ep, count_in_group');
+    //   //  $this->db->group_by('name_ep');
 
-        $query = $this->db->get('statement as s');
+    //     $query = $this->db->get('statement as s');
+    
+    $sql = 'SELECT actual_prices.ID_ep,name_ep,price,
+            SUM(IF(date_start_teaching BETWEEN ? and ?, count_in_group,0)) as count_in_group,
+             SUM(IF(date_payment BETWEEN ? and ?, 1,0)) as count_people,
+              SUM(IF(date_payment BETWEEN ? and ?, price,0)) as price
+            FROM actual_prices LEFT JOIN course ON actual_prices.id_ep = course.id_ep 
+            LEFT JOIN statement ON statement.ID_course = course.ID_course
+            GROUP BY ID_ep,name_ep,price';
+    $query = $this->db->query($sql, array($date1, $date2, $date1, $date2, $date1, $date2));
         return $query->result_array();
         // return $this->db->last_query();
     }

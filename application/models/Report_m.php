@@ -7,42 +7,17 @@ class Report_m extends CI_Model {
     }
 
     //Выбрать сведения о количестве обучающихся на курсах
-    public function sel_count_student($date1, $date2)
+    public function sel_count_student()
     {
         $sql = '
         SELECT name_ep, edu_program.id_ep, short_name,
-            SUM(CASE WHEN 1=1 ';
-            
-            if (!empty($date1)) {$sql .= 'AND date_contract >= "'.$date1.'" ';}
-            if (!empty($date2)) {$sql .= 'AND date_contract <= "'.$date2.'" ';}
-            
-            $sql .= 'AND status_application="подана" AND date_payment IS NOT NULL THEN 1 ELSE 0 END) AS `count1`,
-            SUM(CASE WHEN 1=1 ';
-
-            if (!empty($date1)) {$sql .= 'AND date_contract >= "'.$date1.'" ';}
-            if (!empty($date2)) {$sql .= 'AND date_contract <= "'.$date2.'" ';}
-
-            $sql .= 'AND status_application="зачислена" THEN 1 ELSE 0 END) AS `count2`,
-            SUM(CASE WHEN 1=1 ';
-            
-            if (!empty($date1)) {$sql .= 'AND date_contract >= "'.$date1.'" ';}
-            if (!empty($date2)) {$sql .= 'AND date_contract <= "'.$date2.'" ';}
-
-            $sql .= 'AND status_application="окончена" THEN 1 ELSE 0 END) AS `count3`
+            SUM(CASE WHEN status_application="подана" AND date_payment IS NOT NULL THEN 1 ELSE 0 END) AS `count1`,
+            SUM(CASE WHEN status_application="зачислена" THEN 1 ELSE 0 END) AS `count2`,
+            SUM(CASE WHEN status_application="окончена" THEN 1 ELSE 0 END) AS `count3`
         FROM edu_program LEFT JOIN course ON edu_program.ID_ep=course.ID_ep LEFT JOIN statement ON course.ID_course=statement.ID_course
         GROUP BY name_ep, edu_program.id_ep, short_name';
         $query = $this->db->query($sql);
         return $query->result_array();
-
-        // $sql = '
-        // SELECT name_ep, edu_program.id_ep, short_name,
-        //     SUM(CASE WHEN status_application="подана" AND date_payment IS NOT NULL THEN 1 ELSE 0 END) AS `count1`,
-        //     SUM(CASE WHEN status_application="зачислена" THEN 1 ELSE 0 END) AS `count2`,
-        //     SUM(CASE WHEN status_application="окончена" THEN 1 ELSE 0 END) AS `count3`
-        // FROM edu_program LEFT JOIN course ON edu_program.ID_ep=course.ID_ep LEFT JOIN statement ON course.ID_course=statement.ID_course
-        // GROUP BY name_ep, edu_program.id_ep, short_name';
-        // $query = $this->db->query($sql);
-        // return $query->result_array();
     }
 
     //Выбрать сведения о рейтинге образовательных программ ДПО за период
