@@ -58,6 +58,10 @@
                             <?php }?>
                         </select>
                     </div>
+                    <div class="col">
+                        <label for="short_name" class="form-label">Краткое наименование</label>
+                        <input type="text" class="form-control mb-3" id="short_name" name="short_name" value="" required>
+                    </div>
                 </div>
                 
                 <div class="row mb-5">
