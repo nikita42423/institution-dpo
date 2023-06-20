@@ -75,6 +75,21 @@ $(document).ready(function(){
         })
     })
 
+    //Фильтрование сведений о количестве обучающихся на курсах за период
+    $('.filter_count_student').change(function(){
+        let date1 = document.getElementById('date1_count_student').value;
+        let date2 = document.getElementById('date2_count_student').value;
+        $.ajax({
+            type: 'POST',
+            url: 'director/filter_count_student',
+            data: ({date1: date1, date2: date2}),
+            dataType:'html',
+            success: function(result) {
+                $('#table_director').html(result);
+            }
+        })
+    })
+
     //Фильтрование сведений о рейтинге образовательных программ ДПО за период
     $('.filter_rating_ep').change(function(){
         let date1 = document.getElementById('date1_rating_ep').value;
