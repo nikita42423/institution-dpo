@@ -1,5 +1,9 @@
 <main class="col-md-9 ms-sm-auto col-lg-11 px-md-4">
-	
+	<!-- Проверка, пусто ли год -->
+	<?php
+	if (empty($_GET['now_year'])) {redirect('course/index');}
+	?>
+
 	<!-- Заголовок и кнопка формирования -->
 	<div class="row align-items-center">
 		<div class="col-4"></div>
@@ -133,7 +137,7 @@
 
 			foreach ($course as $row) {
 
-				//Не выводится в таблицу курс, у которого имеет статус "Окончен"
+				//Не выводится в таблицу курс, у которого имеет статус "Архив"
 				if ($row['status_course'] != 'Архив')
 				{
 					echo '<tr>';

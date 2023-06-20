@@ -30,7 +30,7 @@
 					<a class="nav-link" href="edu_program/browse">Образовательная программа</a>
 				</li>
 				<li class="nav-item mb-3">
-					<a class="nav-link" href="course/index">График курсов</a>
+					<a class="nav-link" href="course/index?now_year=2023">График курсов</a>
 				</li>
 				<li class="nav-item mb-3 dropdown">
 					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
