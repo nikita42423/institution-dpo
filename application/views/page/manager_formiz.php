@@ -49,7 +49,7 @@
 					<li class="nav-item">
 						<a class="nav-link" href="manager/formatiz">
 						<span data-feather="bar-chart-2"></span>
-						 Формирование для зачисления и документа
+						Ввод документа об окончании
 						</a>
 					</li>
 					
@@ -64,90 +64,90 @@
 		<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 			<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 				<h1 class="h2">
-                    Формирование для зачисления и документы об окончании обучения
+                    Ввод документа об окончании
                 </h1>
 				
 			</div>
 
 
-			<div class="accordion" id="accordionExample">
-			<div class="accordion-item">
-				<h2 class="accordion-header">
-				<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-					Формирование зачисления
-				</button>
-				</h2>
-				<div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-				<div class="accordion-body">
+<!--			<div class="accordion" id="accordionExample">-->
+<!--			<div class="accordion-item">-->
+<!--				<h2 class="accordion-header">-->
+<!--				<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">-->
+<!--					Формирование зачисления-->
+<!--				</button>-->
+<!--				</h2>-->
+<!--				<div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">-->
+<!--				<div class="accordion-body">-->
              <!--ФИЛЬТРЫ ДЛЯ ЗАЧИСЛЕНИЯ-->
-				<div class="col-md-auto">
-				<form class="justify-content-md-center mb-3 card" action="" method="post">
-					<div class="card-header">
-						Фильтр для зачисления
-					</div>
-					<div class="card-body">
-						<div class="row">
-						<div class="col-md-3">
-									<label for="name_ep" class="form-label">Наименование ОП</label>
-									<select class="form-select filter_accept f_ep" id="id_ep">
-										<option value="all" selected>Все</option>
-										<?php foreach($edu_prog  as $row) {?>
-										<option value="<?=$row['ID_ep']?>"><?=$row['name_ep']?></option>
-										<?php }?>
-									</select>
-								</div>
+<!--				<div class="col-md-auto">-->
+<!--				<form class="justify-content-md-center mb-3 card" action="" method="post">-->
+<!--					<div class="card-header">-->
+<!--						Фильтр для зачисления-->
+<!--					</div>-->
+<!--					<div class="card-body">-->
+<!--						<div class="row">-->
+<!--						<div class="col-md-3">-->
+<!--									<label for="name_ep" class="form-label">Наименование ОП</label>-->
+<!--									<select class="form-select filter_accept f_ep" id="id_ep">-->
+<!--										<option value="all" selected>Все</option>-->
+<!--										<?php foreach($edu_prog  as $row) {?>-->
+<!--										<option value="<?=$row['ID_ep']?>"><?=$row['name_ep']?></option>-->
+<!--										<?php }?>-->
+<!--									</select>-->
+<!--								</div>-->
 
 
-							<div class="col-md-3">
-								<label for="name_course" class="form-label">Курс</label>
-								<select class="form-select filter_accept" id="id_course">
-									<option value="all" selected>Все</option>
+<!--							<div class="col-md-3">-->
+<!--								<label for="name_course" class="form-label">Курс</label>-->
+<!--								<select class="form-select filter_accept" id="id_course">-->
+<!--									<option value="all" selected>Все</option>-->
 									
-									<?php foreach($course as $row) {?>
-									<option value="<?=$row['ID_course']?>"><?=$row['name_course']?></option>
-									<?php }?>
+<!--									<?php foreach($course as $row) {?>-->
+<!--									<option value="<?=$row['ID_course']?>"><?=$row['name_course']?></option>-->
+<!--									<?php }?>-->
 
-								</select>
-							</div>
+<!--								</select>-->
+<!--							</div>-->
 							
 							
-						</div>
-					</div>
-				</form>
-			</div>
+<!--						</div>-->
+<!--					</div>-->
+<!--				</form>-->
+<!--			</div>-->
 
-			<div class="table-responsive">
+<!--			<div class="table-responsive">-->
 
-<div class="data_table">
-	<table id="zachit" class="table" style="width:100%;">
-		<thead>
-			<tr>
+<!--<div class="data_table">-->
+<!--	<table id="zachit" class="table" style="width:100%;">-->
+<!--		<thead>-->
+<!--			<tr>-->
 			
-				<th>ФИО слушателей</th>
-				<th>Курс</th>
+<!--				<th>ФИО слушателей</th>-->
+<!--				<th>Курс</th>-->
 			
-			</tr>
-		</thead>
-		<tbody id="zachit_tbody">
-			<?php foreach($statement as $row) {?>
-			<tr>
+<!--			</tr>-->
+<!--		</thead>-->
+<!--		<tbody id="zachit_tbody">-->
+<!--			<?php foreach($statement as $row) {?>-->
+<!--			<tr>-->
 				
-				<td><?=$row['full_name']?></td>
-				<td><?=$row['name_course']?></td>
-			</tr>
-			<?php } ?>
-		</tbody>
-	</table>
+<!--				<td><?=$row['full_name']?></td>-->
+<!--				<td><?=$row['name_course']?></td>-->
+<!--			</tr>-->
+<!--			<?php } ?>-->
+<!--		</tbody>-->
+<!--	</table>-->
 	
-</div>
-</div>
-			   </div>
-				</div>
-			</div>
+<!--</div>-->
+<!--</div>-->
+<!--			   </div>-->
+<!--				</div>-->
+<!--			</div>-->
 			<div class="accordion-item">
 				<h2 class="accordion-header">
 				<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-					Формирование документы окончании об обучения
+					Ввод документа об окончании
 				</button>
 				</h2>
 				<div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">

@@ -312,59 +312,63 @@ $(document).ready(function(){
     $('#show_resh').submit(function(){
         let ID_ep = document.getElementById('ID_ep').value;
         let date = document.getElementById('date_end').value;
-        let cost_hour = document.getElementById('res1').innerHTML;
-        let price = document.getElementById('res9').innerHTML;
-      
+        let cost_hour = document.getElementById('raster1').innerHTML;
+        let price = document.getElementById('res10').innerHTML;
+      alert(cost_hour, price);
         $.ajax({
             type: 'POST',
             url: 'buxgalter/edit_price',
             data: { ID_ep:ID_ep, cost_hour:cost_hour, price:price, date:date},
             dataType: 'json',
             success: function(result){
-                alert(result);
+                alert('result');
             }
         })
     })
 });
 
 //изменение списка при выборе checkbox (бухгалтера)
-// $(document).ready(function(){
-//     $('input[name=check_price]').change(function(e) {
-//         e.preventDefault();
-//         let check_price = document.getElementById('check_price').checked;
-//         if(check_price == true) document.querySelector('#filtrbux_button').innerHTML = 'Изменить';
-//         else if(check_price == false) document.querySelector('#filtrbux_button').innerHTML = 'Добавить';
-//         $.ajax({
-//             type: 'POST',
-//             url: 'buxgalter/edit_select',
-//             data: { check_price:check_price},
-//             dataType: 'json',
-//             success: function(result){
-//                 document.getElementById('ID_ep').options.length = 0;    //очистка выпадающего меню
-//               //если массив пустой
-//               if(!result || !result.length) $('#ID_ep').append(`<option>Пусто</option>`);
-//               //не пустой
-//               else if(result || result.length)
-//               {
+$(document).ready(function(){
+    $('input[name=check_price]').change(function(e) {
+        e.preventDefault();
+        let check_price = document.getElementById('check_price').checked;
+        if(check_price == true) document.querySelector('#filtrbux_button').innerHTML = 'Изменить';
+        else if(check_price == false) document.querySelector('#filtrbux_button').innerHTML = 'Добавить';
+        $.ajax({
+            type: 'POST',
+            url: 'buxgalter/edit_select',
+            data: { check_price:check_price},
+            dataType: 'json',
+            success: function(result){
+                document.getElementById('ID_ep').options.length = 0;    //очистка выпадающего меню
+              //если массив пустой
+              if(!result || !result.length) $('#ID_ep').append(`<option>Пусто</option>`);
+              //не пустой
+              else if(result || result.length)
+              {
               
-//               for(i in result)
-//               {
-//                   $('#ID_ep').append(`<option value="${result[i].ID_ep}">${result[i].name_ep}</option>`);
-//               }
-//             }
-//          }
-//         })
-//     })
-// });
+              for(i in result)
+              {
+                  $('#ID_ep').append(`<option value="${result[i].ID_ep}">${result[i].name_ep}</option>`);
+              }
+            }
+         }
+        })
+    })
+});
 
 //фильтрация для бухгалтера - о полученных доходах
 $(document).ready(function(){
-    $('.filter_sum_buxg').change(function(){
-        let ID_focus = document.getElementById('id_focus').value;
-        let ID_ep = document.getElementById('id_ep').value;
+   //     $('.filter_sum_buxg').change(function(){
+    $('#sum_buxg').click(function(){
+
+        // let ID_focus = document.getElementById('id_focus').value;
+        // let ID_ep = document.getElementById('id_ep').value;
+        let ID_focus = 0;
+        let ID_ep = 0;
         let date1 = document.getElementById('begin_date').value;
         let date2 = document.getElementById('end_date').value;
-
+        alert(date1);
         $.ajax({
             type: 'POST',
             url: 'buxgalter2/get_sum',
@@ -376,7 +380,6 @@ $(document).ready(function(){
                 {
                     $('#example').append(`<tr>
                             <td>${data[i].name_ep}</td>
-                            <td>${data[i].name_course}</td>
                             <td>${data[i].count_people} / ${data[i].count_in_group}</td>
                             <td>${data[i].price}</td>
                         </tr>`);
@@ -407,7 +410,6 @@ $(document).ready(function(){
                             <td>${data[i].name_ep}</td>
                             <td>${data[i].date_start_price}</td>
                             <td>${data[i].date_end_price}</td>
-                            <td>${data[i].cost_hour}</td>
                             <td>${data[i].price}</td>
                         </tr>`);
 

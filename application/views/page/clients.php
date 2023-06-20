@@ -57,7 +57,7 @@
 						<a class="nav-link active" aria-current="page" href="main/out"><button type="button" class="btn btn-outline-dark">Выйти из системы</button></a>
 					</li>
           <hr>
-          <h5 style="color: blue; text-align: center;">Обратная связь для менеджера</h5>
+          <h5 style="color: blue; text-align: center;">Контакты менеджера</h5>
           <div class="" style="color: black; margin-top: 5%;">
 <span>
 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-forward-fill" viewBox="0 0 16 16">

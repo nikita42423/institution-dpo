@@ -123,15 +123,6 @@ class Manager extends CI_Controller {
 	}
 
 	
-	// //удаление заявок
-	// public function fail()
-	// {
-	// 	$ID_application = $_POST['ID_application'];
-	// 	$this->load->model('statement_m');
-
-	// 	$result = $this->statement_m->delete_application($ID_application);
-	// 	if($result != TRUE) echo json_encode('Удаление не выполнено!');
-	// }
 
 	//фильтрация заявок об окончании
 	public function filter_end()

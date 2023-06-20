@@ -1,7 +1,7 @@
 <!-- <link href="assets/css/dashboard.css" rel="stylesheet"> -->
 
 <main class="ms-sm-auto col-lg-12 px-md-4 container">
-    <h1 class="text-center display-6 m-3">Просмотр сведений о количестве обучающихся на курсах</h1>
+    <h1 class="text-center display-6 m-3">Просмотр сведений о количестве обучающихся на курсах на <?=date('d.m.Y')?></h1>
 
     <div class="table-responsive">
         <table class="table table-hover table-sm" id="table_count_student">

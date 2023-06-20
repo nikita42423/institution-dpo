@@ -15,10 +15,10 @@ class Buxgalter2 extends CI_Controller {
 		{
 			//загрузка модели
 			$this->load->model('bufgalter_m');
-			$data['focus'] = $this->bufgalter_m->sel_focus();
+		//	$data['focus'] = $this->bufgalter_m->sel_focus();
 
-			$data['edu_program'] = $this->bufgalter_m->sel_edu_program();
-			$data['sum_table'] = $this->bufgalter_m->sel_sum(NULL, NULL, NULL, NULL, NULL);
+		//	$data['edu_program'] = $this->bufgalter_m->sel_edu_program();
+			$data['result'] = $this->bufgalter_m->sel_sum( '2023-09-01', '2024-07-01');
 
 
 
@@ -106,23 +106,26 @@ class Buxgalter2 extends CI_Controller {
 	//фильтрация о полученных доходах
 	public function get_sum()
 	{
-		$ID_focus = $_POST['ID_focus'];
-		$ID_ep = $_POST['ID_ep'];
+// 		$ID_focus = $_POST['ID_focus'];
+// 		$ID_ep = $_POST['ID_ep'];
 
 		$date1 = $_POST['date1'];
 		$date2 = $_POST['date2'];
 
-		if($ID_focus == 'all') $ID_focus = NULL;
-		if($ID_ep == 'all') $ID_ep = NULL;
-		if(empty($date1)) $date1 = NULL;
-		if(empty($date2)) $date2 = NULL;
+// 		if($ID_focus == 'all') $ID_focus = NULL;
+// 		if($ID_ep == 'all') $ID_ep = NULL;
+		if(empty($date1)) $date1 = '2023-09-01';
+		if(empty($date2)) $date2 = '2024-07-01';
 
-		
+
 		
 		$this->load->model('bufgalter_m');
-		$result = $this->bufgalter_m->sel_sum($ID_focus, $ID_ep, $date1, $date2);
+		$data['result'] = $this->bufgalter_m->sel_sum( $date1, $date2);
+		
+			$this->load->view('template/header.php');
+		$this->load->view('page/buxgalter2', $data);
 
-		echo json_encode($result);
+	//	echo json_encode($result);
 	}
 
 

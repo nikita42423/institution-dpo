@@ -191,7 +191,12 @@
 								<td> <div class="col-md-4">
                                      <input type="text" class="form-control rechert" id="raster9" Disabled>
                                      </div></td>  <td><p id="res9"></p></td>
-								
+ 							</tr>
+                            <tr>                                    
+								<td>Цена услуги для 1 слушателя, руб</td>
+								<td> <div class="col-md-4">
+                                     <input type="text" class="form-control rechert" id="raster10" Disabled>
+                                     </div></td>  <td><p id="res10"></p></td>								
 							</tr>
 							
 						</tbody>

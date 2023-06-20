@@ -18,7 +18,7 @@
 <link href="assets/css/sidebar.css" rel="stylesheet">
 
 <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Бухгалтер <?=$session['full_name']?></a>
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Бухгалтер </a>
     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -79,34 +79,21 @@
 					<div class="col-lg-8"><div>
 
 <div id = "get_income">
-	<form class="row g-3" method="post">
-		<div class="col-md-6">
+	<form class="row g-3" method="post" action="buxgalter2/get_sum">
+		<div class="col-md-4">
 			<label for="begin_date" class="form-label">C</label>
-			<input type="date" class="form-control filter_sum_buxg" id="begin_date">
+			<input type="date" class="form-control filter_sum_buxg"  name="date1" id="begin_date">
 		</div>
-		<div class="col-md-6">
+		<div class="col-md-4">
 			<label for="end_date" class="form-label">ПО</label>
-			<input type="date" class="form-control filter_sum_buxg" id="end_date">
+			<input type="date" class="form-control filter_sum_buxg"  name="date2" id="end_date">
+		</div>
+				<div class="col-md-4">
+		
+			<button class="btn btn-primary" type="submit" >OK</button>
 		</div>
 	<br>
-		<div class="col-md-6">
-			<label for="id_focus" class="form-label">Направление</label>
-			<select class="form-select filter_sum_buxg" id="id_focus">
-			    <option value="all">Все</option>
-				<?php foreach ($focus as $row) {?>
-					<option value="<?=$row['ID_focus']?>"><?=$row['name_focus']?></option>
-				<?php }?>
-			</select>
-		</div>
-		<div class="col-md-6">
-		<label for="id_ep" class="form-label">Наименование ОП</label>
-			<select class="form-select filter_sum_buxg" id="id_ep">
-				<option value="all">Все</option>
-				<?php foreach ($edu_program as $row) {?>
-					<option value="<?=$row['ID_ep']?>"><?=$row['name_ep']?></option>
-				<?php }?>
-			</select>
-		</div>
+
 
 	</form>
 </div>
@@ -143,13 +130,13 @@
 							</tr>
 						</thead>
 						<tbody id="example_body">
-						<?php foreach($sum_table as $row) {?>
+						<?php foreach($result as $row) {?>
 							<tr>
-								<td><?=$row['name_ep']?></td>
-								<td><?=$row['name_course']?></td>
-								<td><?=$row['count_people']?> / <?=$row['count_in_group']?></td>
-								<td><?=$row['price']?></td>
-							</tr>
+							<td><?=$row['name_ep']?></td>
+							<td></td>
+							<td><?=$row['count_people']?> / <?=$row['count_in_group']?></td>
+							<td><?=$row['price']?></td>
+						</tr>
 							
 						<?php } ?>
 							

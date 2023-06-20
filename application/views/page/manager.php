@@ -49,7 +49,7 @@
 					<li class="nav-item">
 						<a class="nav-link" href="manager/formatiz">
 						<span data-feather="bar-chart-2"></span>
-						 Формирование для зачисления и документа
+						 Зачисление и документ об окончании
 						</a>
 					</li>
 					<hr>
