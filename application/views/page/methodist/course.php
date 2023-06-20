@@ -1,12 +1,26 @@
 <main class="col-md-9 ms-sm-auto col-lg-11 px-md-4">
 	
 	<!-- Заголовок и кнопка формирования -->
-	<div class="col-auto align-self-center">
-		<form action="course/form_course" method="post">
-			<h1 class="display-3 text-center mb-3">
-				График курсов <button type="submit" class="btn btn-primary m-3">Формировать</button>
-			</h1>
-		</form>
+	<div class="row align-items-center">
+		<div class="col-4"></div>
+
+		<div class="col-4">
+			<h1 class="display-3 text-center mb-3">График курсов</h1>
+		</div>
+
+		<!-- Формировать график курсов -->
+		<div class="col-4">
+			<div class="row">
+				<div class="col-auto">
+				<form action="course/form_course" method="post">
+					<button type="submit" class="btn btn-primary m-3">Формировать</button>
+				</div>
+				<div class="col-auto align-self-center">
+					<input type="number" class="form-control" name="year_form_course" min="2000" max="9999" value="<?=date('Y')?>">
+				</div>
+				</form>			
+			</div>
+		</div>
 	</div>
 
 	<!-- Фильтрация и добавление курса -->
@@ -50,12 +64,12 @@
 			</div>
 			
 			<!-- Добавление курса -->
-			<div class="col-auto align-self-center">
+			<div class="col-8 align-self-center">
 				<form class="card mb-3" action="course/add_one_course" method="post">
 					<div class="card-header">Добавить новый курс</div>
 					<div class="card-body">
 						<div class="row">
-							<div class="col-auto">
+							<div class="col-4">
 								<label for="name_focus" class="form-label">Образовательная программа</label>
 								<select class="form-select" name="ID_ep">
 									<?php foreach($edu_program as $row) {?>
