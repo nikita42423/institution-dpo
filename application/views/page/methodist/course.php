@@ -1,8 +1,27 @@
 <main class="col-md-9 ms-sm-auto col-lg-11 px-md-4">
-	
+	<!-- Проверка, пусто ли год -->
+	<?php
+	if (empty($_GET['now_year'])) {redirect('course/index');}
+	?>
+
 	<!-- Заголовок и кнопка формирования -->
 	<div class="row align-items-center">
-		<div class="col-4"></div>
+	
+		<div class="col-4">
+			<div class="row">
+				
+				<div class="col-auto">
+					<form action="course/index">
+						<label class="form-label">Текущий учебный год:</label>
+						<input type="number" class="form-control" name="now_year" min="2000" max="9999" value="<?=$_GET['now_year']?>">
+					</div>
+					<div class="col-auto">
+						<button type="submit" class="btn btn-primary m-3">Сохранить</button>
+					</form>
+				</div>
+				
+			</div>
+		</div>
 
 		<div class="col-4">
 			<h1 class="display-3 text-center mb-3">График курсов</h1>
@@ -11,7 +30,7 @@
 		<!-- Формировать график курсов -->
 		<div class="col-4">
 			<div class="row">
-				<div class="col-auto">
+				<div class="col-auto align-self-center">
 				<form action="course/form_course" method="post">
 					<button type="submit" class="btn btn-primary m-3">Формировать</button>
 				</div>
@@ -133,7 +152,7 @@
 
 			foreach ($course as $row) {
 
-				//Не выводится в таблицу курс, у которого имеет статус "Окончен"
+				//Не выводится в таблицу курс, у которого имеет статус "Архив"
 				if ($row['status_course'] != 'Архив')
 				{
 					echo '<tr>';

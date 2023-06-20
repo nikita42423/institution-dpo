@@ -36,7 +36,15 @@ class Course extends CI_Controller {
 			$data['edu_program'] = $this->edu_program_m->sel_edu_program(NULL,NULL,NULL,NULL);
 			$data['focus'] = $this->focus_m->sel_focus();
 
-			$date = new DateTime('2023-09-01');
+			$date_year = $_GET['now_year'].'-09-01';
+			$date = new DateTime($date_year);
+
+			if (!empty($_POST['now_year']))
+			{
+				redirect('course/index?year='.$_POST['now_year']);
+			}
+
+
 			for ($i = 1; $i <= 45; $i++) {
 				$data['header_table'][$i] = $date->format('Y-m-d');
 				$date->modify('+7 day');
@@ -105,7 +113,7 @@ class Course extends CI_Controller {
 			}
 			
 			$this->session->set_flashdata('msg', 'График успешно сформирован!');
-			redirect('course/index');
+			redirect('course/index?now_year='.$_POST['year_form_course']);
 		}
 	}
 
